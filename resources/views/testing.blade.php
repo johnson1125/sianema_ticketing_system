@@ -13,7 +13,7 @@
 <body class="bg-gray-100 text-gray-900 font-sans">
 
     <!-- Header -->
-    <header class="bg-blue-600 text-white py-4">
+    <header class="bg-blue-60\ text-white py-4">
         <div class="container mx-auto flex justify-between items-center px-4">
             <h1 class="text-2xl font-bold">My Website</h1>
             <nav>
@@ -23,12 +23,12 @@
             </nav>
         </div>
     </header>
-
+ss
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
         <div class="bg-white shadow-md rounded-lg p-6">
             <h2 class="text-3xl font-semibold mb-4">Welcome to My Website!</h2>
-            <p class="text-gray-700 font-bold text-base">This is a simple webpage using Tailwind CSS. You can customize
+            <p class="text-gray-700 text-xs font-bold ">This is a simple webpage using Tailwind CSS. You can customize
                 the content and styling as needed. Tailwind provides a utility-first approach to CSS, allowing for rapid
                 design and development.</p>
             <div class="mt-6">
