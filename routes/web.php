@@ -11,6 +11,9 @@ Route::get('/testing', function () {
     return view('testing');
 });
 
+Route::get('/sassSample', function () {
+    return view('sassSample');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
