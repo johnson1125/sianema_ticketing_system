@@ -1,5 +1,6 @@
-import $ from 'jQuery';
 import './bootstrap';
+import 'flowbite';
+import $ from 'jquery';
 
 import Alpine from 'alpinejs';
 
