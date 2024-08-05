@@ -34,7 +34,10 @@
                             </td>
                         </tr>
                     @endforeach
+                   
                 </tbody>
             </table>
         </div>
+        <button id="testBtn" class="bg-blue-400">Testing</button>
+         @vite('resources/js/app.js')
     @endsection
