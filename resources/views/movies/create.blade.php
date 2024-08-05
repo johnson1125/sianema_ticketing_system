@@ -1,4 +1,4 @@
-@extends('layouts.movieLayout')
+@extends('layouts.adminLayout')
 
 @section('content')
 <div class="container">
@@ -12,7 +12,8 @@
         <div class="form-group">
             <label for="description">Description</label>
             <textarea name="description" class="form-control" required></textarea>
-        </div@extends('layouts.app')
+        </div>
+        @extends('layouts.app')
 
         @section('content')
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

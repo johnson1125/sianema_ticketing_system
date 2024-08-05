@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HallTimeSlotController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,3 +30,11 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::resource('movies', MovieController::class);
+
+//Testing admin layout
+Route::get('/adminLayout', function () {
+    return view('/layouts/adminLayout');
+});
+
+// Resource route
+Route::resource('hallTimeSlot', HallTimeSlotController::class);
