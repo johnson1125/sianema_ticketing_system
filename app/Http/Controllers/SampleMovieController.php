@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Movie;
+use App\Models\SampleMovie;
 use Illuminate\Http\Request;
 
-class MovieController extends Controller
+class SampleMovieController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $movies = Movie::all();
-        return view('movies.index', compact('movies'));
+        $movies = SampleMovie::all();
+        return view('sampleMovies.index', compact('movies'));
     }
 
     public function create()
     {
-        return view('movies.create');
+        return view('sampleMovies.create');
     }
 
     public function store(Request $request)
@@ -30,21 +30,21 @@ class MovieController extends Controller
             'release_date' => 'required|date',
         ]);
 
-        Movie::create($request->all());
+        SampleMovie::create($request->all());
         return redirect()->route('movies.index')->with('success', 'Movie created successfully.');
     }
 
-    public function show(Movie $movie)
+    public function show(SampleMovie $movie)
     {
-        return view('movies.show', compact('movie'));
+        return view('sampleMovies.show', compact('movie'));
     }
 
-    public function edit(Movie $movie)
+    public function edit(SampleMovie $movie)
     {
-        return view('movies.edit', compact('movie'));
+        return view('sampleMovies.edit', compact('movie'));
     }
 
-    public function update(Request $request, Movie $movie)
+    public function update(Request $request, SampleMovie $movie)
     {
         $request->validate([
             'title' => 'required',
@@ -57,7 +57,7 @@ class MovieController extends Controller
         return redirect()->route('movies.index')->with('success', 'Movie updated successfully.');
     }
 
-    public function destroy(Movie $movie)
+    public function destroy(SampleMovie $movie)
     {
         $movie->delete();
         return redirect()->route('movies.index')->with('success', 'Movie deleted successfully.');
