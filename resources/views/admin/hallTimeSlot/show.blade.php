@@ -1,6 +1,6 @@
 @extends('layouts.adminLayout')
 @section('content')
-<h1>testing</h1>
+<h1>Show</h1>
 
 
 
