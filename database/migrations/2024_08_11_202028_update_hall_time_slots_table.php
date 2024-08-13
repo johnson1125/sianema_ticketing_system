@@ -8,12 +8,14 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * 
      */
     public function up(): void
     {
+        
         Schema::table('hall_time_slots', function (Blueprint $table) {
-            $table->timestamp('startDateTime', precision: 0)->nullable();;
-            $table->time('duration', precision: 0)->nullable();;
+            $table->timestamp('startDateTime', precision: 0)->nullable();
+            $table->time('duration', precision: 0)->nullable();
         });
     }
 
