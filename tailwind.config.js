@@ -13,10 +13,6 @@ export default {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
-            },
-
             screens: {
                 sm: "480px",
                 md: "768px",
@@ -27,8 +23,8 @@ export default {
                 "admin": colors.neutral,
             },
             fontFamily: {
-                sans: ["Graphik", "sans-serif"],
-                serif: ["Merriweather", "serif"],
+                sans: ["Calibri", "sans-serif"],
+                serif: ["Calibri", "serif"],
             },
             extend: {
                 spacing: {
@@ -43,7 +39,9 @@ export default {
     },
 
     plugins: [
-        require('flowbite/plugin')
+        require('flowbite/plugin')({
+            datatables: true,
+        }),
     ],
     darkMode:'false',
 };
