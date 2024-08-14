@@ -1,0 +1,14 @@
+#navbar {
+    border-bottom-width: 5px;
+
+    #navLink {
+        a {
+            color: black;
+            height: 95%;
+        }
+
+        a:visited {
+            border-bottom: green;
+        }
+    }
+}

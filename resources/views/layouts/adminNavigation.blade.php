@@ -1,5 +1,7 @@
+<!-- Scripts -->
+@vite(['resources/js/layout/navigation.js','resources/css/adminNavigation.css'])
 <!-- Navigation bar -->
-<nav class=" bg-gray-400 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav id="navbar" class=" bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -7,12 +9,12 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('hallTimeSlot') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <x-sianema-logo-dark class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div id="navLink" class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex text-white">
                     <x-nav-link :href="route('hallTimeSlot')" :active="request()->routeIs('hallTimeSlot')">
                         {{ __('Hall TimeSlot') }}
                     </x-nav-link>
@@ -100,5 +102,4 @@
     </div>
 </nav>
 
-<!-- Scripts -->
-@vite('resources/js/layout/navigation')
+

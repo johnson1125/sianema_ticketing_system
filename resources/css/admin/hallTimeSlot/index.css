@@ -1,0 +1,33 @@
+#container {
+    #section1 {
+        border-bottom-width: 2px;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 20px;
+
+        h6 {
+            font-size: larger;
+            font-weight: bold;
+            align-self: center;
+            flex-grow: 15;
+        }
+
+        #datePicker {
+            flex-grow: 1;
+            align-self: center;
+            justify-self: center;
+            margin-right: 20px;
+        }
+        #btnSearch {
+            align-self: center;
+            justify-self: center;
+            flex-grow: 1;
+            margin: 0px;
+            font-size: small ;
+        }
+    }
+
+    #section2 {
+    }
+}
