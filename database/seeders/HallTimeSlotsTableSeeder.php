@@ -21,6 +21,8 @@ class HallTimeSlotsTableSeeder extends Seeder
                 'duration' => '02:00:00', // 2 hours
                 'created_at' => now(),
                 'updated_at' => now(),
+                'movieID' => 'mov001',
+                'timeSlotType' => 'movie',
             ],
             [   
                 'id'=>'2',
@@ -28,6 +30,8 @@ class HallTimeSlotsTableSeeder extends Seeder
                 'duration' => '03:00:00', // 3 hours
                 'created_at' => now(),
                 'updated_at' => now(),
+                'movieID' => 'mov002',
+                'timeSlotType' => 'movie',
             ],
             [
                 'id'=>'3',
@@ -35,6 +39,8 @@ class HallTimeSlotsTableSeeder extends Seeder
                 'duration' => '01:30:00', // 1 hour 30 minutes
                 'created_at' => now(),
                 'updated_at' => now(),
+                'movieID' => 'mov003',
+                'timeSlotType' => 'movie',
             ],
         ],['id']);
     }
