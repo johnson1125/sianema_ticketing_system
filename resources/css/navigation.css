@@ -1,0 +1,16 @@
+
+#navBar{
+    background-color:black;
+
+    #navLinks{
+        a{
+            color: white;
+            height: 95%;
+        }
+
+        a:visited{
+            border-bottom:10px solid white;
+        
+        }
+    }
+}
