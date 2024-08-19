@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class HallTimeSlot extends Model
+class Seat extends Model
 {
     use HasFactory;
 
@@ -15,13 +15,9 @@ class HallTimeSlot extends Model
     {
         return $this->belongsTo(Hall::class);
     }
-    public function movie(): BelongsTo
-    {
-        return $this->belongsTo(Movie::class);
-    }
+
     public function movieSeats(): HasMany
     {
         return $this->hasMany(MovieSeat::class);
     }
 }
-   
