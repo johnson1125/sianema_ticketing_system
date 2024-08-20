@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('payments', function (Blueprint $table) {
-            $table->string('id', length: 50)->primary();
+            $table->string('payment_id', length: 50)->primary();
             $table->timestamps();
-            $table->string('transaction_id', length: 50)->nullable();
-            $table->foreign('transaction_id')->references('id')->on('ticket_transactions');
+            $table->string('ticket_transaction_id', length: 50)->nullable();
+            $table->foreign('ticket_transaction_id')->references('transaction_id')->on('ticket_transactions');
         });
     }
 

@@ -16,7 +16,7 @@ class HallTimeSlotsTableSeeder extends Seeder
     {
         // DB::table('hall_time_slots')->upsert([
         //     [
-        //         'id'=>'',
+        //         'hall_time_slot_id'=>'',
         //         'startDateTime' => Carbon::now()->addDays(1), // Tomorrow
         //         'duration' => '02:00:00', // 2 hours
         //         'created_at' => now(),
@@ -24,7 +24,7 @@ class HallTimeSlotsTableSeeder extends Seeder
         //         'timeSlotType' => 'movie',
         //     ],
         //     [   
-        //         'id'=>'2',
+        //         'hall_time_slot_id'=>'2',
         //         'startDateTime' => Carbon::now()->addDays(2), // Day after tomorrow
         //         'duration' => '03:00:00', // 3 hours
         //         'created_at' => now(),
@@ -33,7 +33,7 @@ class HallTimeSlotsTableSeeder extends Seeder
         //         'timeSlotType' => 'movie',
         //     ],
         //     [
-        //         'id'=>'3',
+        //         'hall_time_slot_id'=>'3',
         //         'startDateTime' => Carbon::now()->addDays(3), // Three days from now
         //         'duration' => '01:30:00', // 1 hour 30 minutes
         //         'created_at' => now(),

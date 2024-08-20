@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('movie_seats', function (Blueprint $table) {
             $table->string('id', length: 50)->primary();
             $table->timestamps();
-            $table->string('transaction_id', length: 50)->nullable();
-            $table->foreign('transaction_id')->references('id')->on('ticket_transactions');
+            $table->string('ticket_transaction_id', length: 50)->nullable();
+            $table->foreign('ticket_transaction_id')->references('ticket_transaction_id')->on('ticket_transactions');
             $table->string('hall_timeslot_id', length: 50)->nullable();;
-            $table->foreign('hall_timeslot_id')->references('id')->on('hall_time_slots');
+            $table->foreign('hall_timeslot_id')->references('hall_timeslot_id')->on('hall_time_slots');
             $table->string('seat_id', length: 50)->nullable();
-            $table->foreign('seat_id')->references('id')->on('seats');
+            $table->foreign('seat_id')->references('seat_id')->on('seats');
         });
     }
 
