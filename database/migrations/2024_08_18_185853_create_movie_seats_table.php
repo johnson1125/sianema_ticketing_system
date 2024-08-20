@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('movie_seats', function (Blueprint $table) {
-            $table->id();
+            $table->string('id', length: 50)->primary();
             $table->timestamps();
-            $table->unsignedBigInteger('transaction_id')->nullable();
+            $table->string('transaction_id', length: 50)->nullable();
             $table->foreign('transaction_id')->references('id')->on('ticket_transactions');
-            $table->unsignedBigInteger('hall_timeslot_id')->nullable();
+            $table->string('hall_timeslot_id', length: 50)->nullable();;
             $table->foreign('hall_timeslot_id')->references('id')->on('hall_time_slots');
-            $table->unsignedBigInteger('seat_id')->nullable();
+            $table->string('seat_id', length: 50)->nullable();
             $table->foreign('seat_id')->references('id')->on('seats');
         });
     }
