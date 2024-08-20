@@ -39,3 +39,11 @@ Route::resource('hallTimeSlot', HallTimeSlotController::class);
 Route::get('hall-time-slot', function () {
     return view('admin.hallTimeSlot.index');
 })->name('hallTimeSlot');
+
+// Resource route
+Route::resource('movie', movieController::class);
+
+// Basic route
+Route::get('movie', function () {
+    return view('booking.movie');
+})->name('movie');
