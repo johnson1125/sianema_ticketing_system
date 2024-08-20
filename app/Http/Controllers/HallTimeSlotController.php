@@ -17,7 +17,7 @@ class HallTimeSlotController extends Controller
         $halls= Hall::all();
         // echo $halls;
         $hallTimeSlots =  HallTimeSlot::all();
-        echo $hallTimeSlots;
+        // echo $hallTimeSlots;
         return view('/admin/hallTimeSlot.index', compact('halls','hallTimeSlots'));
     }
 
