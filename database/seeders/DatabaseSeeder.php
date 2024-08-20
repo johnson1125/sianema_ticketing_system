@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             HallsTableTestDataSeeder::class,
             MoviesTableTestDataSeeder::class,
             HallTimeSlotsTableTestDataSeeder::class,
+            UsersTableSeeder::class
           
             // Add other seeders here
         ]);
