@@ -11,11 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('seats', function (Blueprint $table) {
+        Schema::create('hall_time_slots', function (Blueprint $table) {
             $table->string('id', length: 50)->primary();
             $table->timestamps();
+            $table->timestamp('startDateTime', precision: 0)->nullable();
+            $table->time('duration', precision: 0)->nullable();
+            $table->string('timeSlotType', length: 50)->nullable();
             $table->string('hall_id', length: 50)->nullable();
+            $table->string('movie_id', length: 50)->nullable();
             $table->foreign('hall_id')->references('id')->on('halls');
+            $table->foreign('movie_id')->references('id')->on('movies');
+
         });
     }
 
@@ -24,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('seats');
+        Schema::dropIfExists('hall_time_slots');
     }
 };
