@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('payment_id', length: 50)->primary();
             $table->timestamps();
             $table->string('ticket_transaction_id', length: 50)->nullable();
-            $table->foreign('ticket_transaction_id')->references('transaction_id')->on('ticket_transactions');
+            $table->foreign('ticket_transaction_id')->references('ticket_transaction_id')->on('ticket_transactions');
         });
     }
 

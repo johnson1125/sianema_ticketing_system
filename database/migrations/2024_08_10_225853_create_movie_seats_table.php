@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('movie_seats', function (Blueprint $table) {
-            $table->string('id', length: 50)->primary();
+            $table->string('movie_seat_id', length: 50)->primary();
             $table->timestamps();
             $table->string('ticket_transaction_id', length: 50)->nullable();
             $table->foreign('ticket_transaction_id')->references('ticket_transaction_id')->on('ticket_transactions');
-            $table->string('hall_timeslot_id', length: 50)->nullable();;
-            $table->foreign('hall_timeslot_id')->references('hall_timeslot_id')->on('hall_time_slots');
+            $table->string('hall_time_slot_id', length: 50)->nullable();;
+            $table->foreign('hall_time_slot_id')->references('hall_time_slot_id')->on('hall_time_slots');
             $table->string('seat_id', length: 50)->nullable();
             $table->foreign('seat_id')->references('seat_id')->on('seats');
         });
