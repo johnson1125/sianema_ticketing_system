@@ -17,7 +17,7 @@
     <body class="font-sans antialiased">
         @include('layouts.adminNavigation')
 
-        <div id="content" class="min-h-screen bg-white dark:bg-gray-900 " >        
+        <div id="content" class=" bg-white dark:bg-gray-900 " >        
             <!-- Page Content -->
             <main>
                 {{ $slot }}

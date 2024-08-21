@@ -36,9 +36,7 @@ Route::get('/adminLayout', function () {
 Route::resource('hallTimeSlot', HallTimeSlotController::class);
 
 // Basic route
-Route::get('hall-time-slot', function () {
-    return view('admin.hallTimeSlot.index');
-})->name('hallTimeSlot');
+Route::get('hall-time-slot', [HallTimeSlotController::class,'index'])->name('hallTimeSlot');
 
 // Resource route
 Route::resource('movie', movieController::class);

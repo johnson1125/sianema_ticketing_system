@@ -21,9 +21,6 @@
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Select date">
             </div>
-
-
-
             <button id="btnSearch" type="button"
                 class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Search</button>
 
@@ -33,92 +30,82 @@
         </div>
 
 
-        <div id="section2"class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">
-                            Product name
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Color
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Category
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Price
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            <span class="sr-only">Edit</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr
-                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <th scope="row"
-                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Apple MacBook Pro 17"
-                        </th>
-                        <td class="px-6 py-4">
-                            Silver
-                        </td>
-                        <td class="px-6 py-4">
-                            Laptop
-                        </td>
-                        <td class="px-6 py-4">
-                            $2999
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <a href="#"
-                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        </td>
-                    </tr>
-                    <tr
-                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <th scope="row"
-                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Microsoft Surface Pro
-                        </th>
-                        <td class="px-6 py-4">
-                            White
-                        </td>
-                        <td class="px-6 py-4">
-                            Laptop PC
-                        </td>
-                        <td class="px-6 py-4">
-                            $1999
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <a href="#"
-                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        </td>
-                    </tr>
-                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <th scope="row"
-                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Magic Mouse 2
-                        </th>
-                        <td class="px-6 py-4">
-                            Black
-                        </td>
-                        <td class="px-6 py-4">
-                            Accessories
-                        </td>
-                        <td class="px-6 py-4">
-                            $99
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <a href="#"
-                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div id="section2"class="relative overflow-x-auto shadow-md sm:rounded-lg bg-gray-50">
+            @foreach ($halls as $hall)
+                <div class="timeSlotHeader">
+                    <div class="hallName">
+                        {{ $hall->hall_id }}
+                    </div>
+                    <div class="hallType">
+                        Big
+                    </div>
+                    <form action="" method="POST" class="inline-block">
+                        @csrf
+                        @method('DELETE')
+                        <button id="btnAddTimeSlot" type="submit"
+                            class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add
+                            TimeSlot</button>
+                    </form>
+                </div>
+                <div class="timeSlotBody">
+                    <div class="timeHeaderContainer">
+                        <div class="timeHeader">10am</div>
+                        <div class="timeHeader">11am</div>
+                        <div class="timeHeader">12pm</div>
+                        <div class="timeHeader">1pm</div>
+                        <div class="timeHeader">2pm</div>
+                        <div class="timeHeader">3pm</div>
+                        <div class="timeHeader">4pm</div>
+                        <div class="timeHeader">5pm</div>
+                        <div class="timeHeader">6pm</div>
+                        <div class="timeHeader">7pm</div>
+                        <div class="timeHeader">8pm</div>
+                        <div class="timeHeader">9pm</div>
+                        <div class="timeHeader">10pm</div>
+                        <div class="timeHeader">11pm</div>
+                        <div class="timeHeader">12am</div>
+                        <div class="timeHeader">1am</div>
+                        <div class="timeHeader">2am</div>
+                    </div>
+                    <div class="timeSlotsContainer">
+                        <div class="timeSlotbackground">
+                            <div class="emptySpace"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div id="backLine" class="emptySpace"></div>
+                        </div>
+                        <div class="timeSlotItemContainer">
+                            @foreach ($hallTimeSlots as $hallTimeSlot)
+                                @if ($hallTimeSlot->hall_id == $hall->hall_id)
+                                    <button id="{{$hallTimeSlot->hall_time_slot_id}}" type="button"
+                                        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Search</button>
+
+                                        @endif
+                                @endforeach
+                       
+
+
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
         </div>
 
-    </div>
 
 
 

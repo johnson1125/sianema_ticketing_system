@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Hall extends Model
 {
     use HasFactory;
-
+    protected $table = 'halls';
 
     public function seats(): HasMany
     {

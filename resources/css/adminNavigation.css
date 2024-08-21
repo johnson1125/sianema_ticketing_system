@@ -1,6 +1,8 @@
 #navbar {
     border-bottom-width: 5px;
-
+    position: sticky;
+    z-index: 1000;
+    top: 0; 
     #navLink {
         a {
             color: black;

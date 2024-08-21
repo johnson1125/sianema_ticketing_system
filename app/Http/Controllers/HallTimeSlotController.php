@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hall;
 use App\Models\HallTimeSlot;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,12 @@ class HallTimeSlotController extends Controller
      */
     public function index()
     {
-        //
-        $hallTimeSlot = HallTimeSlot::all();
-        return view('/admin/hallTimeSlot.index', compact('hallTimeSlot'));
+        
+        $halls= Hall::all();
+        // echo $halls;
+        $hallTimeSlots =  HallTimeSlot::all();
+        // echo $hallTimeSlots;
+        return view('/admin/hallTimeSlot.index', compact('halls','hallTimeSlots'));
     }
 
     /**

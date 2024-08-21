@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('hall_time_slots', function (Blueprint $table) {
-            $table->string('id', length: 50)->primary();
+            $table->string('hall_time_slot_id', length: 50)->primary();
             $table->timestamps();
             $table->timestamp('startDateTime', precision: 0)->nullable();
             $table->time('duration', precision: 0)->nullable();
             $table->string('timeSlotType', length: 50)->nullable();
             $table->string('hall_id', length: 50)->nullable();
             $table->string('movie_id', length: 50)->nullable();
-            $table->foreign('hall_id')->references('id')->on('halls');
-            $table->foreign('movie_id')->references('id')->on('movies');
+            $table->foreign('hall_id')->references('hall_id')->on('halls');
+            $table->foreign('movie_id')->references('movie_id')->on('movies');
 
         });
     }

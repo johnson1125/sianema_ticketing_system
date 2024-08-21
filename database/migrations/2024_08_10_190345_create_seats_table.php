@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('seats', function (Blueprint $table) {
-            $table->string('id', length: 50)->primary();
+            $table->string('seat_id', length: 50)->primary();
             $table->timestamps();
             $table->string('hall_id', length: 50)->nullable();
-            $table->foreign('hall_id')->references('id')->on('halls');
+            $table->foreign('hall_id')->references('hall_id')->on('halls');
         });
     }
 
