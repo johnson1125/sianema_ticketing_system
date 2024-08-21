@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SampleMovieController;
 use App\Http\Controllers\HallTimeSlotController;
+use App\Http\Controllers\BookingController;
 
 Route::get('/', function () {
     return view('home');
@@ -25,7 +26,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-Route::resource('/movies', SampleMovieController::class);
+Route::resource('/sampleMovies', SampleMovieController::class);
 
 //Testing admin layout
 Route::get('/adminLayout', function () {
@@ -38,10 +39,8 @@ Route::resource('hallTimeSlot', HallTimeSlotController::class);
 // Basic route
 Route::get('hall-time-slot', [HallTimeSlotController::class,'index'])->name('hallTimeSlot');
 
-// Resource route
-Route::resource('movie', movieController::class);
+//<a href="{{ route('movies.index') }}">Movies</a>
+//need to put at navigation
+Route::get('movies', [BookingController::class, 'fetchAllMovies'])->name('movies');
 
-// Basic route
-Route::get('movie', function () {
-    return view('booking.movie');
-})->name('movie');
+Route::get('movies/{id}', [BookingController::class, 'movieDetails'])->name('movies.details');
