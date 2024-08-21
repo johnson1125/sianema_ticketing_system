@@ -16,12 +16,12 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         $this->call([
             HallTimeSlotsTableSeeder::class,
-            HallsTableTestDataSeeder::class,
-            MoviesTableTestDataSeeder::class,
-            HallTimeSlotsTableTestDataSeeder::class,
-            UsersTableSeeder::class
+            UsersTableSeeder::class,
           
-            // Add other seeders here
+            //Test Data
+            // HallsTableTestDataSeeder::class,
+            // MoviesTableTestDataSeeder::class,
+            // HallTimeSlotsTableTestDataSeeder::class
         ]);
 
     
