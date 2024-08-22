@@ -24,6 +24,8 @@ return new class extends Migration
             $table->date('releaseDate');
             $table->date('screenFromDate');
             $table->date('screenUntilDate');
+            $table->string('moviePoster'); //movie poster link
+            $table->string('movieBackgroundImage'); //movie background image link
             $table->timestamps();
         });
     }
