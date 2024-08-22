@@ -19,6 +19,8 @@ class HallTimeSlotController extends Controller
         $hallTimeSlots =  HallTimeSlot::all();
         // echo $hallTimeSlots;
         return view('/admin/hallTimeSlot.index', compact('halls','hallTimeSlots'));
+
+        
     }
 
     /**
@@ -67,5 +69,11 @@ class HallTimeSlotController extends Controller
     public function destroy(HallTimeSlot $hallTimeSlot)
     {
         //
+    }
+    
+    public function getHallTimeSlotData(){
+        // $hallTimeSlots = HallTimeSlot::whereDate('startDateTime',$date)->get();
+        $hallTimeSlots = HallTimeSlot::all();
+        return response()->json($hallTimeSlots);  
     }
 }
