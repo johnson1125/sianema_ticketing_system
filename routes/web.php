@@ -33,10 +33,16 @@ Route::get('/adminLayout', function () {
 });
 
 // Resource route
-Route::resource('hallTimeSlot', HallTimeSlotController::class);
+//Route::resource('hallTimeSlot', HallTimeSlotController::class);
+
+// Admin Homepage route
+Route::get('admin', [HallTimeSlotController::class,'index']);
 
 // HallTimeSlot Basic route
-Route::get('hall-time-slot', [HallTimeSlotController::class,'index'])->name('hallTimeSlot');
+Route::get('admin/hall-time-slot', [HallTimeSlotController::class,'index'])->name('hallTimeSlot');
+Route::get('admin/hall-time-slot/{date}', [HallTimeSlotController::class,'indexWithDate'])->name('hallTimeSlot.indexWithDate');
+Route::post('submit-form', [HallTimeSlotController::class,'getDate'])->name('hallTimeSlot.getDate');
+Route::get('admin/hall-time-slot/create/{hallID}_{date}', [HallTimeSlotController::class,'create'])->name('hallTimeSlot.create');
 Route::get('hall-time-slot-data', [HallTimeSlotController::class,'getHallTimeSlotData']);
 
 // Resource route

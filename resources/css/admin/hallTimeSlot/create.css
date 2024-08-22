@@ -1,0 +1,69 @@
+#container {
+    /* #section1 {
+        border-bottom-width: 2px;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 20px;
+
+        h6 {
+            font-size: larger;
+            font-weight: bold;
+            align-self: center;
+            flex-grow: 15;
+        }
+
+        #datePicker {
+            flex-grow: 1;
+            align-self: center;
+            justify-self: center;
+            margin-right: 20px;
+        }
+        #btnSearch {
+            align-self: center;
+            justify-self: center;
+            flex-grow: 1;
+            margin: 0px;
+            font-size: small;
+        }
+    } */
+
+    #section1 {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: calc(60vh);
+        overflow-y: auto;
+        .tabContainer {
+            ul {
+                display: flex;
+                flex-direction: row;
+
+                .tab {
+                    flex-grow: 1;
+                    .movieSection1 {
+                        .movieSection1-1 {
+                            #startTime {
+                            }
+                            #startTime:focus {
+                                cursor: default;
+                            }
+                        }
+
+                        .movieSection1-2 {
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.numInput {
+    user-select: none;
+    pointer-events: none;
+    cursor: default;
+}
+
