@@ -121,8 +121,11 @@
                         2.94% [end];
                     grid-template-rows: 50px;
                     z-index: 2;
-                    #test {
-                        grid-column: 2 / 5;
+                    .timeSlots {
+                        margin: 0px;
+                        height: 40px;
+                        border: solid black 0.25px;
+                        display: none;
                     }
                 }
             }
