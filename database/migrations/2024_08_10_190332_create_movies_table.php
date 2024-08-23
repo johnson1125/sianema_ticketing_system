@@ -12,20 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('movies', function (Blueprint $table) {
-            $table->string('movie_id', length: 50)->primary();
-            $table->string('movieName', 50);
+            $table->string('movieID', 21)->primary();
+            $table->string('movieName');
             $table->text('movieSynopsis');  
             $table->string('movieGenre'); 
             $table->string('movieSubtitle'); 
             $table->string('movieLanguage');  
             $table->time('movieDuration');
-            $table->string('movieDistributor', 40);  
+            $table->string('movieDistributor');  
             $table->text('movieCast');
             $table->date('releaseDate');
             $table->date('screenFromDate');
             $table->date('screenUntilDate');
-            $table->string('moviePoster'); //movie poster link
-            $table->string('movieBackgroundImage'); //movie background image link
+            $table->binary('moviePoster'); // Changed to binary for blob storage
+            $table->binary('movieCoverPhoto'); // Changed to binary for blob storage
             $table->timestamps();
         });
     }

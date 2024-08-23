@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SampleMovieController;
 use App\Http\Controllers\HallTimeSlotController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\MovieController;
 
 Route::get('/', function () {
     return view('home');
@@ -45,3 +46,13 @@ Route::get('hall-time-slot-data', [HallTimeSlotController::class,'getHallTimeSlo
 Route::get('movies', [BookingController::class, 'fetchAllMovies'])->name('movies');
 
 Route::get('movies/{id}', [BookingController::class, 'movieDetails'])->name('movies.details');
+
+
+Route::resource('manageMovies', MovieController::class);
+
+Route::get('create-movie',[MovieController::class,'create'])->name('movies.create');
+Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');
+// Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
+// Route::post('movie-added', [MovieController::class, 'store'])->name('movies.store');
+Route::get('show-movie',[MovieController::class,'show'])->name('movies.show');
+Route::get('edit-movie',[MovieController::class,'edit'])->name('movies.edit');
