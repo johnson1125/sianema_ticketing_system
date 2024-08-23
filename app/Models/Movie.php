@@ -16,22 +16,22 @@ class Movie extends Model
 
     protected $fillable = [
         'movie_id',
-        'movieName',
-        'movieSynopsis',
-        'movieGenre',
-        'movieSubtitle',
-        'movieLanguage',
-        'movieDuration',
-        'movieDistributor',
-        'movieCast',
-        'releaseDate',
-        'screenFromDate',
-        'screenUntilDate',
+        'movie_name',
+        'movie_synopsis',
+        'movie_genre',
+        'movie_subtitle',
+        'movie_language',
+        'movie_duration',
+        'movie_distributor',
+        'movie_cast',
+        'release_date',
+        'screen_from_date',
+        'screen_until_date',
     ];
 
     protected $casts = [
-        'moviePoster' => 'binary',
-        'movieCoverPhoto' => 'binary',
+        'movie_poster' => 'binary',
+        'movie_cove_photo' => 'binary',
     ];
 
     public function halltimeSlot(): HasMany
