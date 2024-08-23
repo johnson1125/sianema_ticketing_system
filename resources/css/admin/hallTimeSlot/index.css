@@ -10,28 +10,34 @@
             font-size: larger;
             font-weight: bold;
             align-self: center;
-            flex-grow: 15;
+            flex-grow: 1;
         }
 
-        #datePicker {
+        #dateInputForm {
+            display: flex;
+            flex-direction: row;
             flex-grow: 1;
-            align-self: center;
-            justify-self: center;
-            margin-right: 20px;
-        }
-        #btnSearch {
-            align-self: center;
-            justify-self: center;
-            flex-grow: 1;
-            margin: 0px;
-            font-size: small;
+            justify-content: flex-end;
+            #datePicker {
+                align-self: center;
+                justify-self: center;
+                margin-right: 20px;
+            }
+            #btnSearch {
+                align-self: center;
+                margin: 0px;
+                font-size: small;
+            }
         }
     }
 
     #section2 {
         padding-top: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
         overflow-y: auto;
         height: calc(60vh);
+
         .timeSlotHeader {
             display: flex;
             flex-direction: row;
@@ -61,8 +67,6 @@
 
         .timeSlotBody {
             overflow-x: auto;
-            margin-right: 20px;
-            margin-left: 20px;
             margin-bottom: 15px;
             height: 100px;
             .timeHeaderContainer {
