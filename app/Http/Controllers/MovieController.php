@@ -25,7 +25,7 @@ class MovieController extends Controller
         public function store(Request $request)
         {
             $validated = $request->validate([
-                'movieID' => 'required|string',
+                'movie_id' => 'required|string',
                 'movieName' => 'required|string',
                 'movieGenre' => 'required|string',
                 'movieLanguage' => 'required|string',
@@ -43,18 +43,18 @@ class MovieController extends Controller
     
             // Process file uploads
             $moviePoster = null;
-        if ($request->hasFile('moviePoster')) {
-            $moviePoster = file_get_contents($request->file('moviePoster')->getRealPath());
-        }
-
-        $movieCoverPhoto = null;
-        if ($request->hasFile('movieCoverPhoto')) {
-            $movieCoverPhoto = file_get_contents($request->file('movieCoverPhoto')->getRealPath());
-        }
+            if ($request->hasFile('moviePoster')) {
+                $moviePoster = file_get_contents($request->file('moviePoster')->getRealPath());
+            }
+            
+            $movieCoverPhoto = null;
+            if ($request->hasFile('movieCoverPhoto')) {
+                $movieCoverPhoto = file_get_contents($request->file('movieCoverPhoto')->getRealPath());
+            }
     
             // Create a new movie record
             Movie::create([
-                'movieID' => $validated['movieID'],
+                'movie_id' => $validated['movie_id'],
                 'movieName' => $validated['movieName'],
                 'movieSynopsis' => $validated['movieSynopsis'],
                 'movieGenre' => $validated['movieGenre'],
