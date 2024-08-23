@@ -18,14 +18,14 @@ class MovieController extends Controller
     
         public function create()
         {
-            $movieID =  $this->generateMovieID();
-            return view('admin.manageMovie.create', compact('movieID'));
+            $movie_id =  $this->generateMovieID();
+            return view('admin.manageMovie.create', compact('movie_id'));
         }
     
         public function store(Request $request)
         {
             $validated = $request->validate([
-                'movie_id' => 'required|string',
+                'movieID' => 'required|string',
                 'movieName' => 'required|string',
                 'movieGenre' => 'required|string',
                 'movieLanguage' => 'required|string',
@@ -54,20 +54,20 @@ class MovieController extends Controller
     
             // Create a new movie record
             Movie::create([
-                'movie_id' => $validated['movie_id'],
-                'movieName' => $validated['movieName'],
-                'movieSynopsis' => $validated['movieSynopsis'],
-                'movieGenre' => $validated['movieGenre'],
-                'movieSubtitle' => $validated['movieSubtitle'],
-                'movieLanguage' => $validated['movieLanguage'],
-                'movieDuration' => $validated['movieDuration'],
-                'movieDistributor' => $validated['movieDistributor'],
-                'movieCast' => $validated['movieCast'],
-                'releaseDate' => $validated['releaseDate'],
-                'screenFromDate' => $validated['screen-from'],
-                'screenUntilDate' => $validated['screen-until'],
-                'moviePoster' => $moviePoster,
-                'movieCoverPhoto' => $movieCoverPhoto,
+                'movie_id' => $validated['movieID'],
+                'movie_name' => $validated['movieName'],
+                'movie_synopsis' => $validated['movieSynopsis'],
+                'movie_genre' => $validated['movieGenre'],
+                'movie_subtitle' => $validated['movieSubtitle'],
+                'movie_language' => $validated['movieLanguage'],
+                'movie_duration' => $validated['movieDuration'],
+                'movie_distributor' => $validated['movieDistributor'],
+                'movie_cast' => $validated['movieCast'],
+                'release_date' => $validated['releaseDate'],
+                'screen_from_date' => $validated['screen-from'],
+                'screen_until_date' => $validated['screen-until'],
+                'movie_poster' => $moviePoster,
+                'movie_cove_photo' => $movieCoverPhoto,
             ]);
     
             // Flash a success message and redirect to index

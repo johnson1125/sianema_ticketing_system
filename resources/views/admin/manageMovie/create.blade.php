@@ -25,8 +25,8 @@
                 <div class="form-top-left">
                     <div class="form-group">
                         <label for="movieID">Movie ID:</label>
-                        <span>{{ $movieID }}</span>
-                        <input type="hidden" name="movieID" value="{{ $movieID }}">
+                        <span>{{ $movie_id }}</span>
+                        <input type="hidden" name="movieID" value="{{ $movie_id }}">
                     </div>
 
                     <div class="form-group">

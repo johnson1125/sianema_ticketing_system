@@ -55,10 +55,10 @@ Route::get('movies', [BookingController::class, 'fetchAllMovies'])->name('movies
 Route::get('movies/{id}', [BookingController::class, 'movieDetails'])->name('movies.details');
 
 
-Route::resource('manageMovies', MovieController::class);
+Route::resource('manage-movie', MovieController::class);
 
 Route::get('create-movie',[MovieController::class,'create'])->name('movies.create');
-Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');
+Route::post('/create-movie-success', [MovieController::class, 'store'])->name('movies.store');
 // Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
 // Route::post('movie-added', [MovieController::class, 'store'])->name('movies.store');
 Route::get('show-movie',[MovieController::class,'show'])->name('movies.show');
