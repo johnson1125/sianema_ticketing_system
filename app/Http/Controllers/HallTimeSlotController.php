@@ -15,13 +15,7 @@ class HallTimeSlotController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $date = date('d-m-Y');
-        return redirect()->route('hallTimeSlot.indexWithDate',['date' => $date]);
-    }
-
-    public function indexWithDate($date)
+    public function index($date)
     {
         $halls = Hall::all();
         $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=',Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))->get();
@@ -32,9 +26,11 @@ class HallTimeSlotController extends Controller
         return view('/admin/hallTimeSlot.index', compact('halls', 'hallTimeSlots','defaultDate'));
     }
 
+ 
+
     public function getDate(Request $request){
         $date = $request->input('date');
-        return redirect()->route('hallTimeSlot.indexWithDate',['date' => $date]);
+        return redirect()->route('hallTimeSlot',['date' => $date]);
 
     }
 
@@ -55,13 +51,14 @@ class HallTimeSlotController extends Controller
 
         $result = $processor->transformToXml($xml);
 
-        $countries = [
+        //Pass in onscreen movie
+        $movies = [
             ['code' => 'US', 'name' => 'United States'],
             ['code' => 'CA', 'name' => 'Canada'],
             ['code' => 'FR', 'name' => 'France'],
             ['code' => 'DE', 'name' => 'Germany']
         ];
-        return view('/admin/hallTimeSlot.create', compact('hall', 'result','countries'));
+        return view('/admin/hallTimeSlot.create', compact('hall', 'result','movies'));
     }
 
     /**
