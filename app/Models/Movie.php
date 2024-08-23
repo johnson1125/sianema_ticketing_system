@@ -10,6 +10,30 @@ class Movie extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'movie_id';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected $fillable = [
+        'movieID',
+        'movieName',
+        'movieSynopsis',
+        'movieGenre',
+        'movieSubtitle',
+        'movieLanguage',
+        'movieDuration',
+        'movieDistributor',
+        'movieCast',
+        'releaseDate',
+        'screenFromDate',
+        'screenUntilDate',
+    ];
+
+    protected $casts = [
+        'moviePoster' => 'binary',
+        'movieCoverPhoto' => 'binary',
+    ];
+
     public function halltimeSlot(): HasMany
     {
         return $this->hasMany(HallTimeSlot::class);
