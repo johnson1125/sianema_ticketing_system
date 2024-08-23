@@ -15,7 +15,7 @@ class Movie extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'movieID',
+        'movie_id',
         'movieName',
         'movieSynopsis',
         'movieGenre',

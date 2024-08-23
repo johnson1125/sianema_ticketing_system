@@ -11,7 +11,7 @@
 
                 <tr>
                     <td style="padding-right: 20px;">Movie Name: <br>
-                        <input type="text" name="movieName" style="width: 100%;"></td>
+                        <input type="text" name="movie_id" style="width: 100%;"></td>
                     <td>Movie Poster: <br>
                         <input type="file" id="moviePosterInput" name="moviePoster" accept="image/*">
                         <img id="moviePosterPreview" src="#" alt="Movie Poster Preview" style="display: none; width: 150px; margin-top: 10px;">
