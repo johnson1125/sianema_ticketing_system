@@ -23,6 +23,10 @@
                     <x-nav-link :href="route('hallTimeSlot')" :active="request()->routeIs('hallTimeSlot')">
                         {{ __('HallTimeSlot') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('movies')" :active="request()->routeIs('movies')">
+                        {{ __('Movie') }}
+                    </x-nav-link>
                 </div>
             </div>
 

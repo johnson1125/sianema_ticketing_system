@@ -35,6 +35,7 @@ class HallTimeSlotController extends Controller
     public function getDate(Request $request){
         $date = $request->input('date');
         return redirect()->route('hallTimeSlot.indexWithDate',['date' => $date]);
+
     }
 
     /**
