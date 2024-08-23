@@ -8,6 +8,7 @@ use XSLTProcessor;
 use App\Models\Hall;
 use App\Models\HallTimeSlot;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class HallTimeSlotController extends Controller
 {
@@ -25,6 +26,9 @@ class HallTimeSlotController extends Controller
         $halls = Hall::all();
         $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=',Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))->get();
         $defaultDate = $date;
+        //testing api
+        // $response = Http::get('http://127.0.0.1:5000/api/users');
+        // echo $response;
         return view('/admin/hallTimeSlot.index', compact('halls', 'hallTimeSlots','defaultDate'));
     }
 
@@ -49,7 +53,14 @@ class HallTimeSlotController extends Controller
         $processor->importStylesheet($xslDoc);
 
         $result = $processor->transformToXml($xml);
-        return view('/admin/hallTimeSlot.create', compact('hall', 'result'));
+
+        $countries = [
+            ['code' => 'US', 'name' => 'United States'],
+            ['code' => 'CA', 'name' => 'Canada'],
+            ['code' => 'FR', 'name' => 'France'],
+            ['code' => 'DE', 'name' => 'Germany']
+        ];
+        return view('/admin/hallTimeSlot.create', compact('hall', 'result','countries'));
     }
 
     /**
@@ -57,7 +68,9 @@ class HallTimeSlotController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $startTime = $request->input('startTime');
+        $movieID = $request->input('movies'); 
+        return redirect()->back()->with('message', 'Form submitted successfully!')->withInput();
     }
 
     /**

@@ -45,11 +45,7 @@
                     flex-grow: 1;
                     .movieSection1 {
                         .movieSection1-1 {
-                            #startTime {
-                            }
-                            #startTime:focus {
-                                cursor: default;
-                            }
+                           
                         }
 
                         .movieSection1-2 {
@@ -66,4 +62,3 @@
     pointer-events: none;
     cursor: default;
 }
-
