@@ -8,7 +8,7 @@ use App\Http\Controllers\BookingController;
 
 Route::get('/', function () {
     return view('home');
-})->middleware(['auth', 'verified'])->name('home');
+})->name('home');
 
 Route::get('/testing', function () {
     return view('testing');
@@ -37,8 +37,11 @@ Route::get('/adminLayout', function () {
 Route::resource('hallTimeSlot', HallTimeSlotController::class);
 
 // HallTimeSlot Basic route
-Route::get('hall-time-slot', [HallTimeSlotController::class,'index'])->name('hallTimeSlot');
-Route::get('hall-time-slot-data', [HallTimeSlotController::class,'getHallTimeSlotData']);
+Route::middleware('auth', 'verified')->group(function () {
+    Route::get('hall-time-slot', [HallTimeSlotController::class,'index'])->name('hallTimeSlot');
+    Route::get('hall-time-slot-data', [HallTimeSlotController::class,'getHallTimeSlotData']);
+});
+
 
 //<a href="{{ route('movies.index') }}">Movies</a>
 //need to put at navigation
