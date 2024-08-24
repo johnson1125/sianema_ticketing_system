@@ -7,9 +7,6 @@ use Carbon\Carbon;
 
 class MovieController extends Controller
 {
-        private static $movNum;
-        private static $lastCreationDate;
-
         public function index()
         {
             $movies = Movie::all();
@@ -40,18 +37,20 @@ class MovieController extends Controller
                 'movieCoverPhoto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120', // max 5MB
                 'movieDuration' => 'required|string'
             ]);
-    
+
+            $releaseDate = Carbon::createFromFormat('m/d/Y', $validated['releaseDate'])->format('Y-m-d');
+            $screenFromDate = Carbon::createFromFormat('m/d/Y', $validated['screen-from'])->format('Y-m-d');
+            $screenUntilDate = Carbon::createFromFormat('m/d/Y', $validated['screen-until'])->format('Y-m-d');
+
             // Process file uploads
-            $moviePoster = null;
-            if ($request->hasFile('moviePoster')) {
-                $moviePoster = file_get_contents($request->file('moviePoster')->getRealPath());
-            }
+            $moviePoster = $request->hasFile('moviePoster') ? file_get_contents($request->file('moviePoster')->getRealPath()) : null;
+            $movieCoverPhoto = $request->hasFile('movieCoverPhoto') ? file_get_contents($request->file('movieCoverPhoto')->getRealPath()) : null;
             
-            $movieCoverPhoto = null;
-            if ($request->hasFile('movieCoverPhoto')) {
-                $movieCoverPhoto = file_get_contents($request->file('movieCoverPhoto')->getRealPath());
-            }
-    
+
+            // Debug log statements
+            // Log::info('Movie Poster: ' . ($moviePoster ? 'Uploaded' : 'Not Uploaded'));
+            // Log::info('Movie Cover Photo: ' . ($movieCoverPhoto ? 'Uploaded' : 'Not Uploaded'));
+
             // Create a new movie record
             Movie::create([
                 'movie_id' => $validated['movieID'],
@@ -63,11 +62,11 @@ class MovieController extends Controller
                 'movie_duration' => $validated['movieDuration'],
                 'movie_distributor' => $validated['movieDistributor'],
                 'movie_cast' => $validated['movieCast'],
-                'release_date' => $validated['releaseDate'],
-                'screen_from_date' => $validated['screen-from'],
-                'screen_until_date' => $validated['screen-until'],
+                'release_date' => $releaseDate,
+                'screen_from_date' => $screenFromDate,
+                'screen_until_date' => $screenUntilDate,
                 'movie_poster' => $moviePoster,
-                'movie_cove_photo' => $movieCoverPhoto,
+                'movie_cover_photo' => $movieCoverPhoto,
             ]);
     
             // Flash a success message and redirect to index
@@ -101,20 +100,33 @@ class MovieController extends Controller
         }
 
 
-        private function generateMovieID(){
+        private function generateMovieID()
+        {
             $currentDate = Carbon::now();
+            $formattedDate = $currentDate->format('Y-m-d'); // Format: YYYY-MM-DD
 
-            if (self::$lastCreationDate === null || 
-            self::$lastCreationDate->year < $currentDate->year){
-                self::$movNum = 1;
-            }else{
-                self::$movNum++;
+            // Retrieve the latest movie record for the current year
+            $latestMovie = Movie::whereYear('created_at', $currentDate->year)
+                                ->orderBy('created_at', 'desc')
+                                ->first();
+
+            // Extract the latest movie number from the latest movie ID if available
+            if ($latestMovie) {
+                // Assuming movieID format: MOV-YYYY-MM-DD-XXXXXX
+                $latestMovNum = (int) substr($latestMovie->movie_id, -6); // Extract the last 6 digits and convert to integer
+            } else {
+                $latestMovNum = 0; // Start with 0 if no previous records
             }
 
-            $uniqueID = sprintf("MOV-%s-%06d", $currentDate->toDateString(), self::$movNum);
-            self::$lastCreationDate = $currentDate;
+            // Increment the movie number
+            $newMovNum = $latestMovNum + 1;
+
+            // Format the new movie number with leading zeros (6 digits)
+            $formattedMovNum = sprintf("%06d", $newMovNum);
+
+            // Create the unique ID
+            $uniqueID = sprintf("MOV-%s-%s", $formattedDate, $formattedMovNum);
 
             return $uniqueID;
         }
-    
 }

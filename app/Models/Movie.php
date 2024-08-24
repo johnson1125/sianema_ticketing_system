@@ -31,7 +31,7 @@ class Movie extends Model
 
     protected $casts = [
         'movie_poster' => 'binary',
-        'movie_cove_photo' => 'binary',
+        'movie_cover_photo' => 'binary',
     ];
 
     public function halltimeSlot(): HasMany
