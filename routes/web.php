@@ -59,7 +59,7 @@ Route::resource('manage-movie', MovieController::class);
 
 Route::get('create-movie',[MovieController::class,'create'])->name('movies.create');
 Route::post('/create-movie-success', [MovieController::class, 'store'])->name('movies.store');
-// Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
+Route::get('manage-movie', [MovieController::class, 'index'])->name('movies.index');
 // Route::post('movie-added', [MovieController::class, 'store'])->name('movies.store');
 Route::get('show-movie',[MovieController::class,'show'])->name('movies.show');
 Route::get('edit-movie',[MovieController::class,'edit'])->name('movies.edit');

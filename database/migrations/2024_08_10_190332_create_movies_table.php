@@ -24,8 +24,8 @@ return new class extends Migration
             $table->date('release_date');
             $table->date('screen_from_date');
             $table->date('screen_until_date');
-            $table->binary('movie_poster'); // Changed to binary for blob storage
-            $table->binary('movie_cove_photo'); // Changed to binary for blob storage
+            $table->binary('movie_poster')->nullable(); // Changed to binary for blob storage
+            $table->binary('movie_cover_photo')->nullable(); // Changed to binary for blob storage
             $table->timestamps();
         });
     }
