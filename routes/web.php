@@ -48,11 +48,8 @@ Route::post('submit-form-1', [HallTimeSlotController::class,'store'])->name('hal
 Route::get('admin/hall-time-slot/create/{hallID}_{date}', [HallTimeSlotController::class,'create'])->name('hallTimeSlot.create');
 Route::get('hall-time-slot-data', [HallTimeSlotController::class,'getHallTimeSlotData']);
 
-//<a href="{{ route('movies.index') }}">Movies</a>
-//need to put at navigation
 Route::get('movies', [BookingController::class, 'fetchAllMovies'])->name('movies');
-
-Route::get('movies/{id}', [BookingController::class, 'movieDetails'])->name('movies.details');
+Route::get('movies/{movie_id}', [BookingController::class, 'movieDetails'])->name('movies.details');
 
 
 Route::resource('manage-movie', MovieController::class);
