@@ -10,12 +10,9 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/testing', function () {
-    return view('testing');
-});
-
-Route::get('/sassSample', function () {
-    return view('sassSample');
+//to show how to use master page.
+Route::get('/test', function () {
+    return view('userManagement.test');
 });
 
 Route::middleware('auth')->group(function () {
@@ -48,3 +45,4 @@ Route::middleware('auth', 'verified')->group(function () {
 Route::get('movies', [BookingController::class, 'fetchAllMovies'])->name('movies');
 
 Route::get('movies/{id}', [BookingController::class, 'movieDetails'])->name('movies.details');
+
