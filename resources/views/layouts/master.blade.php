@@ -38,7 +38,7 @@
     </footer>
 
     <!-- Common JS -->
-    <script src="{{ asset('js/common.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
 
     <!-- Load JS via Vite -->
     @vite(['resources/js/master.js'])
