@@ -13,6 +13,7 @@
 @section('content')
     <h1>Welcome to the Test Page</h1>
     <p>This is the content of the test page.</p>
+    <h2 class="testing">New heading 2</h2>
 @endsection
 
 <!-- all js for this page -->
