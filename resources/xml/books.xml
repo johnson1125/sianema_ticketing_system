@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<books>
+    <book>
+        <title>The Lord of the Rings</title>
+        <author>J.R.R. Tolkien</author>
+        <genre>Fantasy</genre>
+        <publicationYear>1954</publicationYear>
+    </book>
+    <book>
+        <title>Harry Potter and the Sorcerer's Stone</title>
+        <author>J.K. Rowling</author>
+        <genre>Fantasy</genre>
+        <publicationYear>1997</publicationYear>
+    </book>
+    <book>
+        <title>Pride and Prejudice</title>
+        <author>Jane Austen</author>
+        <genre>Romance</genre>
+        <publicationYear>1813</publicationYear>
+    </book>   
+
+</books>

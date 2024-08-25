@@ -11,17 +11,13 @@ class BookingController extends Controller
     public function fetchAllMovies()
     {
         $movies = Movie::all();
-        // $movies = [
-        //     (object) ['id' => 1, 'title' => 'Sample Movie 1', 'description' => 'This is a sample movie.'],
-        //     (object) ['id' => 2, 'title' => 'Sample Movie 2', 'description' => 'This is another sample movie.'],
-        // ];
         return view('booking.movie', compact('movies'));
     }
 
     //navigate into movie details view
-    public function movieDetails($id)
+    public function movieDetails($movie_id)
     {
-        $movie = Movie::findOrFail($id);
+        $movie = Movie::findOrFail($movie_id);
 
         return view('booking.movieDetails', compact('movie'));
     }
