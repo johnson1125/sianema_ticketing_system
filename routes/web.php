@@ -51,6 +51,8 @@ Route::middleware('auth', 'verified')->group(function () {
 
 Route::get('movies', [BookingController::class, 'fetchAllMovies'])->name('movies');
 Route::get('movies/{movie_id}', [BookingController::class, 'movieDetails'])->name('movies.details');
+Route::post('/date-button-click', [BookingController::class, 'dateButtonClick'])->name('dateButtonClick');
+
 
 
 Route::resource('manage-movie', MovieController::class);

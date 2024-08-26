@@ -6,21 +6,18 @@
         <div class="movie-details-information-container">
 
             <h1 id="movieName">
-                {{ $movie->name }}
+                {{ $movie->movie_name }}
             </h1>
 
             <ul class="movie-details-info1">
                 <li id="movieGenre">
-                    {{ $movie->genre }}
+                    {{ $movie->movie_genre }}
                 </li>
                 <li id="movieLanguage">
-                    {{ $movie->language }}
+                    {{ $movie->movie_language }}
                 </li>
                 <li id="movieDuration">
-                    {{ $movie->duration }}
-                </li>
-                <li id="movieClassification">
-                    {{ $movie->classification }}
+                    {{ $movie->movie_duration }}
                 </li>
             </ul>
 
@@ -29,32 +26,32 @@
                 <li>
                     <h4>Subtitle</h4>
                     <p id="movieSubtitle">
-                        {{ $movie->subtitle }}
+                        {{ $movie->movie_subtitle }}
                     </p>
                 </li>
                 <li>
                     <h4>Release Date</h4>
                     <p id="releaseDate">
-                        {{ $movie->releaseDate }}
+                        {{ $movie->release_date }}
                     </p>
                 </li>
                 <li>
                     <h4>Cast</h4>
                     <p id="movieCast">
-                        {{ $movie->cast }}
+                        {{ $movie->movie_cast }}
                     </p>
                 </li>
                 <li>
                     <h4>Distributor</h4>
                     <p id="movieDistributer">
-                        {{ $movie->distributer }}
+                        {{ $movie->movie_distributor }}
                     </p>
                 </li>
 
             </ul>
             <h4>Synopsis</h4>
             <p id="movieSynopsis">
-                {{ $movie->synopsis }}
+                {{ $movie->movie_synopsis }}
             </p>
 
         </div>
@@ -64,13 +61,18 @@
     <div class="cinema-date-selection-container">
         <div class="cinema-date-selection">
             <ul class="date-selection">
-                <li>
-                    <!--asp:Button ID="dateButton" runat="server" CssClass="date-button" Text='<%# Eval("Date", "{0:ddd\ndd-MMM}").ToUpper() %>' CommandArgument='<%# Eval("Date", "{0:yyyy-MM-dd}") %>' OnClick="DateButton_Click" /-->
-                </li>
+                @foreach ($dateList as $date)
+                    <li>
+                        <form action="{{ route('dateButtonClick') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="date-button" name="date" value="{{ $date->format('Y-m-d') }}">
+                                {{ $date->format('D
+                                d-M') }}
+                            </button>
+                        </form>
+                    </li>
+                @endforeach
             </ul>
-
-
-
         </div>
     </div>
 

@@ -13,23 +13,35 @@
     }
 
     .movie-details-information-container {
-        max-width: 70%;
+        width: 70%;
         position: absolute;
-        bottom: 10px;
+        bottom: 20px;
     
-
+        #movieName{
+            font-size: 50px;
+        }
+    
         .movie-details-info1 {
             display: flex;
             gap: 5%;
+            padding-bottom : 10px;
         }
-
+    
         .movie-details-info2 {
             display: flex;
             gap: 40px;
-            list-style: none;
-            padding-inline-start: 0px;
+            padding-bottom: 10px;
+
+            h4{
+                font-size: 25px;
+            }
+        }
+
+        h4{
+            font-size: 25px;
         }
     }
+    
 }
 
 .cinema-date-selection-container {
@@ -68,8 +80,8 @@
                 }
 
                 .date-button:hover {
-                    background-color: var(--button-green);
-                    color: var(--white);
+                    background-color: #008000;
+                    color: #ffffff;
                 }
             }
         }
