@@ -49,6 +49,7 @@ class HallTimeSlotController extends Controller
         $response = Http::get('http://127.0.0.1:5001/api/users');
 
         //Convert json to xml
+        //Pass Json and xml root element as
         $xml = XMLextensionsController::convertJsonToXMLString($response, 'users');
 
         //Convert xml to html
@@ -124,63 +125,12 @@ class HallTimeSlotController extends Controller
         return response()->json($hallTimeSlots);
     }
 
-    public function getSpecifiicHallTimeSlotData($hall_ID,$date)
+    public function getSpecifiicHallTimeSlotData($hallID,$date)
     {
         $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))
             ->where('Hall_ID', $hallID)->get();
         return response()->json($hallTimeSlots);
     }
 
-    public function convertJsonToXML($json, $parentElement)
-    {
-        $data = json_decode($json, true);
-        $xmlHeader = '<?xml version="1.0"?><' . $parentElement . '></' . $parentElement . '>';
-        $xmlData = new \SimpleXMLElement($xmlHeader);
-        $this->arrayToXml($data, $xmlData, $parentElement);
 
-        return $xmlData;
-    }
-
-    private function arrayToXml($data, $xmlData, $parentElement)
-    {
-        $element = substr($parentElement, 0, -1);
-        // Ensure $data is an array before proceeding
-        if (!is_array($data)) {
-            // If $data is not an array, handle it by adding it directly as an XML element
-            $xmlData->addChild($element, htmlspecialchars("$data"));
-            return;
-        }
-
-        foreach ($data as $key => $value) {
-            // Handle numeric keys for sequential data (arrays)
-            if (is_numeric($key)) {
-                $key = $element;
-            }
-
-            if (is_array($value)) {
-                // Check if the value is an associative array (object-like) or an indexed array (list-like)
-                if ($this->isAssoc($value)) {
-                    // Handle associative array (object-like)
-                    $subnode = $xmlData->addChild("$key");
-                    $this->arrayToXml($value, $subnode, $key);
-                } else {
-                    // Handle indexed array (list-like)
-                    $subnode = $xmlData->addChild("$key");
-                    foreach ($value as $item) {
-                        $this->arrayToXml($item, $subnode, $key);
-                    }
-                }
-            } else {
-                // Add scalar values as XML elements
-                $xmlData->addChild("$key", htmlspecialchars("$value"));
-            }
-        }
-    }
-
-    // Helper function to check if an array is associative (i.e., an object)
-    private function isAssoc(array $arr)
-    {
-        if (empty($arr)) return false; // An empty array is not associative
-        return array_keys($arr) !== range(0, count($arr) - 1);
-    }
 }

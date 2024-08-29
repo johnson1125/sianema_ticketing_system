@@ -123,7 +123,7 @@
                                 height: 50px;
                                 border-left: ridge #6b7280 1px;
                             }
-                            #backline {
+                            #backLine {
                                 border-left: ridge #6b7280 1px;
                             }
                         }
@@ -152,9 +152,10 @@
             .tab-content {
                 height: 100%;
                 #movieSection1 {
-                    height: 80%;
+                    height: 400px;
                     display: flex;
                     flex-direction: row;
+                    padding-bottom: 20px;
                     margin-bottom: 1rem /* 16px */;
                     border-bottom-width: 1px;
                     border-color: #e5e7eb;
@@ -169,7 +170,7 @@
                             margin-bottom: 0.5rem;
                             font-weight: 500;
                         }
-                        #movieSelector {
+                        .selector {
                             flex-grow: 1;
                             .select2-container {
                                 .select2-selection {
@@ -187,14 +188,12 @@
                                 }
                             }
                         }
-                        #startTimeInput {
+                        .startTimeInput {
                             flex-grow: 1;
                             width: 80%;
-                            #startTime {
-                            }
                         }
 
-                        #durationDisplay {
+                        .durationDisplay {
                             flex-grow: 1;
                             width: 80%;
                             #duration {
@@ -202,7 +201,7 @@
                             }
                         }
 
-                        #endTimeDisplay {
+                        .endTimeDisplay {
                             flex-grow: 1;
                             width: 80%;
                             #endTime {
@@ -212,11 +211,14 @@
                     }
 
                     #movieSection1-2 {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
                         flex-grow: 1;
                         #movPhotoContainer {
-                            height: 100%;
                             width: 100%;
                             display: flex;
+                            flex-direction: row;
                             flex-wrap: wrap;
                             justify-content: center;
                             align-content: center;
@@ -227,6 +229,12 @@
                                 width: 200px;
                             }
                         }
+
+                        #btnContainer {
+                            padding-top: 20px;
+                            display: flex;
+                            justify-content: center;
+                        }
                     }
                 }
 
@@ -234,7 +242,88 @@
                     display: flex;
                     flex-direction: row;
                     justify-content: end;
-                    .btn{
+                    .btn {
+                        width: 100px;
+                        margin-right: 20px;
+                    }
+                }
+
+                #maintenanceSection1 {
+                    height: 200px;
+                    display: flex;
+                    flex-direction: row;
+
+                    #maintenanceSection1-1 {
+                        flex-grow: 1;
+                        display: flex;
+                        flex-direction: column;
+                        .maintenanceLabel {
+                            font-size: 16px;
+                            line-height: 1.25rem /* 20px */;
+                            padding-left: 5px;
+                            margin-bottom: 0.5rem;
+                            font-weight: 500;
+                        }
+                        .selector {
+                            flex-grow: 1;
+                            .select2-container {
+                                .select2-selection {
+                                    background-color: rgb(249, 250, 251);
+
+                                    .select2-search {
+                                        height: 100%;
+                                        .select2-search__field {
+                                            padding-left: 5px;
+                                            margin-left: 5px;
+                                            font-size: 0.875rem;
+                                            font-family: calibri, sans-serif;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .startTimeInput {
+                            flex-grow: 1;
+                            width: 80%;
+                        }
+                    }
+
+                    #maintenanceSection1-2 {
+                        display: flex;
+                        flex-direction: column;
+                        flex-grow: 1;
+                        .durationDisplay {
+                            flex-grow: 1;
+                            width: 80%;
+                            #duration {
+                                background-color: #c6ccda;
+                            }
+                        }
+
+                        .endTimeDisplay {
+                            flex-grow: 1;
+                            width: 80%;
+                            #endTime {
+                                background-color: #c6ccda;
+                            }
+                        }
+                    }
+                }
+                #maintenanceSection2 {
+                    display: flex;
+                    flex-direction: row;
+                    padding-bottom: 20px;
+                    margin-bottom: 1rem /* 16px */;
+                    border-bottom-width: 1px;
+                    border-color: #e5e7eb;
+                    justify-content: center;
+                }
+
+                #maintenanceSection3 {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: end;
+                    .btn {
                         width: 100px;
                         margin-right: 20px;
                     }
