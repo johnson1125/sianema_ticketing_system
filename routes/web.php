@@ -5,17 +5,15 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SampleMovieController;
 use App\Http\Controllers\HallTimeSlotController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\MovieController;
 
 Route::get('/', function () {
     return view('home');
-})->middleware(['auth', 'verified'])->name('home');
+})->name('home');
 
-Route::get('/testing', function () {
-    return view('testing');
-});
-
-Route::get('/sassSample', function () {
-    return view('sassSample');
+//to show how to use master page.
+Route::get('/test', function () {
+    return view('userManagement.test');
 });
 
 Route::middleware('auth')->group(function () {
@@ -40,14 +38,28 @@ Route::get('/adminLayout', function () {
 Route::get('admin', [HallTimeSlotController::class,'index']);
 
 // HallTimeSlot Basic route
-Route::get('admin/hall-time-slot/{date?}', [HallTimeSlotController::class,'index'])->name('hallTimeSlot')->defaults('date', date('d-m-Y')) ;
-Route::post('submit-form', [HallTimeSlotController::class,'getDate'])->name('hallTimeSlot.getDate');
-Route::post('submit-form-1', [HallTimeSlotController::class,'store'])->name('hallTimeSlot.store');
-Route::get('admin/hall-time-slot/create/{hallID}_{date}', [HallTimeSlotController::class,'create'])->name('hallTimeSlot.create');
-Route::get('hall-time-slot-data', [HallTimeSlotController::class,'getHallTimeSlotData']);
 
-//<a href="{{ route('movies.index') }}">Movies</a>
-//need to put at navigation
+Route::middleware('auth', 'verified')->group(function () {
+    Route::get('admin/hall-time-slot/{date?}', [HallTimeSlotController::class,'index'])->name('hallTimeSlot')->defaults('date', date('d-m-Y')) ;
+    Route::post('submit-form', [HallTimeSlotController::class,'getDate'])->name('hallTimeSlot.getDate');
+    Route::post('submit-form-1', [HallTimeSlotController::class,'store'])->name('hallTimeSlot.store');
+    Route::get('admin/hall-time-slot/create/{hallID}_{date}', [HallTimeSlotController::class,'create'])->name('hallTimeSlot.create');
+    Route::get('hall-time-slot-data', [HallTimeSlotController::class,'getHallTimeSlotData']);
+});
+
+
+
 Route::get('movies', [BookingController::class, 'fetchAllMovies'])->name('movies');
+Route::get('movies/{movie_id}', [BookingController::class, 'movieDetails'])->name('movies.details');
+Route::post('/date-button-click', [BookingController::class, 'dateButtonClick'])->name('dateButtonClick');
 
-Route::get('movies/{id}', [BookingController::class, 'movieDetails'])->name('movies.details');
+
+
+Route::resource('manage-movie', MovieController::class);
+
+Route::get('create-movie', [MovieController::class, 'create'])->name('movies.create');
+Route::post('/create-movie-success', [MovieController::class, 'store'])->name('movies.store');
+Route::get('manage-movie', [MovieController::class, 'index'])->name('movies.index');
+// Route::post('movie-added', [MovieController::class, 'store'])->name('movies.store');
+Route::get('show-movie', [MovieController::class, 'show'])->name('movies.show');
+Route::get('edit-movie', [MovieController::class, 'edit'])->name('movies.edit');

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use App\Models\HallTimeSlot;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class BookingController extends Controller
 {
@@ -11,18 +13,34 @@ class BookingController extends Controller
     public function fetchAllMovies()
     {
         $movies = Movie::all();
-        // $movies = [
-        //     (object) ['id' => 1, 'title' => 'Sample Movie 1', 'description' => 'This is a sample movie.'],
-        //     (object) ['id' => 2, 'title' => 'Sample Movie 2', 'description' => 'This is another sample movie.'],
-        // ];
         return view('booking.movie', compact('movies'));
     }
 
-    //navigate into movie details view
-    public function movieDetails($id)
+    public function movieDetails($movie_id)
     {
-        $movie = Movie::findOrFail($id);
+        // Fetch the movie details based on movie_id
+        $movie = Movie::findOrFail($movie_id);
 
-        return view('booking.movieDetails', compact('movie'));
+        // Fetch halltimeslot records where movie_id matches the provided $movie_id
+        $halltimeslots = HallTimeSlot::where('movie_id', $movie_id)->get();
+
+        // Get today's date and the following 6 days
+        $dateList = [];
+        for ($i = 0; $i <= 6; $i++) {
+            $dateList[] = Carbon::today()->addDays($i);
+        }
+
+        // Pass the movie, halltimeslot, and datelist to the view
+        return view('booking.movieDetails', compact('movie', 'halltimeslots', 'dateList'));
     }
+
+    public function dateButtonClick(Request $request)
+    {
+        $selectedDate = $request->input('date');
+        // Handle the selected date logic here
+
+        return redirect()->back();
+    }
+
+
 }
