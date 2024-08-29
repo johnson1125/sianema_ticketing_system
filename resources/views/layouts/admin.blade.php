@@ -23,6 +23,7 @@
                 {{ $slot }}
             </main>
         </div>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
         @vite(['resources/js/app.js']);
     </body>
 </html>

@@ -35,4 +35,7 @@ $(document).ready(function () {
     $("#movies").select2({
         placeholder: "Select a movie",
     });
+
+    consolo.log('test');
+
 });

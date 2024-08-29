@@ -9,6 +9,7 @@ use App\Models\Hall;
 use App\Models\HallTimeSlot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\XMLToHTMLController;
 
 class HallTimeSlotController extends Controller
 {
@@ -18,20 +19,18 @@ class HallTimeSlotController extends Controller
     public function index($date)
     {
         $halls = Hall::all();
-        $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=',Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))->get();
+        $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))->get();
         $defaultDate = $date;
-        //testing api
-        // $response = Http::get('http://127.0.0.1:5000/api/users');
-        // echo $response;
-        return view('/admin/hallTimeSlot.index', compact('halls', 'hallTimeSlots','defaultDate'));
+
+        return view('/admin/hallTimeSlot.index', compact('halls', 'hallTimeSlots', 'defaultDate'));
     }
 
- 
 
-    public function getDate(Request $request){
+
+    public function getDate(Request $request)
+    {
         $date = $request->input('date');
-        return redirect()->route('hallTimeSlot',['date' => $date]);
-
+        return redirect()->route('hallTimeSlot', ['date' => $date]);
     }
 
     /**
@@ -40,25 +39,38 @@ class HallTimeSlotController extends Controller
     public function create($hallID, $date)
     {
         $hall = Hall::where('Hall_ID', $hallID);
-        $xml = new DOMDocument();
-        $xml->load(resource_path('xml/books.xml'));
 
-        $xslDoc = new DOMDocument();
-        $xslDoc->load(resource_path('xsl/books.xsl'));
+        $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))
+            ->where('Hall_ID', $hallID)->get();
 
-        $processor = new XSLTProcessor();
-        $processor->importStylesheet($xslDoc);
+        //Get Data of onscreen movie
 
-        $result = $processor->transformToXml($xml);
+        //Get maintenance record from webservice through API
+        $response = Http::get('http://127.0.0.1:5001/api/users');
 
-        //Pass in onscreen movie
+        //Convert json to xml
+        $xml = XMLextensionsController::convertJsonToXMLString($response, 'users');
+
+        //Convert xml to html
+        $users = XMLExtensionsController::XMLStringToHTML($xml, 'xsl/userDetails.xsl');
+
+        //Pass in onscreen movie (Selection)
         $movies = [
             ['code' => 'US', 'name' => 'United States'],
             ['code' => 'CA', 'name' => 'Canada'],
             ['code' => 'FR', 'name' => 'France'],
             ['code' => 'DE', 'name' => 'Germany']
         ];
-        return view('/admin/hallTimeSlot.create', compact('hall', 'result','movies'));
+
+        //Pass in maintainence activities available for the hall (Selection)
+        $maintenance = [
+            ['code' => 'US', 'name' => 'United States'],
+            ['code' => 'CA', 'name' => 'Canada'],
+            ['code' => 'FR', 'name' => 'France'],
+            ['code' => 'DE', 'name' => 'Germany']
+        ];
+
+        return view('/admin/hallTimeSlot.create', compact('hall', 'movies', 'users', 'maintenance'));
     }
 
     /**
@@ -66,8 +78,10 @@ class HallTimeSlotController extends Controller
      */
     public function store(Request $request)
     {
+        //Validation 
+        //Check TimeSlot availabiility
         $startTime = $request->input('startTime');
-        $movieID = $request->input('movies'); 
+        $movieID = $request->input('movies');
         return redirect()->back()->with('message', 'Form submitted successfully!')->withInput();
     }
 
@@ -108,5 +122,65 @@ class HallTimeSlotController extends Controller
         // $hallTimeSlots = HallTimeSlot::whereDate('startDateTime',$date)->get();
         $hallTimeSlots = HallTimeSlot::all();
         return response()->json($hallTimeSlots);
+    }
+
+    public function getSpecifiicHallTimeSlotData($hall_ID,$date)
+    {
+        $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))
+            ->where('Hall_ID', $hallID)->get();
+        return response()->json($hallTimeSlots);
+    }
+
+    public function convertJsonToXML($json, $parentElement)
+    {
+        $data = json_decode($json, true);
+        $xmlHeader = '<?xml version="1.0"?><' . $parentElement . '></' . $parentElement . '>';
+        $xmlData = new \SimpleXMLElement($xmlHeader);
+        $this->arrayToXml($data, $xmlData, $parentElement);
+
+        return $xmlData;
+    }
+
+    private function arrayToXml($data, $xmlData, $parentElement)
+    {
+        $element = substr($parentElement, 0, -1);
+        // Ensure $data is an array before proceeding
+        if (!is_array($data)) {
+            // If $data is not an array, handle it by adding it directly as an XML element
+            $xmlData->addChild($element, htmlspecialchars("$data"));
+            return;
+        }
+
+        foreach ($data as $key => $value) {
+            // Handle numeric keys for sequential data (arrays)
+            if (is_numeric($key)) {
+                $key = $element;
+            }
+
+            if (is_array($value)) {
+                // Check if the value is an associative array (object-like) or an indexed array (list-like)
+                if ($this->isAssoc($value)) {
+                    // Handle associative array (object-like)
+                    $subnode = $xmlData->addChild("$key");
+                    $this->arrayToXml($value, $subnode, $key);
+                } else {
+                    // Handle indexed array (list-like)
+                    $subnode = $xmlData->addChild("$key");
+                    foreach ($value as $item) {
+                        $this->arrayToXml($item, $subnode, $key);
+                    }
+                }
+            } else {
+                // Add scalar values as XML elements
+                $xmlData->addChild("$key", htmlspecialchars("$value"));
+            }
+        }
+    }
+
+    // Helper function to check if an array is associative (i.e., an object)
+    private function isAssoc(array $arr)
+    {
+        if (empty($arr)) return false; // An empty array is not associative
+        return array_keys($arr) !== range(0, count($arr) - 1);
     }
 }

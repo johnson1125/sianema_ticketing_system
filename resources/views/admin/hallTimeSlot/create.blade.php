@@ -1,6 +1,17 @@
-@vite(['resources/css/admin/hallTimeSlot/create.css'])
-<x-admin-Layout>
 
+<!-- using the master page layout -->
+@extends('layouts.masterAdmin')
+
+<!-- The title for this page -->
+@section('title', 'Add Hall Time Slot')
+
+<!-- all css for this page -->
+@push('styles')
+    @vite(['resources/css/admin/hallTimeSlot/create.css'])
+@endpush
+
+<!-- html for this page -->
+@section('content')
     <div id="container">
 
         <div id="section1"class="relative overflow-x-auto shadow-md sm:rounded-lg bg-gray-50">
@@ -248,7 +259,7 @@
                         next.
                         The tab JavaScript swaps classes to control the content visibility and styling.
                     </p>
-                    {!! $result !!}
+                    {!! $users !!}
                 </div>
 
             </div>
@@ -258,6 +269,10 @@
 
 
 
+        @endsection
 
-</x-admin-Layout>
-@vite(['resources/js/admin/hallTimeSlot/create.js'])
+        <!-- all js for this page -->
+        @push('scripts')
+            @vite(['resources/js/admin/hallTimeSlot/create.js'])
+        @endpush
+    
