@@ -6,7 +6,7 @@
     <title>Sianema - @yield('title', '')</title>
     
     <!-- Load CSS via Vite -->
-    @vite(['resources/css/master.css', 'resources/css/app.css'])
+    @vite(['resources/css/app.css','resources/css/masterAdmin.css'])
     
     <!-- Additional CSS -->
     @stack('styles')
@@ -14,26 +14,18 @@
 <body>
     <!-- Header -->
     <header>
-        @include('layouts.navigation')
+        @include('layouts.adminNavigation')
     </header>
+
 
     <!-- Main Content -->
     <div class="content">
-        <h1>Testing</h1>
         @yield('content')
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <!-- Your footer content goes here -->
-    </footer>
-
     <!-- Common JS -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
-
-    <!-- Load JS via Vite -->
-    @vite(['resources/js/master.js', 'resources/js/app.js'])
-    
+    @vite(['resources/js/app.js'])
     <!-- Additional JS -->
     @stack('scripts')
 </body>
