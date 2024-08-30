@@ -27,12 +27,14 @@ class Movie extends Model
         'release_date',
         'screen_from_date',
         'screen_until_date',
+        'movie_poster',
+        'movie_cover_photo'
     ];
 
-    protected $casts = [
-        'movie_poster' => 'binary',
-        'movie_cover_photo' => 'binary',
-    ];
+    // protected $casts = [
+    //     'movie_poster' => 'binary',
+    //     'movie_cover_photo' => 'binary',
+    // ];
 
     public function halltimeSlot(): HasMany
     {

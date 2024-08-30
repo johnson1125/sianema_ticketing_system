@@ -36,6 +36,16 @@
 
                     <div class="form-group">
                         <label for="movieGenre">Movie Genre:</label>
+                        {{-- <br><select multiple id="genres" name="movieGenre[]"
+                                class="select2 js-states form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                style="width: 70%">
+                                @foreach ($movie_genres as $genre)
+                                    <option value="{{ $genre['type'] }}"
+                                        {{ in_array($genre['type'], old('genres', [])) ? 'selected' : '' }}>
+                                        {{ $genre['name'] }}
+                                    </option>
+                                @endforeach
+                            </select> --}}
                         <br><input class="normal-input" type="text" id="movieGenre" name="movieGenre">
                     </div>
 
