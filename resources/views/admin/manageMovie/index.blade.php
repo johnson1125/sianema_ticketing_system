@@ -10,7 +10,7 @@
         <table class="manage-movie-table-list">
             <thead>
                 <tr>
-                    <th>Image</th>
+                    <th>Poster</th>
                     <th>Name</th>
                     <th>Genre</th>
                     <th>Duration</th>
@@ -23,17 +23,16 @@
             <tbody>
                 @foreach ($movies as $movie)
                     <tr>
-                        <td><img src="{{ asset('storage/' . $movie->moviePoster) }}" alt="{{ $movie->movieName }}"
-                                style="width: 100px; height: auto;"></td>
-                        <td>{{ $movie->movieName }}</td>
-                        <td>{{ $movie->movieGenre }}</td>
-                        <td>{{ $movie->movieDuration }}</td>
-                        <td>{{ $movie->movieDistributor }}</td>
-                        <td>{{ $movie->screenFromDate }}</td>
-                        <td>{{ $movie->screenUntilDate }}</td>
+                        <td><img src="{{ route('movie.poster', $movie->movie_id) }}" alt="{{ $movie->movie_name }}" style="width: 100px; height: auto;"></td>
+                        <td>{{ $movie->movie_name }}</td>
+                        <td>{{ $movie->movie_genre }}</td>
+                        <td>{{ $movie->movie_duration }}</td>
+                        <td>{{ $movie->movie_distributor }}</td>
+                        <td>{{ $movie->screen_from_date }}</td>
+                        <td>{{ $movie->screen_until_date }}</td>
                         <td>
-                            <a href="{{ route('movies.show', $movie->movie_id) }}" class="btn btn-success">View</a>
-                            <a href="{{ route('movies.edit', $movie->movie_id) }}" class="btn btn-success">Edit</a>
+                            <a href="{{ route('movies.show', ['id' => $movie->movie_id]) }}" class="btn">View</a>
+                            <a href="{{ route('movies.edit', ['id' => $movie->movie_id]) }}" class="btn">Edit</a>
                         </td>
                     </tr>
                 @endforeach

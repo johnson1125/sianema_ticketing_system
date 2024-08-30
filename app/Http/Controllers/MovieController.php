@@ -9,14 +9,39 @@ class MovieController extends Controller
 {
         public function index()
         {
-            $movies = Movie::all();
+            // $movies = Movie::all();
+            $movies = Movie::where('screen_until_date', '>=', now())->get();
             return view('admin.manageMovie.index', compact('movies'));
         }
     
         public function create()
         {
             $movie_id =  $this->generateMovieID();
-            return view('admin.manageMovie.create', compact('movie_id'));
+
+            $movie_genres = [
+                ['type' => 'Action', 'name' => 'Action'],
+                ['type' => 'Adventure', 'name' => 'Adventure'],
+                ['type' => 'Horror', 'name' => 'Horror'],
+                ['type' => 'Romance', 'name' => 'Romance'],
+                ['type' => 'Science-Fi', 'name' => 'Science-Fi'],
+            ];
+
+            $movie_languages = [
+                ['lang' => 'ML(BM)', 'name' => 'Malay Lanaguge'],
+                ['lang' => 'CN', 'name' => 'Chinese Language'],
+                ['lang' => 'ENG', 'name' => 'English Language'],
+                ['lang' => 'TML', 'name' => 'Tamil Language']
+            ];
+
+            $movie_subtitles = [
+                ['sub' => 'ML(BM)', 'name' => 'Malay Lanaguge'],
+                ['sub' => 'CN', 'name' => 'Chinese Language'],
+                ['sub' => 'ENG', 'name' => 'English Language'],
+                ['sub' => 'TML', 'name' => 'Tamil Language']
+            ];
+
+            return view('admin.manageMovie.create', compact('movie_id', 'movie_genres', 'movie_languages'
+            ,'movie_subtitles'));
         }
     
         public function store(Request $request)
@@ -42,15 +67,9 @@ class MovieController extends Controller
             $screenFromDate = Carbon::createFromFormat('m/d/Y', $validated['screen-from'])->format('Y-m-d');
             $screenUntilDate = Carbon::createFromFormat('m/d/Y', $validated['screen-until'])->format('Y-m-d');
 
-            // Process file uploads
-            $moviePoster = $request->hasFile('moviePoster') ? file_get_contents($request->file('moviePoster')->getRealPath()) : null;
-            $movieCoverPhoto = $request->hasFile('movieCoverPhoto') ? file_get_contents($request->file('movieCoverPhoto')->getRealPath()) : null;
+            $moviePoster = $request->file('moviePoster')->getContent();
+            $movieCoverPhoto = $request->file('movieCoverPhoto')->getContent();
             
-
-            // Debug log statements
-            // Log::info('Movie Poster: ' . ($moviePoster ? 'Uploaded' : 'Not Uploaded'));
-            // Log::info('Movie Cover Photo: ' . ($movieCoverPhoto ? 'Uploaded' : 'Not Uploaded'));
-
             // Create a new movie record
             Movie::create([
                 'movie_id' => $validated['movieID'],
@@ -77,26 +96,101 @@ class MovieController extends Controller
     
         public function edit($id)
         {
-            // $movie = Movie::findOrFail($id);
-            // return view('admin.manageMovie.edit', compact('movie'));
+            $movie = Movie::findOrFail($id);
+            return view('admin.manageMovie.edit', compact('movie'));
         }
     
         public function update(Request $request, $id)
-        {
-            // $validatedData = $request->validate([
-            //     // Add validation for fields as necessary
-            // ]);
-    
+        {   
             // $movie = Movie::findOrFail($id);
-            // $movie->update($validatedData);
-    
-            // return redirect()->route('movies.index');
+           
+            // $validatedData = $request->validate([
+            //     'movieName' => 'required|string|max:255',
+            //     'movieGenre' => 'required|string|max:255',
+            //     'movieLanguage' => 'required|string|max:255',
+            //     'movieSubtitle' => 'required|string|max:255',
+            //     'movieDistributor' => 'required|string|max:255',
+            //     'releaseDate' => 'required|date_format:m/d/Y',
+            //     'screen-from' => 'required|date_format:m/d/Y',
+            //     'screen-until' => 'required|date_format:m/d/Y',
+            //     'movieDuration' => [
+            //         'required',
+            //         'regex:/^([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/'
+            //      ],
+            //     'movieCast' => 'required|string|max:255',
+            //     'movieSynopsis' => 'required|string',
+            //     'moviePoster' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            //     'movieCoverPhoto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // ]);
+            // dd("Validation passed", $validatedData);
+            // $movieData = [
+            //     'movie_name' => $validatedData['movieName'],
+            //     'movie_genre' => $validatedData['movieGenre'],
+            //     'movie_language' => $validatedData['movieLanguage'],
+            //     'movie_subtitle' => $validatedData['movieSubtitle'],
+            //     'movie_distributor' => $validatedData['movieDistributor'],
+            //     'movie_duration' => $validatedData['movieDuration'],
+            //     'movie_cast' => $validatedData['movieCast'],
+            //     'movie_synopsis' => $validatedData['movieSynopsis'],
+            //     'release_date' => \Carbon\Carbon::createFromFormat('m/d/Y', $validatedData['releaseDate'])->format('Y-m-d'),
+            //     'screen_from_date' => \Carbon\Carbon::createFromFormat('m/d/Y', $validatedData['screen-from'])->format('Y-m-d'),
+            //     'screen_until_date' => \Carbon\Carbon::createFromFormat('m/d/Y', $validatedData['screen-until'])->format('Y-m-d'),
+            //     'movie_poster' => $request->file('moviePoster')->getContent(),
+            //     'movie_cover_photo' => $request->file('movieCoverPhoto')->getContent() 
+            // ];
+
+            // $movie->update($movieData);
+
+            // return redirect()->route('movies.index')->with('success', 'Movie added successfully!');
+
+            $movie = Movie::findOrFail($id);
+
+            $request->validate([
+                'movieName' => 'required',
+                'movieGenre' => 'required',
+                'movieLanguage' => 'required',
+                'movieSubtitle' => 'required',
+                'movieDistributor' => 'required',
+                'releaseDate' => 'required|date',
+                'screen-from' => 'required|date',
+                'screen-until' => 'required|date',
+                'movieDuration' => 'required',
+                'movieCast' => 'required',
+                'movieSynopsis' => 'required',
+            ]);
+        
+            $movie->movie_name = $request->input('movieName');
+            $movie->movie_genre = $request->input('movieGenre');
+            $movie->movie_language = $request->input('movieLanguage');
+            $movie->movie_subtitle = $request->input('movieSubtitle');
+            $movie->movie_distributor = $request->input('movieDistributor');
+            $movie->release_date = \Carbon\Carbon::parse($request->input('releaseDate'))->format('Y-m-d');
+            $movie->screen_from_date = \Carbon\Carbon::parse($request->input('screen-from'))->format('Y-m-d');
+            $movie->screen_until_date = \Carbon\Carbon::parse($request->input('screen-until'))->format('Y-m-d');
+            $movie->movie_duration = $request->input('movieDuration');
+            $movie->movie_cast = $request->input('movieCast');
+            $movie->movie_synopsis = $request->input('movieSynopsis');
+        
+            if ($request->hasFile('moviePoster')) {
+                $moviePoster = $request->file('moviePoster')->getContent();
+                $movie->movie_poster = $moviePoster;
+                
+            }
+        
+            if ($request->hasFile('movieCoverPhoto')) {
+                $movieCoverPhoto = $request->file('movieCoverPhoto')->getContent();
+                $movie->movie_cover_photo = $movieCoverPhoto;
+            }
+
+            $movie->save();
+        
+            return redirect()->route('movies.index')->with('success', 'Movie updated successfully!');
         }
     
         public function show($id)
         {
-            // $movie = Movie::findOrFail($id);
-            // return view('movies.show', compact('movie'));
+            $movie = Movie::findOrFail($id);
+            return view('admin.manageMovie.show', compact('movie'));
         }
 
 
@@ -129,4 +223,27 @@ class MovieController extends Controller
 
             return $uniqueID;
         }
+
+        // app/Http/Controllers/MovieController.php
+
+        public function getMoviePoster($id)
+        {
+            $movie = Movie::find($id);
+            $posterData = $movie->movie_poster;
+            
+
+            return response()->make($posterData, 200)
+                ->header('Content-Type', 'image/jpeg');
+        }
+
+        public function getMovieCoverPhoto($id)
+        {
+            $movie = Movie::find($id);
+            $imageData = $movie->movie_cover_photo;
+
+            return response()->make($imageData, 200)
+                ->header('Content-Type', 'image/jpeg');
+        }
 }
+
+
