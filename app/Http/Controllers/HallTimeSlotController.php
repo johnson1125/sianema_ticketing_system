@@ -45,25 +45,22 @@ class HallTimeSlotController extends Controller
 
         //Get Data of onscreen movie
 
-        //Get maintenance record from webservice through API
-        $response = Http::get('http://127.0.0.1:5001/api/maintenances?hallType=Large');
-        dd($response->json());
+
 
         //Add maintenance record through webservice api and return new maintenance record id 
-        $addMaintenanceRecordResponse = Http::post('http://127.0.0.1:5001/api/maintenance-record', ['startTime' => '2024-08-25 12:00:00', 'hallID' => 'HALL-01','maintenanceID' => 'MTN-C-DP-001']);
+        $addMaintenanceRecordResponse = Http::post('http://127.0.0.1:5001/api/maintenance-record', ['startTime' => '2024-08-25 12:00:00', 'hallID' => 'HALL-01', 'maintenanceID' => 'MTN-C-DP-001']);
         // Check if the request was successful
         if ($addMaintenanceRecordResponse->successful()) {
             // Process the response
-            
+
             $responseData = $addMaintenanceRecordResponse->json();
             // dd($responseData);
         } else {
             // Handle the error
-            abort(500, 'Error sending data to Flask API');
+            abort(500, 'Error sending data to Maitenance Web Service');
         }
 
-        $response1 = Http::get('http://127.0.0.1:5001/api/maintenance-records');
-        // dd($response1->json());
+        $response = Http::get('http://127.0.0.1:5001/api/users');
 
         //Convert json to xml
         //Pass Json and xml root element as
@@ -79,16 +76,15 @@ class HallTimeSlotController extends Controller
             ['code' => 'FR', 'name' => 'France'],
             ['code' => 'DE', 'name' => 'Germany']
         ];
-
+        //Get maintenance record from webservice through API
+        $maintenancesResponse = Http::get('http://127.0.0.1:5001/api/maintenances?hallType=Large');
+        // dd($maintenancesResponse->json());
+        
         //Pass in maintainence activities available for the hall (Selection)
-        $maintenance = [
-            ['code' => 'US', 'name' => 'United States'],
-            ['code' => 'CA', 'name' => 'Canada'],
-            ['code' => 'FR', 'name' => 'France'],
-            ['code' => 'DE', 'name' => 'Germany']
-        ];
+        $maintenanceOption = $maintenancesResponse->json();
 
-        return view('/admin/hallTimeSlot.create', compact('hall', 'movies', 'users', 'maintenance'));
+
+        return view('/admin/hallTimeSlot.create', compact('hall', 'movies', 'users', 'maintenanceOption'));
     }
 
     /**
