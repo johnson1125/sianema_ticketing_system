@@ -7,9 +7,9 @@ class StandardHallFactory implements HallFactory{
 	}
 }
 
-class PremiereHallFactory implements HallFactory{
+class PremiumHallFactory implements HallFactory{
 	public function createHall(): Hall{
-		return new PremiereHall();
+		return new PremiumHall();
 	}
 }
 
