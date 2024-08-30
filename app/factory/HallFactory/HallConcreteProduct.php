@@ -8,7 +8,7 @@ class StandardHall implements Hall{
     }
 }
 
-class PremiereHall implements Hall{
+class PremiumHall implements Hall{
     public function createSeats($rowsNum, $columnsNum): void{
 
     }
