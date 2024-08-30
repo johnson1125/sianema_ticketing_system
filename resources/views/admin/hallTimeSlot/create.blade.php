@@ -278,10 +278,10 @@
                                         {{-- refer halltimeSlot/create/.js for the usage of select2 --}}
                                         {{-- remove multiple if only select for one --}}
                                         {{-- can refer to select2 documentation for additional configuration --}}
-                                        @foreach ($movies as $movie)
-                                            <option value="{{ $movie['code'] }}"
-                                                {{ in_array($movie['code'], old('movies', [])) ? 'selected' : '' }}>
-                                                {{ $movie['name'] }}
+                                        @foreach ($maintenanceOption as $maintenance)
+                                            <option value="{{ $maintenance['id'] }}"
+                                                {{ in_array($maintenance['id'], old('maintenance', [])) ? 'selected' : '' }}>
+                                                {{ $maintenance['name'] }}
                                             </option>
                                         @endforeach
                                     </select>
