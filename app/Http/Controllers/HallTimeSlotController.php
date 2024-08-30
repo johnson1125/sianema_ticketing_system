@@ -9,33 +9,28 @@ use App\Models\Hall;
 use App\Models\HallTimeSlot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\XMLToHTMLController;
 
 class HallTimeSlotController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $date = date('d-m-Y');
-        return redirect()->route('hallTimeSlot.indexWithDate',['date' => $date]);
-    }
-
-    public function indexWithDate($date)
+    public function index($date)
     {
         $halls = Hall::all();
-        $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=',Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))->get();
+        $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))->get();
         $defaultDate = $date;
-        //testing api
-        // $response = Http::get('http://127.0.0.1:5000/api/users');
-        // echo $response;
-        return view('/admin/hallTimeSlot.index', compact('halls', 'hallTimeSlots','defaultDate'));
+
+        return view('/admin/hallTimeSlot.index', compact('halls', 'hallTimeSlots', 'defaultDate'));
     }
 
-    public function getDate(Request $request){
-        $date = $request->input('date');
-        return redirect()->route('hallTimeSlot.indexWithDate',['date' => $date]);
 
+
+    public function getDate(Request $request)
+    {
+        $date = $request->input('date');
+        return redirect()->route('hallTimeSlot', ['date' => $date]);
     }
 
     /**
@@ -44,24 +39,39 @@ class HallTimeSlotController extends Controller
     public function create($hallID, $date)
     {
         $hall = Hall::where('Hall_ID', $hallID);
-        $xml = new DOMDocument();
-        $xml->load(resource_path('xml/books.xml'));
 
-        $xslDoc = new DOMDocument();
-        $xslDoc->load(resource_path('xsl/books.xsl'));
+        $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))
+            ->where('Hall_ID', $hallID)->get();
 
-        $processor = new XSLTProcessor();
-        $processor->importStylesheet($xslDoc);
+        //Get Data of onscreen movie
 
-        $result = $processor->transformToXml($xml);
+        //Get maintenance record from webservice through API
+        $response = Http::get('http://127.0.0.1:5001/api/users');
 
-        $countries = [
+        //Convert json to xml
+        //Pass Json and xml root element as
+        $xml = XMLextensionsController::convertJsonToXMLString($response, 'users');
+
+        //Convert xml to html
+        $users = XMLExtensionsController::XMLStringToHTML($xml, 'xsl/userDetails.xsl');
+
+        //Pass in onscreen movie (Selection)
+        $movies = [
             ['code' => 'US', 'name' => 'United States'],
             ['code' => 'CA', 'name' => 'Canada'],
             ['code' => 'FR', 'name' => 'France'],
             ['code' => 'DE', 'name' => 'Germany']
         ];
-        return view('/admin/hallTimeSlot.create', compact('hall', 'result','countries'));
+
+        //Pass in maintainence activities available for the hall (Selection)
+        $maintenance = [
+            ['code' => 'US', 'name' => 'United States'],
+            ['code' => 'CA', 'name' => 'Canada'],
+            ['code' => 'FR', 'name' => 'France'],
+            ['code' => 'DE', 'name' => 'Germany']
+        ];
+
+        return view('/admin/hallTimeSlot.create', compact('hall', 'movies', 'users', 'maintenance'));
     }
 
     /**
@@ -69,8 +79,10 @@ class HallTimeSlotController extends Controller
      */
     public function store(Request $request)
     {
+        //Validation 
+        //Check TimeSlot availabiility
         $startTime = $request->input('startTime');
-        $movieID = $request->input('movies'); 
+        $movieID = $request->input('movies');
         return redirect()->back()->with('message', 'Form submitted successfully!')->withInput();
     }
 
@@ -112,4 +124,13 @@ class HallTimeSlotController extends Controller
         $hallTimeSlots = HallTimeSlot::all();
         return response()->json($hallTimeSlots);
     }
+
+    public function getSpecifiicHallTimeSlotData($hallID,$date)
+    {
+        $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))
+            ->where('Hall_ID', $hallID)->get();
+        return response()->json($hallTimeSlots);
+    }
+
+
 }

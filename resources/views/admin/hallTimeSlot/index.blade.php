@@ -1,13 +1,26 @@
-@vite(['resources/js/admin/hallTimeSlot/index.js','resources/css/admin/hallTimeSlot/index.css'])
-<x-admin-Layout>
 
+<!-- using the master page layout -->
+@extends('layouts.masterAdmin')
+
+<!-- The title for this page -->
+@section('title', 'Manage Hall Time Slot')
+
+<!-- all css for this page -->
+@push('styles')
+    @vite(['resources/css/admin/hallTimeSlot/index.css'])
+@endpush
+
+<!-- html for this page -->
+@section('content')
     <div id="container">
 
         <div id="section1">
             <h6>Manage Hall Timeslot </h6>
 
 
-            <form id="dateInputForm" action="{{route('hallTimeSlot.getDate')}}" method="POST">
+
+
+            <form id="dateInputForm" action="{{ route('hallTimeSlot.getDate') }}" method="POST">
                 @csrf
                 <div id="datePicker" class="relative max-w-sm">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -17,9 +30,10 @@
                                 d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                         </svg>
                     </div>
-                    <input id="datepicker-actions" name="date" datepicker autoSelectToday datepicker-autoselect-today datepicker-autohide datepicker-format="dd-mm-yyyy" type="text"
+                    <input id="datepicker-actions" name="date" datepicker autoSelectToday datepicker-autoselect-today
+                        datepicker-autohide datepicker-format="dd-mm-yyyy" type="text"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Select date" value="{{old('date',$defaultDate ??'')}}">
+                        placeholder="Select date" value="{{ old('date', $defaultDate ?? '') }}">
                 </div>
                 <button id="btnSearch" type="submit"
                     class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Search</button>
@@ -35,8 +49,7 @@
                     <div class="hallType">
                         Big
                     </div>
-                    <form
-                        action="{{ route('hallTimeSlot.create', ['hallID' => $hall->hall_id, 'date' => $defaultDate]) }}"
+                    <form action="{{ route('hallTimeSlot.create', ['hallID' => $hall->hall_id, 'date' => $defaultDate]) }}"
                         method="GET" class="inline-block">
                         @csrf
                         <button id="btnAddTimeSlot" type="submit"
@@ -92,7 +105,7 @@
                                         class="timeslots focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Search</button>
                                 @endif
                             @endforeach
-                                        
+
                         </div>
                     </div>
                 </div>
@@ -100,7 +113,9 @@
 
         </div>
 
+    @endsection
 
-
-
-</x-admin-Layout>
+    <!-- all js for this page -->
+    @push('scripts')
+        @vite(['resources/js/admin/hallTimeSlot/index.js'])
+    @endpush

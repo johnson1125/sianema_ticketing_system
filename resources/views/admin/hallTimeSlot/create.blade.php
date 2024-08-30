@@ -1,6 +1,16 @@
-@vite(['resources/css/admin/hallTimeSlot/create.css'])
-<x-admin-Layout>
+<!-- using the master page layout -->
+@extends('layouts.masterAdmin')
 
+<!-- The title for this page -->
+@section('title', 'Add Hall Time Slot')
+
+<!-- all css for this page -->
+@push('styles')
+    @vite(['resources/css/admin/hallTimeSlot/create.css'])
+@endpush
+
+<!-- html for this page -->
+@section('content')
     <div id="container">
 
         <div id="section1"class="relative overflow-x-auto shadow-md sm:rounded-lg bg-gray-50">
@@ -95,70 +105,249 @@
                 </ul>
             </div>
             <div id="time-slot-type-content">
-                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="movie" role="tabpanel"
-                    aria-labelledby="movie-tab">
-                    <div id="movieSection1">
-                        <form method="POST" id="dateInputForm" action="{{ route('hallTimeSlot.store') }}">
-                            @csrf
+                <div id='timeSlotContainer'>
+                    <div class="timeSlotHeader">
+                        <div class='timeSlotHeader-1'>
+                            <div class="hallName">
+                                {{-- {{ $hall->hall_id }} --}}
+                            </div>
+                            <div class="hallType">
+                                Big
+                            </div>
+                        </div>
+                        <div class="timeSlotHeader-2">
+                            <h6>Time Slots</h6>
+                        </div>
+                    </div>
+                    <div class="timeSlotBody">
+                        <div class="timeHeaderContainer">
+                            <div class="timeHeader">10am</div>
+                            <div class="timeHeader">11am</div>
+                            <div class="timeHeader">12pm</div>
+                            <div class="timeHeader">1pm</div>
+                            <div class="timeHeader">2pm</div>
+                            <div class="timeHeader">3pm</div>
+                            <div class="timeHeader">4pm</div>
+                            <div class="timeHeader">5pm</div>
+                            <div class="timeHeader">6pm</div>
+                            <div class="timeHeader">7pm</div>
+                            <div class="timeHeader">8pm</div>
+                            <div class="timeHeader">9pm</div>
+                            <div class="timeHeader">10pm</div>
+                            <div class="timeHeader">11pm</div>
+                            <div class="timeHeader">12am</div>
+                            <div class="timeHeader">1am</div>
+                            <div class="timeHeader">2am</div>
+                        </div>
+                        <div class="timeSlotsContainer">
+                            <div class="timeSlotbackground">
+                                <div class="emptySpace"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div id="backLine" class="emptySpace"></div>
+                            </div>
+                            <div class="timeSlotItemContainer">
+                                {{-- @foreach ($hallTimeSlots as $hallTimeSlot)
+                                @if ($hallTimeSlot->hall_id == $hall->hall_id)
+                                    <button id="{{ $hallTimeSlot->hall_time_slot_id }}" type="button"
+                                        class="timeslots focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Search</button>
+                                @endif
+                            @endforeach
+                                         --}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <form method="POST" id="movieTimeSlotForm" action="{{ route('hallTimeSlot.store') }}">
+                    <div class="tab-content hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="movie"
+                        role="tabpanel" aria-labelledby="movie-tab">
+
+                        @csrf
+                        <div id="movieSection1">
+
                             <div id="movieSection1-1">
-                                <div>
-                                    <label for="countries"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an
-                                        option</label>
+                                <div class='selector'>
+                                    <label for="movies"
+                                        class="movieLabel block mb-2 text-sm font-medium text-gray-900 dark:text-white">Movie</label>
                                     <select multiple id="movies" name="movies[]"
-                                        class="select2 js-states form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        style="width: 30%">
+                                        class="select2 js-states form-control bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        style="width: 80%">
                                         {{-- Get Dynamic option from controller (halltimeSlot.create) --}}
                                         {{-- old() - the option will be selected if the previous input have selected it  --}}
                                         {{-- Use post method to post input data back to controller (halltimeSlot.store) --}}
                                         {{-- use style="width: 30%" to adjust width" --}}
                                         {{-- refer halltimeSlot/create/.js for the usage of select2 --}}
                                         {{-- remove multiple if only select for one --}}
-                                        {{-- can refer to select2 documentation for additional configuration--}}
-                                        @foreach ($countries as $country)
-                                            <option value="{{ $country['code'] }}"
-                                                {{ in_array($country['code'], old('movies', [])) ? 'selected' : '' }}>
-                                                {{ $country['name'] }}
+                                        {{-- can refer to select2 documentation for additional configuration --}}
+                                        @foreach ($movies as $movie)
+                                            <option value="{{ $movie['code'] }}"
+                                                {{ in_array($movie['code'], old('movies', [])) ? 'selected' : '' }}>
+                                                {{ $movie['name'] }}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
 
-                                <div>
-                                    <label for="startTime">Movie Start Time :</label>
+                                <div class=startTimeInput>
+                                    <label class="movieLabel" for="startTime">Movie Start Time</label>
                                     <input name="startTime" id="startTime"
                                         class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         type="text" value="old('startTime','10:00AM')" />
                                 </div>
 
+                                <div class=durationDisplay>
+                                    <label class="movieLabel" for="duration">Movie Duration</label>
+                                    <input id="duration"
+                                        class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        type="text" value="old('duration','10:00AM')" disabled />
+                                </div>
+
+                                <div class=endTimeDisplay>
+                                    <label class="movieLabel" for="endTime">Movie End Date </label>
+                                    <input id="endTime"
+                                        class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        type="text" value="old('endTime','10:00AM')" disabled />
+                                </div>
+
                                 <div>
-                                    <button type="submit">Submit</button>
+
 
 
                                 </div>
-                        </form>
-                        <div id="movieSection1-2">
 
+
+                            </div>
+                            <div id="movieSection1-2">
+                                <div id=movPhotoContainer>
+                                    <img id="movPhoto" src="" alt="Photo">
+                                </div>
+
+                                <div id="btnContainer">
+                                    <button id="btnMovieDetails" type="submit"
+                                        class="btn focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Movie
+                                        Details</button>
+                                </div>
+                            </div>
                         </div>
+                        <div id="movieSection2">
+
+                            <button id="btnCancelMovie" type="submit"
+                                class="btn focus:outline-none text-white bg-red-600 hover:bg-red-700 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Cancel</button>
+                            <button id="btnSaveMovie" type="submit"
+                                class="btn focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
+                        </div>
+
                     </div>
-                </div>
-                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="maintenance" role="tabpanel"
-                    aria-labelledby="maintenance-tab">
-                    <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong
-                            class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated
-                            content</strong>. Clicking another tab will toggle the visibility of this one for the
-                        next.
-                        The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                    {!! $result !!}
-                </div>
+                </form>
+
+
+                <form method="POST" id="movieTimeSlotForm" action="{{ route('hallTimeSlot.store') }}">
+                    <div class="tab-content hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="maintenance"
+                        role="tabpanel" aria-labelledby="maintenance-tab">
+
+                        @csrf
+                        <div id="maintenanceSection1">
+
+                            <div id="maintenanceSection1-1">
+                                <div class='selector'>
+                                    <label for="maintenances"
+                                        class="maintenanceLabel block mb-2 text-sm font-medium text-gray-900 dark:text-white">Maintenance</label>
+                                    <select id="maintenances" name="maintenance"
+                                        class="select2 js-states form-control bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        style="width: 80%">
+                                        {{-- Get Dynamic option from controller (halltimeSlot.create) --}}
+                                        {{-- old() - the option will be selected if the previous input have selected it  --}}
+                                        {{-- Use post method to post input data back to controller (halltimeSlot.store) --}}
+                                        {{-- use style="width: 30%" to adjust width" --}}
+                                        {{-- refer halltimeSlot/create/.js for the usage of select2 --}}
+                                        {{-- remove multiple if only select for one --}}
+                                        {{-- can refer to select2 documentation for additional configuration --}}
+                                        @foreach ($movies as $movie)
+                                            <option value="{{ $movie['code'] }}"
+                                                {{ in_array($movie['code'], old('movies', [])) ? 'selected' : '' }}>
+                                                {{ $movie['name'] }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class=startTimeInput>
+                                    <label class="maintenanceLabel" for="startTime">Maintenance Start Time</label>
+                                    <input name="startTime" id="startTime"
+                                        class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        type="text" value="old('startTime','10:00AM')" />
+                                </div>
+
+
+
+                                <div>
+
+
+
+                                </div>
+
+
+                            </div>
+                            <div id="maintenanceSection1-2">
+                                <div class=durationDisplay>
+                                    <label class="maintenanceLabel" for="duration">Maintenance Duration</label>
+                                    <input id="duration"
+                                        class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        type="text" value="old('duration','10:00AM')" disabled />
+                                </div>
+
+                                <div class=endTimeDisplay>
+                                    <label class="maintenanceLabel" for="endTime">Maintenance End Date </label>
+                                    <input id="endTime"
+                                        class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        type="text" value="old('endTime','10:00AM')" disabled />
+                                </div>
+                            </div>
+                        </div>
+                        <div id="maintenanceSection2">
+                            <button id="btnMaintenanceDetails" type="submit"
+                                class="btn focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Maintenance Details</button>
+                        </div>
+                        <div id="maintenanceSection3">
+
+                            <button id="btnCancelMaintenance" type="submit"
+                                class="btn focus:outline-none text-white bg-red-600 hover:bg-red-700 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Cancel</button>
+                            <button id="btnSaveMaintenance" type="submit"
+                                class="btn focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
+                        </div>
+                        {!! $users !!}
+                    </div>
+                </form>
+
 
             </div>
-
 
         </div>
 
 
+    </div>
 
 
-</x-admin-Layout>
-@vite(['resources/js/admin/hallTimeSlot/create.js'])
+
+@endsection
+
+<!-- all js for this page -->
+@push('scripts')
+    @vite(['resources/js/admin/hallTimeSlot/create.js'])
+@endpush
