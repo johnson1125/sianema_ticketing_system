@@ -7,14 +7,12 @@ use App\Http\Controllers\HallTimeSlotController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\MovieController;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::view('/', 'home')->name('home');
 
 //to show how to use master page.
-Route::get('/test', function () {
-    return view('userManagement.test');
-});
+Route::view('/test', 'userManagement.test')->name('test');
+
+Route::view('/privacyPolicy', 'policy')->name('policy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
