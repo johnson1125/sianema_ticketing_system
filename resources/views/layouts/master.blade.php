@@ -19,7 +19,6 @@
 
     <!-- Main Content -->
     <div class="content">
-        <h1>Testing</h1>
         @yield('content')
     </div>
 
