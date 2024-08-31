@@ -1,14 +1,10 @@
-<!-- Scripts and css used (put them in master.blade.php) -->
+<!-- Scripts and css used (put them in head element of master.blade.php) -->
 <!-- 
 'resources/js/layout/navigation.js'
 'resources/css/navigation.css' 
 -->
 
 <!-- Navigation bar -->
-
-
-
-
 <nav class="bg-gray-800 border-gray-700">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
