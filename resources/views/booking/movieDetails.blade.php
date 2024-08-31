@@ -1,7 +1,18 @@
-@vite(['resources/css/booking/movieDetails.css'])
-<x-app-layout>
+<!-- using the master page layout -->
+@extends('layouts.master')
+
+<!-- The title for this page -->
+@section('title', 'MovieDetails')
+
+<!-- all css for this page -->
+@push('styles')
+    @vite(['resources/css/booking/movieDetails.css'])
+@endpush
+
+<!-- html for this page -->
+@section('content')
     <div class="movie-details-container" id="MovieDetailsContainer">
-        <img id="movieCoverPhoto" src="" />
+        <img id="movieCoverPhoto" src="{{ route('movie.coverPhoto', $movie->movie_id) }} ">
 
         <div class="movie-details-information-container">
 
@@ -93,4 +104,9 @@
     </div>
 
 
-</x-app-layout>
+    @endsection
+
+    <!-- all js for this page -->
+    @push('scripts')
+        {{-- @vite(['']) --}}
+    @endpush

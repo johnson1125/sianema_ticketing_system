@@ -1,6 +1,16 @@
-@vite(['resources/css/booking/movie.css'])
-<x-app-layout>
+<!-- using the master page layout -->
+@extends('layouts.master')
 
+<!-- The title for this page -->
+@section('title', 'Home')
+
+<!-- all css for this page -->
+@push('styles')
+    @vite(['resources/css/booking/movie.css'])
+@endpush
+
+<!-- html for this page -->
+@section('content')
     <div id="container">
 
         <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span
@@ -10,8 +20,7 @@
         <div class="movie-row">
             @foreach ($movies as $movie)
                 <div class="card view">
-                    <img id="moviePoster" height="400" width="300" src="{{ $movie->poster_url }}"
-                        alt="{{ $movie->name }}">
+                    <img id="moviePoster" src="{{ route('movie.posterPhoto', $movie->movie_id) }}">
                     <div class="mask">
                         <div class="col">
                             <ul class="deco">
@@ -39,4 +48,9 @@
 
 
     </div>
-</x-app-layout>
+@endsection
+
+<!-- all js for this page -->
+@push('scripts')
+    {{-- @vite(['']) --}}
+@endpush
