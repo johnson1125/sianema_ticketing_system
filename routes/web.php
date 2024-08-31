@@ -13,6 +13,7 @@ Route::view('/', 'home')->name('home');
 Route::view('/test', 'userManagement.test')->name('test');
 
 Route::view('/privacyPolicy', 'policy')->name('policy');
+Route::view('/termsAndCondition', 'terms')->name('terms');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
