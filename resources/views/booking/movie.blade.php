@@ -2,7 +2,7 @@
 @extends('layouts.master')
 
 <!-- The title for this page -->
-@section('title', 'Home')
+@section('title', 'Movie')
 
 <!-- all css for this page -->
 @push('styles')

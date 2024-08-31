@@ -49,11 +49,13 @@ Route::middleware('auth', 'verified')->group(function () {
 
 
 
-Route::get('movies', [BookingController::class, 'fetchAllMovies'])->name('movies');
-Route::get('movies/{movie_id}', [BookingController::class, 'movieDetails'])->name('movies.details');
-Route::post('/date-button-click', [BookingController::class, 'dateButtonClick'])->name('dateButtonClick');
-Route::get('movie-coverPhoto/{movie_id}', [BookingController::class, 'getMovieCoverPhoto'])->name('movie.coverPhoto');
-Route::get('movie-posterPhoto/{movie_id}', [BookingController::class, 'getMoviePoster'])->name('movie.posterPhoto');
+Route::get('booking-movies', [BookingController::class, 'fetchAllMovies'])->name('movies');
+Route::get('booking-movies/{movie_id}', [BookingController::class, 'movieDetails'])->name('movies.details');
+Route::post('booking-date-button-click', [BookingController::class, 'dateButtonClick'])->name('dateButtonClick');
+Route::get('booking-movie-cover-photo/{movie_id}', [BookingController::class, 'getMovieCoverPhoto'])->name('movie.coverPhoto');
+Route::get('booking-movie-poster-photo/{movie_id}', [BookingController::class, 'getMoviePoster'])->name('movie.posterPhoto');
+Route::get('booking-movieSeat', [BookingController::class, 'timeSlotSelect'])->name('timeSlotSelect');
+
 
 
 
