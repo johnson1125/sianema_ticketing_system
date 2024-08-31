@@ -21,3 +21,4 @@ sianematicketingsystem.sql
 database/seeders/HallsTableTestDataSeeder.php
 database/seeders/HallTimeSlotsTableTestDataSeeder.php
 database/seeders/MoviesTableTestDataSeeder.php
+oldStuff.blade.php

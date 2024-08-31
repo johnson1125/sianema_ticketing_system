@@ -20,7 +20,9 @@ export default {
                 xl: "1440px",
             },
             colors: {
-                "admin": colors.neutral,
+                admin: colors.neutral,
+                "sianema-green": "var(--sianema-green)",
+                "button-green": "var(--button-green)",
             },
             fontFamily: {
                 sans: ["Calibri", "sans-serif"],
@@ -39,9 +41,9 @@ export default {
     },
 
     plugins: [
-        require('flowbite/plugin')({
+        require("flowbite/plugin")({
             datatables: true,
         }),
     ],
-    darkMode:'false',
+    darkMode: "false",
 };
