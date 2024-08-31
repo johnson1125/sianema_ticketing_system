@@ -42,5 +42,23 @@ class BookingController extends Controller
         return redirect()->back();
     }
 
+    public function getMoviePoster($id)
+        {
+            $movie = Movie::find($id);
+            $posterData = $movie->movie_poster;
+            
+
+            return response()->make($posterData, 200)
+                ->header('Content-Type', 'image/jpeg');
+        }
+
+        public function getMovieCoverPhoto($id)
+        {
+            $movie = Movie::find($id);
+            $imageData = $movie->movie_cover_photo;
+
+            return response()->make($imageData, 200)
+                ->header('Content-Type', 'image/jpeg');
+        }
 
 }
