@@ -12,10 +12,7 @@
     @stack('styles')
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        @include('layouts.adminNavigation')
-    </header>
+    @include('layouts.adminNavigation')
 
 
     <!-- Main Content -->

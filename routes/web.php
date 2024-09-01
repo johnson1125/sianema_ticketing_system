@@ -39,10 +39,12 @@ Route::get('admin', [HallTimeSlotController::class,'index']);
 
 Route::middleware('auth', 'verified')->group(function () {
     Route::get('admin/hall-time-slot/{date?}', [HallTimeSlotController::class,'index'])->name('hallTimeSlot')->defaults('date', date('d-m-Y')) ;
-    Route::post('submit-form', [HallTimeSlotController::class,'getDate'])->name('hallTimeSlot.getDate');
-    Route::post('submit-form-1', [HallTimeSlotController::class,'store'])->name('hallTimeSlot.store');
-    Route::get('admin/hall-time-slot/create/{hallID}_{date}', [HallTimeSlotController::class,'create'])->name('hallTimeSlot.create');
+    Route::get('admin/hall-time-slot/create/{hallID}_{date}/{activeTab?}', [HallTimeSlotController::class,'create'])->name('hallTimeSlot.create')->defaults('activeTab', 'Movie');
+    Route::get('admin/hall-time-slot/create/{hallID}_{date}/{maintenanceID}/details', [HallTimeSlotController::class,'showMaintenanceDetails'])->name('hallTimeSlot.showMaintenanceDetails');
+    Route::post('date-input', [HallTimeSlotController::class,'getDate'])->name('hallTimeSlot.getDate');
+    Route::post('hallTimeSlot-input/{hallID}_{date}_{hallTimeSlotType}', [HallTimeSlotController::class,'store'])->name('hallTimeSlot.store');
     Route::get('hall-time-slot-data', [HallTimeSlotController::class,'getHallTimeSlotData']);
+    Route::get('maintenance-data/{maintenanceID}', [HallTimeSlotController::class,'getMaintenanceData']);
 });
 
 

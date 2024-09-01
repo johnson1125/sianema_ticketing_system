@@ -11,11 +11,9 @@
     <!-- Additional CSS -->
     @stack('styles')
 </head>
-<body class="bg-black">
-    <!-- Header -->
-    <header>
-        @include('layouts.navigation')
-    </header>
+<body>
+    @include('layouts.navigation')
+
 
     <!-- Main Content -->
     <div class="content">
