@@ -31,18 +31,24 @@ $(document).ready(function () {
                 );
                 const timeSlotPosition = `${startSlotIndex} / span ${span}`;
 
+
+
                 updates.push({
                     element: $button,
                     gridColumn: timeSlotPosition,
+                    bg_color: (timeslot.timeSlotType == 'Maintenance')? 'bg-red-700' : 'bg-green-700',
+                    bg_color_hover: (timeslot.timeSlotType == 'Maintenance')? 'bg-red-800' : 'hover:bg-green-800',
                 });
             }
         });
 
         // Apply all updates in a single reflow
         requestAnimationFrame(() => {
-            updates.forEach(({ element, gridColumn }) => {
+            updates.forEach(({ element, gridColumn,bg_color,bg_color_hover }) => {
                 element.css("grid-column", gridColumn);
                 element.css("display", "block");
+                element.addClass(bg_color);
+                element.addClass(bg_color_hover);
             });
         });
     }

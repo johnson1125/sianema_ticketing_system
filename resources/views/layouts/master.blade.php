@@ -12,10 +12,8 @@
     @stack('styles')
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        @include('layouts.navigation')
-    </header>
+    @include('layouts.navigation')
+
 
     <!-- Main Content -->
     <div class="content">
