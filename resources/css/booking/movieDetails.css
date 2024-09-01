@@ -1,21 +1,22 @@
 .movie-details-container {
     position: relative;
-    margin-top: 30px;
     display: flex;
     justify-content: center;
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.90) 50%); 
 
     #movieCoverPhoto {
         width: 100%;
         height: 700px;
-        object-fit: cover;
         object-position: center;
-        -webkit-mask-image: linear-gradient(to top, transparent 9%, black 80%);
+        position: relative;
+        z-index:-1;
     }
 
     .movie-details-information-container {
         width: 70%;
         position: absolute;
         bottom: 20px;
+        color:white;
     
         #movieName{
             font-size: 50px;
@@ -25,6 +26,10 @@
             display: flex;
             gap: 5%;
             padding-bottom : 10px;
+
+            li{
+                font-size:18px;
+            }
         }
     
         .movie-details-info2 {
@@ -34,6 +39,10 @@
 
             h4{
                 font-size: 25px;
+            }
+
+            li{
+                font-size:18px;
             }
         }
 
@@ -48,7 +57,6 @@
     display: flex;
     justify-content: center;
     background: #141415;
-    height: 100px;
 
     .cinema-date-selection {
         width: 70%;
@@ -64,7 +72,7 @@
             width: 100%;
         
             li {
-                width: 10%;
+                width: 15%;
 
                 .date-button {
                     background-color: #141415;
@@ -74,15 +82,26 @@
                     text-decoration: none;
                     display: inline-block;
                     font-size: 20px;
+                    padding:15px 10px 15px 10px;
                     transition: background-color 0.3s, color 0.3s;
                     height: 100%;
                     width: 100%;
+                    font-size: 25px;
+
+                }
+
+                .highlighted {
+                    background-color: #008000; /* Highlight color */
+                    color: white; /* Text color for highlighted button */
+                    font-weight: bold; /* Optional: Make text bold */
                 }
 
                 .date-button:hover {
                     background-color: #008000;
-                    color: #ffffff;
+                    color: #ffffff;                   
                 }
+
+                
             }
         }
     }
@@ -106,7 +125,9 @@
 
         .classic-header {
             font-weight: 1000;
+            font-size:40px;
             padding: 40px 0px 30px 40px;
+            color:white;
         }
 
         .chair-image-container {
