@@ -14,9 +14,7 @@ use App\Http\Controllers\XMLToHTMLController;
 
 class HallTimeSlotController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index($date)
     {
         $halls = Hall::all();
@@ -35,9 +33,9 @@ class HallTimeSlotController extends Controller
         return redirect()->route('hallTimeSlot', ['date' => $date]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+  
+    //TODO
+    //Pass in Movie Data
     public function create($hallID, $date, $activeTab)
     {
         $hall = Hall::where('hall_id', $hallID)->first();
@@ -69,6 +67,7 @@ class HallTimeSlotController extends Controller
         //Convert json to xml
         //Pass Json and xml root element as
         $xml = XMLextensionsController::convertJsonToXMLString($response, 'users');
+        dd($xml);
 
         //Convert xml to html
         $users = XMLExtensionsController::XMLStringToHTML($xml, 'xsl/userDetails.xsl');
@@ -90,13 +89,12 @@ class HallTimeSlotController extends Controller
         return view('/admin/hallTimeSlot.create', compact('hall', 'movies', 'users', 'maintenanceOption', 'date', 'activeTab', 'hallTimeSlots'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    //TODO
+   //Store movie
+   //Create movieSeat
+   //Add maintenance record
     public function store(Request $request, $hallID, $date, $hallTimeSlotType)
     {
-        //Validation 
-        //Check TimeSlot availabiility
         $movieID = $request->input('movie');
         $maintenanceID = $request->input('maintenance');
 
@@ -127,7 +125,6 @@ class HallTimeSlotController extends Controller
         $dateTimeString = $date . ' ' . $startTime;
         $dateTime = DateTime::createFromFormat('d-m-Y H:i A', $dateTimeString);
         $formatedDateTime = $dateTime->format('Y-m-d H:i:s');
-
         $hallTimeSLotID = $this->generateHallTimeSlotID($hallID, $hallTimeSlotDate, $startTime);
 
         if ($hallTimeSlotType == 'Maintenance') {
@@ -158,41 +155,49 @@ class HallTimeSlotController extends Controller
     /**
      * Display the specified resource.
      */
+    //TODO
+    //Show Hall Time Slot 
+    //Based on hallTimeSlot ID return different view 
     public function show(HallTimeSlot $hallTimeSlot)
     {
         //
     }
 
+
+    //TODO
+    //Show Movie Details
+    //Based on movie ID 
+    public function showMovieDetails(){}
+
     public function showMaintenanceDetails($hallID, $date, $maintenanceID)
     {
         $response = Http::get('http://127.0.0.1:5001/api/maintenances?maintenanceID=' . $maintenanceID);
         $xml = XMLextensionsController::convertJsonToXMLString($response, 'maintenances');
-        // dd($xml);
+        dd($xml);
         //Convert xml to html
         $maintenanceData = XMLExtensionsController::XMLStringToHTML($xml, 'xsl/maintenanceDetails.xsl');
         // dd($maintenanceData);
         return view('/admin/hallTimeSlot.maintenanceDetails', compact('maintenanceData', 'hallID', 'date'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+   //TODO
+   //Edit hallTimeSlot
     public function edit(HallTimeSlot $hallTimeSlot)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+   //TODO
+   //Based on the modiification 
+   //Do the relevant update
+   //Update hallTImeSLot
+   //Update movieSeat
     public function update(Request $request, HallTimeSlot $hallTimeSlot)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   //No Delete
     public function destroy(HallTimeSlot $hallTimeSlot)
     {
         //
@@ -218,7 +223,8 @@ class HallTimeSlotController extends Controller
         return response()->json($hallTimeSlots);
     }
 
-
+    //TODO
+    //Apply design pattern 
     function isTimeSlotAvailable($date, $startTime, $duration, $timeSlots)
     {
         // Convert start time to DateTime object
@@ -255,6 +261,7 @@ class HallTimeSlotController extends Controller
         if ($endDateTime > $limitEndTime) {
             return 'InvalidEndTime'; // End time exceeds 2 AM
         }
+        
 
         // Check for overlap with existing time slots
         foreach ($timeSlots as $slot) {
