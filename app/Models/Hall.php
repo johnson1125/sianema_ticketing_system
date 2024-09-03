@@ -11,6 +11,21 @@ class Hall extends Model
     use HasFactory;
     protected $table = 'halls';
 
+    protected $primaryKey = 'hall_id';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected $fillable = [
+        'hall_id',
+        'hall_name',
+        'hall_type',
+        'status',
+    ];
+
+    protected $casts = [
+        'status' => 'string',
+    ];
+    
     public function seats(): HasMany
     {
         return $this->hasMany(Seat::class);
