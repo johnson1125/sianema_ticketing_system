@@ -12,21 +12,16 @@
     @stack('styles')
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        @include('layouts.navigation')
-    </header>
+    @include('layouts.navigation')
+
 
     <!-- Main Content -->
     <div class="content">
-        <h1>Testing</h1>
         @yield('content')
     </div>
 
     <!-- Footer -->
-    <footer>
-        <!-- Your footer content goes here -->
-    </footer>
+     @include('layouts.footer')
 
     <!-- Common JS -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>

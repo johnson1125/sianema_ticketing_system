@@ -17,11 +17,15 @@ class DatabaseSeeder extends Seeder
         $this->call([
             HallTimeSlotsTableSeeder::class,
             UsersTableSeeder::class,
+            
           
             //Test Data
             // HallsTableTestDataSeeder::class,
             // MoviesTableTestDataSeeder::class,
             // HallTimeSlotsTableTestDataSeeder::class
+
+            //HallTimeSlot Test Data
+            // HallTimeSlotDataSeeder::class
         ]);
 
     

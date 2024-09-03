@@ -1,4 +1,3 @@
-
 <!-- using the master page layout -->
 @extends('layouts.masterAdmin')
 
@@ -7,19 +6,20 @@
 
 <!-- all css for this page -->
 @push('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
     @vite(['resources/css/admin/hallTimeSlot/index.css'])
 @endpush
 
 <!-- html for this page -->
 @section('content')
     <div id="container">
-
+        @if (session('message'))
+            <script>
+                alert(session('message'));
+            </script>
+        @endif
         <div id="section1">
             <h6>Manage Hall Timeslot </h6>
-
-
-
-
             <form id="dateInputForm" action="{{ route('hallTimeSlot.getDate') }}" method="POST">
                 @csrf
                 <div id="datePicker" class="relative max-w-sm">
@@ -49,13 +49,14 @@
                     <div class="hallType">
                         Big
                     </div>
-                    <form action="{{ route('hallTimeSlot.create', ['hallID' => $hall->hall_id, 'date' => $defaultDate]) }}"
-                        method="GET" class="inline-block">
-                        @csrf
-                        <button id="btnAddTimeSlot" type="submit"
+
+                    <div class="btnAddTimeSlot">
+                        <a href="{{ route('hallTimeSlot.create', ['hallID' => $hall->hall_id, 'date' => $defaultDate]) }}"
                             class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add
-                            TimeSlot</button>
-                    </form>
+                            TimeSlot</a>
+                    </div>
+
+
                 </div>
                 <div class="timeSlotBody">
                     <div class="timeHeaderContainer">
@@ -102,9 +103,12 @@
                             @foreach ($hallTimeSlots as $hallTimeSlot)
                                 @if ($hallTimeSlot->hall_id == $hall->hall_id)
                                     <button id="{{ $hallTimeSlot->hall_time_slot_id }}" type="button"
-                                        class="timeslots focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Search</button>
+                                        class="timeSlots focus:outline-none text-white focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">{{ $hallTimeSlot->timeSlotName }}</button>
                                 @endif
                             @endforeach
+                       
+                            
+
 
                         </div>
                     </div>
@@ -117,5 +121,6 @@
 
     <!-- all js for this page -->
     @push('scripts')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
         @vite(['resources/js/admin/hallTimeSlot/index.js'])
     @endpush

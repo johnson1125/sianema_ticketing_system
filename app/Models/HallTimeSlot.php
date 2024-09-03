@@ -10,7 +10,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class HallTimeSlot extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'hall_id';  // Custom primary key
+    public $incrementing = false;    // If the primary key is not an auto-incrementing integer
+    protected $keyType = 'string';  
 
+    protected $fillable = [
+        'hall_time_slot_id',
+        'startDateTime',
+        'duration',
+        'timeSlotType',
+        'hall_id',
+        'movie_id',
+        'maintenance_id'
+    ];
+   
     public function hall(): BelongsTo
     {
         return $this->belongsTo(Hall::class);

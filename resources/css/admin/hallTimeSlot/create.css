@@ -1,35 +1,27 @@
 #container {
-    /* #section1 {
+    #section1 {
         border-bottom-width: 2px;
         margin-bottom: 30px;
         display: flex;
         flex-direction: row;
         padding-bottom: 20px;
 
-        
-
-        #datePicker {
-            flex-grow: 1;
+        h6 {
+            font-size: larger;
+            font-weight: bold;
             align-self: center;
-            justify-self: center;
-            margin-right: 20px;
-        }
-        #btnSearch {
-            align-self: center;
-            justify-self: center;
             flex-grow: 1;
-            margin: 0px;
-            font-size: small;
         }
-    } */
 
-    #section1 {
+    }
+
+    #section2 {
         display: flex;
         flex-direction: column;
         padding-top: 20px;
         padding-left: 20px;
         padding-right: 20px;
-        height: calc(75vh);
+        height: calc(70vh);
 
         .tabContainer {
             ul {
@@ -53,18 +45,20 @@
                     margin-left: 20px;
                     .timeSlotHeader-1 {
                         flex-grow: 1;
+                        display: flex;
+                        flex-direction: row;
                         .hallName {
                             font-size: medium;
                             align-self: center;
                             justify-self: center;
-                            flex-grow: 1;
+                            width: 20%;
                         }
 
                         .hallType {
                             font-size: medium;
                             align-self: center;
                             justify-self: center;
-                            flex-grow: 1;
+                            width: 20%;
                         }
                     }
 
@@ -81,7 +75,7 @@
                 .timeSlotBody {
                     overflow-x: auto;
                     margin-bottom: 15px;
-                    height: 100px;
+                    height: 120px;
                     .timeHeaderContainer {
                         display: grid;
                         width: 1500px;
@@ -91,26 +85,26 @@
                             justify-self: center;
                         }
                     }
-
+        
                     .timeSlotsContainer {
                         position: relative;
                         width: 100%;
-                        height: 50px;
-
+                        height: 70px;
+        
                         .timeSlotbackground {
                             width: 1500px;
                             position: absolute;
                             z-index: 1;
                             display: flex;
                             flex-direction: row;
-
+        
                             .emptySpace {
                                 width: 2.94%;
                             }
                             .timeSlotLineContainer {
                                 display: grid;
                                 width: 100%;
-                                grid-template-rows: 50px;
+                                grid-template-rows: 80px;
                                 background: linear-gradient(
                                         to right,
                                         black 1px,
@@ -120,29 +114,53 @@
                             }
                             .line {
                                 width: 5.8825%;
-                                height: 50px;
+                                height: 75px;
                                 border-left: ridge #6b7280 1px;
                             }
                             #backLine {
                                 border-left: ridge #6b7280 1px;
                             }
                         }
-
+        
                         .timeSlotItemContainer {
                             display: grid;
                             position: absolute;
-                            top: 5px;
+                            top: 7.5px;
                             width: 1500px;
                             grid-template-columns:
                                 2.94% [start] repeat(64, 1.47% [timeSlot])
                                 2.94% [end];
-                            grid-template-rows: 50px;
+                            grid-template-rows: 70px;
+                            grid-auto-flow: column;
                             z-index: 2;
                             .timeSlots {
                                 margin: 0px;
-                                height: 40px;
+                                height: 60px;
                                 border: solid black 0.25px;
                                 display: none;
+                                font-size: 12px; /* Adjust font size relative to viewport width */
+                                white-space: wrap;
+                                text-overflow: ellipsis;
+                            }
+        
+                            .bg-green-700 {
+                                --tw-bg-opacity: 1;
+                                background-color: rgb(4 108 78 / var(--tw-bg-opacity)) /* #046c4e */;
+                            }
+        
+                            .bg-green-800:hover {
+                                --tw-bg-opacity: 1;
+                                background-color: rgb(3 84 63 / var(--tw-bg-opacity)) /* #03543f */;
+                            }
+        
+                            .bg-red-700 {
+                                --tw-bg-opacity: 1;
+                                background-color: rgb(200 30 30 / var(--tw-bg-opacity)) /* #c81e1e */;
+                            }
+        
+                            .bg-red-800:hover {
+                                --tw-bg-opacity: 1;
+                                background-color: rgb(155 28 28 / var(--tw-bg-opacity)) /* #9b1c1c */;
                             }
                         }
                     }
@@ -163,6 +181,7 @@
                         flex-grow: 1;
                         display: flex;
                         flex-direction: column;
+                        justify-items: center;
                         .movieLabel {
                             font-size: 16px;
                             line-height: 1.25rem /* 20px */;
@@ -196,7 +215,7 @@
                         .durationDisplay {
                             flex-grow: 1;
                             width: 80%;
-                            #duration {
+                            #movieDuration {
                                 background-color: #c6ccda;
                             }
                         }
@@ -204,7 +223,7 @@
                         .endTimeDisplay {
                             flex-grow: 1;
                             width: 80%;
-                            #endTime {
+                            #movieEndTime {
                                 background-color: #c6ccda;
                             }
                         }
@@ -295,7 +314,7 @@
                         .durationDisplay {
                             flex-grow: 1;
                             width: 80%;
-                            #duration {
+                            #maintenanceDuration {
                                 background-color: #c6ccda;
                             }
                         }
@@ -303,7 +322,7 @@
                         .endTimeDisplay {
                             flex-grow: 1;
                             width: 80%;
-                            #endTime {
+                            #maintenanceEndTime {
                                 background-color: #c6ccda;
                             }
                         }

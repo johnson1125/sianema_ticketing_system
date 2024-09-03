@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.root,
+#root,
+#docs-root,
+:root {
+  --sianema-green: #6ae500;
+  --button-green: #214700;
+}
