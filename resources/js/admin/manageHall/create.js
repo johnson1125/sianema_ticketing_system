@@ -22,13 +22,13 @@ function updateHallInfo() {
             let imageName = '';
             switch (hallType) {
                 case 'Standard':
-                    imageName = 'standard_hall.png';
+                    imageName = 'standardHall.png';
                     break;
                 case 'Premium':
-                    imageName = 'premium_hall.png';
+                    imageName = 'premiumHall.png';
                     break;
                 case 'Family':
-                    imageName = 'family_hall.png';
+                    imageName = 'familyHall.png';
                     break;
                 default:
                     break;

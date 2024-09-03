@@ -19,9 +19,9 @@
                                     @endphp
                                     @if($seat)
                                         @if($seat->status === 'open')
-                                        <img class="seatImg" src="{{ asset('images/Standard_seat.png')}}" alt="Seat {{ $seat->seat_id }}">
+                                        <img class="seatImg" src="{{ asset('images/singleseat.png')}}" alt="Seat {{ $seat->seat_id }}">
                                         @else
-                                        <img class="seatImg" src="{{ asset('images/Unavailable_Standard_seat.png')}}" alt="Seat {{ $seat->seat_id }}">
+                                        <img class="seatImg" src="{{ asset('images/unavailableseat.png')}}" alt="Seat {{ $seat->seat_id }}">
                                         @endif
                                     @endif
                                 @endfor
@@ -33,9 +33,9 @@
                                     @endphp
                                     @if($seat)
                                         @if($seat->status === 'open')
-                                        <img class="seatImg" src="{{ asset('images/Standard_seat.png')}}" alt="Seat {{ $seat->seat_id }}">
+                                        <img class="seatImg" src="{{ asset('images/singleseat.png')}}" alt="Seat {{ $seat->seat_id }}">
                                         @else
-                                        <img class="seatImg" src="{{ asset('images/Unavailable_Standard_seat.png')}}" alt="Seat {{ $seat->seat_id }}">
+                                        <img class="seatImg" src="{{ asset('images/unavailableseat.png')}}" alt="Seat {{ $seat->seat_id }}">
                                         @endif
                                     @endif
                                 @endfor
@@ -47,9 +47,9 @@
                                     @endphp
                                     @if($seat)
                                         @if($seat->status === 'open')
-                                        <img class="seatImg" src="{{ asset('images/Standard_seat.png')}}" alt="Seat {{ $seat->seat_id }}">
+                                        <img class="seatImg" src="{{ asset('images/singleseat.png')}}" alt="Seat {{ $seat->seat_id }}">
                                         @else
-                                        <img class="seatImg" src="{{ asset('images/Unavailable_Standard_seat.png')}}" alt="Seat {{ $seat->seat_id }}">
+                                        <img class="seatImg" src="{{ asset('images/unavailableseat.png')}}" alt="Seat {{ $seat->seat_id }}">
                                         @endif
                                     @endif
                                 @endfor
