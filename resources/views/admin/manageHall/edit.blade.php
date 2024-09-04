@@ -1,3 +1,4 @@
+
 <x-admin-Layout>
     <form id="seat-form" action="{{ route('seat.update', ['hall_id' => $hall->hall_id]) }}" method="POST">
         @csrf
@@ -23,11 +24,11 @@
                                     @if ($seat)
                                         <div class="seat-box">
                                             @if ($seat->status === 'open')
-                                                <img class="standardSeatImg" src="{{ asset('images/singleseat.png') }}"
+                                                <img class="standardSeatImg" src="{{ asset('images/standardSeat.png') }}"
                                                     alt="Seat {{ $seat->seat_id }}">
                                             @else
                                                 <img class="standardSeatImg"
-                                                    src="{{ asset('images/unavailableseat.png') }}"
+                                                    src="{{ asset('images/unavailableStandardSeat.png') }}"
                                                     alt="Seat {{ $seat->seat_id }}">
                                             @endif
                                             <div class="seat-info">{{ $seat->row_letter }}{{ $seat->column_number }}
@@ -47,11 +48,11 @@
                                     @if ($seat)
                                         <div class="seat-box">
                                             @if ($seat->status === 'open')
-                                                <img class="standardSeatImg" src="{{ asset('images/singleseat.png') }}"
+                                                <img class="standardSeatImg" src="{{ asset('images/standardSeat.png') }}"
                                                     alt="Seat {{ $seat->seat_id }}">
                                             @else
                                                 <img class="standardSeatImg"
-                                                    src="{{ asset('images/unavailableseat.png') }}"
+                                                    src="{{ asset('images/unavailableStandardSeat.png') }}"
                                                     alt="Seat {{ $seat->seat_id }}">
                                             @endif
                                             <div class="seat-info">{{ $seat->row_letter }}{{ $seat->column_number }}
@@ -71,11 +72,11 @@
                                     @if ($seat)
                                         <div class="seat-box">
                                             @if ($seat->status === 'open')
-                                                <img class="standardSeatImg" src="{{ asset('images/singleseat.png') }}"
+                                                <img class="standardSeatImg" src="{{ asset('images/standardSeat.png') }}"
                                                     alt="Seat {{ $seat->seat_id }}">
                                             @else
                                                 <img class="standardSeatImg"
-                                                    src="{{ asset('images/unavailableseat.png') }}"
+                                                    src="{{ asset('images/unavailableStandardSeat.png') }}"
                                                     alt="Seat {{ $seat->seat_id }}">
                                             @endif
                                             <div class="seat-info">{{ $seat->row_letter }}{{ $seat->column_number }}
@@ -166,9 +167,9 @@
             </div>
         </div>
         <div class="text-end mt-3">
+            <button type="button" class="cancel" onClick="location.href='{{ route('manage.hall.index') }}';">Cancel</button>
             <button type="submit" class="btn btn-primary">Confirm Modify</button>
         </div>
     </form>
-
-    @vite(['resources/css/admin/manageHall/edit.css'], ['resources/js/admin/manageHall/edit.js'])
+    @vite(['resources/css/admin/manageHall/edit.css','resources/js/admin/manageHall/edit.js'])
 </x-admin-Layout>

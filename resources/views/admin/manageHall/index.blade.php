@@ -1,4 +1,3 @@
-@vite(['resources/css/admin/manageHall/index.css'], ['resources/js/admin/manageHall/index.js'])
 <x-admin-Layout>
     <div class="container">
         <div class="header-container">
@@ -29,7 +28,7 @@
                         </span></td>
                         <td>
                             <div class="actionButtons">
-                                <form action="{{ route('manage.hall.change-status', $hall->hall_id) }}" method="POST">
+                                <form action="{{ route('manage.hall.change-status', $hall->hall_id) }}" method="POST" class="status-form">
                                     @csrf
                                     @method('POST')
                                     <button type="submit" class="btn">Change Hall Status</button>
@@ -43,5 +42,6 @@
             </tbody>
         </table>
     </div>
+    @vite(['resources/css/admin/manageHall/index.css','resources/js/admin/manageHall/index.js'])
 </x-admin-Layout>
 

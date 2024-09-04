@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-actions">
-            <button class="cancel" type="reset">Cancel</button>
+            <button class="cancel" type="reset" onClick="location.href='{{ route('manage.hall.index') }}';">Cancel</button>
             <button class="submit" type="submit">Confirm</button>
         </div>
     </form>
