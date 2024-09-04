@@ -1,3 +1,7 @@
+nav{
+    display:none;
+}
+
 .movie-seat-selection-navbar {
     display: flex;
     background: black;
@@ -21,8 +25,10 @@
             color:white;
 
             h3 {
+                font-size:30px;
                 text-align: center;
                 font-weight: 1000;
+                padding-bottom:10px;
             }
 
             .movie-seat-hall-time {
@@ -33,6 +39,11 @@
                 .icon-image {
                     margin: 0 5px;
                 }
+
+                .nav-info{
+                    padding-right:15px;
+                    font-size:18px;
+                }
             }
         }
 
@@ -41,88 +52,112 @@
     
 }
 
+.seat-selection-body{
 
-
-
-
-
-.selected-seat-display {
-    text-align: center;
-}
-
-.seat-selection-body {
     padding-top: 40px;
     background: #1d1d1d;
     padding-bottom: 100px;
-}
 
-.seat-select-part {
-    max-width: 70%;
-    display: flex;
-    padding-top: 30px;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.seat-description {
-    display: flex;
-    max-width: 70%;
-    flex-wrap: wrap;
-}
-
-    .seat-description p {
-        padding: 0px 10px 0px 3px;
+    .selected-seat-display {
+        text-align: center;
     }
 
-.screen-direction {
-    max-width: 70%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding-top: 30px;
+    
 }
 
-    .screen-direction img, .screen-direction p {
-        margin: 5px auto;
+
+.hallView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .seat-select-part {
+        max-width: 70%;
+        display: flex;
+        padding-top: 30px;
+        justify-content: center;
+        margin: 0 auto;
+
+        .seat-description {
+            display: flex;
+            flex-wrap: wrap;
+
+            p{
+                font-size:18px;
+                color:white;
+                padding: 0px 10px 0px 3px;
+            }
+        }
+    }
+    
+    .screen-container {
+        margin-bottom: 20px;
+
+        .screenImg {
+            display: block; /* Add this to make the image a block element */
+            margin: 0 auto; /* Add this to center the image horizontally */
+            margin: 50px 0px 100px 0px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
-.seat-container {
-    max-width: 40%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Add gap between seats */
-    margin: 0 auto;
-    padding-top: 30px;
+    .seat-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .standard-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            gap: 60px;
+
+            .standard-left-column, .standard-middle-column, .standard-right-column {
+                display: flex;
+                flex-direction: row;
+                
+                .standardSeatImg {
+                    width: 30px;
+                    height: 30px;
+                    object-fit: cover;
+                    margin: 5px;
+                }
+
+                .seat-info{
+                    color:white;
+                    text-align: center;
+                    margin: 5px;
+                }
+            }
+
+            .standard-left-column {
+                justify-content: flex-start;
+            }
+
+            .standard-middle-column {
+                justify-content: center;
+            }
+            
+            .standard-right-column {
+                justify-content: flex-end;
+            }
+        }
+    }
 }
 
-.seat-wrapper-small {
-    width: calc((100% - 13 * 10px) / 14); /* Calculate the width of each seat */
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-}
 
-.seat-wrapper-large {
-    width: calc((100% - 16 * 10px) / 17); /* Calculate the width of each seat */
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-}
 
-.seat-number {
-    bottom: -20px;
-    left: 50%;
-    text-align: center;
-    font-size: 12px;
-    color: white;
-}
 
-div.continueButton-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
 
-.continueButton {
-    padding: 10px 20px;
-}
+
+
+
+
+
+
+
+
+
+

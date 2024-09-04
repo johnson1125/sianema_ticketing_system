@@ -68,12 +68,29 @@ class BookingController extends Controller
 
 
     public function dateButtonClick(Request $request)
-    {
-        $selectedDate = $request->input('date');
-        // Handle the selected date logic here
+{
+    // Convert the input date string to a Carbon instance and format it to 'Y-m-d'
+    $selectedDate = Carbon::parse($request->input('date'))->format('Y-m-d');
 
-        return redirect()->back();
+    $movieID = $request->input('movie_id');
+
+    // Fetch the movie details based on movie_id
+    $movie = Movie::findOrFail($movieID);
+
+    // Get today's date and the following 6 days
+    $dateList = [];
+    for ($i = 0; $i <= 6; $i++) {
+        $dateList[] = Carbon::today()->addDays($i);
     }
+
+    // Fetch halltimeslot records where movie_id matches the provided $movie_id and date matches the selected date
+    $halltimeslots = HallTimeSlot::where('movie_id', $movieID)
+        ->whereDate('startDateTime', $selectedDate)
+        ->get();
+
+    // Return the view with the data
+    return view('booking.movieDetails', compact('halltimeslots', 'movie', 'dateList'));
+}
 
     public function getMoviePoster($id)
     {

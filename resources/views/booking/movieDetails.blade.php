@@ -76,10 +76,16 @@
                     <li>
                         <form action="{{ route('dateButtonClick') }}" method="POST">
                             @csrf
+                            <!-- Hidden input for the selected date -->
+                            <input type="hidden" name="date" value="{{ $date->format('Y-m-d') }}">
+                            
+                            <!-- Hidden input for the movie_id -->
+                            <input type="hidden" name="movie_id" value="{{ $movie->movie_id }}">
+            
+                            <!-- Date button with the value attribute set for JavaScript highlighting -->
                             <button 
                                 type="submit" 
                                 class="date-button" 
-                                name="date" 
                                 value="{{ $date->format('Y-m-d') }}"
                             >
                                 <span class="day-name">{{ $date->format('D') }}</span><br>
