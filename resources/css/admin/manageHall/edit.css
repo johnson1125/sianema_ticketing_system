@@ -104,9 +104,57 @@
     justify-content: flex-end;
 }
 
-.seatImg {
+.standardSeatImg {
     width: 30px;
     height: 30px;
     object-fit: cover;
     margin: 5px;
+}
+
+
+.premium-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 70px;
+    gap: 100px;
+}
+
+.preium-left-column,
+.premium-right-column {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.premiumSeatImg {
+    width: 20px; 
+    height: 20px; 
+    object-fit: cover;
+    margin: 5px;
+}
+
+.familySeatImg{
+    width: 150px;
+    height: 40px;
+    
+}
+
+.family-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px; /* Add margin for vertical spacing between rows */
+  }
+
+.seat-box {
+    display: inline-block;
+    text-align: center;
+}
+
+.seat-info {
+    font-size: 12px;
+    margin-top: 2px;
+
+    color: white;
 }
