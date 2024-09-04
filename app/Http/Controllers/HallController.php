@@ -164,8 +164,25 @@ public function update(Request $request, string $hall_id)
 }
 
 
-public function updateSeat(Request $request,string $hall_id)
+public function updateSeatStatus(Request $request, string $hall_id)
 {
-    
+    $seatStatuses = json_decode($request->input('seat_statuses'), true);
+
+    if (is_array($seatStatuses)) {
+        foreach ($seatStatuses as $seatId => $status) {
+            // Process each seat ID and status
+            $seat = Seat::find($seatId);
+            if ($seat) {
+                $seat->status = $status;
+                $seat->save();
+            }
+        }
+    } else {
+        throw new \Exception('Invalid seat statuses');
+    }
+
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Seat statuses updated successfully.');
 }
 }

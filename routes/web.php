@@ -81,5 +81,5 @@ Route::middleware('auth', 'verified')->group(function (){
     Route::get('admin/halls/get-hall-info/{hallType}', [HallController::class, 'getHallInfo']);
     Route::post('/manage/hall/{hall_id}/change-status', [HallController::class, 'update'])->name('manage.hall.change-status');
     Route::get('admin/edit-hall/{id}/seats',[HallController::class,'edit'])->name('manage.hall.edit.seat');
-    Route::post('admin/edit-hall/{hall_id}/seats/update', [HallController::class, 'update'])->name('seat.update');
+    Route::post('admin/edit-hall/{hall_id}/seats/update', [HallController::class, 'updateSeatStatus'])->name('seat.update');
 });

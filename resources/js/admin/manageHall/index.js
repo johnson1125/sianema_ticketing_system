@@ -30,3 +30,20 @@ function changeHallStatus(hallId, currentStatus) {
         alert('There was an issue updating the hall status.');
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Get all forms with the class 'status-form'
+    const statusForms = document.querySelectorAll('.status-form');
+
+    // Add an event listener to each form
+    statusForms.forEach(form => {
+        form.addEventListener('submit', (event) => {
+            // Show a confirmation prompt
+            const confirmChange = confirm('Are you sure you want to change the hall status?');
+
+            if (!confirmChange) {
+                event.preventDefault();
+            }
+        });
+    });
+});

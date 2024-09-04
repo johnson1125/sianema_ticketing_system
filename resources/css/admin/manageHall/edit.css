@@ -155,6 +155,56 @@
 .seat-info {
     font-size: 12px;
     margin-top: 2px;
-
     color: white;
+}
+
+.btn {
+    color: white;
+    background: rgb(4 108 78);
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover{
+    background: rgb(3 84 63);
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    color: white;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px #218838;
+}
+
+.cancel {
+    color: white;
+    background: rgb(65 65 65);
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right:20px;
+}
+
+.cancel:hover {
+    background: rgb(27 27 27);
 }
