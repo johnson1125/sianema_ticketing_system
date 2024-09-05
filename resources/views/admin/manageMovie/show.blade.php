@@ -21,6 +21,7 @@
         </div>
         <div class="display-top-right">
             <div class="id-group">
+                <br/>
                 <label><b>Movie ID: </b></label>
                 <span>{{ $movie->movie_id }}</span>
             </div>

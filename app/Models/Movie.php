@@ -31,11 +31,6 @@ class Movie extends Model
         'movie_cover_photo'
     ];
 
-    // protected $casts = [
-    //     'movie_poster' => 'binary',
-    //     'movie_cover_photo' => 'binary',
-    // ];
-
     public function halltimeSlot(): HasMany
     {
         return $this->hasMany(HallTimeSlot::class);

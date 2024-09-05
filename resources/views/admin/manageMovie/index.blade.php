@@ -1,6 +1,15 @@
+@vite(['resources/css/admin/manageMovie/index.css', 'resources/js/admin/manageMovie/index.js'])
+@if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+@endif
+@if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+@endif
 <x-admin-Layout>
-    @vite(['resources/css/admin/manageMovie/index.css', 'resources/js/admin/manageMovie/index.js'])
-
     <div class="container">
         <div class="header-container">
             <h1 class="pageTitle">Manage Movie</h1>

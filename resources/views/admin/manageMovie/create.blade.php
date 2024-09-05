@@ -44,7 +44,7 @@
                             <label><input type="checkbox" class="genre-checkbox" value="Horror"> Horror</label>
                             <label><input type="checkbox" class="genre-checkbox" value="Romance"> Romance</label>
                         </div>
-                        <input class="normal-input" type="text" id="movieGenre" name="movieGenre" placeholder="Specify genres">
+                        <input class="normal-input" type="text" id="movieGenre" name="movieGenre" placeholder="Specify genres" pattern ="^([a-zA-Z]+(?:-[a-zA-Z]+)*)(, [a-zA-Z]+(?:-[a-zA-Z]+)*)*$">
                         <p class="reminder-message">If you need to input other genre that is not in the options, please follow the format:<br/> Genre1, Genre2, etc.</p>
                     </div>
 
@@ -72,7 +72,7 @@
                             <label class="subtitle-grp"><input type="checkbox" class="subtitle-checkbox" value="Chinese"> Chinese</label>
                             <label class="subtitle-grp"><input type="checkbox" class="subtitle-checkbox" value="Tamil"> Tamil</label>
                         </div>
-                        <input class="normal-input" type="text" id="movieSubtitle" name="movieSubtitle" placeholder="Enter or select subtitles">
+                        <input class="normal-input" type="text" id="movieSubtitle" name="movieSubtitle" placeholder="Enter or select subtitles" pattern="^([a-zA-Z]+(?: [a-zA-Z]+)*)(, [a-zA-Z]+(?: [a-zA-Z]+)*)*$">
                         <p class="reminder-message">If you need to input other language that is not in the options, please follow the format:<br/> Subtitle1, Subtitle2, etc.</p>
                     </div>
                     

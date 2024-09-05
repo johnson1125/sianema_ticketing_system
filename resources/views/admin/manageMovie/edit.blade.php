@@ -1,5 +1,14 @@
 @vite(['resources/js/admin/manageMovie/edit.js', 'resources/css/admin/manageMovie/edit.css'])
-
+@if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+@endif
+@if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+@endif
 <x-admin-Layout>
     <h1 class="pageTitle">Edit Movie</h1>
     <form id="updateMovieForm" action="{{ route('movies.update', $movie->movie_id) }}" method="POST" enctype="multipart/form-data">
@@ -28,7 +37,7 @@
                         <label><input type="checkbox" class="genre-checkbox" value="Horror"> Horror</label>
                         <label><input type="checkbox" class="genre-checkbox" value="Romance"> Romance</label>
                     </div>
-                    <input class="normal-input" type="text" id="movieGenre" name="movieGenre" value="{{ $movie->movie_genre }}">
+                    <input class="normal-input" type="text" id="movieGenre" name="movieGenre" value="{{ $movie->movie_genre }}" pattern ="^([a-zA-Z]+(?:-[a-zA-Z]+)*)(, [a-zA-Z]+(?:-[a-zA-Z]+)*)*$">
                     <p class="reminder-message">If you need to input other genre that is not in the options, please follow the format:<br/> Genre1, Genre2, etc.</p>
                 </div>
 
@@ -43,11 +52,9 @@
                         <option value="Chinese" {{ $movie->movie_language === 'Chinese' ? 'selected' : '' }}>Chinese</option>
                         <option value="Tamil" {{ $movie->movie_language === 'Tamil' ? 'selected' : '' }}>Tamil</option>
                         <option value="other" {{ $movie->movie_language === 'other' || !in_array($movie->movie_language, ['English', 'Malay', 'Chinese', 'Tamil']) ? 'selected' : '' }}>Other</option>
-                    </select>
-                    
-                    {{-- Custom language input field, pre-filled if a custom language is set --}}
+                    </select>      
                     <div id="customLanguageContainer" style="{{ $movie->movie_language === 'other' || !in_array($movie->movie_language, ['English', 'Malay', 'Chinese', 'Tamil']) ? 'display: block;' : 'display: none;' }}">
-                        <input class="normal-input" type="text" id="customLanguage" name="customLanguage" placeholder="Specify other language" value="{{ $movie->movie_language === 'other' || !in_array($movie->movie_language, ['English', 'Malay', 'Chinese', 'Tamil']) ? $movie->movie_language : '' }}">
+                        <input class="normal-input" type="text" id="customLanguage" name="customLanguage" placeholder="Specify other language" pattern="^([a-zA-Z]+(?: [a-zA-Z]+)*)(, [a-zA-Z]+(?: [a-zA-Z]+)*)*$" value="{{ $movie->movie_language === 'other' || !in_array($movie->movie_language, ['English', 'Malay', 'Chinese', 'Tamil']) ? $movie->movie_language : '' }}">
                     </div>
                 </div> 
                 {{-- <input class="normal-input" type="text" id="movieLanguage" name="movieLanguage" value="{{ $movie->movie_language }}"> --}}
