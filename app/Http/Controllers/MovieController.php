@@ -9,8 +9,8 @@ class MovieController extends Controller
 {
         public function index()
         {
-            // $movies = Movie::all();
-            $movies = Movie::where('screen_until_date', '>=', now())->get();
+            $movies = Movie::all();
+            // $movies = Movie::where('screen_until_date', '>=', now())->get();
             return view('admin.manageMovie.index', compact('movies'));
         }
     
@@ -45,12 +45,14 @@ class MovieController extends Controller
         }
     
         public function store(Request $request)
+        
         {
             $validated = $request->validate([
                 'movieID' => 'required|string',
                 'movieName' => 'required|string',
                 'movieGenre' => 'required|string',
                 'movieLanguage' => 'required|string',
+                'customLanguage' => 'nullable|string',
                 'movieSubtitle' => 'required|string',
                 'movieDistributor' => 'required|string',
                 'movieCast' => 'required|string',
@@ -63,6 +65,8 @@ class MovieController extends Controller
                 'movieDuration' => 'required|string'
             ]);
 
+          
+
             $releaseDate = Carbon::createFromFormat('m/d/Y', $validated['releaseDate'])->format('Y-m-d');
             $screenFromDate = Carbon::createFromFormat('m/d/Y', $validated['screen-from'])->format('Y-m-d');
             $screenUntilDate = Carbon::createFromFormat('m/d/Y', $validated['screen-until'])->format('Y-m-d');
@@ -70,6 +74,10 @@ class MovieController extends Controller
             $moviePoster = $request->file('moviePoster')->getContent();
             $movieCoverPhoto = $request->file('movieCoverPhoto')->getContent();
             
+            $movieLanguage = $validated['movieLanguage'] === 'other' && !empty($request->input('customLanguage')) 
+            ? $request->input('customLanguage') 
+            : $validated['movieLanguage'];
+
             // Create a new movie record
             Movie::create([
                 'movie_id' => $validated['movieID'],
@@ -77,7 +85,7 @@ class MovieController extends Controller
                 'movie_synopsis' => $validated['movieSynopsis'],
                 'movie_genre' => $validated['movieGenre'],
                 'movie_subtitle' => $validated['movieSubtitle'],
-                'movie_language' => $validated['movieLanguage'],
+                'movie_language' => $movieLanguage,
                 'movie_duration' => $validated['movieDuration'],
                 'movie_distributor' => $validated['movieDistributor'],
                 'movie_cast' => $validated['movieCast'],
@@ -102,53 +110,13 @@ class MovieController extends Controller
     
         public function update(Request $request, $id)
         {   
-            // $movie = Movie::findOrFail($id);
-           
-            // $validatedData = $request->validate([
-            //     'movieName' => 'required|string|max:255',
-            //     'movieGenre' => 'required|string|max:255',
-            //     'movieLanguage' => 'required|string|max:255',
-            //     'movieSubtitle' => 'required|string|max:255',
-            //     'movieDistributor' => 'required|string|max:255',
-            //     'releaseDate' => 'required|date_format:m/d/Y',
-            //     'screen-from' => 'required|date_format:m/d/Y',
-            //     'screen-until' => 'required|date_format:m/d/Y',
-            //     'movieDuration' => [
-            //         'required',
-            //         'regex:/^([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/'
-            //      ],
-            //     'movieCast' => 'required|string|max:255',
-            //     'movieSynopsis' => 'required|string',
-            //     'moviePoster' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            //     'movieCoverPhoto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            // ]);
-            // dd("Validation passed", $validatedData);
-            // $movieData = [
-            //     'movie_name' => $validatedData['movieName'],
-            //     'movie_genre' => $validatedData['movieGenre'],
-            //     'movie_language' => $validatedData['movieLanguage'],
-            //     'movie_subtitle' => $validatedData['movieSubtitle'],
-            //     'movie_distributor' => $validatedData['movieDistributor'],
-            //     'movie_duration' => $validatedData['movieDuration'],
-            //     'movie_cast' => $validatedData['movieCast'],
-            //     'movie_synopsis' => $validatedData['movieSynopsis'],
-            //     'release_date' => \Carbon\Carbon::createFromFormat('m/d/Y', $validatedData['releaseDate'])->format('Y-m-d'),
-            //     'screen_from_date' => \Carbon\Carbon::createFromFormat('m/d/Y', $validatedData['screen-from'])->format('Y-m-d'),
-            //     'screen_until_date' => \Carbon\Carbon::createFromFormat('m/d/Y', $validatedData['screen-until'])->format('Y-m-d'),
-            //     'movie_poster' => $request->file('moviePoster')->getContent(),
-            //     'movie_cover_photo' => $request->file('movieCoverPhoto')->getContent() 
-            // ];
-
-            // $movie->update($movieData);
-
-            // return redirect()->route('movies.index')->with('success', 'Movie added successfully!');
-
             $movie = Movie::findOrFail($id);
 
             $request->validate([
                 'movieName' => 'required',
                 'movieGenre' => 'required',
                 'movieLanguage' => 'required',
+                'customLanguage' => 'nullable|string',
                 'movieSubtitle' => 'required',
                 'movieDistributor' => 'required',
                 'releaseDate' => 'required|date',
@@ -158,10 +126,14 @@ class MovieController extends Controller
                 'movieCast' => 'required',
                 'movieSynopsis' => 'required',
             ]);
-        
+            
+            $movieLanguage = $request->input('movieLanguage') === 'other' && !empty($request->input('customLanguage')) 
+            ? $request->input('customLanguage') 
+            : $request->input('movieLanguage');
+
             $movie->movie_name = $request->input('movieName');
             $movie->movie_genre = $request->input('movieGenre');
-            $movie->movie_language = $request->input('movieLanguage');
+            $movie->movie_language = $movieLanguage;
             $movie->movie_subtitle = $request->input('movieSubtitle');
             $movie->movie_distributor = $request->input('movieDistributor');
             $movie->release_date = \Carbon\Carbon::parse($request->input('releaseDate'))->format('Y-m-d');
@@ -170,6 +142,8 @@ class MovieController extends Controller
             $movie->movie_duration = $request->input('movieDuration');
             $movie->movie_cast = $request->input('movieCast');
             $movie->movie_synopsis = $request->input('movieSynopsis');
+
+           
         
             if ($request->hasFile('moviePoster')) {
                 $moviePoster = $request->file('moviePoster')->getContent();

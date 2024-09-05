@@ -71,6 +71,7 @@ table td:nth-child(7) {
 table th:nth-child(8), 
 table td:nth-child(8) {
     width: 10%;
+    text-align:center;
 }
 
 
@@ -145,8 +146,6 @@ table img {
 }
 
 
-
-/* Dropdown Styling */
 select {
     padding: 8px 12px;
     border-radius: 5px;
@@ -160,6 +159,14 @@ select:focus {
     box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
 }
 
+
+#page-content {
+    visibility: hidden; 
+}
+
+.movie-filter label {
+    margin-right: 20px;   
+}
 
 @media (max-width: 768px) {
     .container {

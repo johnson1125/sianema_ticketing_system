@@ -184,3 +184,7 @@ select:focus {
         font-size: 12px;
     }
 }
+
+#movie-table-body tr {
+    display: none; /* Hide all rows initially */
+}
