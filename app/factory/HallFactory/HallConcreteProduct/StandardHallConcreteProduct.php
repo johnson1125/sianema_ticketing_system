@@ -2,7 +2,7 @@
 namespace App\Factory\HallFactory\HallConcreteProduct;
 
 use App\Factory\HallFactory\HallInterface;
-use App\Factory\HallFactory\SeatCreator;
+use App\Services\SeatService;
 
 class StandardHallConcreteProduct implements HallInterface {
     private $hallID, $hallName;
@@ -11,7 +11,7 @@ class StandardHallConcreteProduct implements HallInterface {
     const COLUMNS = 12;
     private $seatCreator;
 
-    public function __construct(string $hallID, string $hallName, SeatCreator $seatCreator) {
+    public function __construct(string $hallID, string $hallName, SeatService $seatCreator) {
         $this->seatCreator = $seatCreator;
         $this->hallID = $hallID;
         $this->hallName = $hallName;

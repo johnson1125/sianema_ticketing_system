@@ -20,14 +20,6 @@
 
 
 
-/* .container {
-   
-    display: flex;
-    flex-direction: column;
-    /* grid-gap: 20px; /* Gap only between left and right grids */
-    /* gap: 20px 0; No gap between top and bottom grids 
-} */
-
 .container {
     padding: 10px;
     margin: 30px auto;
@@ -51,7 +43,7 @@
     gap: 50px; /* Reduced space between box 2 and box 3 */
     align-items: flex-start; /* Align items to the top */
     justify-content: space-between; /* Distribute space evenly */
-    max-width: 50%; /* Ensure the flex container doesn't exceed the container width */
+    max-width: 55%; /* Ensure the flex container doesn't exceed the container width */
 }
 
 
@@ -61,7 +53,7 @@
 }
 
 .display-top-right {
-    flex-basis: 60%; /* Set the desired width percentage */
+    flex-basis: 70%; /* Set the desired width percentage */
 }
 
 

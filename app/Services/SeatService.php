@@ -1,8 +1,9 @@
 <?php
-namespace App\Factory\HallFactory;
+namespace App\Services;
 use App\Models\Seat;
+use App\Models\Hall;
 
-class SeatCreator {
+class SeatService {
     public function createSeats(string $hallID, int $rowNum, int $columnNum): void {
         // Check if the hall ID already exists in the seats database
         $existingSeat = Seat::where('hall_id', $hallID)->first();
@@ -39,6 +40,22 @@ class SeatCreator {
             ++$rowCounter;
         }
         
+    }
+
+    public function updateSeatStatuses(array $seatStatuses): bool
+    {
+        foreach ($seatStatuses as $seatId => $status) {
+            // Process each seat ID and status
+            $seat = Seat::find($seatId);
+            if ($seat) {
+                $seat->status = $status;
+                $seat->save();
+            } else {
+                throw new \Exception('Seat not found: ' . $seatId);
+            }
+        }
+        
+        return true;
     }
 
     private function generateSeatID(string $hallID, int $rowNum, int $columnNum): string {

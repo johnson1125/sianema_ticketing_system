@@ -62,15 +62,16 @@ Route::get('booking-movieSeat', [BookingController::class, 'timeSlotSelect'])->n
 
 Route::resource('manage-movie', MovieController::class);
 
-Route::get('create-movie', [MovieController::class, 'create'])->name('movies.create');
-Route::post('/create-movie-success', [MovieController::class, 'store'])->name('movies.store');
-Route::get('manage-movie', [MovieController::class, 'index'])->name('movies.index');
-Route::put('update-movie-success/{id}', [MovieController::class, 'update'])->name('movies.update');
-Route::get('show-movie/{id}', [MovieController::class, 'show'])->name('movies.show');
-Route::get('edit-movie/{id}',[MovieController::class,'edit'])->name('movies.edit');
-Route::get('movie-poster/{movie_id}', [MovieController::class, 'getMoviePoster'])->name('movie.poster');
-Route::get('movie-cover-photo/{movie_id}', [MovieController::class, 'getMovieCoverPhoto'])->name('movie.cover.photo');
-
+Route::middleware('auth', 'verified')->group(function (){
+    Route::get('admin/create-movie', [MovieController::class, 'create'])->name('movies.create');
+    Route::post('/create-movie-success', [MovieController::class, 'store'])->name('movies.store');
+    Route::get('admin/manage-movie', [MovieController::class, 'index'])->name('movies.index');
+    Route::put('update-movie-success/{id}', [MovieController::class, 'update'])->name('movies.update');
+    Route::get('admin/show-movie/{id}', [MovieController::class, 'show'])->name('movies.show');
+    Route::get('admin/edit-movie/{id}',[MovieController::class,'edit'])->name('movies.edit');
+    Route::get('movie-poster/{movie_id}', [MovieController::class, 'getMoviePoster'])->name('movie.poster');
+    Route::get('movie-cover-photo/{movie_id}', [MovieController::class, 'getMovieCoverPhoto'])->name('movie.cover.photo');
+});
 
 Route::resource('manage-hall', HallController::class);
 

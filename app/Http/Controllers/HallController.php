@@ -7,17 +7,27 @@ use App\Factory\HallFactory\HallConcreteProductCreator\FamilyHallFactory;
 use App\Factory\HallFactory\HallConcreteProduct\StandardHall;
 use App\Factory\HallFactory\HallConcreteProduct\PremiumHall;
 use App\Factory\HallFactory\HallConcreteProduct\FamilyHall;
-use App\Factory\HallFactory\SeatCreator;
+use App\Services\SeatService;
 use App\Models\Hall;
 use App\Models\Seat;
+
+use App\Services\HallService;
 
 use Illuminate\Http\Request;
 
 class HallController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $hallService;
+    protected $seatService;
+
+    public function __construct(HallService $hallService, SeatService $seatService)
+    {
+        $this->hallService = $hallService;
+        $this->seatService = $seatService;
+    }
+
+ 
+
     public function index()
     {
         $halls = Hall::all();
@@ -35,45 +45,15 @@ class HallController extends Controller
     }
     
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'hallType' => 'required|string',
             'hallId' => 'required|string',
             'hallName' => 'required|string',
         ]);
-
-        $hallId = $request->input('hallId');
-        $hallName = $request->input('hallName');
-
-        $hall = new Hall();
-        $hall->hall_id = $hallId;
-        $hall->hall_name = $hallName;
-        $hall->hall_type = $request->input('hallType');
-        $hall->status = "open";
-    
-        if ($hall->save()) {
-            $hallFactory = null;
-            switch ($hall->hall_type) {
-                case 'Standard':
-                    $hallFactory = new StandardHallFactory();
-                    break;
-                case 'Premium':
-                    $hallFactory = new PremiumHallFactory();
-                    break;
-                case 'Family':
-                    $hallFactory = new FamilyHallFactory();
-                    break;
-                default:
-                    break;
-            }
-            $seatCreator = new SeatCreator();
-            $tempHall = $hallFactory->createHall($hallId, $hallName, $seatCreator);
-            $tempHall->createSeats();
-
+  
+        if ($this->hallService->createHall($validated)){
             return redirect()->route('manage.hall.index')->with('success', 'Hall created successfully!');
         } else {
             return redirect()->back()->with('error', 'Failed to create hall!');
@@ -106,19 +86,14 @@ class HallController extends Controller
     /**
  * Update the specified resource in storage.
  */
-public function update(Request $request, string $hall_id)
+public function update(string $hall_id)
 {
-    $hall = Hall::find($hall_id);
-    if ($hall) {
-        $hall->status = $hall->status === 'open' ? 'closed' : 'open';
-        if ($hall->save()) {
-            return redirect()->back()->with('success', 'Hall status updated successfully!');
-        } else {
-            return redirect()->back()->with('error', 'Failed to update hall status!');
-        }
-    } else {
-        return redirect()->back()->with('error', 'Hall not found!');
-    }
+    
+    if ($this->hallService->updateHallStatus($hall_id)) {     
+        return redirect()->back()->with('success', 'Hall status updated successfully!');
+    } 
+
+    return redirect()->back()->with('error', 'Failed to update hall status!');
 }
     
     public function destroy(string $id)
@@ -127,62 +102,55 @@ public function update(Request $request, string $hall_id)
     }
 
     public function getHallInfo($hallType)
-{
-    $hallCount = Hall::where('hall_type', $hallType)->count();
+        {
+            $hallCount = Hall::where('hall_type', $hallType)->count();
 
-    $hallID = "HALL(" . substr($hallType, 0, 1) . ")-" . sprintf('%02d', ($hallCount + 1));
-    $hallName = $hallType . " Hall " . sprintf('%02d', ($hallCount + 1));
+            $hallID = "HALL(" . substr($hallType, 0, 1) . ")-" . sprintf('%02d', ($hallCount + 1));
+            $hallName = $hallType . " Hall " . sprintf('%02d', ($hallCount + 1));
 
-    $seatCreator = new SeatCreator();
-    $hallFactory = null;
-    switch ($hallType) {
-        case 'Standard':
-            $hallFactory = new StandardHallFactory();
-            break;
-        case 'Premium':
-            $hallFactory = new PremiumHallFactory();
-            break;
-        case 'Family':
-            $hallFactory = new FamilyHallFactory();
-            break;
-        
-        default:
-            break;
-    }
+
+            $hallFactory = null;
+            switch ($hallType) {
+                case 'Standard':
+                    $hallFactory = new StandardHallFactory();
+                    break;
+                case 'Premium':
+                    $hallFactory = new PremiumHallFactory();
+                    break;
+                case 'Family':
+                    $hallFactory = new FamilyHallFactory();
+                    break;
+                
+                default:
+                    break;
+            }
 
     
-    $hall = $hallFactory->createHall($hallID, $hallName, $seatCreator);
+        $hall = $hallFactory->createHall($hallID, $hallName, $this->seatService);
 
-    $numberOfSeats = $hall->getColumns() * $hall->getRows();
+        $numberOfSeats = $hall->getColumns() * $hall->getRows();
 
-    return response()->json([
-        'hall_id' => $hallID,
-        'hall_name' => $hallName,
-        'number_of_seats' => $numberOfSeats,
-        'hall_image' => $hallType . '_hall.png',
-    ]);
-}
-
-
-public function updateSeatStatus(Request $request, string $hall_id)
-{
-    $seatStatuses = json_decode($request->input('seat_statuses'), true);
-
-    if (is_array($seatStatuses)) {
-        foreach ($seatStatuses as $seatId => $status) {
-            // Process each seat ID and status
-            $seat = Seat::find($seatId);
-            if ($seat) {
-                $seat->status = $status;
-                $seat->save();
-            }
-        }
-    } else {
-        throw new \Exception('Invalid seat statuses');
+        return response()->json([
+            'hall_id' => $hallID,
+            'hall_name' => $hallName,
+            'number_of_seats' => $numberOfSeats,
+            'hall_image' => $hallType . '_hall.png',
+        ]);
     }
 
 
-    // Redirect back with a success message
-    return redirect()->back()->with('success', 'Seat statuses updated successfully.');
-}
+    public function updateSeatStatus(Request $request, string $hall_id)
+    {
+        $seatStatuses = json_decode($request->input('seat_statuses'), true);
+
+        if (is_array($seatStatuses)) {
+            try {
+                $this->seatService->updateSeatStatuses($seatStatuses);
+                return redirect()->back()->with('success', 'Seat statuses updated successfully.');
+            } catch (\Exception $e) {
+                return redirect()->back()->with('error', 'Failed to update seat statuses: ' . $e->getMessage());
+            }
+        } 
+        return redirect()->back()->with('error', 'Invalid seat statuses'); 
+    }
 }

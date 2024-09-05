@@ -1,4 +1,14 @@
 
+@if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+@endif
+@if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+@endif
 <x-admin-Layout>
     <form id="seat-form" action="{{ route('seat.update', ['hall_id' => $hall->hall_id]) }}" method="POST">
         @csrf
