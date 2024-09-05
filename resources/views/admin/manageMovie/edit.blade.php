@@ -20,23 +20,56 @@
 
                 <div class="form-group">
                     <label for="movieGenre">Movie Genre:</label>
-                    <br><input class="normal-input" type="text" id="movieGenre" name="movieGenre" value="{{ $movie->movie_genre }}">
+                    <br>
+                    <div id="genre-checkbox-container">
+                        <label><input type="checkbox" class="genre-checkbox" value="Action"> Action</label>
+                        <label><input type="checkbox" class="genre-checkbox" value="Comedy"> Comedy</label>
+                        <label><input type="checkbox" class="genre-checkbox" value="Drama"> Drama</label>
+                        <label><input type="checkbox" class="genre-checkbox" value="Horror"> Horror</label>
+                        <label><input type="checkbox" class="genre-checkbox" value="Romance"> Romance</label>
+                    </div>
+                    <input class="normal-input" type="text" id="movieGenre" name="movieGenre" value="{{ $movie->movie_genre }}">
+                    <p class="reminder-message">If you need to input other genre that is not in the options, please follow the format:<br/> Genre1, Genre2, etc.</p>
                 </div>
+
+                
 
                 <div class="form-group">
                     <label for="movieLanguage">Movie Language:</label>
-                    <br><input class="normal-input" type="text" id="movieLanguage" name="movieLanguage" value="{{ $movie->movie_language }}">
-                </div>
-
+                    <br>
+                    <select id="movieLanguage" name="movieLanguage" class="normal-input">
+                        <option value="English" {{ $movie->movie_language === 'English' ? 'selected' : '' }}>English</option>
+                        <option value="Malay" {{ $movie->movie_language === 'Malay' ? 'selected' : '' }}>Malay</option>
+                        <option value="Chinese" {{ $movie->movie_language === 'Chinese' ? 'selected' : '' }}>Chinese</option>
+                        <option value="Tamil" {{ $movie->movie_language === 'Tamil' ? 'selected' : '' }}>Tamil</option>
+                        <option value="other" {{ $movie->movie_language === 'other' || !in_array($movie->movie_language, ['English', 'Malay', 'Chinese', 'Tamil']) ? 'selected' : '' }}>Other</option>
+                    </select>
+                    
+                    {{-- Custom language input field, pre-filled if a custom language is set --}}
+                    <div id="customLanguageContainer" style="{{ $movie->movie_language === 'other' || !in_array($movie->movie_language, ['English', 'Malay', 'Chinese', 'Tamil']) ? 'display: block;' : 'display: none;' }}">
+                        <input class="normal-input" type="text" id="customLanguage" name="customLanguage" placeholder="Specify other language" value="{{ $movie->movie_language === 'other' || !in_array($movie->movie_language, ['English', 'Malay', 'Chinese', 'Tamil']) ? $movie->movie_language : '' }}">
+                    </div>
+                </div> 
+                {{-- <input class="normal-input" type="text" id="movieLanguage" name="movieLanguage" value="{{ $movie->movie_language }}"> --}}
+                
                 <div class="form-group">
                     <label for="movieSubtitle">Movie Subtitle:</label>
-                    <br><input class="normal-input" type="text" id="movieSubtitle" name="movieSubtitle" value="{{ $movie->movie_subtitle }}">
+                    <br>
+                    <div id="subtitleContainer">
+                        <label class="subtitle-grp"><input type="checkbox" class="subtitle-checkbox" value="English"> English</label>
+                        <label class="subtitle-grp"><input type="checkbox" class="subtitle-checkbox" value="Malay"> Malay</label>
+                        <label class="subtitle-grp"><input type="checkbox" class="subtitle-checkbox" value="Chinese"> Chinese</label>
+                        <label class="subtitle-grp"><input type="checkbox" class="subtitle-checkbox" value="Tamil"> Tamil</label>
+                    </div>
+                    <input class="normal-input" type="text" id="movieSubtitle" name="movieSubtitle" value="{{ $movie->movie_subtitle }}">
+                    <p class="reminder-message">If you need to input other language that is not in the options, please follow the format:<br/> Subtitle1, Subtitle2, etc.</p>
                 </div>
 
+                    
                 <div class="form-group">
                     <label for="movieDistributor">Movie Distributor:</label>
                     <br><input class="normal-input" type="text" id="movieDistributor" name="movieDistributor" value="{{ $movie->movie_distributor }}">
-                </div>
+                    </div>
 
                 <div>
                     <label for="releaseDate">Release Date:</label>

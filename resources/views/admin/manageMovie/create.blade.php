@@ -36,28 +36,46 @@
 
                     <div class="form-group">
                         <label for="movieGenre">Movie Genre:</label>
-                        {{-- <br><select multiple id="genres" name="movieGenre[]"
-                                class="select2 js-states form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                style="width: 70%">
-                                @foreach ($movie_genres as $genre)
-                                    <option value="{{ $genre['type'] }}"
-                                        {{ in_array($genre['type'], old('genres', [])) ? 'selected' : '' }}>
-                                        {{ $genre['name'] }}
-                                    </option>
-                                @endforeach
-                            </select> --}}
-                        <br><input class="normal-input" type="text" id="movieGenre" name="movieGenre">
+                        <br>
+                        <div id="genre-checkbox-container">
+                            <label><input type="checkbox" class="genre-checkbox" value="Action"> Action</label>
+                            <label><input type="checkbox" class="genre-checkbox" value="Comedy"> Comedy</label>
+                            <label><input type="checkbox" class="genre-checkbox" value="Drama"> Drama</label>
+                            <label><input type="checkbox" class="genre-checkbox" value="Horror"> Horror</label>
+                            <label><input type="checkbox" class="genre-checkbox" value="Romance"> Romance</label>
+                        </div>
+                        <input class="normal-input" type="text" id="movieGenre" name="movieGenre" placeholder="Specify genres">
+                        <p class="reminder-message">If you need to input other genre that is not in the options, please follow the format:<br/> Genre1, Genre2, etc.</p>
                     </div>
 
                     <div class="form-group">
                         <label for="movieLanguage">Movie Language:</label>
-                        <br><input class="normal-input" type="text" id="movieLanguage" name="movieLanguage">
+                        <br>
+                        <select id="movieLanguage" name="movieLanguage" class="normal-input">
+                            <option value="English">English</option>
+                            <option value="Malay">Malay</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Tamil">Tamil</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div id="customLanguageContainer" style="display: none;">
+                            <input class="normal-input" type="text" id="customLanguage" name="customLanguage" placeholder="Specify other language">
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="movieSubtitle">Movie Subtitle:</label>
-                        <br><input class="normal-input" type="text" id="movieSubtitle" name="movieSubtitle">
+                        <br>
+                        <div id="subtitleContainer">
+                            <label class="subtitle-grp"><input type="checkbox" class="subtitle-checkbox" value="English"> English</label>
+                            <label class="subtitle-grp"><input type="checkbox" class="subtitle-checkbox" value="Malay"> Malay</label>
+                            <label class="subtitle-grp"><input type="checkbox" class="subtitle-checkbox" value="Chinese"> Chinese</label>
+                            <label class="subtitle-grp"><input type="checkbox" class="subtitle-checkbox" value="Tamil"> Tamil</label>
+                        </div>
+                        <input class="normal-input" type="text" id="movieSubtitle" name="movieSubtitle" placeholder="Enter or select subtitles">
+                        <p class="reminder-message">If you need to input other language that is not in the options, please follow the format:<br/> Subtitle1, Subtitle2, etc.</p>
                     </div>
+                    
 
                     <div class="form-group">
                         <label for="movieDistributor">Movie Distributor:</label>

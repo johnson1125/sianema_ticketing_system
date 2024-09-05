@@ -109,3 +109,11 @@
     border: 1px solid #ccc;
 }
 
+.reminder-message {
+    color: grey; /* Grey color */
+    font-size: 0.875rem; /* Smaller font size (14px) */
+}
+
+.subtitle-grp{
+    margin-right:15px;
+}
