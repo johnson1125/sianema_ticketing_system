@@ -1,5 +1,3 @@
-import $ from "jquery";
-
 $(document).ready(function() {
     // Function to update the highlighted button
     function updateHighlightedButton(button) {
@@ -11,6 +9,13 @@ $(document).ready(function() {
         
         // Save the value of the highlighted button in localStorage
         localStorage.setItem('highlightedDateButton', $(button).val());
+    }
+
+    // Function to reset highlighted button state
+    function resetHighlightedButton() {
+        // Clear localStorage and remove highlighted state
+        localStorage.removeItem('highlightedDateButton');
+        $('.date-button').removeClass('highlighted');
     }
 
     // Retrieve the saved highlighted button value from localStorage
@@ -57,5 +62,11 @@ $(document).ready(function() {
     // Clear the form submission flag after the page is fully loaded
     $(window).on('pageshow', function() {
         sessionStorage.removeItem('formSubmitted');
+    });
+
+    // Event listener to reset highlighted button when date changes
+    $('.date-selection').on('change', function() {
+        // Reset the highlighted button and localStorage when the date changes
+        resetHighlightedButton();
     });
 });

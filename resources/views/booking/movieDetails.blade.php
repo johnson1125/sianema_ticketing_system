@@ -11,6 +11,48 @@
 
 <!-- html for this page -->
 @section('content')
+    <div class="movie-seat-selection-navbar">
+        <div class="movie-seat-selection-container">
+            <img src="{{ asset('images/logoSianemaAdmin.png') }}" alt="Logo" width="160" height="60"
+                class="top-nav-logo">
+            <div class="movie-seat-selection-header">
+                <div class="booking-progress">
+                    <ol class="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse">
+                        <li class="flex items-center custom-green text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                            <span class="flex items-center justify-center w-8 h-8 border border-custom-green rounded-full dark:border-green-400">
+                                1
+                            </span>
+                            <span>
+                                <h3 class="font-medium leading-tight">Select Time Slot</h3>
+                                <p class="text-sm">Hei</p>
+                            </span>
+                        </li>
+                        <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                            <span
+                                class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">2
+                            </span>
+                            <span>
+                                <h3 class="font-medium leading-tight">Select Seat</h3>
+                                <p class="text-sm">HeiHei</p>
+                            </span>
+                        </li>
+
+                        <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                            <span
+                                class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                3
+                            </span>
+                            <span>
+                                <h3 class="font-medium leading-tight">Pay Here</h3>
+                                <p class="text-sm">HeiHeiHei</p>
+                            </span>
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <div class="movie-details-container" id="MovieDetailsContainer">
         <img id="movieCoverPhoto" src="{{ route('movie.coverPhoto', $movie->movie_id) }} ">
 
@@ -78,16 +120,12 @@
                             @csrf
                             <!-- Hidden input for the selected date -->
                             <input type="hidden" name="date" value="{{ $date->format('Y-m-d') }}">
-                            
+
                             <!-- Hidden input for the movie_id -->
                             <input type="hidden" name="movie_id" value="{{ $movie->movie_id }}">
-            
+
                             <!-- Date button with the value attribute set for JavaScript highlighting -->
-                            <button 
-                                type="submit" 
-                                class="date-button" 
-                                value="{{ $date->format('Y-m-d') }}"
-                            >
+                            <button type="submit" class="date-button" value="{{ $date->format('Y-m-d') }}">
                                 <span class="day-name">{{ $date->format('D') }}</span><br>
                                 <span class="day-date">{{ $date->format('d M') }}</span>
                             </button>
@@ -99,38 +137,37 @@
     </div>
 
     <div class="movie-time-selection-container">
-        <div class="movie-time-selection">
-            <h2 class="classic-header">Classic</h2>
-            <div class="chair-image-container">
-                <img src="{{ asset('images/singleseat.png') }}" height="50" width="50" class="chair-image" />
-                <h3 id="selectedDate"></h3>
+        @foreach(['Standard', 'Premium', 'Family'] as $hallType)
+            <div class="movie-time-{{ strtolower($hallType) }}">
+                <h2 class="classic-header">{{ $hallType }}</h2>
+                <div class="chair-image-container">
+                    <img src="{{ asset('images/' . strtolower($hallType) . 'Seat.png') }}" height="50" width="50" class="chair-image" />
+                    <h3 id="selectedDate"></h3>
+                </div>
+                <div class="movie-time">
+                    @foreach ($groupedTimeSlots[$hallType] ?? [] as $timeSlot)
+                        <form action="{{ route('timeSlotSelect') }}" method="GET" class="time-slot-form">
+                            @csrf
+                            <input type="hidden" name="timeSlotID" value="{{ $timeSlot->hall_time_slot_id }}">
+                            <input type="hidden" name="movie_id" value="{{ $movie->movie_id }}">
+                            <button type="submit" class="time-button">
+                                {{ \Carbon\Carbon::parse($timeSlot->startDateTime)->format('H:i A') }}
+                            </button>
+                        </form>
+                    @endforeach
+                </div>
             </div>
-            <div class="movie-time">
-                @foreach ($halltimeslots as $timeSlot)
-                    <form action="{{ route('timeSlotSelect') }}" method="GET" class="time-slot-form">
-                        @csrf
-                        <input type="hidden" name="timeSlotID" value="{{ $timeSlot->hall_time_slot_id  }}">
-                        <input type="hidden" name="movie_id" value="{{ $movie->movie_id }}">
-
-                        <button 
-                            type="submit" 
-                            class="time-button"
-                        >
-                        {{ \Carbon\Carbon::parse($timeSlot->startDateTime)->format('H:i A') }}
-                        </button>
-                    </form>
-                @endforeach
-            </div>
-        </div>
+        @endforeach
     </div>
     
-    
-    
+
+
+
 
 
 @endsection
 
 <!-- all js for this page -->
 @push('scripts')
-@vite(['resources/js/booking/movieDetails.js'])
+    @vite(['resources/js/booking/movieDetails.js'])
 @endpush

@@ -1,5 +1,5 @@
-nav{
-    display:none;
+nav {
+    display: none;
 }
 
 .movie-seat-selection-navbar {
@@ -15,6 +15,8 @@ nav{
         .top-nav-logo {
             position: absolute;
             left: 10%;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         .movie-seat-selection-header {
@@ -22,13 +24,28 @@ nav{
             flex-direction: column;
             margin: 0;
             justify-content: center;
-            color:white;
+            color: white;
+
+            .booking-progress {
+                display: flex;
+                align-items: center; /* Vertically center */
+                justify-content: center; /* Horizontally center */
+                margin: 0px auto 20px auto;
+
+                .custom-green {
+                    color: #008000; /* Text color */
+
+                    span {
+                        border-color: #008000; /* Border color */
+                    }
+                }
+            }
 
             h3 {
-                font-size:30px;
+                font-size: 30px;
                 text-align: center;
                 font-weight: 1000;
-                padding-bottom:10px;
+                padding-bottom: 10px;
             }
 
             .movie-seat-hall-time {
@@ -40,31 +57,28 @@ nav{
                     margin: 0 5px;
                 }
 
-                .nav-info{
-                    padding-right:15px;
-                    font-size:18px;
+                .nav-info {
+                    padding-right: 15px;
+                    font-size: 18px;
                 }
             }
         }
-
     }
-    
-    
 }
 
-.seat-selection-body{
-
+.seat-selection-body {
     padding-top: 40px;
     background: #1d1d1d;
     padding-bottom: 100px;
 
     .selected-seat-display {
         text-align: center;
+
+        h4 {
+            color: white;
+        }
     }
-
-    
 }
-
 
 .hallView {
     display: flex;
@@ -82,14 +96,14 @@ nav{
             display: flex;
             flex-wrap: wrap;
 
-            p{
-                font-size:18px;
-                color:white;
+            p {
+                font-size: 18px;
+                color: white;
                 padding: 0px 10px 0px 3px;
             }
         }
     }
-    
+
     .screen-container {
         margin-bottom: 20px;
 
@@ -114,10 +128,12 @@ nav{
             margin-bottom: 10px;
             gap: 60px;
 
-            .standard-left-column, .standard-middle-column, .standard-right-column {
+            .standard-left-column,
+            .standard-middle-column,
+            .standard-right-column {
                 display: flex;
                 flex-direction: row;
-                
+
                 .standardSeatImg {
                     width: 30px;
                     height: 30px;
@@ -125,8 +141,8 @@ nav{
                     margin: 5px;
                 }
 
-                .seat-info{
-                    color:white;
+                .seat-info {
+                    color: white;
                     text-align: center;
                     margin: 5px;
                 }
@@ -139,25 +155,63 @@ nav{
             .standard-middle-column {
                 justify-content: center;
             }
-            
+
             .standard-right-column {
                 justify-content: flex-end;
+            }
+        }
+
+        .premium-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 70px;
+            gap: 100px;
+
+            .premium-left-column,
+            .premium-right-column {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                .premiumSeatImg {
+                    width: 40px;
+                    height: 40px;
+                    object-fit: cover;
+                    margin: 5px;
+                }
+
+                .seat-info {
+                    color: white;
+                    text-align: center;
+                    margin: 5px;
+                }
+            }
+        }
+
+        .familySeatImg {
+            width: 120px;
+            height: 40px;
+
+            .family-row {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 50px; /* Add margin for vertical spacing between rows */
             }
         }
     }
 }
 
+.continueButton-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 50px 0;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .continueButton {
+        color: white;
+        background-color: #008000;
+        padding: 10px 20px;
+        border-radius: 12px;
+    }
+}

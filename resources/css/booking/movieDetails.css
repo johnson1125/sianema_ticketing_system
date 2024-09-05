@@ -1,56 +1,118 @@
+nav {
+    display: none;
+}
+
+.movie-seat-selection-navbar {
+    display: flex;
+    background: black;
+    padding: 20px 0px;
+    justify-content: center;
+    position: relative;
+
+    .movie-seat-selection-container {
+        width: 70%;
+
+        .top-nav-logo {
+            position: absolute;
+            left: 10%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .movie-seat-selection-header {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            justify-content: center;
+            color: white;
+
+            .booking-progress {
+                display: flex;
+                align-items: center; /* Vertically center */
+                justify-content: center; /* Horizontally center */
+                margin: 0px auto 20px auto;
+
+                .custom-green {
+                    color: #008000; /* Text color */
+
+                    
+                    span {
+                        border-color: #008000; /* Border color */
+                        
+                    }
+                }
+
+                .border{
+                    border-width:2px;
+                }
+
+                h3 {
+                    font-size: 30px;
+                    text-align: center;
+                    font-weight: 1000;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
 .movie-details-container {
     position: relative;
     display: flex;
     justify-content: center;
-    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.90) 50%); 
+    background: -webkit-linear-gradient(
+        top,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.9) 50%
+    );
 
     #movieCoverPhoto {
         width: 100%;
         height: 700px;
         object-position: center;
         position: relative;
-        z-index:-1;
+        z-index: -1;
     }
 
     .movie-details-information-container {
         width: 70%;
         position: absolute;
         bottom: 40px;
-        color:white;
-    
-        #movieName{
+        color: white;
+
+        #movieName {
             font-size: 50px;
         }
-    
+
         .movie-details-info1 {
             display: flex;
             gap: 5%;
-            padding-bottom : 10px;
+            padding-bottom: 10px;
 
-            li{
-                font-size:18px;
+            li {
+                font-size: 18px;
             }
         }
-    
+
         .movie-details-info2 {
             display: flex;
             gap: 40px;
             padding-bottom: 10px;
 
-            h4{
+            h4 {
                 font-size: 25px;
             }
 
-            li{
-                font-size:18px;
+            li {
+                font-size: 18px;
             }
         }
 
-        h4{
+        h4 {
             font-size: 25px;
         }
     }
-    
 }
 
 .cinema-date-selection-container {
@@ -70,7 +132,7 @@
             padding-right: 50px; /* Remove default padding */
             height: 100%;
             width: 100%;
-        
+
             li {
                 width: 15%;
 
@@ -82,12 +144,11 @@
                     text-decoration: none;
                     display: inline-block;
                     font-size: 20px;
-                    padding:15px 10px 15px 10px;
+                    padding: 15px 10px 15px 10px;
                     transition: background-color 0.3s, color 0.3s;
                     height: 100%;
                     width: 100%;
                     font-size: 25px;
-
                 }
 
                 .highlighted {
@@ -98,18 +159,12 @@
 
                 .date-button:hover {
                     background-color: #008000;
-                    color: #ffffff;                   
+                    color: #ffffff;
                 }
-
-                
             }
         }
     }
 }
-
-
-
-
 
 .movie-time-selection-container {
     padding: 20px;
@@ -117,17 +172,20 @@
     justify-content: center;
     gap: 2%;
     background: #1a1a19;
+    flex-wrap: wrap;
 
-    .movie-time-selection {
+    .movie-time-standard,
+    .movie-time-premium,
+    .movie-time-family{
         width: 70%;
         padding-bottom: 200px;
         background: black;
 
         .classic-header {
             font-weight: 1000;
-            font-size:40px;
+            font-size: 40px;
             padding: 40px 0px 30px 40px;
-            color:white;
+            color: white;
         }
 
         .chair-image-container {
@@ -158,12 +216,6 @@
         }
     }
 }
-
-
-
-
-
-
 
 /* .selected-date-button {
     background-color: var(--button-green);

@@ -24,21 +24,27 @@ class BookingController extends Controller
         $movie = Movie::findOrFail($movie_id);
 
         // Get today's date in 'Y-m-d' format
-        $todayDate = Carbon::today()->format('Y-m-d');
+        $todayDate = Carbon::now('Asia/Kuala_Lumpur')->format('Y-m-d');
 
-        // Fetch halltimeslot records where movie_id matches the provided $movie_id and startDateTime is today
-        $halltimeslots = HallTimeSlot::where('movie_id', $movie_id)
-            ->whereDate('startDateTime', $todayDate)
-            ->get();
+        $halltimeslots = HallTimeSlot::join('halls', 'hall_time_slots.hall_id', '=', 'halls.hall_id')
+        ->where('hall_time_slots.movie_id', $movie_id)
+        ->whereDate('startDateTime', '>=', $todayDate)
+        ->whereDate('startDateTime', '<=', Carbon::today()->addDays(6)->format('Y-m-d'))
+        ->select('hall_time_slots.*', 'halls.hall_type')
+        ->get();
+    
+
+        // Group halltimeslots by hall type
+        $groupedTimeSlots = $halltimeslots->groupBy('hall_type');
 
         // Get today's date and the following 6 days
         $dateList = [];
         for ($i = 0; $i <= 6; $i++) {
-            $dateList[] = Carbon::today()->addDays($i);
+            $dateList[] = Carbon::now('Asia/Kuala_Lumpur')->addDays($i);
         }
 
-        // Pass the movie, halltimeslot, and datelist to the view
-        return view('booking.movieDetails', compact('movie', 'halltimeslots', 'dateList'));
+        // Pass the movie, grouped halltimeslots, and dateList to the view
+        return view('booking.movieDetails', compact('movie', 'groupedTimeSlots', 'dateList'));
     }
 
     public function timeSlotSelect(Request $request)
@@ -68,30 +74,51 @@ class BookingController extends Controller
 
 
     public function dateButtonClick(Request $request)
-{
-    // Convert the input date string to a Carbon instance and format it to 'Y-m-d'
-    $selectedDate = Carbon::parse($request->input('date'))->format('Y-m-d');
+    {
+        // Convert the input date string to a Carbon instance and format it to 'Y-m-d'
+        $selectedDate = Carbon::parse($request->input('date'))->format('Y-m-d');
 
-    $movieID = $request->input('movie_id');
+        $movieID = $request->input('movie_id');
 
-    // Fetch the movie details based on movie_id
-    $movie = Movie::findOrFail($movieID);
+        // Fetch the movie details based on movie_id
+        $movie = Movie::findOrFail($movieID);
 
-    // Get today's date and the following 6 days
-    $dateList = [];
-    for ($i = 0; $i <= 6; $i++) {
-        $dateList[] = Carbon::today()->addDays($i);
+        // Get today's date and the following 6 days
+        $dateList = [];
+        for ($i = 0; $i <= 6; $i++) {
+            $dateList[] = Carbon::now('Asia/Kuala_Lumpur')->addDays($i);
+        }
+
+        // Fetch halltimeslot records where movie_id matches the provided $movie_id and date matches the selected date
+        $halltimeslots = HallTimeSlot::where('movie_id', $movieID)
+            ->whereDate('startDateTime', $selectedDate)
+            ->get();
+
+        // Return the view with the data
+        return view('booking.movieDetails', compact('halltimeslots', 'movie', 'dateList'));
     }
 
-    // Fetch halltimeslot records where movie_id matches the provided $movie_id and date matches the selected date
-    $halltimeslots = HallTimeSlot::where('movie_id', $movieID)
-        ->whereDate('startDateTime', $selectedDate)
-        ->get();
 
-    // Return the view with the data
-    return view('booking.movieDetails', compact('halltimeslots', 'movie', 'dateList'));
-}
+    public function processPayment(Request $request)
+    {
+        // Retrieve the selected seats from the request
+        $selectedSeats = $request->input('selected_seat_numbers');
 
+        // Example processing: Save to session, database, or pass to payment gateway
+        // For example, saving the selected seats to the session
+        session(['selected_seat_numbers' => $selectedSeats]);
+
+        // Redirect to the payment page with the necessary data
+        return redirect()->route('showPaymentPage')->with('selectedSeats', $selectedSeats);
+    }
+
+    // Additional method to show the payment page
+    public function showPaymentPage()
+    {
+        $selectedSeats = session('selected_seat_numbers', []);
+        // Return the payment view with the selected seats
+        return view('payment', compact('selectedSeats'));
+    }
     public function getMoviePoster($id)
     {
         $movie = Movie::find($id);
