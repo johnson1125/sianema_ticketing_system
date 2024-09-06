@@ -57,6 +57,17 @@ class XMLExtensionsController extends Controller
         return $xmlString->asXML();
     }
 
+    public static function convertJsonToXMLFile($json, $parentElement,$filePath)
+    {
+        $data = json_decode($json, true);
+        $xmlHeader = '<?xml version="1.0"?><' . $parentElement . '></' . $parentElement . '>';
+        $xmlData = new \SimpleXMLElement($xmlHeader);
+        XMLExtensionsController::arrayToXml($data, $xmlData, $parentElement);
+        $xmlString = $xmlData->asXML(resource_path($filePath));
+
+        return $xmlString;
+    }
+
     private static function arrayToXml($data, $xmlData, $parentElement)
     {
         $element = substr($parentElement, 0, -1);
