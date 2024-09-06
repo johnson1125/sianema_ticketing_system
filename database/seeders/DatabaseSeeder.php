@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         $this->call([
-            HallTimeSlotsTableSeeder::class,
             UsersTableSeeder::class,
             
           
@@ -26,6 +25,15 @@ class DatabaseSeeder extends Seeder
 
             //HallTimeSlot Test Data
             // HallTimeSlotDataSeeder::class
+
+            //Movie Test Data
+            MoviesSeeder::class,
+
+            //Hall Test Data
+            HallsSeeder::class,
+
+            //Seat Test Data 
+            SeatsSeeder::class,
         ]);
 
     
