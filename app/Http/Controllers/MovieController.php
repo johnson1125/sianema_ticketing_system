@@ -50,9 +50,8 @@ class MovieController extends Controller
         
         if($this->movieService->createMovie($validated)){
             return redirect()->route('movies.index')->with('success', 'Movie added successfully!');       
-        }else{
-            return redirect()->back()->with('error', 'Failed to add movie!');
         }
+        return redirect()->back()->with('error', 'Failed to add movie!');     
     }
 
         
@@ -84,11 +83,8 @@ class MovieController extends Controller
             
             if ($this->movieService->editMovie($validated, $id)){
                 return redirect()->route('movies.index')->with('success', 'Movie updated successfully!');
-            } else {
-                return redirect()->back()->with('error', 'Failed to update movie!');
-            }
-            
-            
+            } 
+            return redirect()->back()->with('error', 'Failed to update movie!'); 
         }
     
         public function show($id)
