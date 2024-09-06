@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Services;
 
 use DOMDocument;
 use XSLTProcessor;
 
 
-class XMLExtensionsController extends Controller
+class XMLExtensionsService
 {
 
     public static function XMLStringToHTML($xmlString, $xsl_file_path)
@@ -52,7 +52,7 @@ class XMLExtensionsController extends Controller
         $data = json_decode($json, true);
         $xmlHeader = '<?xml version="1.0"?><' . $parentElement . '></' . $parentElement . '>';
         $xmlData = new \SimpleXMLElement($xmlHeader);
-        XMLExtensionsController::arrayToXml($data, $xmlData, $parentElement);
+        XMLExtensionsService::arrayToXml($data, $xmlData, $parentElement);
         $xmlString = $xmlData;
         return $xmlString->asXML();
     }
@@ -62,7 +62,7 @@ class XMLExtensionsController extends Controller
         $data = json_decode($json, true);
         $xmlHeader = '<?xml version="1.0"?><' . $parentElement . '></' . $parentElement . '>';
         $xmlData = new \SimpleXMLElement($xmlHeader);
-        XMLExtensionsController::arrayToXml($data, $xmlData, $parentElement);
+        XMLExtensionsService::arrayToXml($data, $xmlData, $parentElement);
         $xmlString = $xmlData->asXML(resource_path($filePath));
 
         return $xmlString;
@@ -86,15 +86,15 @@ class XMLExtensionsController extends Controller
 
             if (is_array($value)) {
                 // Check if the value is an associative array (object-like) or an indexed array (list-like)
-                if (XMLExtensionsController::isAssoc($value)) {
+                if (XMLExtensionsService::isAssoc($value)) {
                     // Handle associative array (object-like)
                     $subnode = $xmlData->addChild("$key");
-                    XMLExtensionsController::arrayToXml($value, $subnode, $key);
+                    XMLExtensionsService::arrayToXml($value, $subnode, $key);
                 } else {
                     // Handle indexed array (list-like)
                     $subnode = $xmlData->addChild("$key");
                     foreach ($value as $item) {
-                        XMLExtensionsController::arrayToXml($item, $subnode, $key);
+                        XMLExtensionsService::arrayToXml($item, $subnode, $key);
                     }
                 }
             } else {
