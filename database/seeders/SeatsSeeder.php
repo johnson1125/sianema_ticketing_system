@@ -13,10 +13,10 @@ class SeatsSeeder extends Seeder
     public function run(): void
     {
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;F&rbrack;-01-A01",
+			'seat_id' => "HALL(F)-01-A01",
 			'created_at' => "2024-09-02 03:18:38",
 			'updated_at' => "2024-09-04 16:04:14",
-			'hall_id' => "HALL&lbrack;F&rbrack;-01",
+			'hall_id' => "HALL(F)-01",
 			'row_letter' => "A",
 			'column_number' => "1",
 			'seat_type' => "Family",
@@ -24,10 +24,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;F&rbrack;-01-B01",
+			'seat_id' => "HALL(F)-01-B01",
 			'created_at' => "2024-09-02 03:18:38",
 			'updated_at' => "2024-09-05 03:54:10",
-			'hall_id' => "HALL&lbrack;F&rbrack;-01",
+			'hall_id' => "HALL(F)-01",
 			'row_letter' => "B",
 			'column_number' => "1",
 			'seat_type' => "Family",
@@ -35,10 +35,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;F&rbrack;-01-C01",
+			'seat_id' => "HALL(F)-01-C01",
 			'created_at' => "2024-09-02 03:18:38",
 			'updated_at' => "2024-09-04 16:04:30",
-			'hall_id' => "HALL&lbrack;F&rbrack;-01",
+			'hall_id' => "HALL(F)-01",
 			'row_letter' => "C",
 			'column_number' => "1",
 			'seat_type' => "Family",
@@ -46,10 +46,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;F&rbrack;-01-D01",
+			'seat_id' => "HALL(F)-01-D01",
 			'created_at' => "2024-09-02 03:18:38",
 			'updated_at' => "2024-09-05 03:54:10",
-			'hall_id' => "HALL&lbrack;F&rbrack;-01",
+			'hall_id' => "HALL(F)-01",
 			'row_letter' => "D",
 			'column_number' => "1",
 			'seat_type' => "Family",
@@ -57,10 +57,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;F&rbrack;-01-E01",
+			'seat_id' => "HALL(F)-01-E01",
 			'created_at' => "2024-09-02 03:18:39",
 			'updated_at' => "2024-09-05 03:54:10",
-			'hall_id' => "HALL&lbrack;F&rbrack;-01",
+			'hall_id' => "HALL(F)-01",
 			'row_letter' => "E",
 			'column_number' => "1",
 			'seat_type' => "Family",
@@ -68,10 +68,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;F&rbrack;-02-A01",
+			'seat_id' => "HALL(F)-02-A01",
 			'created_at' => "2024-09-02 03:22:02",
 			'updated_at' => "2024-09-02 03:22:02",
-			'hall_id' => "HALL&lbrack;F&rbrack;-02",
+			'hall_id' => "HALL(F)-02",
 			'row_letter' => "A",
 			'column_number' => "1",
 			'seat_type' => "Family",
@@ -79,10 +79,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;F&rbrack;-02-B01",
+			'seat_id' => "HALL(F)-02-B01",
 			'created_at' => "2024-09-02 03:22:04",
 			'updated_at' => "2024-09-02 03:22:04",
-			'hall_id' => "HALL&lbrack;F&rbrack;-02",
+			'hall_id' => "HALL(F)-02",
 			'row_letter' => "B",
 			'column_number' => "1",
 			'seat_type' => "Family",
@@ -90,10 +90,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;F&rbrack;-02-C01",
+			'seat_id' => "HALL(F)-02-C01",
 			'created_at' => "2024-09-02 03:22:05",
 			'updated_at' => "2024-09-02 03:22:05",
-			'hall_id' => "HALL&lbrack;F&rbrack;-02",
+			'hall_id' => "HALL(F)-02",
 			'row_letter' => "C",
 			'column_number' => "1",
 			'seat_type' => "Family",
@@ -101,10 +101,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;F&rbrack;-02-D01",
+			'seat_id' => "HALL(F)-02-D01",
 			'created_at' => "2024-09-02 03:22:06",
 			'updated_at' => "2024-09-02 03:22:06",
-			'hall_id' => "HALL&lbrack;F&rbrack;-02",
+			'hall_id' => "HALL(F)-02",
 			'row_letter' => "D",
 			'column_number' => "1",
 			'seat_type' => "Family",
@@ -112,10 +112,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;F&rbrack;-02-E01",
+			'seat_id' => "HALL(F)-02-E01",
 			'created_at' => "2024-09-02 03:22:08",
 			'updated_at' => "2024-09-02 03:22:08",
-			'hall_id' => "HALL&lbrack;F&rbrack;-02",
+			'hall_id' => "HALL(F)-02",
 			'row_letter' => "E",
 			'column_number' => "1",
 			'seat_type' => "Family",
@@ -123,10 +123,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-A01",
+			'seat_id' => "HALL(P)-01-A01",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "A",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -134,10 +134,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-A02",
+			'seat_id' => "HALL(P)-01-A02",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "A",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -145,10 +145,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-A03",
+			'seat_id' => "HALL(P)-01-A03",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "A",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -156,10 +156,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-A04",
+			'seat_id' => "HALL(P)-01-A04",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "A",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -167,10 +167,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-A05",
+			'seat_id' => "HALL(P)-01-A05",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "A",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -178,10 +178,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-A06",
+			'seat_id' => "HALL(P)-01-A06",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "A",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -189,10 +189,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-A07",
+			'seat_id' => "HALL(P)-01-A07",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "A",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -200,10 +200,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-A08",
+			'seat_id' => "HALL(P)-01-A08",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "A",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -211,10 +211,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-A09",
+			'seat_id' => "HALL(P)-01-A09",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "A",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -222,10 +222,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-A10",
+			'seat_id' => "HALL(P)-01-A10",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "A",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -233,10 +233,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-B01",
+			'seat_id' => "HALL(P)-01-B01",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "B",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -244,10 +244,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-B02",
+			'seat_id' => "HALL(P)-01-B02",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "B",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -255,10 +255,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-B03",
+			'seat_id' => "HALL(P)-01-B03",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "B",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -266,10 +266,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-B04",
+			'seat_id' => "HALL(P)-01-B04",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "B",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -277,10 +277,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-B05",
+			'seat_id' => "HALL(P)-01-B05",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "B",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -288,10 +288,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-B06",
+			'seat_id' => "HALL(P)-01-B06",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "B",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -299,10 +299,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-B07",
+			'seat_id' => "HALL(P)-01-B07",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-04 05:55:35",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "B",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -310,10 +310,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-B08",
+			'seat_id' => "HALL(P)-01-B08",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "B",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -321,10 +321,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-B09",
+			'seat_id' => "HALL(P)-01-B09",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "B",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -332,10 +332,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-B10",
+			'seat_id' => "HALL(P)-01-B10",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "B",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -343,10 +343,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-C01",
+			'seat_id' => "HALL(P)-01-C01",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "C",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -354,10 +354,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-C02",
+			'seat_id' => "HALL(P)-01-C02",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "C",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -365,10 +365,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-C03",
+			'seat_id' => "HALL(P)-01-C03",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "C",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -376,10 +376,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-C04",
+			'seat_id' => "HALL(P)-01-C04",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "C",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -387,10 +387,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-C05",
+			'seat_id' => "HALL(P)-01-C05",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "C",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -398,10 +398,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-C06",
+			'seat_id' => "HALL(P)-01-C06",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-04 16:05:04",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "C",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -409,10 +409,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-C07",
+			'seat_id' => "HALL(P)-01-C07",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "C",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -420,10 +420,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-C08",
+			'seat_id' => "HALL(P)-01-C08",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "C",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -431,10 +431,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-C09",
+			'seat_id' => "HALL(P)-01-C09",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "C",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -442,10 +442,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-C10",
+			'seat_id' => "HALL(P)-01-C10",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "C",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -453,10 +453,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-D01",
+			'seat_id' => "HALL(P)-01-D01",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "D",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -464,10 +464,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-D02",
+			'seat_id' => "HALL(P)-01-D02",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "D",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -475,10 +475,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-D03",
+			'seat_id' => "HALL(P)-01-D03",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "D",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -486,10 +486,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-D04",
+			'seat_id' => "HALL(P)-01-D04",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "D",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -497,10 +497,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-D05",
+			'seat_id' => "HALL(P)-01-D05",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "D",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -508,10 +508,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-D06",
+			'seat_id' => "HALL(P)-01-D06",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "D",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -519,10 +519,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-D07",
+			'seat_id' => "HALL(P)-01-D07",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "D",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -530,10 +530,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-D08",
+			'seat_id' => "HALL(P)-01-D08",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "D",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -541,10 +541,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-D09",
+			'seat_id' => "HALL(P)-01-D09",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "D",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -552,10 +552,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-D10",
+			'seat_id' => "HALL(P)-01-D10",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "D",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -563,10 +563,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-E01",
+			'seat_id' => "HALL(P)-01-E01",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "E",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -574,10 +574,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-E02",
+			'seat_id' => "HALL(P)-01-E02",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "E",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -585,10 +585,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-E03",
+			'seat_id' => "HALL(P)-01-E03",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "E",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -596,10 +596,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-E04",
+			'seat_id' => "HALL(P)-01-E04",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "E",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -607,10 +607,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-E05",
+			'seat_id' => "HALL(P)-01-E05",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "E",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -618,10 +618,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-E06",
+			'seat_id' => "HALL(P)-01-E06",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "E",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -629,10 +629,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-E07",
+			'seat_id' => "HALL(P)-01-E07",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "E",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -640,10 +640,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-E08",
+			'seat_id' => "HALL(P)-01-E08",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "E",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -651,10 +651,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-E09",
+			'seat_id' => "HALL(P)-01-E09",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "E",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -662,10 +662,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-01-E10",
+			'seat_id' => "HALL(P)-01-E10",
 			'created_at' => "2024-09-02 03:18:48",
 			'updated_at' => "2024-09-02 03:18:48",
-			'hall_id' => "HALL&lbrack;P&rbrack;-01",
+			'hall_id' => "HALL(P)-01",
 			'row_letter' => "E",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -673,10 +673,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-A01",
+			'seat_id' => "HALL(P)-02-A01",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "A",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -684,10 +684,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-A02",
+			'seat_id' => "HALL(P)-02-A02",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "A",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -695,10 +695,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-A03",
+			'seat_id' => "HALL(P)-02-A03",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "A",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -706,10 +706,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-A04",
+			'seat_id' => "HALL(P)-02-A04",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "A",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -717,10 +717,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-A05",
+			'seat_id' => "HALL(P)-02-A05",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "A",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -728,10 +728,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-A06",
+			'seat_id' => "HALL(P)-02-A06",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "A",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -739,10 +739,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-A07",
+			'seat_id' => "HALL(P)-02-A07",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "A",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -750,10 +750,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-A08",
+			'seat_id' => "HALL(P)-02-A08",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "A",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -761,10 +761,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-A09",
+			'seat_id' => "HALL(P)-02-A09",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "A",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -772,10 +772,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-A10",
+			'seat_id' => "HALL(P)-02-A10",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "A",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -783,10 +783,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-B01",
+			'seat_id' => "HALL(P)-02-B01",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "B",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -794,10 +794,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-B02",
+			'seat_id' => "HALL(P)-02-B02",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "B",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -805,10 +805,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-B03",
+			'seat_id' => "HALL(P)-02-B03",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "B",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -816,10 +816,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-B04",
+			'seat_id' => "HALL(P)-02-B04",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "B",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -827,10 +827,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-B05",
+			'seat_id' => "HALL(P)-02-B05",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "B",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -838,10 +838,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-B06",
+			'seat_id' => "HALL(P)-02-B06",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "B",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -849,10 +849,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-B07",
+			'seat_id' => "HALL(P)-02-B07",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "B",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -860,10 +860,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-B08",
+			'seat_id' => "HALL(P)-02-B08",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "B",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -871,10 +871,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-B09",
+			'seat_id' => "HALL(P)-02-B09",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "B",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -882,10 +882,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-B10",
+			'seat_id' => "HALL(P)-02-B10",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "B",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -893,10 +893,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-C01",
+			'seat_id' => "HALL(P)-02-C01",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "C",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -904,10 +904,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-C02",
+			'seat_id' => "HALL(P)-02-C02",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "C",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -915,10 +915,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-C03",
+			'seat_id' => "HALL(P)-02-C03",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "C",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -926,10 +926,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-C04",
+			'seat_id' => "HALL(P)-02-C04",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "C",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -937,10 +937,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-C05",
+			'seat_id' => "HALL(P)-02-C05",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "C",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -948,10 +948,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-C06",
+			'seat_id' => "HALL(P)-02-C06",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "C",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -959,10 +959,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-C07",
+			'seat_id' => "HALL(P)-02-C07",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "C",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -970,10 +970,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-C08",
+			'seat_id' => "HALL(P)-02-C08",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "C",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -981,10 +981,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-C09",
+			'seat_id' => "HALL(P)-02-C09",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "C",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -992,10 +992,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-C10",
+			'seat_id' => "HALL(P)-02-C10",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "C",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -1003,10 +1003,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-D01",
+			'seat_id' => "HALL(P)-02-D01",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "D",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -1014,10 +1014,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-D02",
+			'seat_id' => "HALL(P)-02-D02",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "D",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -1025,10 +1025,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-D03",
+			'seat_id' => "HALL(P)-02-D03",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "D",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -1036,10 +1036,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-D04",
+			'seat_id' => "HALL(P)-02-D04",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "D",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -1047,10 +1047,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-D05",
+			'seat_id' => "HALL(P)-02-D05",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "D",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -1058,10 +1058,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-D06",
+			'seat_id' => "HALL(P)-02-D06",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "D",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -1069,10 +1069,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-D07",
+			'seat_id' => "HALL(P)-02-D07",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "D",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -1080,10 +1080,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-D08",
+			'seat_id' => "HALL(P)-02-D08",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "D",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -1091,10 +1091,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-D09",
+			'seat_id' => "HALL(P)-02-D09",
 			'created_at' => "2024-09-04 16:03:39",
 			'updated_at' => "2024-09-04 16:03:39",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "D",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -1102,10 +1102,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-D10",
+			'seat_id' => "HALL(P)-02-D10",
 			'created_at' => "2024-09-04 16:03:40",
 			'updated_at' => "2024-09-04 16:03:40",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "D",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -1113,10 +1113,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-E01",
+			'seat_id' => "HALL(P)-02-E01",
 			'created_at' => "2024-09-04 16:03:40",
 			'updated_at' => "2024-09-04 16:03:40",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "E",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -1124,10 +1124,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-E02",
+			'seat_id' => "HALL(P)-02-E02",
 			'created_at' => "2024-09-04 16:03:40",
 			'updated_at' => "2024-09-04 16:03:40",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "E",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -1135,10 +1135,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-E03",
+			'seat_id' => "HALL(P)-02-E03",
 			'created_at' => "2024-09-04 16:03:40",
 			'updated_at' => "2024-09-04 16:03:40",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "E",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -1146,10 +1146,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-E04",
+			'seat_id' => "HALL(P)-02-E04",
 			'created_at' => "2024-09-04 16:03:40",
 			'updated_at' => "2024-09-04 16:03:40",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "E",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -1157,10 +1157,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-E05",
+			'seat_id' => "HALL(P)-02-E05",
 			'created_at' => "2024-09-04 16:03:40",
 			'updated_at' => "2024-09-04 16:03:40",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "E",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -1168,10 +1168,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-E06",
+			'seat_id' => "HALL(P)-02-E06",
 			'created_at' => "2024-09-04 16:03:40",
 			'updated_at' => "2024-09-04 16:03:40",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "E",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -1179,10 +1179,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-E07",
+			'seat_id' => "HALL(P)-02-E07",
 			'created_at' => "2024-09-04 16:03:40",
 			'updated_at' => "2024-09-04 16:03:40",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "E",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -1190,10 +1190,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-E08",
+			'seat_id' => "HALL(P)-02-E08",
 			'created_at' => "2024-09-04 16:03:40",
 			'updated_at' => "2024-09-04 16:03:40",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "E",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -1201,10 +1201,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-E09",
+			'seat_id' => "HALL(P)-02-E09",
 			'created_at' => "2024-09-04 16:03:40",
 			'updated_at' => "2024-09-04 16:03:40",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "E",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -1212,10 +1212,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-02-E10",
+			'seat_id' => "HALL(P)-02-E10",
 			'created_at' => "2024-09-04 16:03:40",
 			'updated_at' => "2024-09-04 16:03:40",
-			'hall_id' => "HALL&lbrack;P&rbrack;-02",
+			'hall_id' => "HALL(P)-02",
 			'row_letter' => "E",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -1223,10 +1223,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-A01",
+			'seat_id' => "HALL(P)-03-A01",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "A",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -1234,10 +1234,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-A02",
+			'seat_id' => "HALL(P)-03-A02",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "A",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -1245,10 +1245,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-A03",
+			'seat_id' => "HALL(P)-03-A03",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "A",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -1256,10 +1256,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-A04",
+			'seat_id' => "HALL(P)-03-A04",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "A",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -1267,10 +1267,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-A05",
+			'seat_id' => "HALL(P)-03-A05",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "A",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -1278,10 +1278,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-A06",
+			'seat_id' => "HALL(P)-03-A06",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "A",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -1289,10 +1289,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-A07",
+			'seat_id' => "HALL(P)-03-A07",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "A",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -1300,10 +1300,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-A08",
+			'seat_id' => "HALL(P)-03-A08",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "A",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -1311,10 +1311,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-A09",
+			'seat_id' => "HALL(P)-03-A09",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "A",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -1322,10 +1322,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-A10",
+			'seat_id' => "HALL(P)-03-A10",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "A",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -1333,10 +1333,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-B01",
+			'seat_id' => "HALL(P)-03-B01",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "B",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -1344,10 +1344,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-B02",
+			'seat_id' => "HALL(P)-03-B02",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "B",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -1355,10 +1355,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-B03",
+			'seat_id' => "HALL(P)-03-B03",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "B",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -1366,10 +1366,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-B04",
+			'seat_id' => "HALL(P)-03-B04",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "B",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -1377,10 +1377,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-B05",
+			'seat_id' => "HALL(P)-03-B05",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "B",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -1388,10 +1388,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-B06",
+			'seat_id' => "HALL(P)-03-B06",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "B",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -1399,10 +1399,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-B07",
+			'seat_id' => "HALL(P)-03-B07",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "B",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -1410,10 +1410,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-B08",
+			'seat_id' => "HALL(P)-03-B08",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "B",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -1421,10 +1421,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-B09",
+			'seat_id' => "HALL(P)-03-B09",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "B",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -1432,10 +1432,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-B10",
+			'seat_id' => "HALL(P)-03-B10",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "B",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -1443,10 +1443,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-C01",
+			'seat_id' => "HALL(P)-03-C01",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "C",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -1454,10 +1454,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-C02",
+			'seat_id' => "HALL(P)-03-C02",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "C",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -1465,10 +1465,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-C03",
+			'seat_id' => "HALL(P)-03-C03",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "C",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -1476,10 +1476,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-C04",
+			'seat_id' => "HALL(P)-03-C04",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "C",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -1487,10 +1487,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-C05",
+			'seat_id' => "HALL(P)-03-C05",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "C",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -1498,10 +1498,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-C06",
+			'seat_id' => "HALL(P)-03-C06",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "C",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -1509,10 +1509,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-C07",
+			'seat_id' => "HALL(P)-03-C07",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "C",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -1520,10 +1520,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-C08",
+			'seat_id' => "HALL(P)-03-C08",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "C",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -1531,10 +1531,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-C09",
+			'seat_id' => "HALL(P)-03-C09",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "C",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -1542,10 +1542,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-C10",
+			'seat_id' => "HALL(P)-03-C10",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "C",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -1553,10 +1553,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-D01",
+			'seat_id' => "HALL(P)-03-D01",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "D",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -1564,10 +1564,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-D02",
+			'seat_id' => "HALL(P)-03-D02",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "D",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -1575,10 +1575,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-D03",
+			'seat_id' => "HALL(P)-03-D03",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "D",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -1586,10 +1586,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-D04",
+			'seat_id' => "HALL(P)-03-D04",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "D",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -1597,10 +1597,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-D05",
+			'seat_id' => "HALL(P)-03-D05",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "D",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -1608,10 +1608,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-D06",
+			'seat_id' => "HALL(P)-03-D06",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "D",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -1619,10 +1619,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-D07",
+			'seat_id' => "HALL(P)-03-D07",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "D",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -1630,10 +1630,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-D08",
+			'seat_id' => "HALL(P)-03-D08",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "D",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -1641,10 +1641,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-D09",
+			'seat_id' => "HALL(P)-03-D09",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "D",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -1652,10 +1652,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-D10",
+			'seat_id' => "HALL(P)-03-D10",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "D",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -1663,10 +1663,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-E01",
+			'seat_id' => "HALL(P)-03-E01",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "E",
 			'column_number' => "1",
 			'seat_type' => "Premium",
@@ -1674,10 +1674,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-E02",
+			'seat_id' => "HALL(P)-03-E02",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "E",
 			'column_number' => "2",
 			'seat_type' => "Premium",
@@ -1685,10 +1685,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-E03",
+			'seat_id' => "HALL(P)-03-E03",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "E",
 			'column_number' => "3",
 			'seat_type' => "Premium",
@@ -1696,10 +1696,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-E04",
+			'seat_id' => "HALL(P)-03-E04",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "E",
 			'column_number' => "4",
 			'seat_type' => "Premium",
@@ -1707,10 +1707,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-E05",
+			'seat_id' => "HALL(P)-03-E05",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "E",
 			'column_number' => "5",
 			'seat_type' => "Premium",
@@ -1718,10 +1718,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-E06",
+			'seat_id' => "HALL(P)-03-E06",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "E",
 			'column_number' => "6",
 			'seat_type' => "Premium",
@@ -1729,10 +1729,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-E07",
+			'seat_id' => "HALL(P)-03-E07",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "E",
 			'column_number' => "7",
 			'seat_type' => "Premium",
@@ -1740,10 +1740,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-E08",
+			'seat_id' => "HALL(P)-03-E08",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "E",
 			'column_number' => "8",
 			'seat_type' => "Premium",
@@ -1751,10 +1751,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-E09",
+			'seat_id' => "HALL(P)-03-E09",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "E",
 			'column_number' => "9",
 			'seat_type' => "Premium",
@@ -1762,10 +1762,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;P&rbrack;-03-E10",
+			'seat_id' => "HALL(P)-03-E10",
 			'created_at' => "2024-09-05 02:49:42",
 			'updated_at' => "2024-09-05 02:49:42",
-			'hall_id' => "HALL&lbrack;P&rbrack;-03",
+			'hall_id' => "HALL(P)-03",
 			'row_letter' => "E",
 			'column_number' => "10",
 			'seat_type' => "Premium",
@@ -1773,10 +1773,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-A01",
+			'seat_id' => "HALL(S)-01-A01",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "A",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -1784,10 +1784,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-A02",
+			'seat_id' => "HALL(S)-01-A02",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "A",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -1795,10 +1795,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-A03",
+			'seat_id' => "HALL(S)-01-A03",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "A",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -1806,10 +1806,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-A04",
+			'seat_id' => "HALL(S)-01-A04",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "A",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -1817,10 +1817,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-A05",
+			'seat_id' => "HALL(S)-01-A05",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "A",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -1828,10 +1828,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-A06",
+			'seat_id' => "HALL(S)-01-A06",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "A",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -1839,10 +1839,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-A07",
+			'seat_id' => "HALL(S)-01-A07",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "A",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -1850,10 +1850,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-A08",
+			'seat_id' => "HALL(S)-01-A08",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "A",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -1861,10 +1861,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-A09",
+			'seat_id' => "HALL(S)-01-A09",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "A",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -1872,10 +1872,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-A10",
+			'seat_id' => "HALL(S)-01-A10",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "A",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -1883,10 +1883,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-A11",
+			'seat_id' => "HALL(S)-01-A11",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "A",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -1894,10 +1894,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-A12",
+			'seat_id' => "HALL(S)-01-A12",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "A",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -1905,10 +1905,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-B01",
+			'seat_id' => "HALL(S)-01-B01",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "B",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -1916,10 +1916,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-B02",
+			'seat_id' => "HALL(S)-01-B02",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "B",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -1927,10 +1927,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-B03",
+			'seat_id' => "HALL(S)-01-B03",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "B",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -1938,10 +1938,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-B04",
+			'seat_id' => "HALL(S)-01-B04",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "B",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -1949,10 +1949,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-B05",
+			'seat_id' => "HALL(S)-01-B05",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "B",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -1960,10 +1960,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-B06",
+			'seat_id' => "HALL(S)-01-B06",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "B",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -1971,10 +1971,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-B07",
+			'seat_id' => "HALL(S)-01-B07",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "B",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -1982,10 +1982,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-B08",
+			'seat_id' => "HALL(S)-01-B08",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "B",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -1993,10 +1993,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-B09",
+			'seat_id' => "HALL(S)-01-B09",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "B",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -2004,10 +2004,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-B10",
+			'seat_id' => "HALL(S)-01-B10",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "B",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -2015,10 +2015,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-B11",
+			'seat_id' => "HALL(S)-01-B11",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "B",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -2026,10 +2026,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-B12",
+			'seat_id' => "HALL(S)-01-B12",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "B",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -2037,10 +2037,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-C01",
+			'seat_id' => "HALL(S)-01-C01",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "C",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -2048,10 +2048,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-C02",
+			'seat_id' => "HALL(S)-01-C02",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "C",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -2059,10 +2059,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-C03",
+			'seat_id' => "HALL(S)-01-C03",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "C",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -2070,10 +2070,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-C04",
+			'seat_id' => "HALL(S)-01-C04",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "C",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -2081,10 +2081,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-C05",
+			'seat_id' => "HALL(S)-01-C05",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "C",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -2092,10 +2092,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-C06",
+			'seat_id' => "HALL(S)-01-C06",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "C",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -2103,10 +2103,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-C07",
+			'seat_id' => "HALL(S)-01-C07",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "C",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -2114,10 +2114,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-C08",
+			'seat_id' => "HALL(S)-01-C08",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "C",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -2125,10 +2125,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-C09",
+			'seat_id' => "HALL(S)-01-C09",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "C",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -2136,10 +2136,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-C10",
+			'seat_id' => "HALL(S)-01-C10",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "C",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -2147,10 +2147,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-C11",
+			'seat_id' => "HALL(S)-01-C11",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "C",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -2158,10 +2158,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-C12",
+			'seat_id' => "HALL(S)-01-C12",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "C",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -2169,10 +2169,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-D01",
+			'seat_id' => "HALL(S)-01-D01",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "D",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -2180,10 +2180,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-D02",
+			'seat_id' => "HALL(S)-01-D02",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "D",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -2191,10 +2191,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-D03",
+			'seat_id' => "HALL(S)-01-D03",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "D",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -2202,10 +2202,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-D04",
+			'seat_id' => "HALL(S)-01-D04",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "D",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -2213,10 +2213,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-D05",
+			'seat_id' => "HALL(S)-01-D05",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "D",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -2224,10 +2224,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-D06",
+			'seat_id' => "HALL(S)-01-D06",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "D",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -2235,10 +2235,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-D07",
+			'seat_id' => "HALL(S)-01-D07",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "D",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -2246,10 +2246,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-D08",
+			'seat_id' => "HALL(S)-01-D08",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "D",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -2257,10 +2257,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-D09",
+			'seat_id' => "HALL(S)-01-D09",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "D",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -2268,10 +2268,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-D10",
+			'seat_id' => "HALL(S)-01-D10",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "D",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -2279,10 +2279,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-D11",
+			'seat_id' => "HALL(S)-01-D11",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "D",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -2290,10 +2290,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-D12",
+			'seat_id' => "HALL(S)-01-D12",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "D",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -2301,10 +2301,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-E01",
+			'seat_id' => "HALL(S)-01-E01",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "E",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -2312,10 +2312,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-E02",
+			'seat_id' => "HALL(S)-01-E02",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "E",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -2323,10 +2323,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-E03",
+			'seat_id' => "HALL(S)-01-E03",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "E",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -2334,10 +2334,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-E04",
+			'seat_id' => "HALL(S)-01-E04",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "E",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -2345,10 +2345,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-E05",
+			'seat_id' => "HALL(S)-01-E05",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "E",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -2356,10 +2356,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-E06",
+			'seat_id' => "HALL(S)-01-E06",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "E",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -2367,10 +2367,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-E07",
+			'seat_id' => "HALL(S)-01-E07",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "E",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -2378,10 +2378,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-E08",
+			'seat_id' => "HALL(S)-01-E08",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "E",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -2389,10 +2389,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-E09",
+			'seat_id' => "HALL(S)-01-E09",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-04 06:02:07",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "E",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -2400,10 +2400,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-E10",
+			'seat_id' => "HALL(S)-01-E10",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "E",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -2411,10 +2411,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-E11",
+			'seat_id' => "HALL(S)-01-E11",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "E",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -2422,10 +2422,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-E12",
+			'seat_id' => "HALL(S)-01-E12",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "E",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -2433,10 +2433,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-F01",
+			'seat_id' => "HALL(S)-01-F01",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "F",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -2444,10 +2444,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-F02",
+			'seat_id' => "HALL(S)-01-F02",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "F",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -2455,10 +2455,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-F03",
+			'seat_id' => "HALL(S)-01-F03",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "F",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -2466,10 +2466,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-F04",
+			'seat_id' => "HALL(S)-01-F04",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "F",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -2477,10 +2477,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-F05",
+			'seat_id' => "HALL(S)-01-F05",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "F",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -2488,10 +2488,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-F06",
+			'seat_id' => "HALL(S)-01-F06",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "F",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -2499,10 +2499,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-F07",
+			'seat_id' => "HALL(S)-01-F07",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "F",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -2510,10 +2510,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-F08",
+			'seat_id' => "HALL(S)-01-F08",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-04 06:03:21",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "F",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -2521,10 +2521,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-F09",
+			'seat_id' => "HALL(S)-01-F09",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "F",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -2532,10 +2532,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-F10",
+			'seat_id' => "HALL(S)-01-F10",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "F",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -2543,10 +2543,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-F11",
+			'seat_id' => "HALL(S)-01-F11",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "F",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -2554,10 +2554,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-F12",
+			'seat_id' => "HALL(S)-01-F12",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "F",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -2565,10 +2565,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-G01",
+			'seat_id' => "HALL(S)-01-G01",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "G",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -2576,10 +2576,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-G02",
+			'seat_id' => "HALL(S)-01-G02",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "G",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -2587,10 +2587,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-G03",
+			'seat_id' => "HALL(S)-01-G03",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "G",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -2598,10 +2598,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-G04",
+			'seat_id' => "HALL(S)-01-G04",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "G",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -2609,10 +2609,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-G05",
+			'seat_id' => "HALL(S)-01-G05",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "G",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -2620,10 +2620,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-G06",
+			'seat_id' => "HALL(S)-01-G06",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "G",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -2631,10 +2631,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-G07",
+			'seat_id' => "HALL(S)-01-G07",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "G",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -2642,10 +2642,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-G08",
+			'seat_id' => "HALL(S)-01-G08",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "G",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -2653,10 +2653,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-G09",
+			'seat_id' => "HALL(S)-01-G09",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "G",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -2664,10 +2664,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-G10",
+			'seat_id' => "HALL(S)-01-G10",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "G",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -2675,10 +2675,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-G11",
+			'seat_id' => "HALL(S)-01-G11",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "G",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -2686,10 +2686,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-G12",
+			'seat_id' => "HALL(S)-01-G12",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "G",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -2697,10 +2697,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-H01",
+			'seat_id' => "HALL(S)-01-H01",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "H",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -2708,10 +2708,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-H02",
+			'seat_id' => "HALL(S)-01-H02",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "H",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -2719,10 +2719,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-H03",
+			'seat_id' => "HALL(S)-01-H03",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "H",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -2730,10 +2730,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-H04",
+			'seat_id' => "HALL(S)-01-H04",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "H",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -2741,10 +2741,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-H05",
+			'seat_id' => "HALL(S)-01-H05",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "H",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -2752,10 +2752,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-H06",
+			'seat_id' => "HALL(S)-01-H06",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "H",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -2763,10 +2763,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-H07",
+			'seat_id' => "HALL(S)-01-H07",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "H",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -2774,10 +2774,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-H08",
+			'seat_id' => "HALL(S)-01-H08",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "H",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -2785,10 +2785,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-H09",
+			'seat_id' => "HALL(S)-01-H09",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "H",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -2796,10 +2796,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-H10",
+			'seat_id' => "HALL(S)-01-H10",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "H",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -2807,10 +2807,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-H11",
+			'seat_id' => "HALL(S)-01-H11",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "H",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -2818,10 +2818,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-H12",
+			'seat_id' => "HALL(S)-01-H12",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "H",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -2829,10 +2829,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-I01",
+			'seat_id' => "HALL(S)-01-I01",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "I",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -2840,10 +2840,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-I02",
+			'seat_id' => "HALL(S)-01-I02",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "I",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -2851,10 +2851,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-I03",
+			'seat_id' => "HALL(S)-01-I03",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "I",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -2862,10 +2862,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-I04",
+			'seat_id' => "HALL(S)-01-I04",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "I",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -2873,10 +2873,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-I05",
+			'seat_id' => "HALL(S)-01-I05",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "I",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -2884,10 +2884,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-I06",
+			'seat_id' => "HALL(S)-01-I06",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "I",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -2895,10 +2895,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-I07",
+			'seat_id' => "HALL(S)-01-I07",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "I",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -2906,10 +2906,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-I08",
+			'seat_id' => "HALL(S)-01-I08",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "I",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -2917,10 +2917,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-I09",
+			'seat_id' => "HALL(S)-01-I09",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "I",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -2928,10 +2928,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-I10",
+			'seat_id' => "HALL(S)-01-I10",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "I",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -2939,10 +2939,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-I11",
+			'seat_id' => "HALL(S)-01-I11",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "I",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -2950,10 +2950,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-I12",
+			'seat_id' => "HALL(S)-01-I12",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "I",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -2961,10 +2961,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-J01",
+			'seat_id' => "HALL(S)-01-J01",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "J",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -2972,10 +2972,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-J02",
+			'seat_id' => "HALL(S)-01-J02",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "J",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -2983,10 +2983,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-J03",
+			'seat_id' => "HALL(S)-01-J03",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "J",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -2994,10 +2994,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-J04",
+			'seat_id' => "HALL(S)-01-J04",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "J",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -3005,10 +3005,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-J05",
+			'seat_id' => "HALL(S)-01-J05",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "J",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -3016,10 +3016,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-J06",
+			'seat_id' => "HALL(S)-01-J06",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "J",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -3027,10 +3027,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-J07",
+			'seat_id' => "HALL(S)-01-J07",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "J",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -3038,10 +3038,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-J08",
+			'seat_id' => "HALL(S)-01-J08",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "J",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -3049,10 +3049,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-J09",
+			'seat_id' => "HALL(S)-01-J09",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "J",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -3060,10 +3060,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-J10",
+			'seat_id' => "HALL(S)-01-J10",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "J",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -3071,10 +3071,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-J11",
+			'seat_id' => "HALL(S)-01-J11",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-02 03:18:22",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "J",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -3082,10 +3082,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-01-J12",
+			'seat_id' => "HALL(S)-01-J12",
 			'created_at' => "2024-09-02 03:18:22",
 			'updated_at' => "2024-09-04 06:10:02",
-			'hall_id' => "HALL&lbrack;S&rbrack;-01",
+			'hall_id' => "HALL(S)-01",
 			'row_letter' => "J",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -3093,10 +3093,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-A01",
+			'seat_id' => "HALL(S)-02-A01",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "A",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -3104,10 +3104,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-A02",
+			'seat_id' => "HALL(S)-02-A02",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "A",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -3115,10 +3115,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-A03",
+			'seat_id' => "HALL(S)-02-A03",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "A",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -3126,10 +3126,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-A04",
+			'seat_id' => "HALL(S)-02-A04",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "A",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -3137,10 +3137,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-A05",
+			'seat_id' => "HALL(S)-02-A05",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "A",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -3148,10 +3148,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-A06",
+			'seat_id' => "HALL(S)-02-A06",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "A",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -3159,10 +3159,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-A07",
+			'seat_id' => "HALL(S)-02-A07",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "A",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -3170,10 +3170,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-A08",
+			'seat_id' => "HALL(S)-02-A08",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "A",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -3181,10 +3181,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-A09",
+			'seat_id' => "HALL(S)-02-A09",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "A",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -3192,10 +3192,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-A10",
+			'seat_id' => "HALL(S)-02-A10",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "A",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -3203,10 +3203,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-A11",
+			'seat_id' => "HALL(S)-02-A11",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "A",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -3214,10 +3214,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-A12",
+			'seat_id' => "HALL(S)-02-A12",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "A",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -3225,10 +3225,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-B01",
+			'seat_id' => "HALL(S)-02-B01",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "B",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -3236,10 +3236,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-B02",
+			'seat_id' => "HALL(S)-02-B02",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "B",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -3247,10 +3247,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-B03",
+			'seat_id' => "HALL(S)-02-B03",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "B",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -3258,10 +3258,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-B04",
+			'seat_id' => "HALL(S)-02-B04",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "B",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -3269,10 +3269,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-B05",
+			'seat_id' => "HALL(S)-02-B05",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "B",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -3280,10 +3280,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-B06",
+			'seat_id' => "HALL(S)-02-B06",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "B",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -3291,10 +3291,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-B07",
+			'seat_id' => "HALL(S)-02-B07",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "B",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -3302,10 +3302,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-B08",
+			'seat_id' => "HALL(S)-02-B08",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "B",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -3313,10 +3313,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-B09",
+			'seat_id' => "HALL(S)-02-B09",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "B",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -3324,10 +3324,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-B10",
+			'seat_id' => "HALL(S)-02-B10",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "B",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -3335,10 +3335,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-B11",
+			'seat_id' => "HALL(S)-02-B11",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "B",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -3346,10 +3346,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-B12",
+			'seat_id' => "HALL(S)-02-B12",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "B",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -3357,10 +3357,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-C01",
+			'seat_id' => "HALL(S)-02-C01",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "C",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -3368,10 +3368,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-C02",
+			'seat_id' => "HALL(S)-02-C02",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "C",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -3379,10 +3379,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-C03",
+			'seat_id' => "HALL(S)-02-C03",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "C",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -3390,10 +3390,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-C04",
+			'seat_id' => "HALL(S)-02-C04",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "C",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -3401,10 +3401,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-C05",
+			'seat_id' => "HALL(S)-02-C05",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "C",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -3412,10 +3412,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-C06",
+			'seat_id' => "HALL(S)-02-C06",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "C",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -3423,10 +3423,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-C07",
+			'seat_id' => "HALL(S)-02-C07",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "C",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -3434,10 +3434,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-C08",
+			'seat_id' => "HALL(S)-02-C08",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "C",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -3445,10 +3445,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-C09",
+			'seat_id' => "HALL(S)-02-C09",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "C",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -3456,10 +3456,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-C10",
+			'seat_id' => "HALL(S)-02-C10",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "C",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -3467,10 +3467,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-C11",
+			'seat_id' => "HALL(S)-02-C11",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "C",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -3478,10 +3478,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-C12",
+			'seat_id' => "HALL(S)-02-C12",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "C",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -3489,10 +3489,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-D01",
+			'seat_id' => "HALL(S)-02-D01",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "D",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -3500,10 +3500,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-D02",
+			'seat_id' => "HALL(S)-02-D02",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "D",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -3511,10 +3511,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-D03",
+			'seat_id' => "HALL(S)-02-D03",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "D",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -3522,10 +3522,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-D04",
+			'seat_id' => "HALL(S)-02-D04",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "D",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -3533,10 +3533,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-D05",
+			'seat_id' => "HALL(S)-02-D05",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "D",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -3544,10 +3544,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-D06",
+			'seat_id' => "HALL(S)-02-D06",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "D",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -3555,10 +3555,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-D07",
+			'seat_id' => "HALL(S)-02-D07",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "D",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -3566,10 +3566,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-D08",
+			'seat_id' => "HALL(S)-02-D08",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "D",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -3577,10 +3577,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-D09",
+			'seat_id' => "HALL(S)-02-D09",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "D",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -3588,10 +3588,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-D10",
+			'seat_id' => "HALL(S)-02-D10",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "D",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -3599,10 +3599,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-D11",
+			'seat_id' => "HALL(S)-02-D11",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "D",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -3610,10 +3610,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-D12",
+			'seat_id' => "HALL(S)-02-D12",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "D",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -3621,10 +3621,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-E01",
+			'seat_id' => "HALL(S)-02-E01",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "E",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -3632,10 +3632,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-E02",
+			'seat_id' => "HALL(S)-02-E02",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "E",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -3643,10 +3643,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-E03",
+			'seat_id' => "HALL(S)-02-E03",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "E",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -3654,10 +3654,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-E04",
+			'seat_id' => "HALL(S)-02-E04",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "E",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -3665,10 +3665,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-E05",
+			'seat_id' => "HALL(S)-02-E05",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "E",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -3676,10 +3676,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-E06",
+			'seat_id' => "HALL(S)-02-E06",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "E",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -3687,10 +3687,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-E07",
+			'seat_id' => "HALL(S)-02-E07",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "E",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -3698,10 +3698,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-E08",
+			'seat_id' => "HALL(S)-02-E08",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "E",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -3709,10 +3709,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-E09",
+			'seat_id' => "HALL(S)-02-E09",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "E",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -3720,10 +3720,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-E10",
+			'seat_id' => "HALL(S)-02-E10",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "E",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -3731,10 +3731,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-E11",
+			'seat_id' => "HALL(S)-02-E11",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "E",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -3742,10 +3742,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-E12",
+			'seat_id' => "HALL(S)-02-E12",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "E",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -3753,10 +3753,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-F01",
+			'seat_id' => "HALL(S)-02-F01",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "F",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -3764,10 +3764,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-F02",
+			'seat_id' => "HALL(S)-02-F02",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "F",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -3775,10 +3775,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-F03",
+			'seat_id' => "HALL(S)-02-F03",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "F",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -3786,10 +3786,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-F04",
+			'seat_id' => "HALL(S)-02-F04",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "F",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -3797,10 +3797,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-F05",
+			'seat_id' => "HALL(S)-02-F05",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "F",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -3808,10 +3808,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-F06",
+			'seat_id' => "HALL(S)-02-F06",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "F",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -3819,10 +3819,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-F07",
+			'seat_id' => "HALL(S)-02-F07",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "F",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -3830,10 +3830,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-F08",
+			'seat_id' => "HALL(S)-02-F08",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "F",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -3841,10 +3841,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-F09",
+			'seat_id' => "HALL(S)-02-F09",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "F",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -3852,10 +3852,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-F10",
+			'seat_id' => "HALL(S)-02-F10",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "F",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -3863,10 +3863,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-F11",
+			'seat_id' => "HALL(S)-02-F11",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "F",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -3874,10 +3874,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-F12",
+			'seat_id' => "HALL(S)-02-F12",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "F",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -3885,10 +3885,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-G01",
+			'seat_id' => "HALL(S)-02-G01",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "G",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -3896,10 +3896,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-G02",
+			'seat_id' => "HALL(S)-02-G02",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "G",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -3907,10 +3907,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-G03",
+			'seat_id' => "HALL(S)-02-G03",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "G",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -3918,10 +3918,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-G04",
+			'seat_id' => "HALL(S)-02-G04",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "G",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -3929,10 +3929,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-G05",
+			'seat_id' => "HALL(S)-02-G05",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "G",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -3940,10 +3940,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-G06",
+			'seat_id' => "HALL(S)-02-G06",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "G",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -3951,10 +3951,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-G07",
+			'seat_id' => "HALL(S)-02-G07",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "G",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -3962,10 +3962,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-G08",
+			'seat_id' => "HALL(S)-02-G08",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "G",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -3973,10 +3973,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-G09",
+			'seat_id' => "HALL(S)-02-G09",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "G",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -3984,10 +3984,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-G10",
+			'seat_id' => "HALL(S)-02-G10",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "G",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -3995,10 +3995,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-G11",
+			'seat_id' => "HALL(S)-02-G11",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "G",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -4006,10 +4006,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-G12",
+			'seat_id' => "HALL(S)-02-G12",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "G",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -4017,10 +4017,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-H01",
+			'seat_id' => "HALL(S)-02-H01",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "H",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -4028,10 +4028,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-H02",
+			'seat_id' => "HALL(S)-02-H02",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "H",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -4039,10 +4039,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-H03",
+			'seat_id' => "HALL(S)-02-H03",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "H",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -4050,10 +4050,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-H04",
+			'seat_id' => "HALL(S)-02-H04",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "H",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -4061,10 +4061,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-H05",
+			'seat_id' => "HALL(S)-02-H05",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "H",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -4072,10 +4072,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-H06",
+			'seat_id' => "HALL(S)-02-H06",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "H",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -4083,10 +4083,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-H07",
+			'seat_id' => "HALL(S)-02-H07",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "H",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -4094,10 +4094,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-H08",
+			'seat_id' => "HALL(S)-02-H08",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "H",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -4105,10 +4105,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-H09",
+			'seat_id' => "HALL(S)-02-H09",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "H",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -4116,10 +4116,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-H10",
+			'seat_id' => "HALL(S)-02-H10",
 			'created_at' => "2024-09-02 03:21:08",
 			'updated_at' => "2024-09-02 03:21:08",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "H",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -4127,10 +4127,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-H11",
+			'seat_id' => "HALL(S)-02-H11",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "H",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -4138,10 +4138,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-H12",
+			'seat_id' => "HALL(S)-02-H12",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "H",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -4149,10 +4149,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-I01",
+			'seat_id' => "HALL(S)-02-I01",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "I",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -4160,10 +4160,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-I02",
+			'seat_id' => "HALL(S)-02-I02",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "I",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -4171,10 +4171,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-I03",
+			'seat_id' => "HALL(S)-02-I03",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "I",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -4182,10 +4182,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-I04",
+			'seat_id' => "HALL(S)-02-I04",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "I",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -4193,10 +4193,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-I05",
+			'seat_id' => "HALL(S)-02-I05",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "I",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -4204,10 +4204,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-I06",
+			'seat_id' => "HALL(S)-02-I06",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "I",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -4215,10 +4215,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-I07",
+			'seat_id' => "HALL(S)-02-I07",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "I",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -4226,10 +4226,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-I08",
+			'seat_id' => "HALL(S)-02-I08",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "I",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -4237,10 +4237,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-I09",
+			'seat_id' => "HALL(S)-02-I09",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "I",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -4248,10 +4248,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-I10",
+			'seat_id' => "HALL(S)-02-I10",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "I",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -4259,10 +4259,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-I11",
+			'seat_id' => "HALL(S)-02-I11",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "I",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -4270,10 +4270,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-I12",
+			'seat_id' => "HALL(S)-02-I12",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "I",
 			'column_number' => "12",
 			'seat_type' => "Standard",
@@ -4281,10 +4281,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-J01",
+			'seat_id' => "HALL(S)-02-J01",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "J",
 			'column_number' => "1",
 			'seat_type' => "Standard",
@@ -4292,10 +4292,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-J02",
+			'seat_id' => "HALL(S)-02-J02",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "J",
 			'column_number' => "2",
 			'seat_type' => "Standard",
@@ -4303,10 +4303,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-J03",
+			'seat_id' => "HALL(S)-02-J03",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "J",
 			'column_number' => "3",
 			'seat_type' => "Standard",
@@ -4314,10 +4314,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-J04",
+			'seat_id' => "HALL(S)-02-J04",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "J",
 			'column_number' => "4",
 			'seat_type' => "Standard",
@@ -4325,10 +4325,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-J05",
+			'seat_id' => "HALL(S)-02-J05",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "J",
 			'column_number' => "5",
 			'seat_type' => "Standard",
@@ -4336,10 +4336,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-J06",
+			'seat_id' => "HALL(S)-02-J06",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "J",
 			'column_number' => "6",
 			'seat_type' => "Standard",
@@ -4347,10 +4347,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-J07",
+			'seat_id' => "HALL(S)-02-J07",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "J",
 			'column_number' => "7",
 			'seat_type' => "Standard",
@@ -4358,10 +4358,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-J08",
+			'seat_id' => "HALL(S)-02-J08",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "J",
 			'column_number' => "8",
 			'seat_type' => "Standard",
@@ -4369,10 +4369,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-J09",
+			'seat_id' => "HALL(S)-02-J09",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "J",
 			'column_number' => "9",
 			'seat_type' => "Standard",
@@ -4380,10 +4380,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-J10",
+			'seat_id' => "HALL(S)-02-J10",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "J",
 			'column_number' => "10",
 			'seat_type' => "Standard",
@@ -4391,10 +4391,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-J11",
+			'seat_id' => "HALL(S)-02-J11",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "J",
 			'column_number' => "11",
 			'seat_type' => "Standard",
@@ -4402,10 +4402,10 @@ class SeatsSeeder extends Seeder
 		]);
 
 		DB::table('seats')->insert([
-			'seat_id' => "HALL&lbrack;S&rbrack;-02-J12",
+			'seat_id' => "HALL(S)-02-J12",
 			'created_at' => "2024-09-02 03:21:09",
 			'updated_at' => "2024-09-02 03:21:09",
-			'hall_id' => "HALL&lbrack;S&rbrack;-02",
+			'hall_id' => "HALL(S)-02",
 			'row_letter' => "J",
 			'column_number' => "12",
 			'seat_type' => "Standard",
