@@ -1,7 +1,3 @@
-nav {
-    display: none;
-}
-
 .movie-seat-selection-navbar {
     display: flex;
     background: black;
@@ -11,13 +7,6 @@ nav {
 
     .movie-seat-selection-container {
         width: 70%;
-
-        .top-nav-logo {
-            position: absolute;
-            left: 10%;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
 
         .movie-seat-selection-header {
             display: flex;
@@ -189,15 +178,20 @@ nav {
             }
         }
 
-        .familySeatImg {
-            width: 120px;
-            height: 40px;
+        .family-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px; /* Add margin for vertical spacing between rows */
 
-            .family-row {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 50px; /* Add margin for vertical spacing between rows */
+            .familySeatImg {
+                width: 120px;
+                height: 60px;
+            }
+            .seat-info {
+                color: white;
+                text-align: center;
+                margin: 5px;
             }
         }
     }

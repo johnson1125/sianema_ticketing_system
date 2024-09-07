@@ -13,8 +13,6 @@
 @section('content')
     <div class="movie-seat-selection-navbar">
         <div class="movie-seat-selection-container">
-            <img src="{{ asset('images/logoSianemaAdmin.png') }}" alt="Logo" width="160" height="60"
-                class="top-nav-logo">
             <div class="movie-seat-selection-header">
                 <div class="booking-progress">
                     <ol class="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse">
@@ -141,7 +139,7 @@
             <div class="movie-time-{{ strtolower($hallType) }}">
                 <h2 class="classic-header">{{ $hallType }}</h2>
                 <div class="chair-image-container">
-                    <img src="{{ asset('images/' . strtolower($hallType) . 'Seat.png') }}" height="50" width="50" class="chair-image" />
+                    <img src="{{ asset('images/' . strtolower($hallType) . 'Seat.png') }}" class="chair-image" />
                     <h3 id="selectedDate"></h3>
                 </div>
                 <div class="movie-time">
