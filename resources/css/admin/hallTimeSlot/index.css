@@ -43,24 +43,25 @@
             flex-direction: row;
             margin-right: 20px;
             margin-left: 20px;
-            .hallName {
-                font-size: medium;
-                align-self: center;
-                justify-self: center;
+            height: 50px;
+            .timeSlotHeader-text{
                 flex-grow: 1;
-            }
-
-            .hallType {
                 font-size: medium;
-                align-self: center;
+                align-items: center;
                 justify-self: center;
-                flex-grow: 5;
             }
 
             .btnAddTimeSlot {
-                flex-grow: 1;
+                flex-grow: 6;
                 display: flex;
                 justify-content: flex-end;
+            }
+
+            .disabledBtn {
+                pointer-events: none;
+                background-color: gray;
+                cursor: not-allowed;
+                text-decoration: none;
             }
         }
 

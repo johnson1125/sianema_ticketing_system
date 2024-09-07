@@ -10,6 +10,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class MovieSeat extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'movie_seat_id';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected $fillable = [
+        'movie_seat_id',
+        'ticket_transaction_id',
+        'hall_time_slot_id',
+        'seat_id',
+        'movie_seats_status',
+    ];
+
+
     public function ticketTransaction(): BelongsTo
     {
         return $this->belongsTo(TicketTransaction::class);

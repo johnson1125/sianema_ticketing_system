@@ -35,4 +35,8 @@ class Hall extends Model
     {
         return $this->hasMany(HallTimeSlot::class);
     }
+
+    public static function getWithID($hallID){
+        return Hall::where('hall_id', $hallID)->first();
+    }
 }

@@ -7,24 +7,38 @@ use DOMDocument;
 use Carbon\Carbon;
 use XSLTProcessor;
 use App\Models\Hall;
+use App\Models\Seat;
+use App\Models\Movie;
+use App\Models\MovieSeat;
 use App\Models\HallTimeSlot;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Services\HallTimeSlotService;
 use App\Services\XMLExtensionsService;
-
 use function PHPUnit\Framework\isNull;
 
 class HallTimeSlotController extends Controller
 {
 
+    protected $hallTimeSlotService;
+
+    public function __construct(HallTimeSlotService $hallTimeSlotService)
+    {
+        $this->hallTimeSlotService = $hallTimeSlotService;
+    }
+
+
     public function index($date)
     {
-        $halls = Hall::all();
-        $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))->get();
-        $hallTimeSlots = $this->addTimeSlotName($hallTimeSlots);
         $defaultDate = $date;
-
-        return view('/admin/hallTimeSlot.index', compact('halls', 'hallTimeSlots', 'defaultDate'));
+        $timeSlotDate = strtotime($date);
+        $today = strtotime(date('Y-m-d'));
+        $addBtnStatus = ($timeSlotDate >= $today ? "enable" : "disable");
+        $halls = Hall::all();
+        $hallTimeSlots = $this->hallTimeSlotService->getHallTimeSlots($date);
+        $hallTimeSlots = $this->hallTimeSlotService->addTimeSlotName($hallTimeSlots);
+        return view('/admin/hallTimeSlot.index', compact('halls', 'hallTimeSlots', 'defaultDate', 'addBtnStatus'));
     }
 
 
@@ -40,54 +54,32 @@ class HallTimeSlotController extends Controller
     //Pass in Movie Data
     public function create($hallID, $date, $activeTab)
     {
-        $hall = Hall::where('hall_id', $hallID)->first();
+        $hall = Hall::getWithID($hallID);
+        $maintenanceTabStatus = "Enable";
+        $hallTimeSlots =  HallTImeSLot::getWithStartDateAndHallID($date, $hallID);
 
-        $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))
-            ->where('hall_id', $hallID)->get();
-
-        $hallTimeSlots = $this->addTimeSlotName($hallTimeSlots);
-
-        //Get Data of onscreen movie
-
-
-
-        //Add maintenance record through webservice api and return new maintenance record id 
-        $addMaintenanceRecordResponse = Http::post('http://127.0.0.1:5001/api/maintenance-record', ['startTime' => '2024-08-25 12:00:00', 'hallID' => 'HALL-01', 'maintenanceID' => 'MTN-C-DP-001']);
-        // Check if the request was successful
-        if ($addMaintenanceRecordResponse->successful()) {
-            // Process the response
-
-            $responseData = $addMaintenanceRecordResponse->json();
-            // dd($responseData);
-        } else {
-            // Handle the error
-            abort(500, 'Error sending data to Maitenance Web Service');
+        try {
+            $hallTimeSlots = $this->hallTimeSlotService->addTimeSlotName($hallTimeSlots);
+        } catch (\RuntimeException $e) {
+            // Redirect back with an error message
+            $maintenanceTabStatus = "Disable";
+            $activeTab = "movie";
         }
 
-        $response = Http::get('http://127.0.0.1:5001/api/users');
 
-        //Convert json to xml
-        //Pass Json and xml root element as
-        $xml = XMLExtensionsService::convertJsonToXMLString($response, 'users');
-
-        //Convert xml to html
-        $users = XMLExtensionsService::XMLStringToHTML($xml, 'xsl/userDetails.xsl');
+        $onScreenMovies = Movie::getOnScreenMovies();
 
         //Pass in onscreen movie (Selection)
-        $movies = [
-            ['code' => 'US', 'name' => 'United States'],
-            ['code' => 'CA', 'name' => 'Canada'],
-            ['code' => 'FR', 'name' => 'France'],
-            ['code' => 'DE', 'name' => 'Germany']
-        ];
+        $movies =  $onScreenMovies;
+
         //Get maintenance record from webservice through API
-        $maintenancesResponse = Http::get('http://127.0.0.1:5001/api/maintenances?hallType=Large');
+        $maintenancesResponse = Http::get('http://127.0.0.1:5001/api/maintenances?hallType=' . $hall->hall_type);
         // dd($maintenancesResponse->json());
 
         //Pass in maintainence activities available for the hall (Selection)
         $maintenanceOption = $maintenancesResponse->json();
 
-        return view('/admin/hallTimeSlot.create', compact('hall', 'movies', 'users', 'maintenanceOption', 'date', 'activeTab', 'hallTimeSlots'));
+        return view('/admin/hallTimeSlot.create', compact('hall', 'movies', 'maintenanceOption', 'date', 'activeTab', 'hallTimeSlots', 'maintenanceTabStatus'));
     }
 
     //TODO
@@ -108,16 +100,17 @@ class HallTimeSlotController extends Controller
             }
         } else {
             $startTime = $request->input('movieStartTime');
-            $duration = $request->input('movieDuraton');
+            $movie = Movie::getMovieAttributesWithID($movieID, ['movie_duration']);
+            $duration = $movie["movie_duration"];
         }
 
         $timeSlots = HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))
             ->where('hall_id', $hallID)->get();
         if ($timeSlots) {
-            $result = $this->isTimeSlotAvailable($date, $startTime, $duration, $timeSlots);
+            $result = $this->isTimeSlotAvailable($date, $startTime,  $duration, $timeSlots);
             if ($result != 'Valid') {
                 return redirect()->back()
-                    ->with('errorMsg', ($result != "Invalid") ? "End Time over 2AM" : "Invalid Time Slot")
+                    ->with('errorMsg', ($result != "Invalid") ? "End time over 2AM." : "TimeSlot Time clashed.")
                     ->with('activeTab', $hallTimeSlotType)
                     ->withInput();
             }
@@ -129,6 +122,7 @@ class HallTimeSlotController extends Controller
         $hallTimeSLotID = $this->generateHallTimeSlotID($hallID, $hallTimeSlotDate, $startTime);
 
         if ($hallTimeSlotType == 'Maintenance') {
+
             HallTimeSlot::create([
                 'hall_time_slot_id' => $hallTimeSLotID,
                 'startDateTime' => $formatedDateTime,
@@ -138,37 +132,81 @@ class HallTimeSlotController extends Controller
                 'movie_id' => null,
                 'maintenance_id' => $maintenanceID
             ]);
+
+            //Add maintenance record through webservice api and return new maintenance record id 
+            $addMaintenanceRecordResponse = Http::post('http://127.0.0.1:5001/api/maintenance-record', ['startTime' => $formatedDateTime, 'hallID' => $hallID, 'maintenanceID' => $maintenanceID]);
+            // Check if the request was successful
+            if ($addMaintenanceRecordResponse->successful()) {
+                // Process the response
+
+                $responseData = $addMaintenanceRecordResponse->json();
+            } else {
+                // Handle the error
+                abort(500, 'Error sending data to Maitenance Web Service');
+            }
         } else {
             HallTimeSlot::create([
-                'hallTimeSlot_id' => $hallTimeSLotID,
+                'hall_time_slot_id' => $hallTimeSLotID,
                 'startDateTime' => $formatedDateTime,
                 'duration' => $duration,
                 'timeSlotType' => $hallTimeSlotType,
                 'hall_id' => $hallID,
-                'movieID' => $movieID,
-                'maintenanceID' => null
+                'movie_id' => $movieID,
+                'maintenance_id' => null
             ]);
+
+            $seats = Seat::where('hall_id', $hallID)->get();
+            $movieSeats = $seats->map(function ($seat) use ($hallTimeSLotID) {
+                return [
+                    'movie_seat_id' => $hallTimeSLotID . '-' . $seat->row_letter . str_pad($seat->column_number, 2, '0', STR_PAD_LEFT),
+                    'ticket_transaction_id' => null,
+                    'hall_time_slot_id' => $hallTimeSLotID,
+                    'seat_id' => $seat->seat_id,
+                    'movie_seats_status' => 'Available'
+                ];
+            })->toArray();
+
+            MovieSeat::insert($movieSeats);
         }
 
-        return redirect()->route('hallTimeSlot', ['date' => $date])->with('message', 'Hall Time Slot Added Sucessfully');
+        return redirect()->route('hallTimeSlot', ['date' => $date])->with('message', 'Hall timeSlot added sucessfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    //TODO
-    //Show Hall Time Slot 
-    //Based on hallTimeSlot ID return different view 
-    public function show(HallTimeSlot $hallTimeSlot)
+
+    public function show($hallTimeSlotID)
     {
-        //
+        $movie = [];
+        $maintenance = "";
+        $hallTimeSlot = HallTimeSlot::findOrFail($hallTimeSlotID);
+        $startDateTime = new DateTime($hallTimeSlot->startDateTime);
+        $today = new DateTime();
+        $deleteBtnStatus = ($startDateTime >= $today ? "enable" : "disable");
+        $date = (new DateTime($hallTimeSlot->startDateTime))->format('d-m-Y');
+
+        if ($hallTimeSlot->timeSlotType == "Movie") {
+            $movie = Movie::findOrFail($hallTimeSlot->movie_id);
+        } else {
+            try {
+                $response = Http::get('http://127.0.0.1:5001/api/maintenances?maintenanceID=' . $hallTimeSlot->maintenance_id);
+                if ($response->successful()) {
+                    XMLExtensionsService::convertJsonToXMLFile($response, 'maintenances', 'xml/maintenanceDetails.xml');
+                    //Convert xml to html
+                    $maintenance = XMLExtensionsService::XMLFileToHTML('xml/maintenanceDetails.xml', 'xsl/maintenanceDetails.xsl');
+                }
+            } catch (\Exception $e) {
+                return redirect()->route('hallTimeSlot', ['date' => $date]);
+            }
+        }
+
+        return view('/admin/hallTimeSlot.show', compact('hallTimeSlot', "maintenance", "movie","deleteBtnStatus","date"));
     }
 
 
-    //TODO}
-    //Show Movie Details
-    //Based on movie ID 
-    public function showMovieDetails() {}
+    public function showMovieDetails($hallID, $date, $movieID)
+    {
+        $movie = Movie::findOrFail($movieID);
+        return view('/admin/hallTimeSlot.movieDetails', compact('movie', 'hallID', 'date'));
+    }
 
     public function showMaintenanceDetails($hallID, $date, $maintenanceID)
     {
@@ -179,36 +217,43 @@ class HallTimeSlotController extends Controller
                 XMLExtensionsService::convertJsonToXMLFile($response, 'maintenances', 'xml/maintenanceDetails.xml');
                 //Convert xml to html
                 $maintenanceData = XMLExtensionsService::XMLFileToHTML('xml/maintenanceDetails.xml', 'xsl/maintenanceDetails.xsl');
-            }  
+            }
         } catch (\Exception $e) {
-           return redirect()->back()->with('activeTab', 'Maintenance');
+            return redirect()->back()->with('activeTab', 'Maintenance');
         }
-        
+
 
         return view('/admin/hallTimeSlot.maintenanceDetails', compact('maintenanceData', 'hallID', 'date'));
     }
 
-    //TODO
-    //Edit hallTimeSlot
-    public function edit(HallTimeSlot $hallTimeSlot)
-    {
-        //
-    }
 
-    //TODO
-    //Based on the modiification 
-    //Do the relevant update
-    //Update hallTImeSLot
-    //Update movieSeat
-    public function update(Request $request, HallTimeSlot $hallTimeSlot)
-    {
-        //
-    }
 
-    //No Delete
-    public function destroy(HallTimeSlot $hallTimeSlot)
+    public function destroy($hallTimeSlotID)
     {
-        //
+        $hallTimeSlot = HallTimeSlot::findOrFail($hallTimeSlotID);
+        $date = $date = new DateTime($hallTimeSlot->startDateTime);
+        $formatedDate = $date->format('d-m-Y');
+
+        if ($hallTimeSlot->timeSlotType == "Movie") {
+            $movieSeats = MovieSeat::where('hall_time_slot_id', $hallTimeSlot->hall_time_slot_id)->get();
+            $soldSeat = $movieSeats->contains(function ($movieSeat) {
+                return $movieSeat->movie_seats_status == 'Sold';
+            });
+            if ($soldSeat) {
+                return redirect()->route('hallTimeSlot.index', ['date' => $formatedDate])
+                    ->with('message', 'Hall TimeSlot ( ' . $hallTimeSlotID . ' ) cannot be deleted.');
+            }
+            foreach ($movieSeats as $movieSeat) {
+                $movieSeat->delete();
+            }
+        } else {
+            //Add maintenance record through webservice api and return new maintenance record id 
+            $deleteMaintenanceRecordResponse = Http::post('http://127.0.0.1:5001/api/remove-maintenance-record', ['maintenanceID' => $hallTimeSlot->maintenance_id, 'startDateTime' => $hallTimeSlot->startDateTime, 'hallID' => $hallTimeSlot->hall_id]);
+        }
+
+        $hallTimeSlot->delete();
+        flash('Your message here')->success(); 
+        return redirect()->route('hallTimeSlot', ['date' => $formatedDate])->with('message', 'Hall TimeSlot ( ' . $hallTimeSlotID . ' ) deleted sucessfully.');
     }
 
     public function getHallTimeSlotData()
@@ -222,6 +267,12 @@ class HallTimeSlotController extends Controller
     {
         $response = Http::get('http://127.0.0.1:5001/api/maintenances?maintenanceID=' . $maintenanceID);
         return response()->json($response->json());
+    }
+
+    public function getMovieData($movieID)
+    {
+        $movie = Movie::getMovieAttributesWithID($movieID, ["movie_id", "movie_poster", "movie_duration"]);
+        return response()->json($movie);
     }
 
     public function getSpecifiicHallTimeSlotData($hallID, $date)
@@ -294,38 +345,11 @@ class HallTimeSlotController extends Controller
 
     private function generateHallTimeSlotID($hallID, $date, $startTime)
     {
-        $time = DateTime::createFromFormat('H:i A', $startTime);
-        $startTime = $time->format('h:i');
+        $time = DateTime::createFromFormat('h:i A', $startTime);
+        $startTime = $time->format('H:i');
         list($hours, $minutes) = explode(':', $startTime);
         $formateddate = $date->format('ymd');
         $hallTimeSlotID = $hallID . '-' . $formateddate . '-' . $hours . '-' . $minutes;
         return $hallTimeSlotID;
-    }
-
-    private function addTimeSlotName($hallTimeSlots)
-    {
-        $hallTimeSlots = $hallTimeSlots->map(function ($hallTimeSlot) {
-            if ($hallTimeSlot->maintenance_id != null) {
-                $maintenancesResponse = Http::get('http://127.0.0.1:5001/api/maintenances?maintenanceID=' . $hallTimeSlot->maintenance_id);
-
-                $name = 'Maintenance';
-
-                if (!$maintenancesResponse->failed()) {
-                    $maintenanceData = $maintenancesResponse->json();
-
-                    if (!empty($maintenanceData) && isset($maintenanceData[0]['name'])) {
-                        $name = $maintenanceData[0]['name'];
-                    }
-                }
-            } else {
-                //Get Movie Name
-                $name = 'Movie';
-            }
-            $hallTimeSlot->timeSlotName = $name;
-
-            return $hallTimeSlot;
-        });
-
-        return $hallTimeSlots;
     }
 }

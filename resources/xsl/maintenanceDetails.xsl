@@ -25,8 +25,8 @@
 
 
     <xsl:template match="/maintenances/maintenance">
-        <div id="section2-1">
-            <div id="section2-1-1">
+        <div id="maintenanceSection">
+            <div id="maintenanceSection-1">
                 <h2 class='label' >Maintenance ID</h2>
                 <div class='textContainer'>
                     <p>
@@ -47,7 +47,7 @@
                 </div>
 
             </div>
-            <div id="section2-1-2">
+            <div id="maintenanceSection-2">
                 <h2 class='label'>Maintenance name</h2>
                 <div class='textContainer'>
                     <p>

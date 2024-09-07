@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class HallTimeSlot extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'hall_id';  // Custom primary key
+    protected $primaryKey = 'hall_time_slot_id';  // Custom primary key
     public $incrementing = false;    // If the primary key is not an auto-incrementing integer
     protected $keyType = 'string';  
 
@@ -35,6 +37,15 @@ class HallTimeSlot extends Model
     public function movieSeats(): HasMany
     {
         return $this->hasMany(MovieSeat::class);
+    }
+
+    public static function getWithStartDate($date): Collection{
+        return $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))->get();
+    }
+
+    public static function getWithStartDateAndHallID($date,$hallID): Collection{
+        return $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))
+        ->where('hall_id', $hallID)->get();
     }
 }
    
