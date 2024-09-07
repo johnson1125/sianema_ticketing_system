@@ -155,6 +155,7 @@
                 @if ($hall->hall_type === 'Family')
                     @for ($i = 0; $i < sizeof($rowLetters); $i++)
                         <div class="family-row">
+                            @dd($rowLetters);
                             @php
                                 $seat = $seats->where('row_letter', $rowLetters[$i])->first();
                             @endphp

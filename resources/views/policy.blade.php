@@ -11,7 +11,7 @@
 
 <!-- html for this page -->
 @section('content')
-<div class="bg-black text-gray-100">
+<div class="default-content bg-black text-gray-100">
     <div class="container mx-auto py-8 px-4">
         <h1 class="text-3xl font-bold mb-4 text-center">Privacy Policy</h1>
         
