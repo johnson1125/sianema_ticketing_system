@@ -2,10 +2,12 @@
 
 namespace App\Services;
 
-use App\Models\HallTimeSlot;
+use App\Models\Hall;
 use App\Models\Movie;
 use App\Models\MovieSeat;
+use App\Models\HallTimeSlot;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class HallTimeSlotService
 {
@@ -17,10 +19,11 @@ class HallTimeSlotService
      * @throws \Exception
      */
 
-    public function getHallTimeSlots(array $data)
+    public function getHallTimeSlots($date)
     {
-
-        //return lists of hall time Slots 
+       
+        $hallTimeSlots =  HallTimeSlot::getWithStartDate($date);
+        return $hallTimeSlots;
     }
 
 
@@ -51,6 +54,43 @@ class HallTimeSlotService
     {
 
         //return status
+    }
+
+    public function addTimeSlotName($hallTimeSlots)
+    {
+        $hallTimeSlots = $hallTimeSlots->map(function ($hallTimeSlot) {
+            if ($hallTimeSlot->maintenance_id != null) {
+                $name = 'Maintenance';
+                try {
+                    $maintenancesResponse = Http::get('http://127.0.0.1:5001/api/maintenances?maintenanceID=' . $hallTimeSlot->maintenance_id);
+
+                   
+    
+                    if (!$maintenancesResponse->failed()) {
+                        $maintenanceData = $maintenancesResponse->json();
+    
+                        if (!empty($maintenanceData) && isset($maintenanceData[0]['name'])) {
+                            $name = $maintenanceData[0]['name'];
+                        }
+                    }
+                } catch (\Exception $e) {
+                    $name = 'Maintenance';
+                    throw new \RuntimeException('Failed to fetch maintenance data: ' . $e->getMessage());
+                }
+
+
+              
+            } else {
+                //Get Movie Name
+                $movie = Movie::getMovieAttributesWithID($hallTimeSlot->movie_id,["movie_name"]);
+                $name = $movie["movie_name"];
+            }
+            $hallTimeSlot->timeSlotName = $name;
+
+            return $hallTimeSlot;
+        });
+
+        return $hallTimeSlots;
     }
 
 

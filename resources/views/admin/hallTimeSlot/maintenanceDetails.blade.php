@@ -14,13 +14,15 @@
     <div id="container">
 
         <div id="section1">
-            <h6>Maintenance Details</h6>
+            <div id='header'>
+                <h6>Maintenance Details </h6>
+            </div>
         </div>
 
         <div id="section2"class="relative overflow-x-auto shadow-md sm:rounded-lg bg-gray-50">
             {!! $maintenanceData !!}
             <div id=section2-2><a
-                    href="{{ route('hallTimeSlot.create', ['hallID' => $hallID, 'date' => $date, 'activeTab' => 'Maintenance']) }}"
+                    href="{{ route('hallTimeSlot.create', ['hallID' => $hallID, 'date' => $date, 'activeTab' => 'maintenance']) }}"
                     class="btn focus:outline-none text-center text-white bg-red-600 hover:bg-red-700 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                     Back</a>
             </div>
@@ -32,5 +34,4 @@
 
 <!-- all js for this page -->
 @push('scripts')
-    @vite(['resources/js/admin/hallTimeSlot/index.js'])
 @endpush

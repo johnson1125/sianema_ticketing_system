@@ -5,11 +5,15 @@
     flex-direction: row;
     padding-bottom: 20px;
 
-    h6 {
+    #header{
+        height: 42px;
+        align-content: center;
+        h6 {
         font-size: larger;
         font-weight: bold;
         align-self: center;
         flex-grow: 1;
+    }
     }
 
     #dateInputForm {
@@ -35,7 +39,9 @@
     display: flex;
     flex-direction: column;
 
-    #section2-1 {
+    
+
+    #maintenanceSection{
         display: flex;
         flex-direction: row;
         margin: 20px;
@@ -44,7 +50,7 @@
         border-bottom-width: 1px;
         border-color: #e5e7eb;
 
-        #section2-1-1 {
+        #maintenanceSection-1 {
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -52,7 +58,7 @@
             align-items: center;
         }
 
-        #section2-1-2 {
+        #maintenanceSection-2 {
             display: flex;
             flex-direction: column;
             flex-grow: 1;

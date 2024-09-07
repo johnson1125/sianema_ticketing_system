@@ -94,7 +94,59 @@ $(document).ready(function () {
         .on("change", function (e) {
             var selectedOption = $("#movieSelector option:selected");
             // Movie selection onchange
-            console.log(selectedOption.text());
+            console.log(selectedOption.val());
+
+            fetch(
+                "http://127.0.0.1:8000/movie-data/" + selectedOption.val()
+            )
+                .then((response) => response.json())
+                .then((movieData) => {
+                    movieDuration.setDate(movieData.movie_duration);
+
+                    var startTime = flatpickr.formatDate(
+                        movieStartTime.selectedDates[0],
+                        "H:i:s"
+                    );
+
+                    var parts = movieData.movie_duration.split(":");
+
+                    var endTime = addTime(
+                        startTime,
+                        parts[0],
+                        parts[1],
+                        parts[2]
+                    );
+
+                    $("#movPhoto").attr("src", "data:image/jpeg;base64," + movieData.movie_poster_base64);
+
+                    movieEndTime.setDate(endTime);
+                    $("#btnMovieDetails").click(function (e) {
+                        e.preventDefault();
+                        // Get the ID from the button's data-id attribute
+                        var id = selectedOption.val();
+
+                        // Replace the placeholder in the route URL with the actual ID
+                        var movieUrl = window.movieUrl.replace(
+                            "__ID__",
+                            id
+                        );
+
+                        movieUrl = movieUrl.replace(
+                            "__hallID__",
+                            hallID
+                        );
+
+                        movieUrl = movieUrl.replace(
+                            "__date__",
+                            date
+                        );
+
+                        // Redirect to the constructed URL
+                        location.href = movieUrl;
+                    });
+                })
+                .catch((error) => console.error("Error fetching JSON:", error));
+
         });
 
     if ($("#movieSelector").val()) {
@@ -104,7 +156,7 @@ $(document).ready(function () {
     //Intialize select2
     $("#maintenanceSelector")
         .select2({
-            placeholder: "Select a movie",
+            placeholder: "Select a maintenance",
             dropdownPosition: "below",
         })
         .on("change", function (e) {
@@ -156,7 +208,7 @@ $(document).ready(function () {
                         );
 
                         // Redirect to the constructed URL
-                        window.location.href = fullUrl;
+                        location.href = fullUrl;
                     });
                 })
                 .catch((error) => console.error("Error fetching JSON:", error));
@@ -306,5 +358,10 @@ $(document).ready(function () {
         };
     }
 
+    setTimeout(function() { if(errormsg){
+        alert("Error Message:\n\n"+ errormsg);
+        }},500);
 
 });
+
+

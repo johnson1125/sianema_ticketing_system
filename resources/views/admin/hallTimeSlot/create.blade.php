@@ -12,15 +12,10 @@
 <!-- html for this page -->
 @section('content')
     <div id="container">
-        @if (session('errorMsg'))
-            <script>
-                alert(session('errorMsg'));
-            </script>
-        @endif
-
-
         <div id="section1">
-            <h6>Add Hall Timeslot </h6>
+            <div id='header'>
+                <h6>Add Hall Timeslot </h6>
+            </div>
         </div>
 
         <div id="section2"class="relative overflow-x-auto shadow-md sm:rounded-lg bg-gray-50">
@@ -34,14 +29,15 @@
                     <li class="tab me-2" role="presentation">
                         <button class="tabBtn inline-block p-4 border-b-2 rounded-t-lg " id="movie-tab"
                             data-tabs-target="#movie" type="button" role="tab" aria-controls="movie"
-                            aria-selected={{ !session('activeTab') ? ($activeTab == 'Movie' ? 'true' : 'false') : (session('activeTab') == 'Movie' ? 'true' : 'false') }}>Movie</button>
+                            aria-selected={{ !session('activeTab') ? ($activeTab == 'movie' ? 'true' : 'false') : (session('activeTab') == 'movie' ? 'true' : 'false') }}>Movie</button>
                     </li>
                     <li class="tab me-2" role="presentation">
                         <button
                             class="tabBtn inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
                             id="maintenance-tab" data-tabs-target="#maintenance" type="button" role="tab"
                             aria-controls="maintenance"
-                            aria-selected={{ !session('activeTab') ? ($activeTab == 'Maintenance' ? 'true' : 'false') : (session('activeTab') == 'Maintenance' ? 'true' : 'false') }}>Maintenance</button>
+                            aria-selected={{ !session('activeTab') ? ($activeTab == 'Maintenance' ? 'true' : 'false') : (session('activeTab') == 'Maintenance' ? 'true' : 'false') }}
+                            {{ session('maintenanceTabStatus') == 'Disable' ? 'disabled' : '' }}>Maintenance</button>
                     </li>
                 </ul>
             </div>
@@ -49,15 +45,21 @@
                 <div id='timeSlotContainer'>
                     <div class="timeSlotHeader">
                         <div class='timeSlotHeader-1'>
-                            <div class="hallName">
+                            <div class="timeSlotHeader-1-text">
                                 {{ $hall->hall_id }}
                             </div>
-                            <div class="hallType">
-                                Big
+                            <div class="timeSlotHeader-1-text">
+                                {{ $hall->hall_name }}
+                            </div>
+                            <div class="timeSlotHeader-1-text">
+                                {{ $hall->hall_type }}
                             </div>
                         </div>
                         <div class="timeSlotHeader-2">
                             <h6>Time Slots</h6>
+                        </div>
+                        <div class="timeSlotHeader-2">
+
                         </div>
                     </div>
                     <div class="timeSlotBody">
@@ -116,7 +118,7 @@
                 </div>
 
                 <form method="POST" id="movieTimeSlotForm"
-                    action="{{ route('hallTimeSlot.store', ['hallID' => $hall->hall_id, 'date' => $date, 'hallTimeSlotType' => 'Movie']) }}">
+                    action="{{ route('hallTimeSlot.store', ['hallID' => urldecode($hall->hall_id), 'date' => $date, 'hallTimeSlotType' => 'Movie']) }}">
                     <div class="tab-content hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="movie"
                         role="tabpanel" aria-labelledby="movie-tab">
 
@@ -130,17 +132,10 @@
                                     <select id="movieSelector" name="movie"
                                         class="select2 js-states form-control bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         style="width: 80%">
-                                        {{-- Get Dynamic option from controller (halltimeSlot.create) --}}
-                                        {{-- old() - the option will be selected if the previous input have selected it  --}}
-                                        {{-- Use post method to post input data back to controller (halltimeSlot.store) --}}
-                                        {{-- use style="width: 30%" to adjust width" --}}
-                                        {{-- refer halltimeSlot/create/.js for the usage of select2 --}}
-                                        {{-- remove multiple if only select for one --}}
-                                        {{-- can refer to select2 documentation for additional configuration --}}
                                         @foreach ($movies as $movie)
-                                            <option value="{{ $movie['code'] }}"
-                                                {{ $movie['code'] == old('movie') ? 'selected' : '' }}>
-                                                {{ $movie['name'] }}
+                                            <option value="{{ $movie['movie_id'] }}"
+                                                {{ $movie['movie_id'] == old('movie') ? 'selected' : '' }}>
+                                                {{ $movie['movie_name'] }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -177,7 +172,7 @@
                                 </div>
 
                                 <div id="btnContainer">
-                                    <button id="btnMovieDetails" type="submit"
+                                    <button id="btnMovieDetails"
                                         class="btn focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Movie
                                         Details</button>
                                 </div>
@@ -278,10 +273,13 @@
     </div>
 
     <script>
+        var errormsg = @json(session('errorMsg'));
         var date = @json($date);
         var hallID = @json($hall->hall_id);
         window.maintenanceUrl =
             "{{ route('hallTimeSlot.showMaintenanceDetails', ['maintenanceID' => '__ID__', 'hallID' => '__hallID__', 'date' => '__date__']) }}";
+        window.movieUrl =
+            "{{ route('hallTimeSlot.showMovieDetails', ['movieID' => '__ID__', 'hallID' => '__hallID__', 'date' => '__date__']) }}";
     </script>
 
 @endsection

@@ -3,15 +3,21 @@
         border-bottom-width: 2px;
         margin-bottom: 30px;
         display: flex;
-        flex-direction: row;
         padding-bottom: 20px;
-
-        h6 {
+       
+        align-content: center;
+        
+        #header{
+            height: 42px;
+            align-content: center;
+            h6 {
             font-size: larger;
             font-weight: bold;
             align-self: center;
             flex-grow: 1;
         }
+    }
+        
 
     }
 
@@ -47,19 +53,13 @@
                         flex-grow: 1;
                         display: flex;
                         flex-direction: row;
-                        .hallName {
+                        .timeSlotHeader-1-text{
                             font-size: medium;
-                            align-self: center;
+                            align-items: center;
                             justify-self: center;
-                            width: 20%;
+                            width: 30%;
                         }
-
-                        .hallType {
-                            font-size: medium;
-                            align-self: center;
-                            justify-self: center;
-                            width: 20%;
-                        }
+                        
                     }
 
                     .timeSlotHeader-2 {
@@ -69,6 +69,10 @@
                             font-weight: bold;
                             align-self: center;
                         }
+                    }
+
+                    .timeSlotHeader-3 {
+                        flex-grow: 1;
                     }
                 }
 
@@ -346,6 +350,8 @@
                         width: 100px;
                         margin-right: 20px;
                     }
+
+                   
                 }
             }
         }
