@@ -2,7 +2,7 @@
 @extends('layouts.master')
 
 <!-- The title for this page -->
-@section('title', 'Privacy Policy')
+@section('title', 'About Us')
 
 <!-- all css for this page -->
 @push('styles')
@@ -12,7 +12,8 @@
 <!-- html for this page -->
 @section('content')
 <div class="cover-img flex justify-center items-center h-screen">
-    <img src="{{ asset('images/au.png') }}" alt="About Us" class="object-contain w-full h-full">
+    <img src="{{ asset('images/au.png') }}" alt="About Us" class="object-cover w-full h-full">
+    <div class="top-centered text-white text-5xl md:text-6xl font-bold">About Us</div>
 </div>
 <div class="default-content bg-black text-gray-100">
     <div class="container mx-auto py-8 px-4">

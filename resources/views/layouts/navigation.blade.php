@@ -12,31 +12,40 @@
             <x-sianema-logo-dark class="block h-9 w-auto fill-current text-gray-200" />
         </a>
         <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            @auth
             <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                 <span class="sr-only">Open user menu</span>
-                <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
+                <img class="w-8 h-8 rounded-full" src="{{ asset('images/default-profile-pic.png') }}" alt="user photo">
             </button>
             <!-- Dropdown menu -->
-            <div class="z-50 hidden my-4 text-base list-none divide-y rounded-lg shadow bg-gray-700 divide-gray-600" id="user-dropdown">
+
+            <div class="z-50 hidden my-4 text-base list-none divide-y rounded-lg shadow bg-zinc-800 divide-gray-600" id="user-dropdown">
                 <div class="px-4 py-3">
                     <span class="block text-sm text-white">Bonnie Green</span>
                     <span class="block text-sm  truncate text-gray-400">name@flowbite.com</span>
                 </div>
                 <ul class="py-2" aria-labelledby="user-menu-button">
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white">Dashboard</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Edit Profile</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white">Settings</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Transaction History</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white">Earnings</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white">Sign out</a>
+                        <!-- <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Sign out</a> -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="w-full text-left block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">
+                                Sign out
+                            </button>
+                        </form>
                     </li>
                 </ul>
+
             </div>
+            @else
+            <a href="{{ route('login') }}"><button type="button" class="text-white focus:ring-4 focus:outline-none font-bold rounded-lg text-sm px-4 py-2 text-center bg-button-green hover:bg-white hover:text-button-green focus:ring-sianema-green">LOG IN</button></a>
+            @endauth
             <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
