@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Services\HallTimeSlotService;
 use App\Services\XMLExtensionsService;
+use Exception;
+
 use function PHPUnit\Framework\isNull;
 
 class HallTimeSlotController extends Controller
@@ -31,14 +33,8 @@ class HallTimeSlotController extends Controller
 
     public function index($date)
     {
-        $defaultDate = $date;
-        $timeSlotDate = strtotime($date);
-        $today = strtotime(date('Y-m-d'));
-        $addBtnStatus = ($timeSlotDate >= $today ? "enable" : "disable");
-        $halls = Hall::all();
-        $hallTimeSlots = $this->hallTimeSlotService->getHallTimeSlots($date);
-        $hallTimeSlots = $this->hallTimeSlotService->addTimeSlotName($hallTimeSlots);
-        return view('/admin/hallTimeSlot.index', compact('halls', 'hallTimeSlots', 'defaultDate', 'addBtnStatus'));
+        $data = $this->hallTimeSlotService->prepareIndexViewData($date);
+        return view('/admin/hallTimeSlot.index', compact('data'));
     }
 
 
@@ -54,32 +50,9 @@ class HallTimeSlotController extends Controller
     //Pass in Movie Data
     public function create($hallID, $date, $activeTab)
     {
-        $hall = Hall::getWithID($hallID);
-        $maintenanceTabStatus = "Enable";
-        $hallTimeSlots =  HallTImeSLot::getWithStartDateAndHallID($date, $hallID);
+        $data = $this->hallTimeSlotService->prepareCreateViewData($hallID, $date, $activeTab);
 
-        try {
-            $hallTimeSlots = $this->hallTimeSlotService->addTimeSlotName($hallTimeSlots);
-        } catch (\RuntimeException $e) {
-            // Redirect back with an error message
-            $maintenanceTabStatus = "Disable";
-            $activeTab = "movie";
-        }
-
-
-        $onScreenMovies = Movie::getOnScreenMovies();
-
-        //Pass in onscreen movie (Selection)
-        $movies =  $onScreenMovies;
-
-        //Get maintenance record from webservice through API
-        $maintenancesResponse = Http::get('http://127.0.0.1:5001/api/maintenances?hallType=' . $hall->hall_type);
-        // dd($maintenancesResponse->json());
-
-        //Pass in maintainence activities available for the hall (Selection)
-        $maintenanceOption = $maintenancesResponse->json();
-
-        return view('/admin/hallTimeSlot.create', compact('hall', 'movies', 'maintenanceOption', 'date', 'activeTab', 'hallTimeSlots', 'maintenanceTabStatus'));
+        return view('/admin/hallTimeSlot.create', compact('data'));
     }
 
     //TODO
@@ -90,115 +63,32 @@ class HallTimeSlotController extends Controller
     {
         $movieID = $request->input('movie');
         $maintenanceID = $request->input('maintenance');
+        $maintenanceStarTime = $request->input('maintenanceStartTime');
+        $movieStartTime = $request->input('movieStartTime');
 
-        if ($hallTimeSlotType == 'Maintenance') {
-            $startTime = $request->input('maintenanceStartTime');
-            $maintenancesResponse = Http::get('http://127.0.0.1:5001/api/maintenances?maintenanceID=' . $maintenanceID);
-            if ($maintenancesResponse) {
-                $maintenanceData = $maintenancesResponse->json();
-                $duration = $maintenanceData[0]['duration'];
-            }
-        } else {
-            $startTime = $request->input('movieStartTime');
-            $movie = Movie::getMovieAttributesWithID($movieID, ['movie_duration']);
-            $duration = $movie["movie_duration"];
+        $result = $this->hallTimeSlotService->createTimeSlot($movieID, $maintenanceID, $movieStartTime, $maintenanceStarTime, $hallID, $date, $hallTimeSlotType);
+
+        if ($result['status'] == 'error') {
+            return redirect()->back()
+                ->with('errorMsg', $result['message'])
+                ->with('activeTab', $result['activeTab'])
+                ->withInput();
         }
 
-        $timeSlots = HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))
-            ->where('hall_id', $hallID)->get();
-        if ($timeSlots) {
-            $result = $this->isTimeSlotAvailable($date, $startTime,  $duration, $timeSlots);
-            if ($result != 'Valid') {
-                return redirect()->back()
-                    ->with('errorMsg', ($result != "Invalid") ? "End time over 2AM." : "TimeSlot Time clashed.")
-                    ->with('activeTab', $hallTimeSlotType)
-                    ->withInput();
-            }
-        }
-        $hallTimeSlotDate = DateTime::createFromFormat('d-m-Y', $date);
-        $dateTimeString = $date . ' ' . $startTime;
-        $dateTime = DateTime::createFromFormat('d-m-Y H:i A', $dateTimeString);
-        $formatedDateTime = $dateTime->format('Y-m-d H:i:s');
-        $hallTimeSLotID = $this->generateHallTimeSlotID($hallID, $hallTimeSlotDate, $startTime);
-
-        if ($hallTimeSlotType == 'Maintenance') {
-
-            HallTimeSlot::create([
-                'hall_time_slot_id' => $hallTimeSLotID,
-                'startDateTime' => $formatedDateTime,
-                'duration' => $duration,
-                'timeSlotType' => $hallTimeSlotType,
-                'hall_id' => $hallID,
-                'movie_id' => null,
-                'maintenance_id' => $maintenanceID
-            ]);
-
-            //Add maintenance record through webservice api and return new maintenance record id 
-            $addMaintenanceRecordResponse = Http::post('http://127.0.0.1:5001/api/maintenance-record', ['startTime' => $formatedDateTime, 'hallID' => $hallID, 'maintenanceID' => $maintenanceID]);
-            // Check if the request was successful
-            if ($addMaintenanceRecordResponse->successful()) {
-                // Process the response
-
-                $responseData = $addMaintenanceRecordResponse->json();
-            } else {
-                // Handle the error
-                abort(500, 'Error sending data to Maitenance Web Service');
-            }
-        } else {
-            HallTimeSlot::create([
-                'hall_time_slot_id' => $hallTimeSLotID,
-                'startDateTime' => $formatedDateTime,
-                'duration' => $duration,
-                'timeSlotType' => $hallTimeSlotType,
-                'hall_id' => $hallID,
-                'movie_id' => $movieID,
-                'maintenance_id' => null
-            ]);
-
-            $seats = Seat::where('hall_id', $hallID)->get();
-            $movieSeats = $seats->map(function ($seat) use ($hallTimeSLotID) {
-                return [
-                    'movie_seat_id' => $hallTimeSLotID . '-' . $seat->row_letter . str_pad($seat->column_number, 2, '0', STR_PAD_LEFT),
-                    'ticket_transaction_id' => null,
-                    'hall_time_slot_id' => $hallTimeSLotID,
-                    'seat_id' => $seat->seat_id,
-                    'movie_seats_status' => 'Available'
-                ];
-            })->toArray();
-
-            MovieSeat::insert($movieSeats);
-        }
-
-        return redirect()->route('hallTimeSlot', ['date' => $date])->with('message', 'Hall timeSlot added sucessfully.');
+        return redirect()->route('hallTimeSlot', ['date' => $date])->with('message', $result['message']);
     }
 
 
     public function show($hallTimeSlotID)
     {
-        $movie = [];
-        $maintenance = "";
-        $hallTimeSlot = HallTimeSlot::findOrFail($hallTimeSlotID);
-        $startDateTime = new DateTime($hallTimeSlot->startDateTime);
-        $today = new DateTime();
-        $deleteBtnStatus = ($startDateTime >= $today ? "enable" : "disable");
-        $date = (new DateTime($hallTimeSlot->startDateTime))->format('d-m-Y');
 
-        if ($hallTimeSlot->timeSlotType == "Movie") {
-            $movie = Movie::findOrFail($hallTimeSlot->movie_id);
-        } else {
-            try {
-                $response = Http::get('http://127.0.0.1:5001/api/maintenances?maintenanceID=' . $hallTimeSlot->maintenance_id);
-                if ($response->successful()) {
-                    XMLExtensionsService::convertJsonToXMLFile($response, 'maintenances', 'xml/maintenanceDetails.xml');
-                    //Convert xml to html
-                    $maintenance = XMLExtensionsService::XMLFileToHTML('xml/maintenanceDetails.xml', 'xsl/maintenanceDetails.xsl');
-                }
-            } catch (\Exception $e) {
-                return redirect()->route('hallTimeSlot', ['date' => $date]);
-            }
+        $data = $this->hallTimeSlotService->prepareShowViewData($hallTimeSlotID);
+
+        if (isset($data['redirect'])) {
+            return $data['redirect'];
         }
 
-        return view('/admin/hallTimeSlot.show', compact('hallTimeSlot', "maintenance", "movie","deleteBtnStatus","date"));
+        return view('/admin/hallTimeSlot.show', compact('data'));
     }
 
 
@@ -210,7 +100,6 @@ class HallTimeSlotController extends Controller
 
     public function showMaintenanceDetails($hallID, $date, $maintenanceID)
     {
-
         try {
             $response = Http::get('http://127.0.0.1:5001/api/maintenances?maintenanceID=' . $maintenanceID);
             if ($response->successful()) {
@@ -227,39 +116,26 @@ class HallTimeSlotController extends Controller
     }
 
 
-
     public function destroy($hallTimeSlotID)
     {
-        $hallTimeSlot = HallTimeSlot::findOrFail($hallTimeSlotID);
-        $date = $date = new DateTime($hallTimeSlot->startDateTime);
-        $formatedDate = $date->format('d-m-Y');
+        $result = $this->hallTimeSlotService->deleteHallTimeSlot($hallTimeSlotID);
 
-        if ($hallTimeSlot->timeSlotType == "Movie") {
-            $movieSeats = MovieSeat::where('hall_time_slot_id', $hallTimeSlot->hall_time_slot_id)->get();
-            $soldSeat = $movieSeats->contains(function ($movieSeat) {
-                return $movieSeat->movie_seats_status == 'Sold';
-            });
-            if ($soldSeat) {
-                return redirect()->route('hallTimeSlot.index', ['date' => $formatedDate])
-                    ->with('message', 'Hall TimeSlot ( ' . $hallTimeSlotID . ' ) cannot be deleted.');
-            }
-            foreach ($movieSeats as $movieSeat) {
-                $movieSeat->delete();
-            }
-        } else {
-            //Add maintenance record through webservice api and return new maintenance record id 
-            $deleteMaintenanceRecordResponse = Http::post('http://127.0.0.1:5001/api/remove-maintenance-record', ['maintenanceID' => $hallTimeSlot->maintenance_id, 'startDateTime' => $hallTimeSlot->startDateTime, 'hallID' => $hallTimeSlot->hall_id]);
+        if (isset($result['redirect'])) {
+            return redirect($result['redirect'])->with('message', $result['message']);
         }
 
-        $hallTimeSlot->delete();
-        flash('Your message here')->success(); 
-        return redirect()->route('hallTimeSlot', ['date' => $formatedDate])->with('message', 'Hall TimeSlot ( ' . $hallTimeSlotID . ' ) deleted sucessfully.');
+        return redirect()->route('hallTimeSlot.index')->with('message', 'An error occurred while trying to delete the Hall TimeSlot.');
     }
 
-    public function getHallTimeSlotData()
+    public function getHallTimeSlotData($date, $hallID)
     {
-        // $hallTimeSlots = HallTimeSlot::whereDate('startDateTime',$date)->get();
-        $hallTimeSlots = HallTimeSlot::all();
+        if ($hallID != "") {
+            $hallTimeSlots = HallTimeSlot::getWithStartDateAndHallID($date, $hallID);
+        } else {
+            $hallTimeSlots = HallTimeSlot::getWithStartDate($date);
+        }
+
+
         return response()->json($hallTimeSlots);
     }
 
@@ -306,7 +182,6 @@ class HallTimeSlotController extends Controller
             $startDateTime->modify('+1 day');
         }
 
-
         // Calculate end time by adding the duration in minutes
         $endDateTime = clone $startDateTime;
         $endDateTime->modify("+$totalDurationMinutes minutes");
@@ -340,16 +215,5 @@ class HallTimeSlotController extends Controller
         }
 
         return 'Valid'; // No overlap and within the time limit
-    }
-
-
-    private function generateHallTimeSlotID($hallID, $date, $startTime)
-    {
-        $time = DateTime::createFromFormat('h:i A', $startTime);
-        $startTime = $time->format('H:i');
-        list($hours, $minutes) = explode(':', $startTime);
-        $formateddate = $date->format('ymd');
-        $hallTimeSlotID = $hallID . '-' . $formateddate . '-' . $hours . '-' . $minutes;
-        return $hallTimeSlotID;
     }
 }

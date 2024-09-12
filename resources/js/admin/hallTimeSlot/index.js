@@ -3,7 +3,7 @@ $(document).ready(function () {
     const timeSlots = $(".timeSlots");
 
     //Fetch Hall TimeSlot Data in JSON format
-    fetch("http://127.0.0.1:8000/hall-time-slot-data")
+    fetch("http://127.0.0.1:8000/hall-time-slot-data/"+date)
         .then((response) => response.json())
         .then((hallTimeSlotsData) => {
             const timeSlotMap = new Map();

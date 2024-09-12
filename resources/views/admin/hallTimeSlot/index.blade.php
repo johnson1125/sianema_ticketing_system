@@ -19,7 +19,7 @@
         @if (session('message'))
             <script>
                 Toastify({
-                    text: "{{session('message')}}",
+                    text: "{{ session('message') }}",
                     duration: 5000,
                     gravity: "top",
                     position: "center",
@@ -44,7 +44,7 @@
                     <input id="datepicker-actions" name="date" datepicker autoSelectToday datepicker-autoselect-today
                         datepicker-autohide datepicker-format="dd-mm-yyyy" type="text"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Select date" value="{{ old('date', $defaultDate ?? '') }}">
+                        placeholder="Select date" value="{{ old('date', $data['defaultDate'] ?? '') }}">
                 </div>
                 <button id="btnSearch" type="submit"
                     class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Search</button>
@@ -52,7 +52,7 @@
         </form>
 
         <div id="section2"class="relative overflow-x-auto shadow-md sm:rounded-lg bg-gray-50">
-            @foreach ($halls as $hall)
+            @foreach ($data['halls'] as $hall)
                 <div class="timeSlotHeader">
                     <div class="timeSlotHeader-text">
                         {{ $hall->hall_id }}
@@ -65,8 +65,8 @@
                     </div>
 
                     <div class="btnAddTimeSlot">
-                        <a href="{{ route('hallTimeSlot.create', ['hallID' => $hall->hall_id, 'date' => $defaultDate]) }}"
-                            class="{{ $addBtnStatus == 'disable' ? 'disabledBtn' : ($hall->status == 'closed' ? 'disabledBtn' : '') }} focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add
+                        <a href="{{ route('hallTimeSlot.create', ['hallID' => $hall->hall_id, 'date' => $data['defaultDate']]) }}"
+                            class="{{ $data['addBtnStatus'] == 'disable' ? 'disabledBtn' : ($hall->status == 'closed' ? 'disabledBtn' : '') }} focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add
                             TimeSlot</a>
                     </div>
 
@@ -114,11 +114,11 @@
                             <div id="backLine" class="emptySpace"></div>
                         </div>
                         <div class="timeSlotItemContainer">
-                            @foreach ($hallTimeSlots as $hallTimeSlot)
+                            @foreach ($data['hallTimeSlots'] as $hallTimeSlot)
                                 @if ($hallTimeSlot->hall_id == $hall->hall_id)
                                     <button id="{{ $hallTimeSlot->hall_time_slot_id }}"
                                         onClick="location.href='{{ route('hallTimeSlot.show', ['hallTimeSlotID' => $hallTimeSlot->hall_time_slot_id]) }}';"
-                                        class="timeSlots focus:outline-none text-white focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">{{ $hallTimeSlot->timeSlotName }}</button>
+                                        class="{{ $hallTimeSlot->timeSlotName == 'Maintenance' ? 'disabledTimeSlot' : '' }} timeSlots focus:outline-none text-white focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">{{ $hallTimeSlot->timeSlotName }}</button>
                                 @endif
                             @endforeach
 
@@ -129,6 +129,10 @@
 
         </div>
 
+
+        <script>
+            var date = @json($data['defaultDate']);
+        </script>
     @endsection
 
     <!-- all js for this page -->

@@ -36,8 +36,10 @@ Route::get('/adminLayout', function () {
 // Route::resource('hallTimeSlot', HallTimeSlotController::class);
 
 // Admin Homepage route
-Route::get('admin', [HallTimeSlotController::class,'index']);
 
+Route::middleware('auth', 'verified')->group(function () {
+Route::get('admin{date?}', [HallTimeSlotController::class,'index'])->name('hallTimeSlot')->defaults('date', date('d-m-Y')) ;
+});
 // HallTimeSlot Basic route
 
 Route::middleware('auth', 'verified')->group(function () {
@@ -49,7 +51,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('date-input', [HallTimeSlotController::class,'getDate'])->name('hallTimeSlot.getDate');
     Route::post('hallTimeSlot-store/{hallID}_{date}_{hallTimeSlotType}', [HallTimeSlotController::class,'store'])->name('hallTimeSlot.store');
     Route::delete('hallTimeSlot-delete/{hallTimeSlotID}', [HallTimeSlotController::class,'destroy'])->name('hallTimeSlot.delete');
-    Route::get('hall-time-slot-data', [HallTimeSlotController::class,'getHallTimeSlotData']);
+    Route::get('hall-time-slot-data/{date}/{hallID?}', [HallTimeSlotController::class,'getHallTimeSlotData'])->defaults('hallID', "");
     Route::get('maintenance-data/{maintenanceID}', [HallTimeSlotController::class,'getMaintenanceData']);
     Route::get('movie-data/{movieID}', [HallTimeSlotController::class,'getMovieData']);
 });
