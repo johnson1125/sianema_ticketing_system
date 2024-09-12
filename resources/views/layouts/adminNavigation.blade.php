@@ -18,6 +18,12 @@
                     <x-nav-link :href="route('hallTimeSlot')" :active="request()->routeIs('hallTimeSlot')">
                         {{ __('Hall TimeSlot') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('manage.hall.index')" :active="request()->routeIs('manage.hall.index')">
+                        {{ __('Hall') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('movies.index')" :active="request()->routeIs('movies.index')">
+                        {{ __('Movie') }}
+                    </x-nav-link>
                 </div>
             </div>
 

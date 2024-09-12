@@ -75,7 +75,7 @@ class HallTimeSlotController extends Controller
                 ->withInput();
         }
 
-        return redirect()->route('hallTimeSlot', ['date' => $date])->with('message', $result['message']);
+        return redirect()->route('hallTimeSlot', ['date' => $date])->with('message', $result['message'])->with('messageType', "Success");
     }
 
 
@@ -121,10 +121,10 @@ class HallTimeSlotController extends Controller
         $result = $this->hallTimeSlotService->deleteHallTimeSlot($hallTimeSlotID);
 
         if (isset($result['redirect'])) {
-            return redirect($result['redirect'])->with('message', $result['message']);
+            return redirect($result['redirect'])->with('message', $result['message'])->with('messageType', $result['messageType']);
         }
 
-        return redirect()->route('hallTimeSlot.index')->with('message', 'An error occurred while trying to delete the Hall TimeSlot.');
+        return redirect()->route('hallTimeSlot.index')->with('message', 'An error occurred while trying to delete the Hall TimeSlot.')->with('messageType', "Error");
     }
 
     public function getHallTimeSlotData($date, $hallID)

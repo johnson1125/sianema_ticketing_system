@@ -97,7 +97,7 @@ $(document).ready(function () {
             console.log(selectedOption.val());
 
             fetch(
-                "http://127.0.0.1:8000/movie-data/" + selectedOption.val()
+                "http://127.0.0.1:8000/api/movie-data/" + selectedOption.val()
             )
                 .then((response) => response.json())
                 .then((movieData) => {
@@ -164,7 +164,7 @@ $(document).ready(function () {
             console.log(selectedOption.val());
 
             fetch(
-                "http://127.0.0.1:8000/maintenance-data/" + selectedOption.val()
+                "http://127.0.0.1:8000/api/maintenance-data/" + selectedOption.val()
             )
                 .then((response) => response.json())
                 .then((maintenanceData) => {
@@ -268,7 +268,7 @@ $(document).ready(function () {
     const timeSlots = $(".timeSlots");
 
     //Fetch Hall TimeSlot Data in JSON format
-    fetch("http://127.0.0.1:8000/hall-time-slot-data/"+date +'/' +hallID)
+    fetch("http://127.0.0.1:8000/api/hall-time-slot-data/"+date +'/' +hallID)
         .then((response) => response.json())
         .then((hallTimeSlotsData) => {
             const timeSlotMap = new Map();

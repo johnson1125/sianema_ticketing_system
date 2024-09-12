@@ -295,6 +295,7 @@ class HallTimeSlotService
             if ($soldSeat) {
                 return [
                     'redirect' => route('hallTimeSlot.index', ['date' => $formatedDate]),
+                    'messageType' => 'Error',
                     'message' => 'Hall TimeSlot ( ' . $hallTimeSlotID . ' ) cannot be deleted.',
                 ];
             }
@@ -318,6 +319,7 @@ class HallTimeSlotService
 
         return [
             'redirect' => route('hallTimeSlot', ['date' => $formatedDate]),
+            'messageType' => 'Success',
             'message' => 'Hall TimeSlot ( ' . $hallTimeSlotID . ' ) deleted successfully.',
         ];
     }

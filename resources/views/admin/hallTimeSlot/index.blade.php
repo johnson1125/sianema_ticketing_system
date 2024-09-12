@@ -16,7 +16,7 @@
 <!-- html for this page -->
 @section('content')
     <div id="container">
-        @if (session('message'))
+        @if (session('messageType') =='Success' && session('message'))
             <script>
                 Toastify({
                     text: "{{ session('message') }}",
@@ -27,6 +27,18 @@
                 }).showToast();
             </script>
         @endif
+
+        @if (session('messageType') =='Error' && session('message'))
+        <script>
+            Toastify({
+                text: "{{ session('message') }}",
+                duration: 5000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "#c81e1e",
+            }).showToast();
+        </script>
+    @endif
 
 
         <div id="section1">
