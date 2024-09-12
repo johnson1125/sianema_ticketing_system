@@ -1,5 +1,5 @@
 <?php
-namespace App\Factory\HallFactory\HallConcreteProductCreator;
+namespace App\Factories\HallFactory\HallConcreteProductCreator;
 use App\Factory\HallFactory\HallProductCreatorInterface;
 use App\Factory\HallFactory\HallInterface;
 use App\Services\SeatService;
