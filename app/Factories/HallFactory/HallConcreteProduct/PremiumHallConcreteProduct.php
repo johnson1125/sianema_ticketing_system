@@ -1,7 +1,7 @@
 <?php
 namespace App\Factories\HallFactory\HallConcreteProduct;
 
-use App\Factory\HallFactory\HallInterface;
+use App\Factories\HallFactory\HallInterface;
 use App\Services\SeatService;
 
 class PremiumHallConcreteProduct implements HallInterface {
