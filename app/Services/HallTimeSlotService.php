@@ -15,17 +15,8 @@ use Illuminate\Support\Facades\Http;
 
 class HallTimeSlotService
 {
-    /**
-     * Create a new booking and update movie schedule.
-     *
-     * @param array $data
-     * @return Booking
-     * @throws \Exception
-     */
-
     public function getHallTimeSlots($date)
     {
-
         $hallTimeSlots =  HallTimeSlot::getWithStartDate($date);
         return $hallTimeSlots;
     }
@@ -73,7 +64,6 @@ class HallTimeSlotService
 
     public function createTimeSlot($movieID, $maintenanceID, $movieStartTime, $maintenanceStarTime, $hallID, $date, $hallTimeSlotType)
     {
-
         // Determine start time and duration based on time slot type
         if ($hallTimeSlotType == 'Maintenance') {
             $startTime = $maintenanceStarTime;
@@ -196,7 +186,6 @@ class HallTimeSlotService
         MovieSeat::insert($movieSeats);
     }
 
-    // Implement time slot availability check (same as your original logic)
     public function isTimeSlotAvailable($date, $startTime, $duration, $timeSlots)
     {
         // Convert start time to DateTime object
