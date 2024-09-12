@@ -105,7 +105,7 @@ public function update(string $hall_id)
         {
             $hallCount = Hall::where('hall_type', $hallType)->count();
 
-            $hallID = "HALL(" . substr($hallType, 0, 1) . ")-" . sprintf('%02d', ($hallCount + 1));
+            $hallID = "HALL-" . substr($hallType, 0, 1) . "-" . sprintf('%02d', ($hallCount + 1));
             $hallName = $hallType . " Hall " . sprintf('%02d', ($hallCount + 1));
 
 
