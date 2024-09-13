@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<maintenanceRecords><maintenanceRecord><hallID>HALL-F-01</hallID><id>1</id><maintenance><description>description</description><duration>2</duration><hallType>Family</hallType><id>test</id><name>name</name></maintenance><startTime>0</startTime></maintenanceRecord></maintenanceRecords>

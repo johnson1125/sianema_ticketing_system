@@ -44,8 +44,8 @@
                                     @method('POST')
                                     <button type="submit" class="btn">Change Hall Status</button>
                                 </form>
-                                <a href="{{ route('manage.hall.edit.seat', ['id' => $hall->hall_id])}}" class="btn" >Change Seat Status</a>
-                                <button class="btn">Maintanance History</button>
+                                <a href="{{ route('manage.hall.edit.seat', ['hall_id' => $hall->hall_id])}}" class="btn" >Change Seat Status</a>
+                                <a href="{{ route('hall.maintenance.history', ['hall_id' => $hall->hall_id]) }}" class="btn">Maintenance History</a>
                             </div>
                         </td>
                     </tr>
