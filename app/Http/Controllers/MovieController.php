@@ -5,15 +5,18 @@ use App\Models\Movie;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Services\MovieService;
+use App\Services\virustotal;
 
 class MovieController extends Controller
 {
 
     protected $movieService;
+    protected $totalVirusService;
 
     public function __construct(MovieService $movieService)
     {
         $this->movieService = $movieService;
+        $this->totalVirusService = new virustotal("e5566ae78658e232975bb111c5519a0b7ae84d58f7eae0c5a056eba7008bbc29");
     }
 
     public function index()
@@ -48,6 +51,11 @@ class MovieController extends Controller
             'movieDuration' => 'required|string'
         ]);
         
+        $moviePoster = $request->file('moviePoster');     
+        $this->checkVirus($moviePoster);
+        $movieCoverPhoto = $request->file('movieCoverPhoto');
+        $this->checkVirus($movieCoverPhoto);
+
         if($this->movieService->createMovie($validated)){
             return redirect()->route('movies.index')->with('success', 'Movie added successfully!');       
         }
@@ -64,6 +72,7 @@ class MovieController extends Controller
     
         public function update(Request $request, $id)
         {   
+            $virusTotalScanner = new virustotal("e5566ae78658e232975bb111c5519a0b7ae84d58f7eae0c5a056eba7008bbc29");
             $validated = $request->validate([
                 'movieName' => 'required',
                 'movieGenre' => 'required',
@@ -80,6 +89,17 @@ class MovieController extends Controller
                 'movieCast' => 'required',
                 'movieSynopsis' => 'required',
             ]); 
+
+            
+            $moviePoster = $request->file('moviePoster');
+            if($moviePoster){
+                $this->checkVirus($moviePoster);
+            }
+
+            $movieCoverPhoto = $request->file('movieCoverPhoto');
+            if($movieCoverPhoto){
+                $this->checkVirus($movieCoverPhoto);
+            }
             
             if ($this->movieService->editMovie($validated, $id)){
                 return redirect()->route('movies.index')->with('success', 'Movie updated successfully!');
@@ -107,6 +127,39 @@ class MovieController extends Controller
             $coverPhotoData = $movie->movie_cover_photo;
             return response()->make($coverPhotoData, 200)
                 ->header('Content-Type', 'image/jpeg');
+        }
+
+        public function checkVirus($file){
+            $filePath = $file->getRealPath();
+            $res = $this->totalVirusService->checkFile($filePath);
+        
+            switch($res) {
+                case -99: // API limit exceeded
+                    return redirect()->back()->with('error', 'Limit exceeded.');
+       
+        
+                case -1: // an error occurred
+                    return redirect()->back()->with('error', 'Unknown error occurred, please try again.');
+               
+        
+                case 0: // no results (yet) – but the file is already enqueued at VirusTotal
+                    $scan_id = $this->totalVirusService->getScanId();
+                    $json_response = $this->totalVirusService->getResponse();
+                    break;
+        
+                case 1: // results are available
+                    $json_response = json_decode($this->totalVirusService->getResponse(), true);
+                    //dd($json_response)
+                    if ($json_response['positives'] > 0) {
+                        // If the file contains a virus
+                        return redirect()->back()->with('error', 'The file ' . $file->getClientOriginalName() . ' contains a virus. Operation blocked.');
+                    }
+                    break;
+        
+                default:
+                    return redirect()->back()->with('error', 'Unknown error occurred, please try again.');
+            }
+      
         }
 }
 
