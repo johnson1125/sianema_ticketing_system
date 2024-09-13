@@ -1,32 +1,55 @@
 import $ from "jquery";
 
-// Define the image sources using Blade templating
-const standardSeatSrc = "/images/standardSeat.png";
-const selectedStandardSeatSrc = "/images/selectedStandardSeat.png";
-const premiumSeatSrc = "/images/premiumSeat.png";
-const selectedPremiumSeatSrc = "/images/selectedLuxurySeat.png";
-const familySeatSrc = "/images/familySeat.png";
-const selectedFamilySeatSrc = "/images/selectedFamilySeat.png";
-
 $(document).ready(function () {
-    $(document).on('click', '.standardSeatImg', function () {
-        var image = $(this).attr("src");
+    
+    const standardSeatSrc = "/images/standardSeat.png";
+    const selectedStandardSeatSrc = "/images/selectedStandardSeat.png";
+    const premiumSeatSrc = "/images/premiumSeat.png";
+    const selectedPremiumSeatSrc = "/images/selectedLuxurySeat.png";
+    const familySeatSrc = "/images/familySeat.png";
+    const selectedFamilySeatSrc = "/images/selectedFamilySeat.png";
 
-        // Normalize the image URL by removing any protocol and domain parts
+    const maxSeats = 12;
+
+    function showToast(message) {
+        Toastify({
+            text: message,
+            duration: 3000, 
+            close: true,   
+            gravity: "top", 
+            position: "center", 
+            backgroundColor: "#008000", 
+            stopOnFocus: true, 
+        }).showToast();
+    }
+
+    function toggleSeatSelection($seatImg, normalSrc, selectedSrc) {
+        var image = $seatImg.attr("src");
+
+        
         var normalizedImage = image.replace(window.location.origin, '');
 
-        // Check for image source and toggle between seat states
-        if (normalizedImage === standardSeatSrc) {
-            $(this).attr("src", selectedStandardSeatSrc);
-            $(this).addClass("selected-seat-no");
-            console.log('Seat selected.');
-        } else if (normalizedImage === selectedStandardSeatSrc) {
-            $(this).attr("src", standardSeatSrc);
-            $(this).removeClass("selected-seat-no");
+        
+        var selectedSeatsCount = $(".selected-seat-no").length;
+
+        
+        if (normalizedImage === selectedSrc) {
+            $seatImg.attr("src", normalSrc);
+            $seatImg.removeClass("selected-seat-no");
             console.log('Seat deselected.');
+        } 
+        
+        else if (selectedSeatsCount < maxSeats) {
+            $seatImg.attr("src", selectedSrc);
+            $seatImg.addClass("selected-seat-no");
+            console.log('Seat selected.');
+        } 
+        
+        else {
+            showToast("You can only select up to 12 seats.");
         }
 
-        // Update the selected seats display
+        
         var selectedSeatsNo = [];
         var selectedSeatsID = [];
         $(".selected-seat-no").each(function () {
@@ -35,61 +58,26 @@ $(document).ready(function () {
         });
         $("#selectedSeat").text(selectedSeatsNo.join(", "));
         $("#selectedSeatNumbers").val(selectedSeatsID.join(","));
+    }
+
+    $(document).on('click', '.standardSeatImg', function () {
+        toggleSeatSelection($(this), standardSeatSrc, selectedStandardSeatSrc);
     });
 
     $(document).on('click', '.premiumSeatImg', function () {
-        var image = $(this).attr("src");
-
-        // Normalize the image URL by removing any protocol and domain parts
-        var normalizedImage = image.replace(window.location.origin, '');
-
-        // Check for image source and toggle between seat states
-        if (normalizedImage === premiumSeatSrc) {
-            $(this).attr("src", selectedPremiumSeatSrc);
-            $(this).addClass("selected-seat-no");
-            console.log('Seat selected.');
-        } else if (normalizedImage === selectedPremiumSeatSrc) {
-            $(this).attr("src", premiumSeatSrc);
-            $(this).removeClass("selected-seat-no");
-            console.log('Seat deselected.');
-        }
-
-        // Update the selected seats display
-        var selectedSeatsNo = [];
-        var selectedSeatsID = [];
-        $(".selected-seat-no").each(function () {
-            selectedSeatsNo.push($(this).attr("alt"));
-            selectedSeatsID.push($(this).attr("data-seat-id")); // Changed from 'commandargument' to 'data-seat-id'
-        });
-        $("#selectedSeat").text(selectedSeatsNo.join(", "));
-        $("#selectedSeatNumbers").val(selectedSeatsID.join(","));
+        toggleSeatSelection($(this), premiumSeatSrc, selectedPremiumSeatSrc);
     });
 
     $(document).on('click', '.familySeatImg', function () {
-        var image = $(this).attr("src");
+        toggleSeatSelection($(this), familySeatSrc, selectedFamilySeatSrc);
+    });
 
-        // Normalize the image URL by removing any protocol and domain parts
-        var normalizedImage = image.replace(window.location.origin, '');
-
-        // Check for image source and toggle between seat states
-        if (normalizedImage === familySeatSrc) {
-            $(this).attr("src", selectedFamilySeatSrc);
-            $(this).addClass("selected-seat-no");
-            console.log('Seat selected.');
-        } else if (normalizedImage === selectedFamilySeatSrc) {
-            $(this).attr("src", familySeatSrc);
-            $(this).removeClass("selected-seat-no");
-            console.log('Seat deselected.');
+    // Add event listener for form submission
+    $(document).on('submit', 'form', function (e) {
+        // Check if any seat is selected
+        if ($(".selected-seat-no").length === 0) {
+            showToast("Please select at least one seat before proceeding.");
+            e.preventDefault(); // Prevent form submission
         }
-
-        // Update the selected seats display
-        var selectedSeatsNo = [];
-        var selectedSeatsID = [];
-        $(".selected-seat-no").each(function () {
-            selectedSeatsNo.push($(this).attr("alt"));
-            selectedSeatsID.push($(this).attr("data-seat-id")); // Changed from 'commandargument' to 'data-seat-id'
-        });
-        $("#selectedSeat").text(selectedSeatsNo.join(", "));
-        $("#selectedSeatNumbers").val(selectedSeatsID.join(","));
     });
 });

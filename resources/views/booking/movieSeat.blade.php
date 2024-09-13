@@ -6,6 +6,7 @@
 
 <!-- all css for this page -->
 @push('styles')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
     @vite(['resources/css/booking/movieSeat.css'])
 @endpush
 
@@ -16,10 +17,9 @@
             <div class="movie-seat-selection-header">
                 <div class="booking-progress">
                     <ol class="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse">
-                        <li
-                            class="flex items-center custom-green text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                        <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
                             <span
-                                class="flex items-center justify-center w-8 h-8 border border-custom-green rounded-full dark:border-green-400">
+                                class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
                                 1
                             </span>
                             <span>
@@ -332,6 +332,9 @@
             <form action="{{ route('payment') }}" method="POST">
                 @csrf
                 <input type="hidden" name="selected_seat_numbers" id="selectedSeatNumbers">
+                <input type="hidden" name="timeSlotID" value="{{ $hallTimeSlot->hall_time_slot_id }}">
+                <input type="hidden" name="movie_id" value="{{ $movie->movie_id }}">
+                <input type="hidden" name="hall-id" value="{{ $hall->hall_id }}">
                 <button type="submit" class="continueButton">Confirm To Payment</button>
             </form>
         </div>
@@ -339,5 +342,6 @@
 
     <!-- all js for this page -->
     @push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
         @vite(['resources/js/booking/movieSeat.js'])
     @endpush

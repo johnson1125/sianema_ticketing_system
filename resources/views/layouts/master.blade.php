@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sianema - @yield('title', '')</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
     
     <!-- Load CSS via Vite -->
     @vite(['resources/css/master.css', 'resources/css/app.css'])
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
     
     <!-- Additional CSS -->
     @stack('styles')

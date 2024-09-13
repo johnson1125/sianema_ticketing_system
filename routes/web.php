@@ -65,9 +65,8 @@ Route::post('booking-date-button-click', [BookingController::class, 'dateButtonC
 Route::get('booking-movie-cover-photo/{movie_id}', [BookingController::class, 'getMovieCoverPhoto'])->name('movie.coverPhoto');
 Route::get('booking-movie-poster-photo/{movie_id}', [BookingController::class, 'getMoviePoster'])->name('movie.posterPhoto');
 Route::get('booking-movieSeat', [BookingController::class, 'timeSlotSelect'])->name('timeSlotSelect');
-Route::post('payment', [BookingController::class, 'processPayment'])->name('payment');
-Route::get('payment-page', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
-
+Route::post('booking-process-payment', [BookingController::class, 'processPayment'])->name('payment');
+Route::get('booking-payment', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
 
 
 
