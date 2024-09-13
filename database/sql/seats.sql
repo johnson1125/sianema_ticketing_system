@@ -1,48 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Sep 12, 2024 at 10:07 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `sianematicketingsystem`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `seats`
---
-
-CREATE TABLE `seats` (
-  `seat_id` varchar(50) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `hall_id` varchar(50) DEFAULT NULL,
-  `row_letter` char(255) NOT NULL,
-  `column_number` int(11) NOT NULL,
-  `seat_type` varchar(8) NOT NULL,
-  `status` enum('open','occupied') NOT NULL DEFAULT 'open'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `seats`
---
-
-INSERT INTO `seats` (`seat_id`, `created_at`, `updated_at`, `hall_id`, `row_letter`, `column_number`, `seat_type`, `status`) VALUES
+INSERT IGNORE INTO `seats` (`seat_id`, `created_at`, `updated_at`, `hall_id`, `row_letter`, `column_number`, `seat_type`, `status`) VALUES
 ('HALL-F-01-A01', '2024-09-12 00:00:33', '2024-09-12 00:00:33', 'HALL-F-01', 'A', 1, 'Family', 'open'),
 ('HALL-F-01-B01', '2024-09-12 00:00:33', '2024-09-12 00:00:33', 'HALL-F-01', 'B', 1, 'Family', 'open'),
 ('HALL-F-01-C01', '2024-09-12 00:00:33', '2024-09-12 00:00:33', 'HALL-F-01', 'C', 1, 'Family', 'open'),
@@ -268,29 +224,3 @@ INSERT INTO `seats` (`seat_id`, `created_at`, `updated_at`, `hall_id`, `row_lett
 ('HALL-S-01-J10', '2024-09-11 23:48:34', '2024-09-11 23:48:34', 'HALL-S-01', 'J', 10, 'Standard', 'open'),
 ('HALL-S-01-J11', '2024-09-11 23:48:34', '2024-09-11 23:48:34', 'HALL-S-01', 'J', 11, 'Standard', 'open'),
 ('HALL-S-01-J12', '2024-09-11 23:48:34', '2024-09-11 23:48:34', 'HALL-S-01', 'J', 12, 'Standard', 'open');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `seats`
---
-ALTER TABLE `seats`
-  ADD PRIMARY KEY (`seat_id`),
-  ADD KEY `seats_hall_id_foreign` (`hall_id`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `seats`
---
-ALTER TABLE `seats`
-  ADD CONSTRAINT `seats_hall_id_foreign` FOREIGN KEY (`hall_id`) REFERENCES `halls` (`hall_id`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
