@@ -12,7 +12,9 @@ use App\Models\Hall;
 use App\Models\Seat;
 
 use App\Services\HallService;
-
+use App\Services\XMLExtensionsService;
+use XSLTProcessor;
+use DOMDocument;
 use Illuminate\Http\Request;
 
 class HallController extends Controller
@@ -152,5 +154,27 @@ public function update(string $hall_id)
             }
         } 
         return redirect()->back()->with('error', 'Invalid seat statuses'); 
+    }
+
+    public function showMaintenanceHistory($hall_id)
+    {
+        // Fetch maintenance records from external service for the specified hall ID
+        try {
+            $maintenanceRecordRespond = $this->hallService->getMaintenanceHistoryForHall($hall_id);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Unable to fetch maintenance history.');
+        }
+
+        // Convert the XML string to HTML using the XSLT processor
+        // $maintenanceHistoryHTML = XMLExtensionsController::XMLStringToHTML($maintenanceRecordsXML, 'xsl/maintenanceDetails.xsl');
+        
+        XMLExtensionsService::convertJsonToXMLFile($maintenanceRecordRespond, 'maintenanceRecords', 'xml/maintenanceRecords.xml');
+        //Convert xml to html
+        $maintenanceRecord = XMLExtensionsService::XMLFileToHTML('xml/maintenanceRecords.xml', 'xsl/maintenanceRecords.xsl');
+        // Pass the generated HTML to the view
+        return view('admin.manageHall.showMaintenanceHistory', [
+            'maintenanceHistory' => $maintenanceRecord,
+            'hall_id' => $hall_id
+        ]);
     }
 }

@@ -70,4 +70,34 @@ class HallService{
 
         return false;
     }
+
+    public  function getMaintenanceHistoryForHall($hall_id)
+    {
+        $serviceUrl = 'http://127.0.0.1:5001/api/maintenance-records?hallID=' . $hall_id;
+    
+        // Initialize cURL
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $serviceUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        
+        // Execute the request and get the response
+        $response = curl_exec($ch);
+        
+        // Check for cURL errors
+        if (curl_errno($ch)) {
+            throw new \Exception('cURL error: ' . curl_error($ch));
+        }
+        
+        curl_close($ch);
+        
+        // Log the raw response for debugging
+        \Log::info('Maintenance History Response: ' . $response);
+
+        // Check if response is empty or invalid
+        if ($response === false || empty($response)) {
+            throw new \Exception('Failed to retrieve maintenance history data.');
+        }
+
+        return $response;  // Return the raw response instead of XML, for now
+    }
 }
