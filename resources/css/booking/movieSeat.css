@@ -85,6 +85,26 @@
             display: flex;
             flex-wrap: wrap;
 
+            .standardSeatImg {
+                width: 30px;
+                height: 30px;
+                object-fit: cover;
+                margin: 5px;
+            }
+
+            .premiumSeatImg {
+                width: 40px;
+                height: 40px;
+                object-fit: cover;
+                margin: 5px;
+            }
+
+            .familySeatImg {
+                width: 70px;
+                height: 30px;
+                object-fit: cover;
+            }
+
             p {
                 font-size: 18px;
                 color: white;
@@ -185,8 +205,9 @@
             margin-bottom: 50px; /* Add margin for vertical spacing between rows */
 
             .familySeatImg {
-                width: 120px;
-                height: 60px;
+                width: 100px;
+                height: 50px;
+                object-fit: cover;
             }
             .seat-info {
                 color: white;

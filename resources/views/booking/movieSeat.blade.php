@@ -90,14 +90,37 @@
             @if ($hall->hall_type === 'Standard')
                 <div class="seat-select-part">
                     <div class="seat-description">
-                        <img src="{{ asset('images/selectedStandardSeat.png') }}" alt="selectedseat" width="30"
-                            height="30" />
+                        <img src="{{ asset('images/selectedStandardSeat.png') }}" alt="selectedseat" class="standardSeatImg"/>
                         <p>Selected Seats</p>
-                        <img src="{{ asset('images/soldStandardSeat.png') }}" alt="soldseat" width="30"
-                            height="30" />
+                        <img src="{{ asset('images/soldStandardSeat.png') }}" alt="soldseat" class="standardSeatImg"/>
                         <p>Sold</p>
-                        <img src="{{ asset('images/standardSeat.png') }}" alt="standardSeat" width="30"
-                            height="30" />
+                        <img src="{{ asset('images/standardSeat.png') }}" alt="standardSeat" class="standardSeatImg"/>
+                        <p>Single seat</p>
+                    </div>
+                </div>
+            @endif
+
+            @if ($hall->hall_type === 'Premium')
+                <div class="seat-select-part">
+                    <div class="seat-description">
+                        <img src="{{ asset('images/selectedLuxurySeat.png') }}" alt="selectedseat" class="premiumSeatImg" />
+                        <p>Selected Seats</p>
+                        <img src="{{ asset('images/soldLuxurySeat.png') }}" alt="soldseat" class="premiumSeatImg"/>
+                        <p>Sold</p>
+                        <img src="{{ asset('images/premiumSeat.png') }}" alt="standardSeat" class="premiumSeatImg"/>
+                        <p>Single seat</p>
+                    </div>
+                </div>
+            @endif
+
+            @if ($hall->hall_type === 'Family')
+                <div class="seat-select-part">
+                    <div class="seat-description">
+                        <img src="{{ asset('images/selectedFamilySeat.png') }}" alt="selectedseat" class="familySeatImg"/>
+                        <p>Selected Seats</p>
+                        <img src="{{ asset('images/soldFamilySeat.png') }}" alt="soldseat" class="familySeatImg"/>
+                        <p>Sold</p>
+                        <img src="{{ asset('images/familySeat.png') }}" alt="standardSeat" class="familySeatImg"/>
                         <p>Single seat</p>
                     </div>
                 </div>
@@ -334,7 +357,7 @@
                 <input type="hidden" name="selected_seat_numbers" id="selectedSeatNumbers">
                 <input type="hidden" name="timeSlotID" value="{{ $hallTimeSlot->hall_time_slot_id }}">
                 <input type="hidden" name="movie_id" value="{{ $movie->movie_id }}">
-                <input type="hidden" name="hall-id" value="{{ $hall->hall_id }}">
+                <input type="hidden" name="hall_id" value="{{ $hall->hall_id }}">
                 <button type="submit" class="continueButton">Confirm To Payment</button>
             </form>
         </div>

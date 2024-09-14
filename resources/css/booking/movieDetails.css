@@ -178,6 +178,12 @@
             color: white;
         }
 
+        .movie-time{
+            padding-top:10px;
+            display:flex;
+            flex-wrap: wrap;
+        }
+
         .chair-image-container {
             padding-left: 50px;
 

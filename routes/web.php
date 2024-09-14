@@ -67,6 +67,11 @@ Route::get('booking-movie-poster-photo/{movie_id}', [BookingController::class, '
 Route::get('booking-movieSeat', [BookingController::class, 'timeSlotSelect'])->name('timeSlotSelect');
 Route::post('booking-process-payment', [BookingController::class, 'processPayment'])->name('payment');
 Route::get('booking-payment', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
+Route::post('booking-complete-payment', [BookingController::class, 'completePayment'])->name('complete_payment');
+Route::get('booking-payment-success', [BookingController::class, 'paymentSuccess'])->name('payment.success');
+
+
+
 
 
 

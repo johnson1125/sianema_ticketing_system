@@ -54,3 +54,155 @@
         }
     }
 }
+
+.movie-payment-section {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    .movie-payment-container {
+        width: 50%;
+        display: flex;
+        gap: 20px;
+    }
+    .movie-selection-poster {
+        flex: 1;
+        max-width: 30%;
+
+        #moviePoster {
+            width: 300px;
+            height: 450px;
+            object-fit: cover;
+        }
+    }
+
+    .movie-selection-details {
+        flex: 2; /* The movie details take up 2 parts of the available space */
+        display: flex;
+        flex-direction: column;
+
+        .movie-details {
+            color: white;
+
+            #movieName {
+                font-size: 25px;
+                font-weight: bold;
+            }
+
+            .movie-details-info1 {
+                display: flex;
+                gap: 5%;
+                padding-bottom: 10px;
+
+                li {
+                    font-size: 15px;
+                }
+            }
+
+            .movie-details-info2 {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 20px;
+                list-style: none;
+                padding: 0;
+
+                h4 {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                }
+
+                li {
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 15px;
+
+                    p {
+                        color: #008000;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        .ticket-amount {
+            margin-top: 20px;
+
+            .payment-details-table {
+                width: 100%;
+                border-collapse: collapse;
+                color: white;
+                font-size: 16px;
+
+                th,
+                td {
+                    padding: 12px;
+                    text-align: left;
+                    border-bottom: 1px solid #444;
+                }
+
+                th {
+                    background-color: #333;
+                    color: white;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+
+                td {
+                    background-color: #222;
+                }
+
+                td:last-child {
+                    text-align: left;
+                    font-weight: bold;
+                    color: #008000;
+                }
+            }
+        }
+
+        .payButton-container {
+            margin-top: 30px;
+            color: white;
+
+            form {
+                .continueButton {
+                    background-color: #4caf50; /* Button background color */
+                    color: white; /* Button text color */
+                    border: none; /* Remove border */
+                    padding: 10px 20px; /* Button padding */
+                    text-align: center; /* Center text */
+                    text-decoration: none; /* Remove underline */
+                    display: inline-block; /* Inline block for alignment */
+                    font-size: 16px; /* Font size */
+                    margin: 10px 10px; /* Margin around button */
+                    cursor: pointer; /* Cursor pointer on hover */
+                    border-radius: 4px; /* Rounded corners */
+                }
+
+                .paymentMethod{
+                    h3{
+                        font-size:20px;
+                        padding-bottom:10px;
+                    }
+                }
+
+                .toggle-content {
+                    display: none;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    margin-top: 10px;
+                    background-color: white;
+                    color: black;
+
+                    h3 {
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+
+                    input {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
