@@ -2,6 +2,7 @@
 namespace App\Services;
 use App\Models\Seat;
 use App\Models\Hall;
+use App\Models\MovieSeat;
 
 class SeatService {
     public function createSeats(string $hallID, int $rowNum, int $columnNum): void {
@@ -43,13 +44,37 @@ class SeatService {
     }
 
     public function updateSeatStatuses(array $seatStatuses): bool
-    {
+    {   
+        //time when the update seat operation is being called.
+        $currentDateTime = new \DateTime();
+       
         foreach ($seatStatuses as $seatId => $status) {
             // Process each seat ID and status
             $seat = Seat::find($seatId);
             if ($seat) {
                 $seat->status = $status;
                 $seat->save();
+
+                $affectedMovieSeats = MovieSeat::where('seat_id', $seatId)->get(); //since we have seat_id in movie_seat 
+                //find all the movieseat with the matched seat_id
+                // extract the datetime from the movie_seat_id and compare if the datetime is >= the operation date time
+                // if yes then change the current movie seat status base on current seat status
+                foreach ($affectedMovieSeats as $movieSeat){
+                    $extractDateTime = substr($movieSeat->movie_seat_id, 10, 12);  //HALL-F-01-240913-10-00-A01
+                    $seatDateTime = \DateTime::createFromFormat('ymd-H-i', $extractDateTime);              
+                    if ($seatDateTime >= $currentDateTime) {
+                        // Check the new seat status and update the movie seat status accordingly
+                        if ($status === 'occupied' && $movieSeat->movie_seats_status === 'Available') {
+                            $movieSeat->movie_seats_status = 'Occupied';
+                            $movieSeat->save();
+                        } elseif ($status === 'open' && $movieSeat->movie_seats_status === 'Occupied') {
+                            $movieSeat->movie_seats_status = 'Available';
+                            $movieSeat->save();
+                        }
+                    }
+                }
+
+
             } else {
                 throw new \Exception('Seat not found: ' . $seatId);
             }

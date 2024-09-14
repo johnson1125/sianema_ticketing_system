@@ -22,7 +22,7 @@ class HallService{
         $hallId = $data['hallId'];
         $hallName = $data['hallName'];
 
-        $hall = new Hall();
+        $hall = new Hall(); //hall model
         $hall->hall_id = $hallId;
         $hall->hall_name = $hallName;
         $hall->hall_type = $data['hallType'];

@@ -1,5 +1,5 @@
 <?php
-namespace App\Factories\HallFactory;
+namespace App\Factory\HallFactory;
 
 //Product
 interface HallInterface{
