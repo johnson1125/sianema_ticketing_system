@@ -1,7 +1,7 @@
 <?php
-namespace App\Factories\HallFactory;
+namespace App\Factory\HallFactory;
 
-use App\Factories\HallFactory\HallInterface;
+use App\Factory\HallFactory\HallInterface;
 use App\Services\SeatService;
 
 //Factory Interface

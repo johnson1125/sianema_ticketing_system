@@ -1,15 +1,15 @@
 <?php
-namespace App\Factories\HallFactory\HallConcreteProduct;
-
-use App\Factories\HallFactory\HallInterface;
+namespace App\Factory\HallFactory\HallConcreteProduct;
+use App\Factory\HallFactory\HallInterface;
 use App\Services\SeatService;
 
-class StandardHallConcreteProduct implements HallInterface {
+class FamilyHallConcreteProduct implements HallInterface {
     private $hallID, $hallName;
-    const HALL_TYPE = "Standard";
-    const ROWS = 10;
-    const COLUMNS = 12;
+    const HALL_TYPE = "Family";
+    const ROWS = 5;
+    const COLUMNS = 1;
     private $seatCreator;
+
 
     public function __construct(string $hallID, string $hallName, SeatService $seatCreator) {
         $this->seatCreator = $seatCreator;

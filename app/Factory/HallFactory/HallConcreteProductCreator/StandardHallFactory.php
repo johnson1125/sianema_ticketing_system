@@ -1,9 +1,9 @@
 <?php
-namespace App\Factories\HallFactory\HallConcreteProductCreator;
-use App\Factories\HallFactory\HallProductCreatorInterface;
-use App\Factories\HallFactory\HallInterface;
+namespace App\Factory\HallFactory\HallConcreteProductCreator;
+use App\Factory\HallFactory\HallProductCreatorInterface;
+use App\Factory\HallFactory\HallInterface;
 use App\Services\SeatService;
-use App\Factories\HallFactory\HallConcreteProduct\StandardHallConcreteProduct;
+use App\Factory\HallFactory\HallConcreteProduct\StandardHallConcreteProduct;
 
 
 class StandardHallFactory implements HallProductCreatorInterface {
