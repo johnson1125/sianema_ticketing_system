@@ -12,11 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('ticket_transactions', function (Blueprint $table) {
-            $table->date('transactionDateTime');
-            $table->decimal('transactionAmount', 8, 2); 
-            $table->enum('transactionStatus', ['Pending', 'Completed', 'Cancelled']);  
-            $table->unsignedBigInteger('custID');
-            $table->foreign('custID')->references('id')->on('users');
+            $table->dateTime('transactionDateTime')->change();
         });
     }
 

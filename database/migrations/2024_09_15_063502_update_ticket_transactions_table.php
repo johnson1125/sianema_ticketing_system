@@ -12,11 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('ticket_transactions', function (Blueprint $table) {
-            $table->date('transactionDateTime');
-            $table->decimal('transactionAmount', 8, 2); 
-            $table->enum('transactionStatus', ['Pending', 'Completed', 'Cancelled']);  
-            $table->unsignedBigInteger('custID');
-            $table->foreign('custID')->references('id')->on('users');
+            // Drop column only if it exists
+            if (Schema::hasColumn('ticket_transactions', 'transactionAmount')) {
+                $table->dropColumn('transactionAmount');
+            }
         });
     }
 
@@ -25,6 +24,5 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
     }
 };

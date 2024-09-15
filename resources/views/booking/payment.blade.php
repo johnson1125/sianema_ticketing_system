@@ -222,11 +222,6 @@
     </div>
     </div>
 
-
-
-
-
-
 @endsection
 
 <!-- all js for this page -->

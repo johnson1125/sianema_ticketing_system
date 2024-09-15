@@ -64,16 +64,13 @@ Route::get('booking-movies/{movie_id}', [BookingController::class, 'movieDetails
 Route::post('booking-date-button-click', [BookingController::class, 'dateButtonClick'])->name('dateButtonClick');
 Route::get('booking-movie-cover-photo/{movie_id}', [BookingController::class, 'getMovieCoverPhoto'])->name('movie.coverPhoto');
 Route::get('booking-movie-poster-photo/{movie_id}', [BookingController::class, 'getMoviePoster'])->name('movie.posterPhoto');
-Route::get('booking-movieSeat', [BookingController::class, 'timeSlotSelect'])->name('timeSlotSelect');
-Route::post('booking-process-payment', [BookingController::class, 'processPayment'])->name('payment');
-Route::get('booking-payment', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
-Route::post('booking-complete-payment', [BookingController::class, 'completePayment'])->name('complete_payment');
-Route::get('booking-payment-success', [BookingController::class, 'paymentSuccess'])->name('payment.success');
-
-
-
-
-
+Route::middleware('auth', 'verified')->group(function () {
+    Route::get('booking-movieSeat', [BookingController::class, 'timeSlotSelect'])->name('timeSlotSelect');
+    Route::post('booking-process-payment', [BookingController::class, 'processPayment'])->name('payment');
+    Route::get('booking-payment', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
+    Route::post('booking-complete-payment', [BookingController::class, 'completePayment'])->name('complete_payment');
+    Route::get('booking-payment-success', [BookingController::class, 'paymentSuccess'])->name('payment.success');
+});
 
 
 Route::resource('manage-movie', MovieController::class);
@@ -97,7 +94,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('admin/create-hall-success', [HallController::class, 'store'])->name('manage.hall.store');
     Route::get('admin/halls/get-hall-info/{hallType}', [HallController::class, 'getHallInfo']);
     Route::post('/manage/hall/{hall_id}/change-status', [HallController::class, 'update'])->name('manage.hall.change-status');
-    Route::get('admin/edit-hall/{hall_id}/seats',[HallController::class,'edit'])->name('manage.hall.edit.seat');
+    Route::get('admin/edit-hall/{hall_id}/seats', [HallController::class, 'edit'])->name('manage.hall.edit.seat');
     Route::post('admin/edit-hall/{hall_id}/seats/update', [HallController::class, 'updateSeatStatus'])->name('seat.update');
     Route::get('/hall/{hall_id}/maintenance-history', [HallController::class, 'showMaintenanceHistory'])->name('hall.maintenance.history');
 });

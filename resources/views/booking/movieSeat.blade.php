@@ -274,7 +274,7 @@
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
                                             @elseif ($seat->movie_seats_status === 'Sold')
-                                                <img class="premiumSeatImg" src="{{ asset('images/soldseat.png') }}"
+                                                <img class="premiumSeatImg" src="{{ asset('images/soldLuxurySeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
                                             @elseif ($seat->movie_seats_status === 'Repair')
@@ -304,7 +304,7 @@
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
                                             @elseif ($seat->movie_seats_status === 'Sold')
-                                                <img class="premiumSeatImg" src="{{ asset('images/soldseat.png') }}"
+                                                <img class="premiumSeatImg" src="{{ asset('images/soldLuxurySeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
                                             @elseif ($seat->movie_seats_status === 'Repair')
@@ -334,7 +334,7 @@
                                     alt="{{ $seat->row_letter }}{{ $seat->column_number }}"
                                     data-seat-id="{{ $seat->movie_seat_id }}">
                             @elseif ($seat->movie_seats_status === 'Sold')
-                                <img class="familySeatImg" src="{{ asset('images/soldseat.png') }}"
+                                <img class="familySeatImg" src="{{ asset('images/soldFamilySeat.png') }}"
                                     alt="{{ $seat->row_letter }}{{ $seat->column_number }}"
                                     data-seat-id="{{ $seat->movie_seat_id }}">
                             @elseif ($seat->movie_seats_status === 'Repair')

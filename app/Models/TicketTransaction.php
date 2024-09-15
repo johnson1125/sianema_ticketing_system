@@ -28,6 +28,18 @@ class TicketTransaction extends Model
         'transactionStatus',
     ];
 
+    protected $selectedSeats;
+    
+    public function setSelectedSeats($seats)
+    {
+        $this->selectedSeats = $seats;
+    }
+
+    public function getSelectedSeats()
+    {
+        return $this->selectedSeats;
+    }
+
     public function movieSeats(): HasMany
     {
         return $this->hasMany(movieSeat::class);
