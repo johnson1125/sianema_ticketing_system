@@ -6,3 +6,31 @@ body {
     margin-left: 10%;
     margin-right: 10%;
 }
+
+.btn-primary {
+    font-weight: 700;
+    background-color: var(--button-green);
+    border-color: var(--button-green);
+}
+
+.btn-primary:hover {
+    color: var(--button-green);
+    background-color: var(--white);
+    border-color: var(--white);
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+    background-color: var(--button-green);
+    border-color: var(--button-green);
+    box-shadow: none;
+    outline: none;
+}
+
+.btn-primary:focus {
+    color: var(--button-green);
+    background-color: var(--white);
+    border-color: var(--button-green);
+    box-shadow: 0 0 0 0.2rem var(--button-green);
+}
