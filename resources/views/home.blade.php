@@ -52,21 +52,23 @@
 <!-- showing now slider start -->
 
 <section class="showing-now homepage-container">
-    <div class="col-6">
-        <h3 class="mb-3">Showing Now</h3>
-    </div>
-    <div class="col-6 text-right">
-        <button class="btn btn-primary mb-3 mr-1" id="prevBtn" href="carouselExampleIndicators2" data-slide="prev">
-            <i class="fa fa-arrow-left"></i>
-        </button>
-        <button class="btn btn-primary mb-3" id="nextBtn" href="carouselExampleIndicators2" data-slide="next">
-            <i class="fa fa-arrow-right"></i>
-        </button>
+    <div class="slider-header mb-3">
+        <div class="slider-title">
+            <h3>Showing Now</h3>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-primary mb-3 mr-1" id="prevBtn" href="carouselExampleIndicators2" data-slide="prev">
+                <i class="fa fa-arrow-left"></i>
+            </button>
+            <button class="btn btn-primary mb-3" id="nextBtn" href="carouselExampleIndicators2" data-slide="next">
+                <i class="fa fa-arrow-right"></i>
+            </button>
+        </div>
     </div>
 
-    <div class="your-class">
+    <div class="showing-now-slider">
         @foreach ($movies as $movie)
-        <div class="card view">
+        <div class="movie-card card view">
             <img id="moviePoster" src="{{ route('movie.posterPhoto', $movie->movie_id) }}">
             <div class="mask">
                 <div class="col">
