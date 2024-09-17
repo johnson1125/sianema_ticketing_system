@@ -8,7 +8,6 @@
 
     <!-- Common CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap4.5.2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome4.7.0.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.min.css') }}">
@@ -34,7 +33,6 @@
 
     <!-- Common JS -->
     <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/bootstrap4.5.2.min.js') }}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/slick.min.js') }}"></script>
 
