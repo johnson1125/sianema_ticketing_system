@@ -1,5 +1,14 @@
 /* Ensures .mask only shows on hover */
-#custom-controls-gallery {
+.homepage-container {
+    max-width: 60%;
+    padding-top: 50px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+section.showing-now {
     .view:hover {
         .mask {
             opacity: 1; /* Make overlay visible on hover */
