@@ -23,6 +23,7 @@ export default {
                 admin: colors.neutral,
                 "sianema-green": "var(--sianema-green)",
                 "button-green": "var(--button-green)",
+                "button-lighter-green": "var(--button-lighter-green)",
             },
             fontFamily: {
                 sans: ["Calibri", "sans-serif"],

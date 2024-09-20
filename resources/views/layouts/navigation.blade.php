@@ -21,14 +21,14 @@
 
             <div class="z-50 hidden my-4 text-base list-none divide-y rounded-lg shadow bg-zinc-800 divide-gray-600" id="user-dropdown">
                 <div class="px-4 py-3">
-                    <span class="block text-sm text-white">Bonnie Green</span>
-                    <span class="block text-sm  truncate text-gray-400">name@flowbite.com</span>
+                    <span class="block text-sm text-white">{{ Auth::user()->name }}</span>
+                    <span class="block text-sm  truncate text-gray-400">{{ Auth::user()->email }}</span>
                 </div>
                 <ul class="py-2" aria-labelledby="user-menu-button">
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Edit Profile</a>
+                        <a href="{{ route('profile.edit', ['name' => Auth::user()->name, 'role' => Auth::user()->role]) }}" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Edit Profile</a>
                     </li>
-                    @if (Auth::check() && Auth::user()->role !== 'admin')
+                    @if (Auth::check() && Auth::user()->role === 'user')
                     <li>
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Transaction History</a>
                     </li>
@@ -61,7 +61,7 @@
                     <a href="{{ route('home') }}" class="block py-2 px-3 rounded md:p-0 text-white {{ Route::is('home') ? 'bg-button-green md:bg-transparent  md:text-sianema-green' : 'md:hover:text-sianema-green hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700' }}" aria-current="{{ Route::is('home') ? 'page' : 'false' }}">Home</a>
                 </li>
                 <li>
-                    <a href="{{ route('movies') }}" class="block py-2 px-3 rounded md:p-0 text-white {{ Route::is('movies') ? 'bg-button-green md:bg-transparent  md:text-sianema-green' : 'md:hover:text-sianema-green hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700' }}" aria-current="{{ Route::is('movies') ? 'page' : 'false' }}">Movies</a>
+                    <a href="{{ route('movies') }}" class="block py-2 px-3 rounded md:p-0 text-white {{(request()->route() && request()->route()->getController() instanceof \App\Http\Controllers\BookingController) || Route::is('movies')  ? 'bg-button-green md:bg-transparent  md:text-sianema-green' : 'md:hover:text-sianema-green hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700' }}" aria-current="{{ (request()->route() && request()->route()->getController() instanceof \App\Http\Controllers\BookingController) || Route::is('movies')   ? 'page' : 'false' }}">Movies</a>
                 </li>
                 <li>
                     <a href="{{ route('aboutUs') }}" class="block py-2 px-3 rounded md:p-0 text-white {{ Route::is('aboutUs') ? 'bg-button-green md:bg-transparent  md:text-sianema-green' : 'md:hover:text-sianema-green hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700' }}" aria-current="{{ Route::is('aboutUs') ? 'page' : 'false' }}">About Us</a>
