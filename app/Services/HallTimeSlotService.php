@@ -180,7 +180,7 @@ class HallTimeSlotService
                 'ticket_transaction_id' => null,
                 'hall_time_slot_id' => $hallTimeSlotID,
                 'seat_id' => $seat->seat_id,
-                'movie_seats_status' => 'Available'
+                'movie_seats_status' => ($seat->status == "occupied"? 'Occupied' : 'Available'),
             ];
         })->toArray();
 
