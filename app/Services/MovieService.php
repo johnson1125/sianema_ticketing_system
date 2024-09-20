@@ -4,6 +4,8 @@ namespace App\Services;
 use Carbon\Carbon;
 use App\Models\Movie;
 
+// Author: Sia Yeong Sheng
+
 class MovieService{
     /**
      * Create a new movie record.

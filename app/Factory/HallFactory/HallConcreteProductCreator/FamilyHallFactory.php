@@ -5,6 +5,8 @@ use App\Factory\HallFactory\HallInterface;
 use App\Services\SeatService;
 use App\Factory\HallFactory\HallConcreteProduct\FamilyHallConcreteProduct;
 
+// Author: Sia Yeong Sheng
+
 class FamilyHallFactory implements HallProductCreatorInterface{
     public function createHall(string $hallID, string $hallName, SeatService $seatCreator): HallInterface {
         return new FamilyHallConcreteProduct($hallID, $hallName, $seatCreator);

@@ -1,4 +1,13 @@
-@vite(['resources/js/admin/manageMovie/edit.js', 'resources/css/admin/manageMovie/edit.css'])
+<!-- Author: Sia Yeong Sheng-->
+@extends('layouts.masterAdmin')
+
+<!-- The title for this page -->
+@section('title', 'Edit Movie Details')
+
+@push('styles')
+    @vite(['resources/css/admin/manageMovie/edit.css'])
+@endpush
+
 @if(session('success'))
     <script>
         alert("{{ session('success') }}");
@@ -9,7 +18,8 @@
         alert("{{ session('error') }}");
     </script>
 @endif
-<x-admin-Layout>
+
+@section('content')
     <h1 class="pageTitle">Edit Movie</h1>
     <form id="updateMovieForm" action="{{ route('movies.update', $movie->movie_id) }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -174,4 +184,9 @@
             <button class="submit" type="submit">Confirm</button>
         </div>
    </form>   
-</x-admin-Layout> 
+@endsection
+
+<!-- all js for this page -->
+@push('scripts')
+    @vite(['resources/js/admin/manageMovie/edit.js'])
+@endpush

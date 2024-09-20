@@ -4,6 +4,8 @@ use App\Models\Seat;
 use App\Models\Hall;
 use App\Models\MovieSeat;
 
+// Author: Sia Yeong Sheng
+
 class SeatService {
     public function createSeats(string $hallID, int $rowNum, int $columnNum): void {
         // Check if the hall ID already exists in the seats database

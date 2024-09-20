@@ -7,6 +7,8 @@ use Carbon\Carbon;
 use App\Services\MovieService;
 use App\Services\virustotal;
 
+// Author: Sia Yeong Sheng
+
 class MovieController extends Controller
 {
 
