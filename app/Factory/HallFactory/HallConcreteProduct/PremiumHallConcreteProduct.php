@@ -1,8 +1,9 @@
 <?php
 namespace App\Factory\HallFactory\HallConcreteProduct;
-
 use App\Factory\HallFactory\HallInterface;
 use App\Services\SeatService;
+
+// Author: Sia Yeong Sheng
 
 class PremiumHallConcreteProduct implements HallInterface {
     private $hallID, $hallName;

@@ -1,3 +1,14 @@
+<!-- Author: Sia Yeong Sheng-->
+<!-- using the master page layout -->
+@extends('layouts.masterAdmin')
+
+<!-- The title for this page -->
+@section('title', 'Hall Management')
+
+@push('styles')
+    @vite(['resources/css/admin/manageHall/index.css'])
+@endpush
+
 @if(session('success'))
     <script>
         alert("{{ session('success') }}");
@@ -9,7 +20,8 @@
     </script>
 @endif
 
-<x-admin-Layout>
+
+@section('content')
     <div class="container">
         <div class="header-container">
             <h1 class="pageTitle">Manage Hall</h1>
@@ -53,6 +65,9 @@
             </tbody>
         </table>
     </div>
-    @vite(['resources/css/admin/manageHall/index.css','resources/js/admin/manageHall/index.js'])
-</x-admin-Layout>
+@endsection
 
+<!-- all js for this page -->
+@push('scripts')
+    @vite(['resources/js/admin/manageMovie/index.js'])
+@endpush

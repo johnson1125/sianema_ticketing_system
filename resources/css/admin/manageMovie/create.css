@@ -1,22 +1,91 @@
+// Author: Sia Yeong Sheng
 .form-container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    grid-gap: 20px; /* Gap only between left and right grids */
-    gap: 20px 0; /* No gap between top and bottom grids */
-}
-
-.form-group {
-    margin-bottom: 20;
-}
-
-
-.form-top-left, .form-top-right {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-top-left, 
+.form-top-right {
+    flex: 1;
+    min-width: 48%; /* Adjust width based on your layout */
+    margin: 0 1%;
 }
 
 .form-bottom {
-    grid-column: span 2;
+    width: 100%;
+    margin-left: 10px;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-top-left, 
+.form-top-right {
+    flex: 1;
+    min-width: 48%; /* Adjust width based on your layout */
+    margin: 0 1%;
+}
+
+.form-bottom {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.normal-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.image-preview {
+    display: block;
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Style for the submit and cancel buttons */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button.submit, 
+button.cancel {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.submit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button.cancel {
+    background-color: #f44336;
+    color: white;
+}
+
+button.cancel:hover {
+    background-color: #d32f2f;
+}
+
+button.submit:hover {
+    background-color: #45a049;
 }
 
 .form-actions {
@@ -25,9 +94,13 @@
     justify-content: flex-end;
 }
 
+.form-group{
+    margin-bottom: 15px;
+}
+
 .image-preview {
     margin-top: 10px;
-    max-width: 150px;
+    max-width: 300px;
     max-height: 150px;
     height: auto;
     border: 1px solid #ddd;
@@ -97,9 +170,7 @@
     background: rgb(27 27 27);
 }
 
-.bottom-form-group{
-    margin-bottom: 10px;
-}
+
 
 .dropdown-container {
     position: absolute;

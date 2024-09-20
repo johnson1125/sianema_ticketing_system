@@ -1,3 +1,4 @@
+//Author: Sia Yeong Sheng
 document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('input[name="hallType"]').forEach((radio) => {
         radio.addEventListener('change', updateHallInfo);

@@ -1,3 +1,4 @@
+//Author: Sia Yeong Sheng
 document.addEventListener('DOMContentLoaded', () => {
     // Get all seat images for family, standard, and premium seats
     const seatImages = document.querySelectorAll('.familySeatImg, .standardSeatImg, .premiumSeatImg');

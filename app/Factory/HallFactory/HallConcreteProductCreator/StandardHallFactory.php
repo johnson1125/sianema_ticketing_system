@@ -5,6 +5,7 @@ use App\Factory\HallFactory\HallInterface;
 use App\Services\SeatService;
 use App\Factory\HallFactory\HallConcreteProduct\StandardHallConcreteProduct;
 
+// Author: Sia Yeong Sheng
 
 class StandardHallFactory implements HallProductCreatorInterface {
     public function createHall(string $hallID, string $hallName, SeatService $seatCreator): HallInterface {

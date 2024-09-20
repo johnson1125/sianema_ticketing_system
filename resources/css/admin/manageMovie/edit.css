@@ -1,22 +1,38 @@
+// Author: Sia Yeong Sheng
 .form-container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    grid-gap: 20px; /* Gap only between left and right grids */
-    gap: 20px 0; /* No gap between top and bottom grids */
-}
-
-.form-group {
-    margin-bottom: 20;
-}
-
-
-.form-top-left, .form-top-right {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-top-left, 
+.form-top-right {
+    flex: 1;
+    min-width: 48%; /* Adjust width based on your layout */
+    margin: 0 1%;
 }
 
 .form-bottom {
-    grid-column: span 2;
+    width: 100%;
+    margin-left: 10px;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-top-left, 
+.form-top-right {
+    flex: 1;
+    min-width: 48%; /* Adjust width based on your layout */
+    margin: 0 1%;
+}
+
+.form-bottom {
+    width: 100%;
+    margin-top: 20px;
 }
 
 .form-actions {
@@ -25,9 +41,14 @@
     justify-content: flex-end;
 }
 
+.form-group {
+    margin-bottom: 20px;
+}
+
+
 .image-preview {
     margin-top: 10px;
-    max-width: 150px;
+    max-width: 300px;
     max-height: 150px;
     height: auto;
     border: 1px solid #ddd;

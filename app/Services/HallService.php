@@ -11,6 +11,8 @@ use App\Factory\HallFactory\HallConcreteProduct\PremiumHall;
 use App\Factory\HallFactory\HallConcreteProduct\FamilyHall;
 use App\Services\SeatService;
 
+// Author: Sia Yeong Sheng
+
 class HallService{
     /**
      * Create a new hall record.

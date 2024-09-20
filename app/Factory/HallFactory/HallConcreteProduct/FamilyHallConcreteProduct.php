@@ -3,6 +3,8 @@ namespace App\Factory\HallFactory\HallConcreteProduct;
 use App\Factory\HallFactory\HallInterface;
 use App\Services\SeatService;
 
+// Author: Sia Yeong Sheng
+
 class FamilyHallConcreteProduct implements HallInterface {
     private $hallID, $hallName;
     const HALL_TYPE = "Family";
