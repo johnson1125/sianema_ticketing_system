@@ -9,16 +9,21 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HallController;
 use App\Http\Controllers\HomeController;
 
+//Testing routes start
 //to show how to use master page.
 Route::view('/test', 'userManagement.test')->name('test');
+//Testing admin layout
+Route::get('/adminLayout', function () {
+    return view('/layouts/adminLayout');
+});
+Route::resource('/sampleMovies', SampleMovieController::class);
+//Testing routes end
 
 // User public routes (does not require login)
 Route::get('/', [HomeController::class, 'fetchAllMovies'])->name('home');
 Route::view('/privacyPolicy', 'policy')->name('policy');
 Route::view('/termsAndConditions', 'terms')->name('terms');
 Route::view('/aboutUs', 'aboutUs')->name('aboutUs');
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,23 +33,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-Route::resource('/sampleMovies', SampleMovieController::class);
-
-//Testing admin layout
-Route::get('/adminLayout', function () {
-    return view('/layouts/adminLayout');
-});
-
-// Resource route
-// Route::resource('hallTimeSlot', HallTimeSlotController::class);
-
 // Admin Homepage route
-
 Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('admin{date?}', [HallTimeSlotController::class, 'index'])->name('admin')->defaults('date', date('d-m-Y'));
 });
-// HallTimeSlot Basic route
 
+// HallTimeSlot Basic route
 Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('admin/hall-time-slot/{date?}', [HallTimeSlotController::class, 'index'])->name('hallTimeSlot')->defaults('date', date('d-m-Y'));
     Route::get('admin/hall-time-slot/create/{hallID}_{date}/{activeTab?}', [HallTimeSlotController::class, 'create'])->name('hallTimeSlot.create')->defaults('activeTab', 'Movie');
@@ -59,7 +53,6 @@ Route::middleware('auth', 'role:admin')->group(function () {
 Route::get('api/hall-time-slot-data/{date}/{hallID?}', [HallTimeSlotController::class, 'getHallTimeSlotData'])->defaults('hallID', "");
 Route::get('api/maintenance-data/{maintenanceID}', [HallTimeSlotController::class, 'getMaintenanceData']);
 Route::get('api/movie-data/{movieID}', [HallTimeSlotController::class, 'getMovieData']);
-
 
 // User public routes (does not require login)
 Route::get('booking-movies', [BookingController::class, 'fetchAllMovies'])->name('movies');
@@ -76,9 +69,6 @@ Route::middleware('auth', 'role:user')->group(function () {
     Route::get('booking-payment-success', [BookingController::class, 'paymentSuccess'])->name('payment.success');
 });
 
-
-Route::resource('manage-movie', MovieController::class);
-
 Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('admin/create-movie', [MovieController::class, 'create'])->name('movies.create');
     Route::post('/create-movie-success', [MovieController::class, 'store'])->name('movies.store');
@@ -89,8 +79,6 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('movie-poster/{movie_id}', [MovieController::class, 'getMoviePoster'])->name('movie.poster');
     Route::get('movie-cover-photo/{movie_id}', [MovieController::class, 'getMovieCoverPhoto'])->name('movie.cover.photo');
 });
-
-Route::resource('manage-hall', HallController::class);
 
 Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('admin/manage-hall', [HallController::class, 'index'])->name('manage.hall.index');
