@@ -37,7 +37,7 @@ Route::get('/adminLayout', function () {
 
 // Admin Homepage route
 
-Route::middleware('auth', 'verified')->group(function () {
+Route::middleware('auth', 'verified', 'role:admin')->group(function () {
     Route::get('admin{date?}', [HallTimeSlotController::class, 'index'])->name('admin')->defaults('date', date('d-m-Y'));
 });
 // HallTimeSlot Basic route
