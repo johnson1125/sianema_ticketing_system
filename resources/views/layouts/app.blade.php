@@ -13,15 +13,18 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css'])
+        
+        @if(auth()->check() && auth()->user()->role === 'user')
+            @vite(['resources/css/master.css'])
+        @endif
+        
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @if(auth()->check())
-                @if(auth()->user()->role === 'admin')
-                    @include('layouts.adminNavigation')
-                @else
-                    @include('layouts.navigation')
-                @endif
+        <div class="user-profile-bg min-h-screen bg-gray-100 dark:bg-gray-900">
+            @if(auth()->check() && auth()->user()->role === 'admin')
+                @include('layouts.adminNavigation')
+            @else
+                @include('layouts.navigation')
             @endif
 
             <!-- Page Heading -->

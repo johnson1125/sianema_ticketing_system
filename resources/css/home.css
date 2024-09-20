@@ -38,6 +38,13 @@ section.showing-now {
             #prevBtn,
             #nextBtn {
                 color: white;
+                &:focus, &:hover {
+                    color: var(--button-green);
+                }
+
+                &:active {
+                    color: white;
+                }
             }
         }
     }

@@ -24,6 +24,8 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2024-08-20 03:18:42',
                 'updated_at' => '2024-08-20 03:18:42',
                 'role' => 'admin',
+                'mobile_number' => '0123456789',
+                'date_of_birth' => '2001-10-27'
             ],
         ], ['id']);
     }
