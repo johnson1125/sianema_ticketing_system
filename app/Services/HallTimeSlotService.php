@@ -13,6 +13,8 @@ use App\Models\HallTimeSlot;
 use App\Iterators\TimeSlotIterator;
 use Illuminate\Support\Facades\Http;
 
+// Author: Ong Cheng Leong
+
 class HallTimeSlotService
 {
     public function getHallTimeSlots($date)
@@ -20,7 +22,6 @@ class HallTimeSlotService
         $hallTimeSlots =  HallTimeSlot::getWithStartDate($date);
         return $hallTimeSlots;
     }
-
 
     public function prepareIndexViewData($date)
     {

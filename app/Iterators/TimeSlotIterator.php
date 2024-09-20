@@ -1,6 +1,8 @@
 <?php
 namespace App\Iterators;
 
+// Author: Ong Cheng Leong
+
 class TimeSlotIterator implements \Iterator
 {
     private $timeSlots;
