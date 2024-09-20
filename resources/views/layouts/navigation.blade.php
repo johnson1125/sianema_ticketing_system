@@ -21,14 +21,14 @@
 
             <div class="z-50 hidden my-4 text-base list-none divide-y rounded-lg shadow bg-zinc-800 divide-gray-600" id="user-dropdown">
                 <div class="px-4 py-3">
-                    <span class="block text-sm text-white">Bonnie Green</span>
-                    <span class="block text-sm  truncate text-gray-400">name@flowbite.com</span>
+                    <span class="block text-sm text-white">{{ Auth::user()->name }}</span>
+                    <span class="block text-sm  truncate text-gray-400">{{ Auth::user()->email }}</span>
                 </div>
                 <ul class="py-2" aria-labelledby="user-menu-button">
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Edit Profile</a>
+                        <a href="{{ route('profile.edit', ['name' => Auth::user()->name, 'role' => Auth::user()->role]) }}" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Edit Profile</a>
                     </li>
-                    @if (Auth::check() && Auth::user()->role !== 'admin')
+                    @if (Auth::check() && Auth::user()->role === 'user')
                     <li>
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Transaction History</a>
                     </li>
