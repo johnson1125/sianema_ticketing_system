@@ -1,0 +1,19 @@
+.input-fields {
+    color: white;
+}
+
+.text-inputs {
+    &:focus {
+        outline: var(--sianema-green);
+        border-color: var(--sianema-green);
+    }
+}
+
+.links {
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity)) /* #9ca3af */;
+    &:hover {
+        --tw-text-opacity: 1;
+        color: rgb(229 231 235 / var(--tw-text-opacity)) /* #e5e7eb */;
+    }
+}

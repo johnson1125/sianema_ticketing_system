@@ -17,11 +17,11 @@
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
         <!-- Item 1 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
             <img src="{{ asset('images/ad1.png') }}" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
         </div>
         <!-- Item 2 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img src="{{ asset('images/ad2.png') }}" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
         </div>
         <!-- Item 3 -->

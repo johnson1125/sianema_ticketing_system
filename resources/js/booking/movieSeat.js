@@ -74,8 +74,9 @@ $(document).ready(function () {
 
     // Add event listener for form submission
     $(document).on('submit', 'form', function (e) {
+        var submitButton = $(this).find('button[type="submit"]:focus');
         // Check if any seat is selected
-        if ($(".selected-seat-no").length === 0) {
+        if ($(".selected-seat-no").length === 0 && !submitButton.hasClass('btn-logout')) {
             showToast("Please select at least one seat before proceeding.");
             e.preventDefault(); // Prevent form submission
         }

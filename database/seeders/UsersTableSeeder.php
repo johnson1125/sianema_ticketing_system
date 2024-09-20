@@ -22,7 +22,8 @@ class UsersTableSeeder extends Seeder
                 'password' => '$2y$12$t3KS8XGBxxlrT54yDwGF2.vVoDe1trK2uDKuFcbIi4xYfNrYCLNoK',
                 'remember_token' => NULL,
                 'created_at' => '2024-08-20 03:18:42',
-                'updated_at' => '2024-08-20 03:18:42'
+                'updated_at' => '2024-08-20 03:18:42',
+                'role' => 'admin',
             ],
         ], ['id']);
     }
