@@ -1,3 +1,4 @@
+//Author: Sia Yeong Sheng
 document.addEventListener('DOMContentLoaded', function () {
     const pageContent = document.getElementById('page-content');
     const loadingSpinner = document.getElementById('loading-spinner');

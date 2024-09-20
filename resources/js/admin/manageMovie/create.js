@@ -1,3 +1,4 @@
+//Author: Sia Yeong Sheng
 document.addEventListener('DOMContentLoaded', function() {
     const moviePosterInput = document.getElementById('moviePoster');
     const moviePosterPreview = document.getElementById('posterPreview');

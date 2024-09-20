@@ -1,3 +1,4 @@
+//Author: Sia Yeong Sheng
 function changeHallStatus(hallId, currentStatus) {
     const newStatus = currentStatus === 'open' ? 'closed' : 'open';
 

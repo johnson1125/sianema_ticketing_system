@@ -1,4 +1,15 @@
-<x-admin-Layout>
+<!-- Author: Sia Yeong Sheng-->
+@extends('layouts.masterAdmin')
+
+<!-- The title for this page -->
+@section('title', 'Create New Hall')
+
+<!-- all css for this page -->
+@push('styles')
+    @vite(['resources/css/admin/manageHall/create.css'])
+@endpush
+
+@section('content')
     <h1 class="pageTitle">Add Hall</h1>
     <form id="hallForm" action="{{ route('manage.hall.store') }}" method="POST">
         @csrf
@@ -46,6 +57,8 @@
             <button class="submit" type="submit">Confirm</button>
         </div>
     </form>
-</x-admin-Layout>
-@vite(['resources/js/admin/manageHall/create.js', 'resources/css/admin/manageHall/create.css'])
+@endsection
 
+@push('scripts')
+    @vite(['resources/js/admin/manageHall/create.js'])
+@endpush

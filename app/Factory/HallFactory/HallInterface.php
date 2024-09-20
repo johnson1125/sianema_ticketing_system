@@ -1,6 +1,8 @@
 <?php
 namespace App\Factory\HallFactory;
 
+// Author: Sia Yeong Sheng
+
 //Product
 interface HallInterface{
     public function createSeats(): void;

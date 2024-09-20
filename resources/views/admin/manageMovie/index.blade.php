@@ -1,4 +1,13 @@
-@vite(['resources/css/admin/manageMovie/index.css', 'resources/js/admin/manageMovie/index.js'])
+<!-- Author: Sia Yeong Sheng-->
+<!-- using the master page layout -->
+@extends('layouts.masterAdmin')
+
+<!-- The title for this page -->
+@section('title', 'Manage Movie')
+@push('styles')
+    @vite(['resources/css/admin/manageMovie/index.css'])
+@endpush
+
 @if(session('success'))
     <script>
         alert("{{ session('success') }}");
@@ -9,7 +18,7 @@
         alert("{{ session('error') }}");
     </script>
 @endif
-<x-admin-Layout>
+@section('content')
     <div class="container">
         <div class="header-container">
             <h1 class="pageTitle">Manage Movie</h1>
@@ -67,4 +76,9 @@
             </table>
         </div>
     </div>
-</x-admin-Layout>
+    @endsection
+
+<!-- all js for this page -->
+@push('scripts')
+    @vite(['resources/js/admin/manageMovie/index.js'])
+@endpush

@@ -1,6 +1,16 @@
-@vite(['resources/css/admin/manageMovie/show.css'])
+<!-- Author: Sia Yeong Sheng-->
+<!-- using the master page layout -->
+@extends('layouts.masterAdmin')
 
-<x-admin-Layout>
+<!-- The title for this page -->
+@section('title', 'View Movie Details')
+
+@push('styles')
+    @vite(['resources/css/admin/manageMovie/show.css'])
+@endpush
+
+
+@section('content')
     <h1 class="pageTitle">View Movie</h1>
     <div class="container">
         <div class="cover-photo-group">
@@ -82,7 +92,5 @@
         </div>
     </div>
 
-    <button class="btn" onClick="location.href='{{ route('movies.index') }}';">Return</button>
-
-    
-</x-admin-Layout>
+    <button class="btn" onClick="location.href='{{ route('movies.index') }}';">Return</button>    
+@endsection

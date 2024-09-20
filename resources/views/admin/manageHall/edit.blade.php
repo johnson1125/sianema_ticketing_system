@@ -1,3 +1,13 @@
+<!-- Author: Sia Yeong Sheng-->
+<!-- using the master page layout -->
+@extends('layouts.masterAdmin')
+
+<!-- The title for this page -->
+@section('title', 'Update Seat Status')
+
+@push('styles')
+    @vite(['resources/css/admin/manageHall/edit.css'])
+@endpush
 
 @if(session('success'))
     <script>
@@ -9,7 +19,9 @@
         alert("{{ session('error') }}");
     </script>
 @endif
-<x-admin-Layout>
+
+<!-- html for this page -->
+@section('content')
     <form id="seat-form" action="{{ route('seat.update', ['hall_id' => $hall->hall_id]) }}" method="POST">
         @csrf
         <div class="hallView">
@@ -181,5 +193,8 @@
             <button type="submit" class="btn btn-primary">Confirm Modify</button>
         </div>
     </form>
-    @vite(['resources/css/admin/manageHall/edit.css','resources/js/admin/manageHall/edit.js'])
-</x-admin-Layout>
+@endsection
+
+@push('scripts')
+    @vite(['resources/js/admin/manageHall/edit.js'])
+@endpush    
