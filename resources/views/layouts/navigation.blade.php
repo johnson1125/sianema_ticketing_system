@@ -28,9 +28,11 @@
                     <li>
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Edit Profile</a>
                     </li>
+                    @if (Auth::check() && Auth::user()->role !== 'admin')
                     <li>
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Transaction History</a>
                     </li>
+                    @endif
                     <li>
                         <!-- <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Sign out</a> -->
                         <form method="POST" action="{{ route('logout') }}">
