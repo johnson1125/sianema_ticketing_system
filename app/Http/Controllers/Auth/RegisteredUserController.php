@@ -9,8 +9,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Validation\Rules\Password;
 
 class RegisteredUserController extends Controller
 {
@@ -31,14 +31,44 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'password' => [
+                'required',
+                'confirmed',
+                Password::min(8) // Minimum length
+                    ->letters() // At least one letter
+                    ->mixedCase() // At least one uppercase and one lowercase letter
+                    ->numbers() // At least one number
+                    ->symbols() // At least one symbol
+                    ->uncompromised(), // Optional: Ensure the password has not been compromised
+            ], [
+                'password.min' => 'The password must be at least 8 characters long.',
+                'password.mixedCase' => 'The password must contain at least one uppercase and one lowercase letter.',
+                'password.numbers' => 'The password must contain at least one number.',
+                'password.symbols' => 'The password must contain at least one symbol.',
+            ],
+            'mobile_number' => [
+                'required',
+                'string',
+                'regex:/^(01[0-9]{1}[0-9]{8}|01[0-9]{1}[0-9]{7})$/', // Regex for Malaysian mobile numbers
+            ],
+            'date_of_birth' => ['required', 'date'],           // Validate date of birth
+            
+            // 'profile_photo' => [
+            //     'nullable',  // Allow the field to be null (optional)
+            //     'image',     // Ensure the uploaded file is an image
+            //     'max:5120',  // Limit the file size to 5120 kilobytes (5 MB)
+            //     'mimes:jpeg,jpg,png,gif' // specify allowed image formats
+            // ],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'mobile_number' => $request->mobile_number,
+            'date_of_birth' => $request->date_of_birth,
+            'profile_photo' => null,
         ]);
 
         event(new Registered($user));
