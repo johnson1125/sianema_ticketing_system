@@ -52,18 +52,18 @@ class ProfileController extends Controller
 
         // Store the image as binary data
         $profilePhoto = $request->profile_photo;
-         if ($profilePhoto != null && $profilePhoto->isValid()) {
-             $user->profile_photo = $profilePhoto->getContent();
-         }
+        if ($profilePhoto != null && $profilePhoto->isValid()) {
+            $user->profile_photo = $profilePhoto->getContent();
+        }
 
-         $fieldsToUpdate = ['name', 'email', 'mobile_number', 'date_of_birth'];
+        $fieldsToUpdate = ['name', 'email', 'mobile_number', 'date_of_birth'];
 
         $user->fill(Arr::only($validated, $fieldsToUpdate)); // Avoid updating profile_photo here.
 
         // if ($request->user()->isDirty('email')) {
         //     $request->user()->email_verified_at = null;
         // }
-        
+
 
         $user->save();
 
@@ -129,8 +129,17 @@ class ProfileController extends Controller
         $user = User::findOrFail($id);
         $profilePhotoData = $user->profile_photo;
 
+        // Determine the content type dynamically
+        $imageInfo = getimagesizefromstring($profilePhotoData);
+        if ($imageInfo === false) {
+            abort(404); // If the data is not a valid image
+        }
+
+        // Get the MIME type
+        $mimeType = $imageInfo['mime'];
+
         // Return the binary data as a response with the correct headers
         return response()->make($profilePhotoData, 200)
-            ->header('Content-Type', 'image/jpeg'); // Adjust type as necessary
+            ->header('Content-Type', $mimeType); // Adjust type as necessary
     }
 }
