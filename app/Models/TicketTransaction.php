@@ -47,11 +47,6 @@ class TicketTransaction extends Model
         return $this->hasMany(Ticket::class);
     }
 
-    public function payment(): HasOne
-    {
-        return $this->hasOne(Payment::class);
-    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

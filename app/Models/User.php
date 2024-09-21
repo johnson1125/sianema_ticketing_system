@@ -68,6 +68,7 @@ class User extends Authenticatable
      */
     protected $guarded = [
         'role',
+        'isRoot',
     ];
 
     /**

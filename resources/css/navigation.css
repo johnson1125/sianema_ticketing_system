@@ -1,19 +1,7 @@
-
-#navBar{
+#navbar{
     background-color:black;
     position: sticky;
     z-index: 1000;
     top: 0; 
 
-    #navLinks{
-        a{
-            color: white;
-            height: 95%;
-        }
-
-        a:visited{
-            border-bottom:10px solid white;
-        
-        }
-    }
 }
