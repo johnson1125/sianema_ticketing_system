@@ -26,7 +26,7 @@
                             </span>
                             <span>
                                 <h3 class="font-medium leading-tight">Select Time Slot</h3>
-                                <p class="text-sm">Hei</p>
+                                <p class="text-sm"></p>
                             </span>
                         </li>
                         <li
@@ -37,7 +37,7 @@
                             </span>
                             <span>
                                 <h3 class="font-medium leading-tight">Select Seat</h3>
-                                <p class="text-sm">Hei</p>
+                                <p class="text-sm">Pick your preferred seat in the hall.</p>
                             </span>
                         </li>
 
@@ -48,7 +48,7 @@
                             </span>
                             <span>
                                 <h3 class="font-medium leading-tight">Pay Here</h3>
-                                <p class="text-sm">HeiHeiHei</p>
+                                <p class="text-sm"></p>
                             </span>
                         </li>
                     </ol>
@@ -94,11 +94,13 @@
                     <div class="seat-description">
                         <img src="{{ asset('images/selectedStandardSeat.png') }}" alt="selectedseat"
                             class="standardSeatImg" />
-                        <p>Selected Seats</p>
+                        <p>Selected</p>
                         <img src="{{ asset('images/soldStandardSeat.png') }}" alt="soldseat" class="standardSeatImg" />
                         <p>Sold</p>
                         <img src="{{ asset('images/standardSeat.png') }}" alt="standardSeat" class="standardSeatImg" />
-                        <p>Single seat</p>
+                        <p>Available</p>
+                        <img src="{{ asset('images/unavailableStandardSeat.png') }}" alt="standardSeat" class="standardSeatImg" />
+                        <p>Occupied</p>
                     </div>
                 </div>
             @endif
@@ -108,11 +110,13 @@
                     <div class="seat-description">
                         <img src="{{ asset('images/selectedLuxurySeat.png') }}" alt="selectedseat"
                             class="premiumSeatImg" />
-                        <p>Selected Seats</p>
+                        <p>Selected</p>
                         <img src="{{ asset('images/soldLuxurySeat.png') }}" alt="soldseat" class="premiumSeatImg" />
                         <p>Sold</p>
                         <img src="{{ asset('images/premiumSeat.png') }}" alt="standardSeat" class="premiumSeatImg" />
-                        <p>Single seat</p>
+                        <p>Available</p>
+                        <img src="{{ asset('images/unavailablePremiumSeat.png') }}" alt="standardSeat" class="premiumSeatImg" />
+                        <p>Occupied</p>
                     </div>
                 </div>
             @endif
@@ -121,11 +125,13 @@
                 <div class="seat-select-part">
                     <div class="seat-description">
                         <img src="{{ asset('images/selectedFamilySeat.png') }}" alt="selectedseat" class="familySeatImg" />
-                        <p>Selected Seats</p>
+                        <p>Selected</p>
                         <img src="{{ asset('images/soldFamilySeat.png') }}" alt="soldseat" class="familySeatImg" />
                         <p>Sold</p>
                         <img src="{{ asset('images/familySeat.png') }}" alt="standardSeat" class="familySeatImg" />
-                        <p>Single seat</p>
+                        <p>Available</p>
+                        <img src="{{ asset('images/unavailableFamilySeat.png') }}" alt="standardSeat" class="familySeatImg" />
+                        <p>Occupied</p>
                     </div>
                 </div>
             @endif
@@ -180,7 +186,7 @@
                                                     src="{{ asset('images/soldStandardSeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
-                                            @elseif ($seat->movie_seats_status === 'Repair')
+                                            @elseif ($seat->movie_seats_status === 'Occupied')
                                                 <img class="standardSeatImg"
                                                     src="{{ asset('images/unavailableStandardSeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
@@ -212,9 +218,9 @@
                                                     src="{{ asset('images/soldStandardSeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
-                                            @elseif ($seat->movie_seats_status === 'Repair')
+                                            @elseif ($seat->movie_seats_status === 'Occupied')
                                                 <img class="standardSeatImg"
-                                                    src="{{ asset('images/unavailableseat.png') }}"
+                                                    src="{{ asset('images/unavailableStandardSeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
                                             @endif
@@ -244,9 +250,9 @@
                                                     src="{{ asset('images/soldStandardSeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
-                                            @elseif ($seat->movie_seats_status === 'Repair')
+                                            @elseif ($seat->movie_seats_status === 'Occupied')
                                                 <img class="standardSeatImg"
-                                                    src="{{ asset('images/unavailableseat.png') }}"
+                                                    src="{{ asset('images/unavailableStandardSeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
                                             @endif
@@ -282,7 +288,7 @@
                                                     src="{{ asset('images/soldLuxurySeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
-                                            @elseif ($seat->movie_seats_status === 'Repair')
+                                            @elseif ($seat->movie_seats_status === 'Occupied')
                                                 <img class="premiumSeatImg"
                                                     src="{{ asset('images/unavailablePremiumSeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
@@ -313,7 +319,7 @@
                                                     src="{{ asset('images/soldLuxurySeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
-                                            @elseif ($seat->movie_seats_status === 'Repair')
+                                            @elseif ($seat->movie_seats_status === 'Occupied')
                                                 <img class="premiumSeatImg"
                                                     src="{{ asset('images/unavailablePremiumSeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
@@ -343,7 +349,7 @@
                                 <img class="familySeatImg" src="{{ asset('images/soldFamilySeat.png') }}"
                                     alt="{{ $seat->row_letter }}{{ $seat->column_number }}"
                                     data-seat-id="{{ $seat->movie_seat_id }}">
-                            @elseif ($seat->movie_seats_status === 'Repair')
+                            @elseif ($seat->movie_seats_status === 'Occupied')
                                 <img class="familySeatImg" src="{{ asset('images/unavailableFamilySeat.png') }}"
                                     alt="{{ $seat->row_letter }}{{ $seat->column_number }}"
                                     data-seat-id="{{ $seat->movie_seat_id }}">

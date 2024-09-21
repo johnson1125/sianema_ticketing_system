@@ -25,7 +25,7 @@
                             </span>
                             <span>
                                 <h3 class="font-medium leading-tight">Select Time Slot</h3>
-                                <p class="text-sm">Hei</p>
+                                <p class="text-sm"></p>
                             </span>
                         </li>
                         <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
@@ -34,7 +34,7 @@
                             </span>
                             <span>
                                 <h3 class="font-medium leading-tight">Select Seat</h3>
-                                <p class="text-sm">HeiHei</p>
+                                <p class="text-sm"></p>
                             </span>
                         </li>
 
@@ -46,7 +46,7 @@
                             </span>
                             <span>
                                 <h3 class="font-medium leading-tight">Pay Here</h3>
-                                <p class="text-sm">HeiHeiHei</p>
+                                <p class="text-sm">Proceed to payment to confirm your booking.</p>
                             </span>
                         </li>
                     </ol>
