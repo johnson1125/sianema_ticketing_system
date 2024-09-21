@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('movie_seats', function (Blueprint $table) {
             $table->string('movie_seat_id', length: 50)->primary();
             $table->timestamps();
-            $table->string('ticket_transaction_id', length: 50)->nullable();
-            $table->foreign('ticket_transaction_id')->references('ticket_transaction_id')->on('ticket_transactions');
             $table->string('hall_time_slot_id', length: 50)->nullable();;
             $table->foreign('hall_time_slot_id')->references('hall_time_slot_id')->on('hall_time_slots');
             $table->string('seat_id', length: 50)->nullable();

@@ -6,7 +6,7 @@
 
 <!-- Navigation bar -->
 
-<nav class="bg-black">
+<nav id="navbar" class="bg-black">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
             <x-sianema-logo-dark class="block h-9 w-auto fill-current text-gray-200" />

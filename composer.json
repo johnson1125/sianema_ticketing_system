@@ -14,7 +14,8 @@
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "league/oauth2-client": "^2.7",
-        "league/oauth2-google": "^4.0"
+        "league/oauth2-google": "^4.0",
+        "spatie/laravel-permission": "^6.9"
     },
     "require-dev": {
         "andyabih/laravel-to-uml": "^1.0",

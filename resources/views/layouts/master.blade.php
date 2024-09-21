@@ -13,8 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.min.css') }}">
 
     <!-- Load CSS via Vite -->
-    @vite(['resources/css/master.css', 'resources/css/app.css'])
-
+    @vite(['resources/css/master.css', 'resources/css/app.css','resources/css/navigation.css'])
     <!-- Additional CSS -->
     @stack('styles')
 </head>
