@@ -33,7 +33,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $rootUser = User::where('is_root', true)->first();
 
         if ($rootUser) {
-            $rootUser->assignRole($timeslotManager->id);
+            $rootUser->assignRole($timeslotManager);
             $rootUser->assignRole($hallManager);
             $rootUser->assignRole($movieManager);
         }
