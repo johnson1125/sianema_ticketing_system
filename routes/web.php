@@ -86,3 +86,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::post('admin/edit-hall/{hall_id}/seats/update', [HallController::class, 'updateSeatStatus'])->name('seat.update');
     Route::get('/hall/{hall_id}/maintenance-history', [HallController::class, 'showMaintenanceHistory'])->name('hall.maintenance.history');
 });
+
+Route::middleware('auth', 'role:admin')->group(function() {
+    
+});

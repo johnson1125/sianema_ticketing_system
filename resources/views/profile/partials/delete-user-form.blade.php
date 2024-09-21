@@ -9,10 +9,17 @@
         </p>
     </header>
 
+    @php
+    $isRoot = Auth::user()->name === 'root'; // Check if the current username is 'root'
+    @endphp
+
+    @if($isRoot)
+    <button type="button" class="cursor-not-allowed text-center inline-flex items-center px-4 py-2 bg-red-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest" disabled>{{ __('Delete Account') }}</button>
+    @else
     <x-danger-button
         x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-    >{{ __('Delete Account') }}</x-danger-button>
+        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Delete Account') }}</x-danger-button>
+    @endif
 
     <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
         <form method="post" action="{{ route('profile.destroy', ['name' => auth()->user()->name, 'role' => auth()->user()->role]) }}" class="user-profile-fg p-6">
@@ -35,8 +42,7 @@
                     name="password"
                     type="password"
                     class="user-profile-input-fields mt-1 block w-3/4"
-                    placeholder="{{ __('Password') }}"
-                />
+                    placeholder="{{ __('Password') }}" />
 
                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
             </div>
