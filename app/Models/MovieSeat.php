@@ -36,5 +36,11 @@ class MovieSeat extends Model
     {
         return $this->belongsTo(HallTimeSlot::class);
     }
+
+    public static function getSeatByTimeSlotId($timeSlotID)
+    {
+        return MovieSeat::where('hall_time_slot_id', $timeSlotID)
+        ->get();
+    }
 }
 

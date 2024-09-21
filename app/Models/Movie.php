@@ -39,7 +39,9 @@ class Movie extends Model
 
     public static function getOnScreenMovies()
     {
-        return Movie::whereDate('screen_until_date', '>=', Carbon::today())->get();
+        return Movie::whereDate('screen_from_date', '<=', Carbon::today())
+            ->whereDate('screen_until_date', '>=', Carbon::today())
+            ->get();
     }
 
     public static function getMovieAttributesWithID($movieID, array $attributes)
@@ -97,4 +99,5 @@ class Movie extends Model
         // Return or use the result
         return $result;
     }
+
 }

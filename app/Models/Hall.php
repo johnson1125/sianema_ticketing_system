@@ -39,4 +39,5 @@ class Hall extends Model
     public static function getWithID($hallID){
         return Hall::where('hall_id', $hallID)->first();
     }
+    
 }

@@ -1,3 +1,5 @@
+// Author: Kho Ka Jie
+
 import $ from "jquery";
 
 $(document).ready(function () {
@@ -12,11 +14,11 @@ $(document).ready(function () {
         $('#cardPaymentFields, #fpxFields, #tngFields').hide();
 
         // Show the relevant fields based on the selected option
-        if (selectedPaymentMethod === 'cardPayment') {
+        if (selectedPaymentMethod === 'Card Payment') {
             $('#cardPaymentFields').show();
-        } else if (selectedPaymentMethod === 'fpx') {
+        } else if (selectedPaymentMethod === 'FPX') {
             $('#fpxFields').show();
-        } else if (selectedPaymentMethod === 'tng') {
+        } else if (selectedPaymentMethod === 'TNG E-Wallet') {
             $('#tngFields').show();
         }
     });

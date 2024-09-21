@@ -1,2 +1,2 @@
 <?xml version="1.0"?>
-<payment><paymen><paymentAmount>300</paymentAmount><paymentDateTime>2024-09-15 17:51:51</paymentDateTime><paymentID>PYM-TST-240915-00004</paymentID><paymentMethod>tng</paymentMethod><transactionID>TST-240915-00001</transactionID></paymen></payment>
+<payment><paymen><paymentAmount>15.00</paymentAmount><paymentDateTime>2024-09-22 01:33:33</paymentDateTime><paymentID>PYM-TST-240922-00003</paymentID><paymentMethod>FPX</paymentMethod><transactionID>TST-240922-00007</transactionID></paymen></payment>

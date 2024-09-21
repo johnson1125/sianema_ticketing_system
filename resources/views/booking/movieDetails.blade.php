@@ -1,3 +1,5 @@
+<!-- Author: Kho Ka Jie-->
+
 <!-- using the master page layout -->
 @extends('layouts.master')
 
@@ -22,7 +24,7 @@
                             </span>
                             <span>
                                 <h3 class="font-medium leading-tight">Select Time Slot</h3>
-                                <p class="text-sm">Hei</p>
+                                <p class="text-sm">Choose a time slot for your movie</p>
                             </span>
                         </li>
                         <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
@@ -31,7 +33,7 @@
                             </span>
                             <span>
                                 <h3 class="font-medium leading-tight">Select Seat</h3>
-                                <p class="text-sm">HeiHei</p>
+                                <p class="text-sm"></p>
                             </span>
                         </li>
 
@@ -42,7 +44,7 @@
                             </span>
                             <span>
                                 <h3 class="font-medium leading-tight">Pay Here</h3>
-                                <p class="text-sm">HeiHeiHei</p>
+                                <p class="text-sm"></p>
                             </span>
                         </li>
                     </ol>
@@ -52,23 +54,23 @@
         </div>
     </div>
     <div class="movie-details-container" id="MovieDetailsContainer">
-        <img id="movieCoverPhoto" src="{{ route('movie.coverPhoto', $movie->movie_id) }} ">
+        <img id="movieCoverPhoto" src="{{ route('movie.coverPhoto', $data['movie']->movie_id) }} ">
 
         <div class="movie-details-information-container">
 
             <h1 id="movieName">
-                {{ $movie->movie_name }}
+                {{ $data['movie']->movie_name }}
             </h1>
 
             <ul class="movie-details-info1">
                 <li id="movieGenre">
-                    {{ $movie->movie_genre }}
+                    {{ $data['movie']->movie_genre }}
                 </li>
                 <li id="movieLanguage">
-                    {{ $movie->movie_language }}
+                    {{ $data['movie']->movie_language }}
                 </li>
                 <li id="movieDuration">
-                    {{ $movie->movie_duration }}
+                    {{ $data['movie']->movie_duration }}
                 </li>
             </ul>
 
@@ -77,32 +79,32 @@
                 <li>
                     <h4>Subtitle</h4>
                     <p id="movieSubtitle">
-                        {{ $movie->movie_subtitle }}
+                        {{ $data['movie']->movie_subtitle }}
                     </p>
                 </li>
                 <li>
                     <h4>Release Date</h4>
                     <p id="releaseDate">
-                        {{ $movie->release_date }}
+                        {{ $data['movie']->release_date }}
                     </p>
                 </li>
                 <li>
                     <h4>Cast</h4>
                     <p id="movieCast">
-                        {{ $movie->movie_cast }}
+                        {{ $data['movie']->movie_cast }}
                     </p>
                 </li>
                 <li>
                     <h4>Distributor</h4>
                     <p id="movieDistributer">
-                        {{ $movie->movie_distributor }}
+                        {{ $data['movie']->movie_distributor }}
                     </p>
                 </li>
 
             </ul>
             <h4>Synopsis</h4>
             <p id="movieSynopsis">
-                {{ $movie->movie_synopsis }}
+                {{ $data['movie']->movie_synopsis }}
             </p>
 
         </div>
@@ -112,17 +114,12 @@
     <div class="cinema-date-selection-container">
         <div class="cinema-date-selection">
             <ul class="date-selection">
-                @foreach ($dateList as $date)
+                @foreach ($data['dateList'] as $date)
                     <li>
                         <form action="{{ route('dateButtonClick') }}" method="POST">
                             @csrf
-                            <!-- Hidden input for the selected date -->
                             <input type="hidden" name="date" value="{{ $date->format('Y-m-d') }}">
-
-                            <!-- Hidden input for the movie_id -->
-                            <input type="hidden" name="movie_id" value="{{ $movie->movie_id }}">
-
-                            <!-- Date button with the value attribute set for JavaScript highlighting -->
+                            <input type="hidden" name="movie_id" value="{{ $data['movie']->movie_id }}">
                             <button type="submit" class="date-button" value="{{ $date->format('Y-m-d') }}">
                                 <span class="day-name">{{ $date->format('D') }}</span><br>
                                 <span class="day-date">{{ $date->format('d M') }}</span>
@@ -143,13 +140,13 @@
                     <h3 id="selectedDate"></h3>
                 </div>
                 <div class="movie-time">
-                    @foreach ($groupedTimeSlots[$hallType] ?? [] as $timeSlot)
+                    @foreach ($data['groupedTimeSlots'][$hallType] ?? [] as $timeSlot)
                         <form action="{{ route('timeSlotSelect') }}" method="GET" class="time-slot-form">
                             @csrf
                             <input type="hidden" name="timeSlotID" value="{{ $timeSlot->hall_time_slot_id }}">
-                            <input type="hidden" name="movie_id" value="{{ $movie->movie_id }}">
+                            <input type="hidden" name="movie_id" value="{{ $data['movie']->movie_id }}">
                             <button type="submit" class="time-button">
-                                {{ \Carbon\Carbon::parse($timeSlot->startDateTime)->format('H:i A') }}
+                                {{ \Carbon\Carbon::parse($timeSlot->startDateTime)->format('g:i A') }}
                             </button>
                         </form>
                     @endforeach

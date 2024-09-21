@@ -49,5 +49,15 @@ class HallTimeSlot extends Model
         return $hallTimeSlots =  HallTimeSlot::whereDate('startDateTime', '=', Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d'))
         ->where('hall_id', $hallID)->get();
     }
+
+    public static function getTransactionByIdAndDate($id,$date)
+    {
+        return HallTimeSlot::join('halls', 'hall_time_slots.hall_id', '=', 'halls.hall_id')
+        ->where('hall_time_slots.movie_id', $id)
+        ->whereDate('startDateTime', '=', $date)
+        ->select('hall_time_slots.*', 'halls.hall_type')
+        ->orderBy('startDateTime', 'asc') 
+        ->get();
+    }
 }
    

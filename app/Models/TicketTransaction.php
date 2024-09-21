@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+// Author: Kho Ka Jie
 class TicketTransaction extends Model
 {
     use HasFactory;
@@ -44,11 +45,6 @@ class TicketTransaction extends Model
     public function ticket(): HasMany
     {
         return $this->hasMany(Ticket::class);
-    }
-
-    public function payment(): HasOne
-    {
-        return $this->hasOne(Payment::class);
     }
 
     public function user(): BelongsTo

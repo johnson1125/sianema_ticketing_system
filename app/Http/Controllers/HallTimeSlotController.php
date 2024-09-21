@@ -3,22 +3,13 @@
 namespace App\Http\Controllers;
 
 use DateTime;
-use DOMDocument;
 use Carbon\Carbon;
-use XSLTProcessor;
-use App\Models\Hall;
-use App\Models\Seat;
 use App\Models\Movie;
-use App\Models\MovieSeat;
 use App\Models\HallTimeSlot;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Services\HallTimeSlotService;
 use App\Services\XMLExtensionsService;
-use Exception;
-
-use function PHPUnit\Framework\isNull;
 
 // Author: Ong Cheng Leong
 class HallTimeSlotController extends Controller
@@ -34,6 +25,7 @@ class HallTimeSlotController extends Controller
 
     public function index($date)
     {
+
         $data = $this->hallTimeSlotService->prepareIndexViewData($date);
         return view('/admin/hallTimeSlot.index', compact('data'));
     }
@@ -85,8 +77,8 @@ class HallTimeSlotController extends Controller
 
         $data = $this->hallTimeSlotService->prepareShowViewData($hallTimeSlotID);
 
-        if (isset($data['redirect'])) {
-            return $data['redirect'];
+        if ($data instanceof \Illuminate\Http\RedirectResponse) {
+            return $data;  // Return the redirect response directly
         }
 
         return view('/admin/hallTimeSlot.show', compact('data'));

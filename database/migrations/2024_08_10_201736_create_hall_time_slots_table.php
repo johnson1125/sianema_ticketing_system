@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('hall_time_slots', function (Blueprint $table) {
             $table->string('hall_time_slot_id', length: 50)->primary();
             $table->timestamps();
-            $table->timestamp('startDateTime', precision: 0)->nullable();
+            $table->dateTime('startDateTime')->nullable();
             $table->time('duration', precision: 0)->nullable();
             $table->string('timeSlotType', length: 50)->nullable();
             $table->string('hall_id', length: 50)->nullable();
