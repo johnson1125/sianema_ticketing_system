@@ -95,3 +95,21 @@ body {
         color: rgb(229 231 235 / var(--tw-text-opacity)) /* #e5e7eb */;
     }
 }
+
+input[type="file"]::file-selector-button {
+    background-color: var(--button-green);
+    color: var(--white);
+    border: 0px;
+    border-right: 1px solid #e5e5e5;
+    padding: 10px 15px 10px 35px;
+    margin-right: 20px;
+    transition: 0.5s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    color: var(--green);
+    background-color: transparent;
+    border: 0px;
+    border-right: 1px solid #e5e5e5;
+}
+

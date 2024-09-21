@@ -25,6 +25,9 @@ Route::view('/privacyPolicy', 'policy')->name('policy');
 Route::view('/termsAndConditions', 'terms')->name('terms');
 Route::view('/aboutUs', 'aboutUs')->name('aboutUs');
 
+//Profile photo route
+Route::get('/profile-photo/{id}-profile-photo', [ProfileController::class, 'showProfilePhoto'])->name('profile.photo');
+
 Route::middleware('auth')->group(function () {
     Route::get('/{role}/{name}/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/{role}/{name}/profile', [ProfileController::class, 'update'])->name('profile.update');
