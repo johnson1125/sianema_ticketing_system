@@ -41,6 +41,8 @@ class DatabaseSeeder extends Seeder
             //MovieSeat Test Data
             MovieSeatsSeeder::class,
             
+            //Roles and Permissions of Sianema
+            RolesAndPermissionsSeeder::class,
         ]);
 
     
