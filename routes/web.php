@@ -87,6 +87,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('/hall/{hall_id}/maintenance-history', [HallController::class, 'showMaintenanceHistory'])->name('hall.maintenance.history');
 });
 
+// Admin management routes
 Route::middleware('auth', 'role:admin')->group(function() {
-    
+
 });
