@@ -7,6 +7,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HallController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 //Testing routes start
 //to show how to use master page.
@@ -29,6 +30,21 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
+// User public routes (does not require login)
+Route::get('booking-movies', [BookingController::class, 'fetchAllMovies'])->name('movies');
+Route::get('booking-movies/{movie_id}', [BookingController::class, 'movieDetails'])->name('movies.details');
+Route::post('booking-date-button-click', [BookingController::class, 'dateButtonClick'])->name('dateButtonClick');
+Route::get('booking-movie-cover-photo/{movie_id}', [BookingController::class, 'getMovieCoverPhoto'])->name('movie.coverPhoto');
+Route::get('booking-movie-poster-photo/{movie_id}', [BookingController::class, 'getMoviePoster'])->name('movie.posterPhoto');
+
+Route::middleware('auth', 'role:user')->group(function () {
+    Route::get('booking-movieSeat', [BookingController::class, 'timeSlotSelect'])->name('timeSlotSelect');
+    Route::post('booking-process-payment', [BookingController::class, 'processPayment'])->name('payment');
+    Route::get('booking-payment', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
+    Route::post('booking-complete-payment', [BookingController::class, 'completePayment'])->name('complete_payment');
+    Route::get('booking-payment-success', [BookingController::class, 'paymentSuccess'])->name('payment.success');
+});
+
 // Admin Homepage route
 Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('admin{date?}', [HallTimeSlotController::class, 'index'])->name('admin')->defaults('date', date('d-m-Y'));
@@ -49,21 +65,6 @@ Route::middleware('auth', 'role:admin')->group(function () {
 Route::get('api/hall-time-slot-data/{date}/{hallID?}', [HallTimeSlotController::class, 'getHallTimeSlotData'])->defaults('hallID', "");
 Route::get('api/maintenance-data/{maintenanceID}', [HallTimeSlotController::class, 'getMaintenanceData']);
 Route::get('api/movie-data/{movieID}', [HallTimeSlotController::class, 'getMovieData']);
-
-// User public routes (does not require login)
-Route::get('booking-movies', [BookingController::class, 'fetchAllMovies'])->name('movies');
-Route::get('booking-movies/{movie_id}', [BookingController::class, 'movieDetails'])->name('movies.details');
-Route::post('booking-date-button-click', [BookingController::class, 'dateButtonClick'])->name('dateButtonClick');
-Route::get('booking-movie-cover-photo/{movie_id}', [BookingController::class, 'getMovieCoverPhoto'])->name('movie.coverPhoto');
-Route::get('booking-movie-poster-photo/{movie_id}', [BookingController::class, 'getMoviePoster'])->name('movie.posterPhoto');
-
-Route::middleware('auth', 'role:user')->group(function () {
-    Route::get('booking-movieSeat', [BookingController::class, 'timeSlotSelect'])->name('timeSlotSelect');
-    Route::post('booking-process-payment', [BookingController::class, 'processPayment'])->name('payment');
-    Route::get('booking-payment', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
-    Route::post('booking-complete-payment', [BookingController::class, 'completePayment'])->name('complete_payment');
-    Route::get('booking-payment-success', [BookingController::class, 'paymentSuccess'])->name('payment.success');
-});
 
 Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('admin/create-movie', [MovieController::class, 'create'])->name('movies.create');
@@ -89,5 +90,6 @@ Route::middleware('auth', 'role:admin')->group(function () {
 
 // Admin management routes
 Route::middleware('auth', 'role:admin')->group(function() {
-
+    Route::get('admin/manage-admin', [AdminController::class, 'index'])->name('adminManagement');
+    Route::get('admin/add-admin', [AdminController::class, 'create'])->name('adminManagement.create');
 });
