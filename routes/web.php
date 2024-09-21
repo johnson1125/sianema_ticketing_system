@@ -19,7 +19,7 @@ Route::view('/termsAndConditions', 'terms')->name('terms');
 Route::view('/aboutUs', 'aboutUs')->name('aboutUs');
 
 //Profile photo route
-Route::get('/profile-photo/{id}-profile-photo', [ProfileController::class, 'showProfilePhoto'])->name('profile.photo');
+Route::get('/{id}/profile-photo', [ProfileController::class, 'showProfilePhoto'])->name('profile.photo');
 
 Route::middleware('auth')->group(function () {
     Route::get('/{role}/{name}/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -85,4 +85,9 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('admin/edit-hall/{hall_id}/seats', [HallController::class, 'edit'])->name('manage.hall.edit.seat');
     Route::post('admin/edit-hall/{hall_id}/seats/update', [HallController::class, 'updateSeatStatus'])->name('seat.update');
     Route::get('/hall/{hall_id}/maintenance-history', [HallController::class, 'showMaintenanceHistory'])->name('hall.maintenance.history');
+});
+
+// Admin management routes
+Route::middleware('auth', 'role:admin')->group(function() {
+
 });
