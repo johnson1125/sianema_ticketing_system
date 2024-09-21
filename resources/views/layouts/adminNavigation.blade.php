@@ -15,13 +15,14 @@
 
                 <!-- Navigation Links -->
                 <div id="navLink" class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex text-white">
-                    <x-nav-link :href="route('hallTimeSlot')" :active="request()->routeIs('hallTimeSlot')">
+                    <x-nav-link :href="route('hallTimeSlot')" :active="request()->route() && request()->route()->getController() instanceof \App\Http\Controllers\HallTimeSlotController ? true : false">
+
                         {{ __('Hall TimeSlot') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('manage.hall.index')" :active="request()->routeIs('manage.hall.index')">
+                    <x-nav-link :href="route('manage.hall.index')" :active="request()->route() && request()->route()->getController() instanceof \App\Http\Controllers\HallController ? true : false">
                         {{ __('Hall') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('movies.index')" :active="request()->routeIs('movies.index')">
+                    <x-nav-link :href="route('movies.index')" :active="request()->route() && request()->route()->getController() instanceof \App\Http\Controllers\MovieController ? true : false">
                         {{ __('Movie') }}
                     </x-nav-link>
                 </div>
@@ -47,7 +48,10 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit', ['name' => auth()->user()->name, 'role' => auth()->user()->role])">
+                        <x-dropdown-link :href="route('profile.edit', [
+                            'name' => auth()->user()->name,
+                            'role' => auth()->user()->role,
+                        ])">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 

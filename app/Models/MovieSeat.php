@@ -24,9 +24,9 @@ class MovieSeat extends Model
     ];
 
 
-    public function ticketTransaction(): BelongsTo
+    public function ticket(): BelongsTo
     {
-        return $this->belongsTo(TicketTransaction::class);
+        return $this->belongsTo(Ticket::class);
     }
     public function seat(): BelongsTo
     {

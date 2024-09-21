@@ -13,6 +13,8 @@ use App\Models\HallTimeSlot;
 use App\Iterators\TimeSlotIterator;
 use Illuminate\Support\Facades\Http;
 
+// Author: Ong Cheng Leong
+
 class HallTimeSlotService
 {
     public function getHallTimeSlots($date)
@@ -20,7 +22,6 @@ class HallTimeSlotService
         $hallTimeSlots =  HallTimeSlot::getWithStartDate($date);
         return $hallTimeSlots;
     }
-
 
     public function prepareIndexViewData($date)
     {
@@ -179,7 +180,7 @@ class HallTimeSlotService
                 'ticket_transaction_id' => null,
                 'hall_time_slot_id' => $hallTimeSlotID,
                 'seat_id' => $seat->seat_id,
-                'movie_seats_status' => 'Available'
+                'movie_seats_status' => ($seat->status == "occupied"? 'Occupied' : 'Available'),
             ];
         })->toArray();
 

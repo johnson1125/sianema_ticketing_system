@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SampleMovieController;
 use App\Http\Controllers\HallTimeSlotController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\MovieController;
@@ -12,12 +11,6 @@ use App\Http\Controllers\HomeController;
 //Testing routes start
 //to show how to use master page.
 Route::view('/test', 'userManagement.test')->name('test');
-//Testing admin layout
-Route::get('/adminLayout', function () {
-    return view('/layouts/adminLayout');
-});
-Route::resource('/sampleMovies', SampleMovieController::class);
-//Testing routes end
 
 // User public routes (does not require login)
 Route::get('/', [HomeController::class, 'fetchAllMovies'])->name('home');

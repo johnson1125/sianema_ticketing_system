@@ -1,3 +1,4 @@
+//Author: Ong Cheng Leong
 import $ from "jquery";
 $(document).ready(function () {
     const timeSlots = $(".timeSlots");
