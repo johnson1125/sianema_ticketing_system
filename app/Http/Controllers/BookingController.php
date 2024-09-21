@@ -27,8 +27,15 @@ class BookingController extends Controller
 
     public function movieDetails($movie_id)
     {
-        $data = $this->bookingService->getHallTimeSlot($movie_id);
+        $validateMovie = $this->bookingService->validateMovie($movie_id);
+        if (!$validateMovie) {
+            return redirect()->route('home')->with('toast', [
+                'type' => 'error',
+                'message' => 'This movie is not on screen.'
+            ]);
+        }
 
+        $data = $this->bookingService->getHallTimeSlot($movie_id);
         return view('booking.movieDetails', compact('data'));
     }
 
@@ -36,17 +43,30 @@ class BookingController extends Controller
     {
         $selectedDate = Carbon::parse($request->input('date'))->format('Y-m-d');
         $movieID = $request->input('movie_id');
-        $data = $this->bookingService->getHallTimeSlotByDate($movieID, $selectedDate);
 
+        $validateMovie = $this->bookingService->validateMovie($movieID);
+        if (!$validateMovie) {
+            return redirect()->route('home')->with('toast', [
+                'type' => 'error',
+                'message' => 'This movie is not on screen.'
+            ]);
+        }
+
+        $data = $this->bookingService->getHallTimeSlotByDate($movieID, $selectedDate);
         return view('booking.movieDetails', compact('data'));
     }
 
-    public function timeSlotSelect(Request $request)
+    public function timeSlotSelect($timeSlotID)
     {
-        $timeSlotID = $request->input('timeSlotID');
-        $movieID = $request->input('movie_id');
-        $data = $this->bookingService->getSelectedMovieTimeSlotDetails($movieID, $timeSlotID);
+        $validateTimeSlot = $this->bookingService->validateTimeSlot($timeSlotID);
+        if (!$validateTimeSlot) {
+            return redirect()->route('home')->with('toast', [
+                'type' => 'error',
+                'message' => 'This time slot is unavailable.'
+            ]);
+        }
 
+        $data = $this->bookingService->getSelectedMovieTimeSlotDetails($timeSlotID);
         return view('booking.movieSeat', compact('data'));
     }
 
@@ -62,33 +82,41 @@ class BookingController extends Controller
 
         $transactionId = $this->bookingService->createTransactionRecord($userId, $transactionAmount);
 
-        return redirect()->route('showPaymentPage', [
-            'selectedSeats' => urlencode($selectedSeats),
+        session([
+            'selectedSeats' => $selectedSeats,
             'timeSlotID' => $timeSlotID,
             'movieID' => $movieID,
             'hallID' => $hallID,
-            'transactionID' => $transactionId,
         ]);
+
+        return redirect()->route('showPaymentPage', ['transactionID' => $transactionId]);
     }
 
-    public function showPaymentPage(Request $request)
+    public function showPaymentPage($transactionID)
     {
-        $selectedSeats = $request->query('selectedSeats');
-        $timeSlotID = $request->query('timeSlotID');
-        $movieID = $request->query('movieID');
-        $hallID = $request->query('hallID');
-        $transactionId = $request->query('transactionID');
+        // Retrieve other necessary data from the session
+        $selectedSeats = session('selectedSeats');
+        $timeSlotID = session('timeSlotID');
+        $movieID = session('movieID');
+        $hallID = session('hallID');
 
-        $validateUser = $this->bookingService->validateUserTransaction($transactionId);
+        session()->forget(['selectedSeats', 'timeSlotID', 'movieID', 'hallID', 'transactionID']);
 
+        // Validate the transaction ID
+        $validateUser = $this->bookingService->validateUserTransaction($transactionID);
+
+        // If validation fails, redirect to home with an error message
         if (!$validateUser) {
             return redirect()->route('home')->with('toast', [
-                'type' => 'error', 
+                'type' => 'error',
                 'message' => 'Access denied. You are not authorized to access this transaction.'
             ]);
         }
 
-        $data = $this->bookingService->displayPaymentDetails($movieID, $timeSlotID, $hallID, $transactionId, $selectedSeats);
+        // Display payment details using the booking service
+        $data = $this->bookingService->displayPaymentDetails($movieID, $timeSlotID, $hallID, $transactionID, $selectedSeats);
+
+        // Pass data to the view
         return view('booking.payment', compact('data'));
     }
 
@@ -118,9 +146,7 @@ class BookingController extends Controller
             ];
         }
 
-        // Call the payment service
         $payment = $this->bookingService->completePayment($transactionID, $selectedSeats, $paymentMethod, $paymentData);
-
         if ($payment) {
             return redirect()->route('payment.success')->with('payment', $payment);
         } else {

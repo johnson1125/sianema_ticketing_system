@@ -60,7 +60,7 @@ class TicketTransactionObserver
     {
         $selectedSeats = $transaction->getSelectedSeats();
 
-        $selectedSeatsArray = explode('%2C', $selectedSeats);
+        $selectedSeatsArray = explode(',', $selectedSeats);
 
         foreach ($selectedSeatsArray as $seatId) {
 
@@ -77,7 +77,7 @@ class TicketTransactionObserver
     {
         $selectedSeats = $transaction->getSelectedSeats();
 
-        $selectedSeatsArray = explode('%2C', $selectedSeats);
+        $selectedSeatsArray = explode(',', $selectedSeats);
         $prices = [
             'F' => 50.00, // Family
             'S' => 15.00, // Standard

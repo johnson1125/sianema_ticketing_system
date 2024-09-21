@@ -141,14 +141,9 @@
                 </div>
                 <div class="movie-time">
                     @foreach ($data['groupedTimeSlots'][$hallType] ?? [] as $timeSlot)
-                        <form action="{{ route('timeSlotSelect') }}" method="GET" class="time-slot-form">
-                            @csrf
-                            <input type="hidden" name="timeSlotID" value="{{ $timeSlot->hall_time_slot_id }}">
-                            <input type="hidden" name="movie_id" value="{{ $data['movie']->movie_id }}">
-                            <button type="submit" class="time-button">
-                                {{ \Carbon\Carbon::parse($timeSlot->startDateTime)->format('g:i A') }}
-                            </button>
-                        </form>
+                    <a href="{{ route('timeSlotSelect', ['timeSlotID' => $timeSlot->hall_time_slot_id]) }}" class="time-button">
+                           {{ \Carbon\Carbon::parse($timeSlot->startDateTime)->format('g:i A') }}
+                        </a>
                     @endforeach
                 </div>
             </div>

@@ -100,7 +100,7 @@
                             <p id="movieSeat">
                                 @php
                                     // Split the selectedSeats by commas
-                                    $selectedSeatsArray = explode('%2C', $data['selectedSeats']);
+                                    $selectedSeatsArray = explode(',', $data['selectedSeats']);
                                 @endphp
 
                                 <!-- Loop through the array and extract the seat numbers -->
