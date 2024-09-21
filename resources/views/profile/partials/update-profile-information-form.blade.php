@@ -13,13 +13,21 @@
         @csrf
     </form>
 
+    @php
+    $isRoot = Auth::user()->name === 'root'; // Check if the current username is 'root'
+    @endphp
+
     <form method="post" action="{{ route('profile.update', ['name' => $user->name, 'role' => $user->role]) }}" enctype="multipart/form-data" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
         <div>
             <x-input-label class="user-profile-text" for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="user-profile-input-fields mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            @if($isRoot)
+                <input type="text" id="disabled-input" aria-label="disabled input" class="mt-1 mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('name', $user->name) }}" disabled>
+            @else
+                <x-text-input id="name" name="name" type="text" class="user-profile-input-fields mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            @endif
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
