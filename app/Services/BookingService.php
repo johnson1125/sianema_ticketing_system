@@ -34,7 +34,7 @@ class BookingService
             $dateList[] = Carbon::now('Asia/Kuala_Lumpur')->addDays($i);
         }
 
-        return compact('movie','groupedTimeSlots', 'dateList');
+        return compact('movie', 'groupedTimeSlots', 'dateList');
     }
 
     public function getHallTimeSlotByDate($movieID, $selectedDate)
@@ -50,17 +50,17 @@ class BookingService
         // Group halltimeslots by hall type
         $groupedTimeSlots = $halltimeslots->groupBy('hall_type');
 
-        return compact('movie','groupedTimeSlots', 'dateList');
+        return compact('movie', 'groupedTimeSlots', 'dateList');
     }
 
-    public function getSelectedMovieTimeSlotDetails($movieID, $timeSlotID)
+    public function getSelectedMovieTimeSlotDetails($timeSlotID)
     {
         $hallTimeSlot = HallTimeSlot::find($timeSlotID);
-        $movie = Movie::find($movieID);
+        $movie = Movie::find($hallTimeSlot->movie_id);
         $hall = Hall::getWithID($hallTimeSlot->hall_id);
         $seats = MovieSeat::getSeatByTimeSlotId($timeSlotID);
 
-        return compact('hallTimeSlot','movie','hall', 'seats');
+        return compact('hallTimeSlot', 'movie', 'hall', 'seats');
     }
 
     public function createTransactionRecord($userId, $transactionAmount)
@@ -98,10 +98,10 @@ class BookingService
         $hall = Hall::where('hall_id', $hallID)->first();
         $transaction = TicketTransaction::where('ticket_transaction_id', $transactionId)->first();
 
-        $selectedSeatsArray = explode('%2C', $selectedSeats);
+        $selectedSeatsArray = explode(',', $selectedSeats);
         $numberOfSelectedSeats = count($selectedSeatsArray);
 
-        return compact('selectedSeats', 'timeSlot', 'movie', 'hall', 'numberOfSelectedSeats', 'transaction'); 
+        return compact('selectedSeats', 'timeSlot', 'movie', 'hall', 'numberOfSelectedSeats', 'transaction');
     }
 
     public function completePayment($transactionID, $selectedSeats, $paymentMethod, $paymentData)
@@ -138,15 +138,40 @@ class BookingService
     }
 
     public function validateUserTransaction($transactionID)
-{
-    $userId = Auth::id();
-    $transaction = TicketTransaction::find($transactionID);
+    {
+        $userId = Auth::id();
+        $transaction = TicketTransaction::find($transactionID);
 
-    if ($transaction && $transaction->custID === $userId) {
+        if ($transaction->custID !== $userId) {
+            return false;
+        }
+
         return true;
     }
 
-    return false;
-}
+    public function validateMovie($movie_id)
+    {
+        $onScreenMovies = Movie::getOnScreenMovies();
+        $exists = $onScreenMovies->contains('movie_id', $movie_id);
+
+        if ($exists) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function validateTimeSlot($timeSlotID)
+    {
+        $hallTimeSlot = HallTimeSlot::find($timeSlotID);
+        if (!$hallTimeSlot) {
+            return false;
+        }
+        $startDatetime = Carbon::parse($hallTimeSlot->startDateTime);
+        $todayDateTime = Carbon::now('Asia/Kuala_Lumpur');
+
+        return $startDatetime > $todayDateTime;
+    }
+
 
 }
