@@ -53,13 +53,6 @@ class RegisteredUserController extends Controller
                 'regex:/^(01[0-9]{1}[0-9]{8}|01[0-9]{1}[0-9]{7})$/', // Regex for Malaysian mobile numbers
             ],
             'date_of_birth' => ['required', 'date'],           // Validate date of birth
-            
-            // 'profile_photo' => [
-            //     'nullable',  // Allow the field to be null (optional)
-            //     'image',     // Ensure the uploaded file is an image
-            //     'max:5120',  // Limit the file size to 5120 kilobytes (5 MB)
-            //     'mimes:jpeg,jpg,png,gif' // specify allowed image formats
-            // ],
         ]);
 
         $user = User::create([
