@@ -1,3 +1,5 @@
+// Author: Kho Ka Jie
+
 $(document).ready(function() {
     // Function to update the highlighted button
     function updateHighlightedButton(button) {

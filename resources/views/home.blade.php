@@ -103,4 +103,15 @@
 <!-- all js for this page -->
 @push('scripts')
 @vite(['resources/js/home.js'])
+@if(session('toast'))
+    <script>
+        Toastify({
+            text: "{{ session('toast')['message'] }}",
+            backgroundColor: "{{ session('toast')['type'] === 'error' ? 'red' : 'green' }}",
+            duration: 3000,
+            gravity: "top",
+            position: "center",
+        }).showToast();
+    </script>
+@endif
 @endpush

@@ -1,3 +1,5 @@
+<!-- Author: Kho Ka Jie-->
+
 <!-- using the master page layout -->
 @extends('layouts.master')
 
@@ -6,7 +8,7 @@
 
 <!-- all css for this page -->
 @push('styles')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
     @vite(['resources/css/booking/movieSeat.css'])
 @endpush
 
@@ -54,25 +56,25 @@
 
 
                 <h3 id="movieName">
-                    {{ $movie->movie_name }}
+                    {{ $data['movie']->movie_name }}
                 </h3>
                 <div class="movie-seat-hall-time">
                     <img src="{{ asset('images/hall.png') }}" width="25" height="20" class="icon-image" />
 
                     <p id="hallNum" class="nav-info">
-                        {{ $hall->hall_name }}
+                        {{ $data['hall']->hall_name }}
                     </p>
 
                     <img src="{{ asset('images/date.png') }}" width="25" height="20" class="icon-image" />
 
                     <p id="movieDate" class="nav-info">
-                        {{ \Carbon\Carbon::parse($hallTimeSlot->startDateTime)->format('d M Y') }}
+                        {{ \Carbon\Carbon::parse($data['hallTimeSlot']->startDateTime)->format('d M Y') }}
                     </p>
 
                     <img src="{{ asset('images/time.png') }}" width="25" height="20" class="icon-image" />
 
                     <p id="movieTime" class="nav-info">
-                        {{ \Carbon\Carbon::parse($hallTimeSlot->startDateTime)->format('h:i A') }}
+                        {{ \Carbon\Carbon::parse($data['hallTimeSlot']->startDateTime)->format('h:i A') }}
                     </p>
                 </div>
             </div>
@@ -87,40 +89,42 @@
         </div>
 
         <div class="hallView">
-            @if ($hall->hall_type === 'Standard')
+            @if ($data['hall']->hall_type === 'Standard')
                 <div class="seat-select-part">
                     <div class="seat-description">
-                        <img src="{{ asset('images/selectedStandardSeat.png') }}" alt="selectedseat" class="standardSeatImg"/>
+                        <img src="{{ asset('images/selectedStandardSeat.png') }}" alt="selectedseat"
+                            class="standardSeatImg" />
                         <p>Selected Seats</p>
-                        <img src="{{ asset('images/soldStandardSeat.png') }}" alt="soldseat" class="standardSeatImg"/>
+                        <img src="{{ asset('images/soldStandardSeat.png') }}" alt="soldseat" class="standardSeatImg" />
                         <p>Sold</p>
-                        <img src="{{ asset('images/standardSeat.png') }}" alt="standardSeat" class="standardSeatImg"/>
+                        <img src="{{ asset('images/standardSeat.png') }}" alt="standardSeat" class="standardSeatImg" />
                         <p>Single seat</p>
                     </div>
                 </div>
             @endif
 
-            @if ($hall->hall_type === 'Premium')
+            @if ($data['hall']->hall_type === 'Premium')
                 <div class="seat-select-part">
                     <div class="seat-description">
-                        <img src="{{ asset('images/selectedLuxurySeat.png') }}" alt="selectedseat" class="premiumSeatImg" />
+                        <img src="{{ asset('images/selectedLuxurySeat.png') }}" alt="selectedseat"
+                            class="premiumSeatImg" />
                         <p>Selected Seats</p>
-                        <img src="{{ asset('images/soldLuxurySeat.png') }}" alt="soldseat" class="premiumSeatImg"/>
+                        <img src="{{ asset('images/soldLuxurySeat.png') }}" alt="soldseat" class="premiumSeatImg" />
                         <p>Sold</p>
-                        <img src="{{ asset('images/premiumSeat.png') }}" alt="standardSeat" class="premiumSeatImg"/>
+                        <img src="{{ asset('images/premiumSeat.png') }}" alt="standardSeat" class="premiumSeatImg" />
                         <p>Single seat</p>
                     </div>
                 </div>
             @endif
 
-            @if ($hall->hall_type === 'Family')
+            @if ($data['hall']->hall_type === 'Family')
                 <div class="seat-select-part">
                     <div class="seat-description">
-                        <img src="{{ asset('images/selectedFamilySeat.png') }}" alt="selectedseat" class="familySeatImg"/>
+                        <img src="{{ asset('images/selectedFamilySeat.png') }}" alt="selectedseat" class="familySeatImg" />
                         <p>Selected Seats</p>
-                        <img src="{{ asset('images/soldFamilySeat.png') }}" alt="soldseat" class="familySeatImg"/>
+                        <img src="{{ asset('images/soldFamilySeat.png') }}" alt="soldseat" class="familySeatImg" />
                         <p>Sold</p>
-                        <img src="{{ asset('images/familySeat.png') }}" alt="standardSeat" class="familySeatImg"/>
+                        <img src="{{ asset('images/familySeat.png') }}" alt="standardSeat" class="familySeatImg" />
                         <p>Single seat</p>
                     </div>
                 </div>
@@ -131,7 +135,7 @@
             <div class="seat-container">
                 @php
                     // Extract unique row letters from the seat identifiers
-                    $rowLetters = $seats
+                    $rowLetters = $data['seats']
                         ->map(function ($seat) {
                             $parts = explode('-', $seat->movie_seat_id);
                             $rowIdentifier = $parts[count($parts) - 1];
@@ -143,7 +147,7 @@
                         ->all();
 
                     // Pre-process the seats collection to assign row_letter and column_number
-                    $seats = $seats->map(function ($seat) {
+                    $data['seats'] = $data['seats']->map(function ($seat) {
                         $parts = explode('-', $seat->movie_seat_id);
                         $rowIdentifier = $parts[count($parts) - 1];
                         $seat->row_letter = substr($rowIdentifier, 0, 1);
@@ -154,13 +158,13 @@
 
 
 
-                @if ($hall->hall_type === 'Standard')
+                @if ($data['hall']->hall_type === 'Standard')
                     @for ($i = 0; $i < count($rowLetters); $i++)
                         <div class="standard-row">
                             <div class="standard-left-column">
                                 @for ($j = 1; $j <= 3; $j++)
                                     @php
-                                        $seat = $seats
+                                        $seat = $data['seats']
                                             ->where('row_letter', $rowLetters[$i])
                                             ->where('column_number', $j)
                                             ->first();
@@ -192,7 +196,7 @@
                             <div class="standard-middle-column">
                                 @for ($j = 4; $j <= 9; $j++)
                                     @php
-                                        $seat = $seats
+                                        $seat = $data['seats']
                                             ->where('row_letter', $rowLetters[$i])
                                             ->where('column_number', $j)
                                             ->first();
@@ -224,7 +228,7 @@
                             <div class="standard-right-column">
                                 @for ($j = 10; $j <= 12; $j++)
                                     @php
-                                        $seat = $seats
+                                        $seat = $data['seats']
                                             ->where('row_letter', $rowLetters[$i])
                                             ->where('column_number', $j)
                                             ->first();
@@ -256,13 +260,13 @@
                     @endfor
                 @endif
 
-                @if ($hall->hall_type === 'Premium')
+                @if ($data['hall']->hall_type === 'Premium')
                     @for ($i = 0; $i < sizeof($rowLetters); $i++)
                         <div class="premium-row">
                             <div class="premium-left-column">
                                 @for ($j = 1; $j <= 5; $j++)
                                     @php
-                                        $seat = $seats
+                                        $seat = $data['seats']
                                             ->where('row_letter', $rowLetters[$i])
                                             ->where('column_number', $j)
                                             ->first();
@@ -274,7 +278,8 @@
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
                                             @elseif ($seat->movie_seats_status === 'Sold')
-                                                <img class="premiumSeatImg" src="{{ asset('images/soldLuxurySeat.png') }}"
+                                                <img class="premiumSeatImg"
+                                                    src="{{ asset('images/soldLuxurySeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
                                             @elseif ($seat->movie_seats_status === 'Repair')
@@ -292,7 +297,7 @@
                             <div class="premium-right-column">
                                 @for ($j = 6; $j <= 10; $j++)
                                     @php
-                                        $seat = $seats
+                                        $seat = $data['seats']
                                             ->where('row_letter', $rowLetters[$i])
                                             ->where('column_number', $j)
                                             ->first();
@@ -304,7 +309,8 @@
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
                                             @elseif ($seat->movie_seats_status === 'Sold')
-                                                <img class="premiumSeatImg" src="{{ asset('images/soldLuxurySeat.png') }}"
+                                                <img class="premiumSeatImg"
+                                                    src="{{ asset('images/soldLuxurySeat.png') }}"
                                                     alt="{{ $rowLetters[$i] }}{{ $j }}"
                                                     data-seat-id="{{ $seat->movie_seat_id }}">
                                             @elseif ($seat->movie_seats_status === 'Repair')
@@ -323,11 +329,11 @@
                     @endfor
                 @endif
 
-                @if ($hall->hall_type === 'Family')
+                @if ($data['hall']->hall_type === 'Family')
                     @for ($i = 0; $i < sizeof($rowLetters); $i++)
                         <div class="family-row">
                             @php
-                                $seat = $seats->where('row_letter', $rowLetters[$i])->first();
+                                $seat = $data['seats']->where('row_letter', $rowLetters[$i])->first();
                             @endphp
                             @if ($seat->movie_seats_status === 'Available')
                                 <img class="familySeatImg" src="{{ asset('images/familySeat.png') }}"
@@ -352,12 +358,15 @@
 
 
         <div class="continueButton-container">
-            <form action="{{ route('payment') }}" method="POST">
+            <form action="{{ route('payment') }}" method="POST" id="paymentForm">
                 @csrf
                 <input type="hidden" name="selected_seat_numbers" id="selectedSeatNumbers">
-                <input type="hidden" name="timeSlotID" value="{{ $hallTimeSlot->hall_time_slot_id }}">
-                <input type="hidden" name="movie_id" value="{{ $movie->movie_id }}">
-                <input type="hidden" name="hall_id" value="{{ $hall->hall_id }}">
+                <input type="hidden" name="timeSlotID" value="{{ $data['hallTimeSlot']->hall_time_slot_id }}">
+                <input type="hidden" name="userID" value="{{Auth::user()->id}}">
+                <input type="hidden" name="movie_id" value="{{ $data['movie']->movie_id }}">
+                <input type="hidden" name="hall_id" value="{{ $data['hall']->hall_id }}">
+                <input type="hidden" name="hall_type" value="{{ $data['hall']->hall_type }}" id="hall_type">
+                <input type="hidden" name="transactionAmount" id="transactionAmount">
                 <button type="submit" class="continueButton">Confirm To Payment</button>
             </form>
         </div>
@@ -365,6 +374,6 @@
 
     <!-- all js for this page -->
     @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
         @vite(['resources/js/booking/movieSeat.js'])
     @endpush

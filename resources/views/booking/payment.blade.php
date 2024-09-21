@@ -1,8 +1,10 @@
+<!-- Author: Kho Ka Jie-->
+
 <!-- using the master page layout -->
 @extends('layouts.master')
 
 <!-- The title for this page -->
-@section('title', 'Movie')
+@section('title', 'Payment')
 
 <!-- all css for this page -->
 @push('styles')
@@ -57,23 +59,23 @@
     <div class="movie-payment-section">
         <div class="movie-payment-container">
             <div class="movie-selection-poster">
-                <img id="moviePoster" src="{{ route('movie.posterPhoto', $movie->movie_id) }}">
+                <img id="moviePoster" src="{{ route('movie.posterPhoto', $data['movie']->movie_id) }}">
             </div>
             <div class="movie-selection-details">
                 <div class="movie-details">
                     <h1 id="movieName">
-                        {{ $movie->movie_name }}
+                        {{ $data['movie']->movie_name }}
                     </h1>
 
                     <ul class="movie-details-info1">
                         <li id="movieGenre">
-                            {{ $movie->movie_genre }}
+                            {{ $data['movie']->movie_genre }}
                         </li>
                         <li id="movieLanguage">
-                            {{ $movie->movie_language }}
+                            {{ $data['movie']->movie_language }}
                         </li>
                         <li id="movieDuration">
-                            {{ $movie->movie_duration }}
+                            {{ $data['movie']->movie_duration }}
                         </li>
                     </ul>
 
@@ -84,13 +86,13 @@
                         <li>
                             <h4>Hall</h4>
                             <p id="movieHall">
-                                {{ $hall->hall_name }}
+                                {{ $data['hall']->hall_name }}
                             </p>
                         </li>
                         <li>
                             <h4>Time</h4>
                             <p id="movieTime">
-                                {{ $timeSlot->startDateTime }}
+                                {{ \Carbon\Carbon::parse($data['timeSlot']->startDateTime)->format('m/d/Y h:i A')  }}
                             </p>
                         </li>
                         <li>
@@ -98,7 +100,7 @@
                             <p id="movieSeat">
                                 @php
                                     // Split the selectedSeats by commas
-                                    $selectedSeatsArray = explode('%2C', $selectedSeats);
+                                    $selectedSeatsArray = explode('%2C', $data['selectedSeats']);
                                 @endphp
 
                                 <!-- Loop through the array and extract the seat numbers -->
@@ -130,31 +132,9 @@
                             <th>Subtotal</th>
                         </tr>
                         <tr>
-                            <td>{{ $hall->hall_type }} x {{ $numberOfSelectedSeats }}</td>
+                            <td>{{ $data['hall']->hall_type }} x {{ $data['numberOfSelectedSeats'] }}</td>
                             <td>
-                                @if ($hall->hall_type === 'Standard')
-                                    @php
-                                        $pricePerSeat = 15;
-                                        $subtotal = $pricePerSeat * $numberOfSelectedSeats;
-                                    @endphp
-                                    RM {{ $subtotal }}
-                                @endif
-
-                                @if ($hall->hall_type === 'Premium')
-                                    @php
-                                        $pricePerSeat = 30;
-                                        $subtotal = $pricePerSeat * $numberOfSelectedSeats;
-                                    @endphp
-                                    RM {{ $subtotal }}
-                                @endif
-
-                                @if ($hall->hall_type === 'Family')
-                                    @php
-                                        $pricePerSeat = 50;
-                                        $subtotal = $pricePerSeat * $numberOfSelectedSeats;
-                                    @endphp
-                                    RM {{ $subtotal }}
-                                @endif
+                                RM {{ $data['transaction']->transactionAmount }}
                             </td>
                         </tr>
                     </table>
@@ -163,21 +143,20 @@
                 <div class="payButton-container">
                     <form id="paymentForm" action="{{ route('complete_payment') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                        <input type="hidden" name="total_payment" value="{{ $subtotal }}">
-                        <input type="hidden" name="selected_seats" value="{{ $selectedSeats }}">
+                        <input type="hidden" name="transactionID" value="{{ $data['transaction']->ticket_transaction_id }}">
+                        <input type="hidden" name="selected_seats" value="{{ $data['selectedSeats'] }}">
 
                         <!-- Payment Method Selection -->
                         <div class="paymentMethod">
                             <h3>Select Payment Method:</h3>
                             <label>
-                                <input type="radio" name="option" value="cardPayment"> Card Payment
+                                <input type="radio" name="option" value="Card Payment"> Card Payment
                             </label>
                             <label>
-                                <input type="radio" name="option" value="fpx"> FPX Payment
+                                <input type="radio" name="option" value="FPX"> FPX Payment
                             </label>
                             <label>
-                                <input type="radio" name="option" value="tng"> TNG E-Wallet
+                                <input type="radio" name="option" value="TNG E-Wallet"> TNG E-Wallet
                             </label>
                         </div>
 
@@ -185,34 +164,35 @@
                         <div id="cardPaymentFields" class="toggle-content">
                             <h3>Card Payment</h3>
                             <label for="cardNumber">Card Number:</label>
-                            <input type="text" id="cardNumber" name="cardNumber" pattern="\d{1,16}" maxlength="16">
+                            <input type="text" id="cardNumber" name="cardNumber" pattern="\d{1,16}" maxlength="16" autocomplete="off">
                             <small>Max 16 digits</small><br>
-
+                        
                             <label for="cvv">CVV:</label>
-                            <input type="text" id="cvv" name="cvv" pattern="\d{1,3}" maxlength="3">
+                            <input type="text" id="cvv" name="cvv" pattern="\d{1,3}" maxlength="3" autocomplete="off">
                             <small>Max 3 digits</small><br>
-
+                        
                             <label for="expiryDate">Expiry Date:</label>
-                            <input type="month" id="expiryDate" name="expiryDate"><br>
+                            <input type="month" id="expiryDate" name="expiryDate" autocomplete="off"><br>
                         </div>
-
+                        
                         <!-- FPX Payment Fields -->
                         <div id="fpxFields" class="toggle-content">
                             <h3>FPX Payment</h3>
                             <label for="cardHolderName">Card Holder Name:</label>
-                            <input type="text" id="cardHolderName" name="cardHolderName"><br>
+                            <input type="text" id="cardHolderName" name="cardHolderName" autocomplete="off"><br>
                             <label for="password">Password:</label>
-                            <input type="password" id="password" name="fpxpassword"><br>
+                            <input type="password" id="password" name="fpxpassword" autocomplete="off"><br>
                         </div>
-
+                        
                         <!-- TNG E-Wallet Fields -->
                         <div id="tngFields" class="toggle-content">
                             <h3>TNG E-Wallet</h3>
                             <label for="name">Name:</label>
-                            <input type="text" id="name" name="name"><br>
+                            <input type="text" id="name" name="name" autocomplete="off"><br>
                             <label for="password">Password:</label>
-                            <input type="password" id="password" name="tngpassword"><br>
+                            <input type="password" id="password" name="tngpassword" autocomplete="off"><br>
                         </div>
+                        
                         <button type="submit" class="continueButton">Checkout & Pay</button>
                     </form>
                 </div>

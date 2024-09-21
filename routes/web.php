@@ -60,7 +60,10 @@ Route::middleware('auth', 'role:user')->group(function () {
     Route::get('booking-payment', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
     Route::post('booking-complete-payment', [BookingController::class, 'completePayment'])->name('complete_payment');
     Route::get('booking-payment-success', [BookingController::class, 'paymentSuccess'])->name('payment.success');
+    Route::get('booking-payment-failed', [BookingController::class, 'paymentFailed'])->name('payment.failed');
 });
+
+
 
 Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('admin/create-movie', [MovieController::class, 'create'])->name('movies.create');
