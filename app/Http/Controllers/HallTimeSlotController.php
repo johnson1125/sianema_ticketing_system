@@ -34,6 +34,7 @@ class HallTimeSlotController extends Controller
 
     public function index($date)
     {
+
         $data = $this->hallTimeSlotService->prepareIndexViewData($date);
         return view('/admin/hallTimeSlot.index', compact('data'));
     }

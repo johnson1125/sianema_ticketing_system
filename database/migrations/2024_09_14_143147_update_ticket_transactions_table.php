@@ -15,7 +15,7 @@ return new class extends Migration
             $table->date('transactionDateTime');
             $table->decimal('transactionAmount', 8, 2); 
             $table->enum('transactionStatus', ['Pending', 'Completed', 'Cancelled']);  
-            $table->unsignedBigInteger('custID');
+            $table->string('custID');
             $table->foreign('custID')->references('id')->on('users');
         });
     }

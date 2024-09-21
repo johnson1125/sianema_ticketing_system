@@ -13,13 +13,21 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update', ['name' => $user->name, 'role' => $user->role]) }}" class="mt-6 space-y-6">
+    @php
+    $isRoot = Auth::user()->name === 'root'; // Check if the current username is 'root'
+    @endphp
+
+    <form method="post" action="{{ route('profile.update', ['name' => $user->name, 'role' => $user->role]) }}" enctype="multipart/form-data" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
         <div>
             <x-input-label class="user-profile-text" for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="user-profile-input-fields mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            @if($isRoot)
+                <input type="text" id="disabled-input" aria-label="disabled input" class="mt-1 mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('name', $user->name) }}" disabled>
+            @else
+                <x-text-input id="name" name="name" type="text" class="user-profile-input-fields mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            @endif
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
@@ -29,35 +37,70 @@
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                <div>
-                    <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
-                        {{ __('Your email address is unverified.') }}
+            <div>
+                <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
+                    {{ __('Your email address is unverified.') }}
 
-                        <button form="send-verification" class="btn-primary-light underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                            {{ __('Click here to re-send the verification email.') }}
-                        </button>
-                    </p>
+                    <button form="send-verification" class="btn-primary-light underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                        {{ __('Click here to re-send the verification email.') }}
+                    </button>
+                </p>
 
-                    @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
-                            {{ __('A new verification link has been sent to your email address.') }}
-                        </p>
-                    @endif
-                </div>
+                @if (session('status') === 'verification-link-sent')
+                <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
+                    {{ __('A new verification link has been sent to your email address.') }}
+                </p>
+                @endif
+            </div>
             @endif
         </div>
+
+        <!-- Mobile Number -->
+        <div>
+            <x-input-label class="user-profile-text" for="mobile_number" :value="__('Mobile Number')" />
+            <x-text-input id="mobile_number" name="mobile_number" type="text" class="user-profile-input-fields mt-1 block w-full" :value="old('mobile_number', $user->mobile_number)" required autocomplete="tel" />
+            <x-input-error class="mt-2" :messages="$errors->get('mobile_number')" />
+        </div>
+
+
+        <!-- Date of Birth -->
+        <div>
+            <x-input-label class="user-profile-text" for="date_of_birth" :value="__('Date of Birth')" />
+            <x-text-input id="date_of_birth" name="date_of_birth" type="date" class="user-profile-input-fields mt-1 block w-full" :value="old('date_of_birth', $user->date_of_birth)" required />
+            <x-input-error class="mt-2" :messages="$errors->get('date_of_birth')" />
+        </div>
+
+
+        <!-- Profile Photo -->
+        <!-- Profile Photo Upload -->
+        <div>
+            <x-input-label class="user-profile-text" for="profile_photo" :value="__('Profile Photo')" />
+            <x-text-input id="profile_photo" name="profile_photo" type="file" class="bg-white text-black user-profile-input-fields mt-1 block w-full" />
+            <x-input-error class="mt-2" :messages="$errors->get('profile_photo')" />
+        </div>
+
+        <!-- Display Current Profile Photo (if exists) -->
+        @if (Auth::check() && $user->profile_photo)
+        <div>
+            <img src="{{ route('profile.photo', ['id' => Auth::user()->id]) }}" alt="{{ Auth::user()->name . "'s Profile Photo"  }}" class="rounded-full h-20 w-20 object-cover">
+        </div>
+        @else
+        <div>
+            <img src="{{ asset('images/default-profile-pic.png') }}" alt="Profile Photo" class="rounded-full h-20 w-20 object-cover">
+        </div>
+        @endif
+
 
         <div class="flex items-center gap-4">
             <x-primary-button class="btn-primary-light">{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="user-profile-text text-sm text-gray-600 dark:text-gray-400"
-                >{{ __('Saved.') }}</p>
+            <p
+                x-data="{ show: true }"
+                x-show="show"
+                x-transition
+                x-init="setTimeout(() => show = false, 2000)"
+                class="user-profile-text text-sm text-gray-600 dark:text-gray-400">{{ __('Saved.') }}</p>
             @endif
         </div>
     </form>
