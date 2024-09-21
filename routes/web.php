@@ -19,7 +19,7 @@ Route::view('/termsAndConditions', 'terms')->name('terms');
 Route::view('/aboutUs', 'aboutUs')->name('aboutUs');
 
 //Profile photo route
-Route::get('/profile-photo/{id}-profile-photo', [ProfileController::class, 'showProfilePhoto'])->name('profile.photo');
+Route::get('/{id}/profile-photo', [ProfileController::class, 'showProfilePhoto'])->name('profile.photo');
 
 Route::middleware('auth')->group(function () {
     Route::get('/{role}/{name}/profile', [ProfileController::class, 'edit'])->name('profile.edit');

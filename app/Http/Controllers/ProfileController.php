@@ -9,11 +9,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Services\virustotal;
-// use Intervention\Image\Laravel\Facades\Image;
-// use Intervention\Image\Facades\Image;
-// use Intervention\Image\ImageManager;
 use App\Models\User;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
+
 
 
 class ProfileController extends Controller
@@ -126,6 +125,8 @@ class ProfileController extends Controller
 
     public function showProfilePhoto($id)
     {
+        Log::info("Requested ID: " . $id);
+
         $user = User::findOrFail($id);
         $profilePhotoData = $user->profile_photo;
 
