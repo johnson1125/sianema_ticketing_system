@@ -38,11 +38,12 @@ Route::get('booking-movie-cover-photo/{movie_id}', [BookingController::class, 'g
 Route::get('booking-movie-poster-photo/{movie_id}', [BookingController::class, 'getMoviePoster'])->name('movie.posterPhoto');
 
 Route::middleware('auth', 'role:user')->group(function () {
-    Route::get('booking-movieSeat', [BookingController::class, 'timeSlotSelect'])->name('timeSlotSelect');
+    Route::get('booking-movieSeat/{timeSlotID}', [BookingController::class, 'timeSlotSelect'])->name('timeSlotSelect');
     Route::post('booking-process-payment', [BookingController::class, 'processPayment'])->name('payment');
-    Route::get('booking-payment', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
+    Route::get('/showPaymentPage/{transactionID}', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
     Route::post('booking-complete-payment', [BookingController::class, 'completePayment'])->name('complete_payment');
     Route::get('booking-payment-success', [BookingController::class, 'paymentSuccess'])->name('payment.success');
+    Route::get('booking-payment-failed', [BookingController::class, 'paymentFailed'])->name('payment.failed');
 });
 
 // Admin Homepage route
