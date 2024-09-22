@@ -69,7 +69,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $guarded = [
-        'role',
         'isRoot',
     ];
 
@@ -94,11 +93,6 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function hasRole($role)
-    {
-        return $this->role === $role;
     }
 
     public function ticketTransaction(): HasMany
