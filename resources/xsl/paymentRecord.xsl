@@ -5,15 +5,25 @@
             <h2>Payment Record Details</h2>
         </div>
         <div class="payment-details">
-            <p>Transaction ID         : <xsl:value-of select="payment/transactionID"/>
+            <p><span>Transaction ID:</span> <span class="xsl-content">
+                <xsl:value-of select="payment/transactionID"/>
+            </span>
             </p>
-            <p>Payment ID             : <xsl:value-of select="payment/paymentID"/>
+            <p><span>Payment ID:</span> <span class="xsl-content">
+                <xsl:value-of select="payment/paymentID"/>
+            </span>
             </p>
-            <p>Payment Date and Time  : <xsl:value-of select="payment/paymentDateTime"/>
+            <p><span>Payment Date and Time:</span> <span class="xsl-content">
+                <xsl:value-of select="payment/paymentDateTime"/>
+            </span>
             </p>
-            <p>Payment Amount         : <xsl:value-of select="payment/paymentAmount"/>
+            <p><span>Payment Amount:</span> <span class="xsl-content">
+                RM <xsl:value-of select="payment/paymentAmount"/>
+            </span>
             </p>
-            <p>Payment Method         : <xsl:value-of select="payment/paymentMethod"/>
+            <p><span>Payment Method:</span> <span class="xsl-content">
+                <xsl:value-of select="payment/paymentMethod"/>
+            </span>
             </p>
         </div>
     </xsl:template>
