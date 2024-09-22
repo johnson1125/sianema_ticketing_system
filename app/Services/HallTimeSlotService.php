@@ -272,7 +272,6 @@ class HallTimeSlotService
                     $maintenance = XMLExtensionsService::XMLFileToHTML('xml/maintenanceDetails.xml', 'xsl/maintenanceDetails.xsl');
                 }
             } catch (Exception $e) {
-                // Handle the exception or log it
                 return redirect()->route('hallTimeSlot', ['date' => $date]);
             }
         }
@@ -303,7 +302,7 @@ class HallTimeSlotService
                 $movieSeat->delete();
             }
         } else {
-            // Add maintenance record through webservice API
+            // remove maintenance record through webservice API
             try {
                 Http::post('http://127.0.0.1:5001/api/remove-maintenance-record', [
                     'maintenanceID' => $hallTimeSlot->maintenance_id,
