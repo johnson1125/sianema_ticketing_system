@@ -1,3 +1,4 @@
+//Author: Lim Yu Her 
 $(function () {
     $(".showing-now-slider").slick({
         infinite: true,

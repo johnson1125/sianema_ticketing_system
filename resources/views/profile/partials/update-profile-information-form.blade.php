@@ -1,3 +1,4 @@
+<!-- Author: Lim Yu Her  -->
 <section>
     <header>
         <h2 class="user-profile-text text-lg font-medium text-gray-900 dark:text-gray-100">
