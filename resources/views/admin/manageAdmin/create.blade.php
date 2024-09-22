@@ -69,15 +69,20 @@
                         <br>
                         <div id="roles-checkbox-container">
                             @foreach($roles as $role)
-                                @if($role->name != 'Admin' && $role->name != 'User' && $role->name != 'Root')
-                                    <input id="role_{{ $role->name }}" name="roles[]" type="checkbox"
-                                        {{ in_array($role->name, old('roles', [])) ? 'checked' : '' }}
-                                        class="role-checkbox" value="{{ $role->name }}">
-                                    <label for="role_{{ $role->name }}"> {{ $role->name }}</label>
-                                @endif
+                            @if($role->name != 'Admin' && $role->name != 'User' && $role->name != 'Root')
+                            <input id="role_{{ $role->name }}" name="roles[]" type="checkbox"
+                                {{ in_array($role->name, old('roles', [])) ? 'checked' : '' }}
+                                class="role-checkbox" value="{{ $role->name }}">
+                            <label for="role_{{ $role->name }}"> {{ $role->name }}</label>
+                            @endif
                             @endforeach
                         </div>
                         <input disabled class="normal-input" type="text" id="roles-display" name="roles-display" placeholder="Specify role(s) for this admin.">
+                        @if ($errors->has('roles'))
+                        @foreach ($errors->get('roles') as $error)
+                        <span class="block text-red-500">{{ $error }}</span>
+                        @endforeach
+                        @endif
                     </div>
 
                     <div class="form-group">
