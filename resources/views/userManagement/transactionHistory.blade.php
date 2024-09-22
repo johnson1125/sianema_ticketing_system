@@ -210,9 +210,9 @@
 
     <div class="container">
 
+        <div class="tabContainer">
+            <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
 
-        <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-            <div class="tabContainer">
                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" role="tablist"
                     data-tabs-toggle="#transaction-history-content"
                     data-tabs-active-classes="text-sianema-green dark:text-green-500 dark:hover:text-green-500 border-sianema-green dark:border-green-500"
@@ -254,33 +254,113 @@
     </ul>
 </div> --}}
         <div id="transaction-history-content">
-            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="upcoming" role="tabpanel"
+            <div class="tab-content hidden p-4 rounded-lg bg-black dark:bg-gray-800" id="upcoming" role="tabpanel"
                 aria-labelledby="upcoming-tab">
-                <div
-                    class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                            technology acquisitions 2021</h5>
-                    </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
-                    <a href="#"
-                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Read more
-                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 5h12m0 0L9 1m4 4L9 9" />
-                        </svg>
-                    </a>
-                </div>
+
+                @if ($upComings->isEmpty())
+                    <div class="emptyTextBox">
+                        <p class="text-center text-white">No upcoming transactions available.</p>
+                    </div>
+                @else
+                    @foreach ($upComings as $upComing)
+                        <div
+                            class="card-container p-6 bg-gray-600   rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <div class="card-title">
+                                <div class="card-title-1">
+                                    <h5 class="movie-name">{{ $upComing->movie->movie_name }}</h5>
+                                </div>
+                                <div class="card-title-2">
+                                    <p class="movie-genre">{{ $upComing->movie->movie_genre }}</p>
+                                    <p class="divider">-</p>
+                                    <p class="movie-duration">{{ $upComing->movie->movie_duration }}</p>
+                                    <p class="divider">-</p>
+                                    <p class="movie-language">{{ $upComing->movie->movie_language }}</p>
+                                </div>
+                            </div>
+                            <div class="card-text">
+                                <div class="movie-hall-type">
+                                    <p>{{ $upComing->hall->hall_type }}</p>
+                                </div>
+                                <div class="movie-hall-number with-icon">
+                                    <p>{{ $upComing->hall->hall_name }}</p>
+                                </div>
+                                <div class="movie-date-time with-icon">
+                                    <p>{{ $upComing->hallTimeSlot->startDateTime }}</p>
+                                </div>
+
+                                <div class="number-of-seats with-icon">
+                                    <p>{{ $upComing->seatCount }}<span> Seat(s)</span></p>
+                                </div>
+                                <div class="booked-seats">
+                                    <p>{{ $upComing->seatNumbers }}</p>
+                                </div>
+                            </div>
+
+                            <a href="#"
+                                class=" btn-more-details inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                More Details
+                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                </svg>
+                            </a>
+                        </div>
+                    @endforeach
+                @endif
             </div>
-            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="lastSeen" role="tabpanel"
+            <div class="tab-content hidden p-4 rounded-lg dark:bg-gray-800" id="lastSeen" role="tabpanel"
                 aria-labelledby="lastSeen-tab">
-                <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong
-                        class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</strong>.
-                    Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps
-                    classes to control the content visibility and styling.</p>
+                <div class="emptyTextBox">
+                    @if ($lastSeens->isEmpty())
+                        <p class="text-center text-white">No last seen transactions available.</p>
+                </div>
+            @else
+                @foreach ($lastSeens as $lastSeen)
+                    <div class="card-container p-6 bg-gray-600   rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div class="card-title">
+                            <div class="card-title-1">
+                                <h5 class="movie-name">{{ $lastSeen->movie->movie_name }}</h5>
+                            </div>
+                            <div class="card-title-2">
+                                <p class="movie-genre">{{ $lastSeen->movie->movie_genre }}</p>
+                                <p class="divider">-</p>
+                                <p class="movie-duration">{{ $lastSeen->movie->movie_duration }}</p>
+                                <p class="divider">-</p>
+                                <p class="movie-language">{{ $lastSeen->movie->movie_language }}</p>
+                            </div>
+                        </div>
+                        <div class="card-text">
+                            <div class="movie-hall-type">
+                                <p>{{ $lastSeen->hall->hall_type }}</p>
+                            </div>
+                            <div class="movie-hall-number with-icon">
+                                <p>{{ $lastSeen->hall->hall_name }}</p>
+                            </div>
+                            <div class="movie-date-time with-icon">
+                                <p>{{ $lastSeen->hallTimeSlot->startDateTime }}</p>
+                            </div>
+
+                            <div class="number-of-seats with-icon">
+                                <p>{{ $lastSeen->seatCount }}<span> Seat(s)</span></p>
+                            </div>
+                            <div class="booked-seats">
+                                <p>{{ $lastSeen->seatNumbers }}</p>
+                            </div>
+                        </div>
+
+                        <a href="#"
+                            class=" btn-more-details inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            More Details
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </a>
+                    </div>
+                @endforeach
+                @endif
             </div>
 
         </div>
