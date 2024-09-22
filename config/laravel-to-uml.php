@@ -33,6 +33,7 @@ return [
     'factories'     => false,
     'services'      => false,
     'iterators'      => false,
+    'strategy'      => false,
 
     /**
      * You can define specific nomnoml styling.
@@ -112,6 +113,7 @@ return [
         'rules'         => 'Rules/',
         'factories'     => 'Factory/',
         'services'      => 'Services/',
-        'iterators'      => 'Iterators/'
+        'iterators'      => 'Iterators/',
+        'strategy'      => 'Strategy/'
     ],
 ];
