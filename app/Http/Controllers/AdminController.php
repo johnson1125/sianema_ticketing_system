@@ -55,7 +55,7 @@ class AdminController extends Controller
             'date_of_birth' => ['required', 'date'],           // Validate date of birth
             'roles' => ['required', 'array'],
             'roles.*' => Rule::in(['TimeSlotManager', 'HallManager', 'MovieManager']),
-            'roles.*.in' => 'The selected role is invalid.'
+            'roles.*.in' => 'The selected role is invalid or there are no roles selected.'
         ]);
 
         $user = User::create([
@@ -81,22 +81,35 @@ class AdminController extends Controller
         return view('admin.manageAdmin.edit', compact('admin', 'roles'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $userId)
     {
-        $admin = User::findOrFail($id);
+        $admin = User::findOrFail($userId);
 
         // Validate input
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $id,
-            'roles' => 'required|array',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($admin->id)],
+            'mobile_number' => [
+                'required',
+                'string',
+                'regex:/^(01[0-9]{1}[0-9]{8}|01[0-9]{1}[0-9]{7})$/', // Regex for Malaysian mobile numbers
+            ],
+            'date_of_birth' => ['required', 'date'],           // Validate date of birth
+            'roles' => ['required', 'array'],
+            'roles.*' => Rule::in(['TimeSlotManager', 'HallManager', 'MovieManager']),
+            'roles.*.in' => 'The selected role is invalid or there are no roles selected.'
         ]);
 
         // Update user details
         $admin->update([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile_number' => $request->mobile_number,
+            'date_of_birth' => $request->date_of_birth,
         ]);
+
+        // Add 'Admin' role to the roles array
+        $validated['roles'][] = 'Admin';
 
         // Sync roles
         $admin->syncRoles($validated['roles']); // Spatie's syncRoles method
