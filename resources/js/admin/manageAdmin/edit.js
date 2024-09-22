@@ -1,3 +1,4 @@
+//Author: Lim Yu Her 
 document.addEventListener('DOMContentLoaded', function() {
     const roleCheckboxes = document.querySelectorAll('.role-checkbox');
     const roleTextInput = document.getElementById('roles-display');
