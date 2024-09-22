@@ -177,7 +177,6 @@ class HallTimeSlotService
         $movieSeats = $seats->map(function ($seat) use ($hallTimeSlotID) {
             return [
                 'movie_seat_id' => $hallTimeSlotID . '-' . $seat->row_letter . str_pad($seat->column_number, 2, '0', STR_PAD_LEFT),
-                'ticket_transaction_id' => null,
                 'hall_time_slot_id' => $hallTimeSlotID,
                 'seat_id' => $seat->seat_id,
                 'movie_seats_status' => ($seat->status == "occupied"? 'Occupied' : 'Available'),
