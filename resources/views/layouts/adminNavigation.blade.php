@@ -13,27 +13,28 @@
                     </a>
                 </div>
 
-                @php
-                $isRoot = Auth::user()->name === 'root'; // Check if the current username is 'root'
-                @endphp
-
                 <!-- Navigation Links -->
                 <div id="navLink" class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex text-white">
+                    @can('manage timeslots')
                     <x-nav-link :href="route('hallTimeSlot')" :active="request()->route() && request()->route()->getController() instanceof \App\Http\Controllers\HallTimeSlotController ? true : false">
-
                         {{ __('Hall TimeSlot') }}
                     </x-nav-link>
+                    @endcan
+                    @can('manage halls')
                     <x-nav-link :href="route('manage.hall.index')" :active="request()->route() && request()->route()->getController() instanceof \App\Http\Controllers\HallController ? true : false">
                         {{ __('Hall') }}
                     </x-nav-link>
+                    @endcan
+                    @can('manage movies')
                     <x-nav-link :href="route('movies.index')" :active="request()->route() && request()->route()->getController() instanceof \App\Http\Controllers\MovieController ? true : false">
                         {{ __('Movie') }}
                     </x-nav-link>
-                    @if($isRoot)
+                    @endcan
+                    @role('Root')
                     <x-nav-link :href="route('adminManagement')" :active="request()->route() && request()->route()->getController() instanceof \App\Http\Controllers\AdminController ? true : false">
                         {{ __('Manage Admin') }}
                     </x-nav-link>
-                    @endif
+                    @endrole
                 </div>
             </div>
 

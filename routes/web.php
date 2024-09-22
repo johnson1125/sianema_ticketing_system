@@ -47,7 +47,7 @@ Route::middleware('auth', 'role:User')->group(function () {
 });
 
 // Admin Homepage route
-Route::middleware('auth', 'role:Admin')->group(function () {
+Route::middleware('auth', 'role:Admin', 'permission:TimeSlotManager')->group(function () {
     Route::get('admin{date?}', [HallTimeSlotController::class, 'index'])->name('admin')->defaults('date', date('d-m-Y'));
 });
 
@@ -90,7 +90,7 @@ Route::middleware('auth', 'role:Admin', 'permission:HallManager')->group(functio
 });
 
 // Admin management routes
-Route::middleware('auth', 'role:Admin')->group(function() {
+Route::middleware('auth', 'role:Root')->group(function() {
     Route::get('admin/manage-admin', [AdminController::class, 'index'])->name('adminManagement');
     Route::get('admin/add-admin', [AdminController::class, 'create'])->name('adminManagement.create');
 });
