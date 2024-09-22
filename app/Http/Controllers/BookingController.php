@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use App\Models\HallTimeSlot;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Services\BookingService;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
 
 // Author: Kho Ka Jie
 class BookingController extends Controller
@@ -76,49 +79,73 @@ class BookingController extends Controller
         $userId = $request->input('userID');
         $selectedSeats = $request->input('selected_seat_numbers');
         $timeSlotID = $request->input('timeSlotID');
-        $movieID = $request->input('movie_id');
-        $hallID = $request->input('hall_id');
         $transactionAmount = $request->input('transactionAmount');
 
         $transactionId = $this->bookingService->createTransactionRecord($userId, $transactionAmount);
 
-        session([
-            'selectedSeats' => $selectedSeats,
-            'timeSlotID' => $timeSlotID,
-            'movieID' => $movieID,
-            'hallID' => $hallID,
-        ]);
+        $hashedTransactionID = Crypt::encrypt($transactionId);
+        $hashedSelectedSeats = Crypt::encrypt($selectedSeats);
+        $hashedTimeSlotID = Crypt::encrypt($timeSlotID);
 
-        return redirect()->route('showPaymentPage', ['transactionID' => $transactionId]);
+        return redirect()->route('showPaymentPage', [
+            'transactionID' => $hashedTransactionID,
+            'selectedSeats' => $hashedSelectedSeats,
+            'timeSlotID' => $hashedTimeSlotID
+        ]);
     }
 
-    public function showPaymentPage($transactionID)
+    public function showPaymentPage($transactionID, $selectedSeats, $timeSlotID)
     {
-        // Retrieve other necessary data from the session
-        $selectedSeats = session('selectedSeats');
-        $timeSlotID = session('timeSlotID');
-        $movieID = session('movieID');
-        $hallID = session('hallID');
 
-        session()->forget(['selectedSeats', 'timeSlotID', 'movieID', 'hallID', 'transactionID']);
-
-        // Validate the transaction ID
-        $validateUser = $this->bookingService->validateUserTransaction($transactionID);
-
-        // If validation fails, redirect to home with an error message
-        if (!$validateUser) {
+        try {
+            // Attempt to decrypt the transaction ID
+            $transactionID = Crypt::decrypt($transactionID);
+        } catch (DecryptException $e) {
             return redirect()->route('home')->with('toast', [
                 'type' => 'error',
                 'message' => 'Access denied. You are not authorized to access this transaction.'
             ]);
         }
+    
+        try {
+            // Attempt to decrypt the selected seats
+            $selectedSeats = Crypt::decrypt($selectedSeats);
+        } catch (DecryptException $e) {
+            return redirect()->route('home')->with('toast', [
+                'type' => 'error',
+                'message' => 'Access denied. You are not authorized to access the selected seats data.'
+            ]);
+        }
+    
+        try {
+            // Attempt to decrypt the time slot ID
+            $timeSlotID = Crypt::decrypt($timeSlotID);
+        } catch (DecryptException $e) {
+            return redirect()->route('home')->with('toast', [
+                'type' => 'error',
+                'message' => 'Access denied. You are not authorized to access this time slot.'
+            ]);
+        }
 
-        // Display payment details using the booking service
-        $data = $this->bookingService->displayPaymentDetails($movieID, $timeSlotID, $hallID, $transactionID, $selectedSeats);
+        $validateUser = $this->bookingService->validateUserTransaction($transactionID);
+        $validateTimeSlot = $this->bookingService->validateTimeSlot($timeSlotID);
+
+        $timeSlot = HallTimeSlot::find($timeSlotID);
+        $movie_id = $timeSlot->movie_id;
+        $hall_id = $timeSlot->hall_id;
+
+        if (!$validateUser || !$validateTimeSlot) {
+            return redirect()->route('home')->with('toast', [
+                'type' => 'error',
+                'message' => 'Access denied. You are not authorized to access this transaction.'
+            ]);
+        }
+        $data = $this->bookingService->displayPaymentDetails($movie_id, $timeSlotID, $hall_id, $transactionID, $selectedSeats);
 
         // Pass data to the view
         return view('booking.payment', compact('data'));
     }
+
 
     public function completePayment(Request $request)
     {
@@ -145,6 +172,8 @@ class BookingController extends Controller
                 'tngpassword' => $request->input('tngpassword')
             ];
         }
+
+        session()->forget(['selectedSeats', 'timeSlotID', 'movieID', 'hallID', 'transactionID']);
 
         $payment = $this->bookingService->completePayment($transactionID, $selectedSeats, $paymentMethod, $paymentData);
         if ($payment) {

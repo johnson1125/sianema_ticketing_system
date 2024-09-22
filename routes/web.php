@@ -44,7 +44,7 @@ Route::get('booking-movie-poster-photo/{movie_id}', [BookingController::class, '
 Route::middleware('auth', 'role:User')->group(function () {
     Route::get('booking-movieSeat/{timeSlotID}', [BookingController::class, 'timeSlotSelect'])->name('timeSlotSelect');
     Route::post('booking-process-payment', [BookingController::class, 'processPayment'])->name('payment');
-    Route::get('/showPaymentPage/{transactionID}', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
+    Route::get('/showPaymentPage/{transactionID}/{selectedSeats}/{timeSlotID}', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
     Route::post('booking-complete-payment', [BookingController::class, 'completePayment'])->name('complete_payment');
     Route::get('booking-payment-success', [BookingController::class, 'paymentSuccess'])->name('payment.success');
     Route::get('booking-payment-failed', [BookingController::class, 'paymentFailed'])->name('payment.failed');
