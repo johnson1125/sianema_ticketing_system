@@ -24,7 +24,7 @@
         </div>
 
         <a href="{{ route('home') }}" class="back-button">Return to Home</a>
-        <a href="" class="back-button">Transaction History</a>
+        <a href="{{ route('transactionHistory') }}" class="back-button">Transaction History</a>
     </div>
 @endsection
 
