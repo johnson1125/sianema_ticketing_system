@@ -74,7 +74,7 @@
         <!-- Display Current Profile Photo (if exists) -->
         @if (Auth::check() && $user->profile_photo)
         <div>
-            <img src="{{ route('profile.photo', ['id' => Auth::user()->id]) }}" alt="{{ Auth::user()->name . "'s Profile Photo"  }}" class="rounded-full h-20 w-20 object-cover">
+            <img src="{{ route('profile.photo', ['userId' => Auth::user()->id]) }}" alt="{{ Auth::user()->name . "'s Profile Photo"  }}" class="rounded-full h-20 w-20 object-cover">
         </div>
         @else
         <div>
