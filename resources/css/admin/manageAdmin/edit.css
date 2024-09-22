@@ -1,0 +1,194 @@
+#container {
+    #section1 {
+        border-bottom-width: 2px;
+        margin-bottom: 30px;
+        display: flex;
+        padding-bottom: 20px;
+       
+        align-content: center;
+        
+        #header{
+            height: 42px;
+            align-content: center;
+            h6 {
+            font-size: larger;
+            font-weight: bold;
+            align-self: center;
+            flex-grow: 1;
+        }
+    }
+        
+
+    }
+
+    #section2 {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: calc(70vh);
+
+    }
+
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-top-left, 
+.form-top-right {
+    flex: 1;
+    min-width: 48%; /* Adjust width based on your layout */
+    margin: 0 1%;
+}
+
+.form-bottom {
+    width: 100%;
+    margin-left: 10px;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-top-left, 
+.form-top-right {
+    flex: 1;
+    min-width: 48%; /* Adjust width based on your layout */
+    margin: 0 1%;
+}
+
+.form-bottom {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    &.role-picker {
+        label {
+            display: inline;
+        }
+    }
+}
+
+/* Style for the submit and cancel buttons */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button.submit, 
+button.cancel {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.submit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button.cancel {
+    background-color: #f44336;
+    color: white;
+}
+
+button.cancel:hover {
+    background-color: #d32f2f;
+}
+
+button.submit:hover {
+    background-color: #45a049;
+}
+
+
+.normal-input {
+    border: 1px solid #d1d5db;
+    color: #111827;
+    font-size: 1rem;
+    border-radius: 5px; 
+    width: 50%;
+    background-color: #fff;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    padding: 8px;
+}
+  
+.normal-input:focus {
+    border-color: #2563eb;
+    outline: 0;
+    box-shadow: 0 0 0 3px #f3f4f6;
+}
+
+.pageTitle {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.submit {
+    color: white;
+    background: rgb(4 108 78);
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submit:hover {
+    background: rgb(3 84 63);
+}
+
+.cancel {
+    color: white;
+    background: rgb(65 65 65);
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right:20px;
+}
+
+.cancel:hover {
+    background: rgb(27 27 27);
+}
+
+
+.reminder-message {
+    color: grey; /* Grey color */
+    font-size: 0.875rem; /* Smaller font size (14px) */
+}
+
+#roles-checkbox-container {
+    margin-bottom: 5px;
+}
+
+.calendar-icon-container {
+    top: 27px;
+}
