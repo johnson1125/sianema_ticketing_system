@@ -7,9 +7,9 @@ use App\Services\SeatService;
 
 class PremiumHallConcreteProduct implements HallInterface {
     private $hallID, $hallName;
-    const HALL_TYPE = "Premium";
-    const ROWS = 5;
-    const COLUMNS = 10;
+    private const HALL_TYPE = "Premium";
+    private const ROWS = 5;
+    private const COLUMNS = 10;
     private $seatCreator;
 
     public function __construct(string $hallID, string $hallName, SeatService $seatCreator) {

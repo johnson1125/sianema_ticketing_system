@@ -7,9 +7,9 @@ use App\Services\SeatService;
 
 class FamilyHallConcreteProduct implements HallInterface {
     private $hallID, $hallName;
-    const HALL_TYPE = "Family";
-    const ROWS = 5;
-    const COLUMNS = 1;
+    private const HALL_TYPE = "Family";
+    private const ROWS = 5;
+    private const COLUMNS = 1;
     private $seatCreator;
 
 

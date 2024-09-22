@@ -74,7 +74,6 @@ class MovieController extends Controller
     
         public function update(Request $request, $id)
         {   
-            $virusTotalScanner = new virustotal("e5566ae78658e232975bb111c5519a0b7ae84d58f7eae0c5a056eba7008bbc29");
             $validated = $request->validate([
                 'movieName' => 'required',
                 'movieGenre' => 'required',
@@ -131,7 +130,7 @@ class MovieController extends Controller
                 ->header('Content-Type', 'image/jpeg');
         }
 
-        public function checkVirus($file){
+        private function checkVirus($file){
             $filePath = $file->getRealPath();
             $res = $this->totalVirusService->checkFile($filePath);
         
@@ -151,7 +150,7 @@ class MovieController extends Controller
         
                 case 1: // results are available
                     $json_response = json_decode($this->totalVirusService->getResponse(), true);
-                    //dd($json_response)
+                    //dd($json_response);
                     if ($json_response['positives'] > 0) {
                         // If the file contains a virus
                         return redirect()->back()->with('error', 'The file ' . $file->getClientOriginalName() . ' contains a virus. Operation blocked.');
