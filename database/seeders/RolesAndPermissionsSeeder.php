@@ -15,27 +15,38 @@ class RolesAndPermissionsSeeder extends Seeder
     public function run(): void
     {
         // Define roles
+        Role::findOrCreate('User');
+        Role::findOrCreate('Admin');
         $timeslotManager = Role::findOrCreate('TimeSlotManager');
         $hallManager = Role::findOrCreate('HallManager');
         $movieManager = Role::findOrCreate('MovieManager');
 
         // Define permissions
-        Permission::findOrCreate('manage timeslots');
-        Permission::findOrCreate('manage halls');
-        Permission::findOrCreate('manage movies');
+        $manageTimeSlotsPermission = Permission::findOrCreate('manage timeslots');
+        $manageHallsPermission = Permission::findOrCreate('manage halls');
+        $manageMoviesPermission = Permission::findOrCreate('manage movies');
 
         // Assign permissions to roles
-        $timeslotManager->givePermissionTo('manage timeslots');
-        $hallManager->givePermissionTo('manage halls');
-        $movieManager->givePermissionTo('manage movies');
+        $timeslotManager->givePermissionTo($manageTimeSlotsPermission);
+        $hallManager->givePermissionTo($manageHallsPermission);
+        $movieManager->givePermissionTo($manageMoviesPermission);
 
         // Attach roles to the user named "root"
         $rootUser = User::where('is_root', true)->first();
 
         if ($rootUser) {
-            $rootUser->assignRole($timeslotManager);
-            $rootUser->assignRole($hallManager);
-            $rootUser->assignRole($movieManager);
+            $rootUser->assignRole('Admin');
+            $rootUser->assignRole('TimeSlotManager');
+            $rootUser->assignRole('HallManager');
+            $rootUser->assignRole('MovieManager');
+        }
+
+        
+        // Retrieve all normal users
+        $normalUser = User::where('is_root', false)->get();
+        // Assign the 'User' role to each normal user
+        foreach($normalUser as $user) {
+            $user->assignRole('User');
         }
     }
 }

@@ -30,9 +30,9 @@
                 </div>
                 <ul class="py-2" aria-labelledby="user-menu-button">
                     <li>
-                        <a href="{{ route('profile.edit', ['name' => Auth::user()->name, 'role' => Auth::user()->role]) }}" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Edit Profile</a>
+                        <a href="{{ route('profile.edit', ['name' => Auth::user()->name, 'role' => Auth::user()->hasRole('Admin') ? 'Admin' : 'User']) }}" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Edit Profile</a>
                     </li>
-                    @if (Auth::check() && Auth::user()->role === 'user')
+                    @if (Auth::check() && Auth::user()->hasRole('User'))
                     <li>
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-sianema-green text-gray-200 hover:text-white">Transaction History</a>
                     </li>
