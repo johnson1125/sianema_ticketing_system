@@ -28,8 +28,8 @@ class PermissionMiddleware
         // $roles = $user->getRoleNames();
         // $permissions = $user->getAllPermissions();
         // dd($permissions); // This will display all permissions for the user
-        $hasHallPermission = $user->hasPermissionTo('manage halls');
-        dd($hasHallPermission);
+        // $hasHallPermission = $user->hasPermissionTo('manage halls');
+        // dd($hasHallPermission);
         switch ($role) {
             case 'TimeSlotManager':
                 $strategy = new TimeSlotManagerPermissionStrategy();
