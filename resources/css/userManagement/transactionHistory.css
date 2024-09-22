@@ -109,7 +109,7 @@
                     }
 
                     .number-of-seats {
-                        width: 120px;
+                        width: 120px;   
                     }
                     .booked-seats {
                         width: 250px;
@@ -117,9 +117,13 @@
                 }
 
                 .btn-more-details {
-                    width: 150px;
-                    height: 50px;
-                    align-self: flex-end;
+                    padding: 15px;
+                    width: fit-content;
+                }
+
+                .button-wrapper {
+                    display: flex;
+                    justify-content: flex-end;
                 }
             }
         }
