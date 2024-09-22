@@ -123,11 +123,11 @@ class ProfileController extends Controller
         }
     }
 
-    public function showProfilePhoto($id)
+    public function showProfilePhoto($userId)
     {
-        Log::info("Requested ID: " . $id);
+        Log::info("Requested ID: " . $userId);
 
-        $user = User::findOrFail($id);
+        $user = User::findOrFail($userId);
         $profilePhotoData = $user->profile_photo;
 
         // Determine the content type dynamically

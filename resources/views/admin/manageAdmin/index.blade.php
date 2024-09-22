@@ -31,8 +31,8 @@
             <td>{{ $admin->email }}</td>
             <td>{{ implode(', ', $admin->getRoleNames()->toArray()) }}</td>
             <td>
-                <a href="{{ route('admin-management.edit', $admin->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                <form action="{{ route('admin-management.destroy', $admin->id) }}" method="POST" style="display:inline-block;">
+                <a href="{{ route('adminManagement.edit', [ 'userId' => $admin->id ]) }}" class="btn btn-sm btn-warning">Edit</a>
+                <form action="{{ route('adminManagement.destroy', [ 'userId' => $admin->id ]) }}" method="POST" style="display:inline-block;">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-sm btn-danger">Delete</button>

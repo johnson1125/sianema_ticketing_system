@@ -8,10 +8,9 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HallController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TransactionHistoryController;
 
 //Testing routes start
-//to show how to use master page.
-Route::view('/test', 'userManagement.test')->name('test');
 
 // User public routes (does not require login)
 Route::get('/', [HomeController::class, 'fetchAllMovies'])->name('home');
@@ -20,12 +19,17 @@ Route::view('/termsAndConditions', 'terms')->name('terms');
 Route::view('/aboutUs', 'aboutUs')->name('aboutUs');
 
 //Profile photo route
-Route::get('/{id}/profile-photo', [ProfileController::class, 'showProfilePhoto'])->name('profile.photo');
+Route::get('/{userId}/profile-photo', [ProfileController::class, 'showProfilePhoto'])->name('profile.photo');
 
 Route::middleware('auth')->group(function () {
     Route::get('/{role}/{name}/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/{role}/{name}/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/{role}/{name}/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// transaction history route
+Route::middleware('auth', 'role:User')->group(function () {
+    Route::get('/transaction-history', [TransactionHistoryController::class, 'fetchTransactionHistory'])->name('transactionHistory');
 });
 
 require __DIR__ . '/auth.php';
@@ -93,6 +97,10 @@ Route::middleware('auth', 'role:Admin', 'permission:HallManager')->group(functio
 Route::middleware('auth', 'role:Root')->group(function() {
     Route::get('admin/manage-admin', [AdminController::class, 'index'])->name('adminManagement');
     Route::get('admin/add-admin', [AdminController::class, 'create'])->name('adminManagement.create');
+    Route::post('admin/create-admin-success', [AdminController::class, 'store'])->name('adminManagement.store');
+    Route::get('admin/{userId}/edit-admin', [AdminController::class, 'edit'])->name('adminManagement.edit');
+    Route::get('admin/{userId}/admin-change-status', [AdminController::class, 'update'])->name('adminManagement.update');
+    Route::delete('admin/{userId}/delete-admin', [AdminController::class, 'destroy'])->name('adminManagement.destroy');
 });
 
 // // permission testing
