@@ -31,8 +31,8 @@ return [
     'resources'     => false,
     'rules'         => false,
     'factories'     => false,
-    'services'      => false,
-    'iterators'      => false,
+    'services'      => true,
+    'iterators'      => true,
     'strategy'      => false,
 
     /**

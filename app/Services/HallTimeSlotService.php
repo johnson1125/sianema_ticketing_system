@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Http;
 
 class HallTimeSlotService
 {
-    public function getHallTimeSlots($date)
+    private function getHallTimeSlots($date)
     {
         $hallTimeSlots =  HallTimeSlot::getWithStartDate($date);
         return $hallTimeSlots;
@@ -187,7 +187,7 @@ class HallTimeSlotService
         MovieSeat::insert($movieSeats);
     }
 
-    public function isTimeSlotAvailable($date, $startTime, $duration, $timeSlots)
+    private function isTimeSlotAvailable($date, $startTime, $duration, $timeSlots)
     {
         // Convert start time to DateTime object
         $dateTimeSting = $date . ' ' . $startTime;
@@ -325,7 +325,7 @@ class HallTimeSlotService
         ];
     }
 
-    public function addTimeSlotName($hallTimeSlots)
+    private function addTimeSlotName($hallTimeSlots)
     {
         $hallTimeSlots = $hallTimeSlots->map(function ($hallTimeSlot) {
             if ($hallTimeSlot->maintenance_id != null) {
