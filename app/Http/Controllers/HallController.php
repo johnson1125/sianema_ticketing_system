@@ -166,13 +166,13 @@ public function update(string $hall_id)
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Unable to fetch maintenance history.');
         }
-
-        // Convert the XML string to HTML using the XSLT processor
-        // $maintenanceHistoryHTML = XMLExtensionsController::XMLStringToHTML($maintenanceRecordsXML, 'xsl/maintenanceDetails.xsl');
         
+        // Convert the JSON response to XML and save the file
         XMLExtensionsService::convertJsonToXMLFile($maintenanceRecordRespond, 'maintenanceRecords', 'xml/maintenanceRecords.xml');
+       
         //Convert xml to html
         $maintenanceRecord = XMLExtensionsService::XMLFileToHTML('xml/maintenanceRecords.xml', 'xsl/maintenanceRecords.xsl');
+        
         // Pass the generated HTML to the view
         return view('admin.manageHall.showMaintenanceHistory', [
             'maintenanceHistory' => $maintenanceRecord,
