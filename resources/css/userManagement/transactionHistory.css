@@ -6,6 +6,20 @@
     justify-content: center;
     align-items: center;
 
+    .title {
+        margin-top: 10px;
+        border-bottom: 1px solid white;
+        width: 80%;
+        padding-bottom: 10px;
+
+        h2 {
+            text-align: center;
+            color: white;
+            font-size: x-large;
+            font-weight: bold;
+        }
+    }
+
     .tabContainer {
         width: 80%;
         ul {
@@ -24,7 +38,7 @@
         width: 80%;
         .tab-content {
             width: 100%;
-            .emptyTextBox{
+            .emptyTextBox {
                 height: calc(50vh);
             }
             .card-container {
@@ -35,7 +49,7 @@
                 flex-direction: column;
                 margin-bottom: 10px;
                 .card-title {
-                    width: 80%;
+                    width: 60%;
                     margin-bottom: 10px;
                     margin-left: 20px;
                     display: flex;
@@ -51,11 +65,19 @@
                         display: flex;
                         flex-direction: row;
                         p {
-                            flex-grow: 1;
                             color: white;
                             align-self: center;
                             justify-items: center;
                             font-size: large;
+                        }
+                        .movie-genre {
+                            width: 150px;
+                        }
+                        .movie-duration {
+                            width: 200px;
+                        }
+                        .movie-language {
+                            width: 220px;
                         }
                     }
                 }
@@ -74,15 +96,24 @@
                         }
                     }
 
-                    .movie-hall-type{width: 150px;}
+                    .movie-hall-type {
+                        width: 150px;
+                    }
 
-                    .movie-hall-number{width: 200px;}
+                    .movie-hall-number {
+                        width: 200px;
+                    }
 
-                    .movie-date-time{width: 220px;}
+                    .movie-date-time {
+                        width: 220px;
+                    }
 
-                    .number-of-seats{width: 120px;}
-                    .booked-seats{width: 250px;}
-        
+                    .number-of-seats {
+                        width: 120px;
+                    }
+                    .booked-seats {
+                        width: 250px;
+                    }
                 }
 
                 .btn-more-details {
@@ -90,8 +121,6 @@
                     height: 50px;
                     align-self: flex-end;
                 }
-
-                
             }
         }
     }
