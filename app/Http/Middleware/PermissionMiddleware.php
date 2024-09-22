@@ -10,7 +10,6 @@ use App\Strategy\Context\PermissionCheckerContext;
 use App\Strategy\ConcreteStrategy\TimeSlotManagerPermissionStrategy;
 use App\Strategy\ConcreteStrategy\HallManagerPermissionStrategy;
 use App\Strategy\ConcreteStrategy\MovieManagerPermissionStrategy;
-use Spatie\Permission\Models\Role;
 
 
 class PermissionMiddleware
@@ -24,28 +23,8 @@ class PermissionMiddleware
     {
         $user = Auth::user();
         $context = new PermissionCheckerContext();
-
-        // $roles = $user->getRoleNames();
-        // $permissions = $user->getAllPermissions();
-        // dd($permissions); // This will display all permissions for the user
-        // $hasHallPermission = $user->hasPermissionTo('manage halls');
-        // dd($hasHallPermission);
-        switch ($role) {
-            case 'TimeSlotManager':
-                $strategy = new TimeSlotManagerPermissionStrategy();
-                break;
-            case 'HallManager':
-                $strategy = new HallManagerPermissionStrategy();
-                break;
-            case 'MovieManager':
-                $strategy = new MovieManagerPermissionStrategy();
-                break;
-            default:
-                abort(403, 'Unauthorized action.');
-        }
-
+        $strategy = $this->getStrategyBasedOnRole($role);
         $context->setStrategy($strategy);
-
         $hasPermission = $context->check($user);
 
         if (!$hasPermission) {
@@ -54,4 +33,22 @@ class PermissionMiddleware
 
         return $next($request);
     }
+
+    private function getStrategyBasedOnRole($role) {
+        switch ($role) {
+            case 'TimeSlotManager':
+                return new TimeSlotManagerPermissionStrategy();
+                break;
+            case 'HallManager':
+                return new HallManagerPermissionStrategy();
+                break;
+            case 'MovieManager':
+                return new MovieManagerPermissionStrategy();
+                break;
+            default:
+                abort(403, 'Unauthorized action.');
+        }
+    }    
 }
+
+
