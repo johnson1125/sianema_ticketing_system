@@ -9,13 +9,14 @@ use Exception;
 
 class PaymentService
 {
-    public function getPaymentData($ticketTransactionId)
+    public static function getPaymentData($ticketTransactionId)
     {
         try {
-            $response = Http::get('http://127.0.0.1:5001/api/get-payments?transactionID=' . $ticketTransactionId);
+            $response = Http::get('http://127.0.0.1:5002/api/get-payments?transactionID=' . $ticketTransactionId);
             if ($response->successful()) {
-                XMLExtensionsService::convertJsonToXMLFile($response, 'get-payments', 'xml/paymentDetails.xml');
-                $maintenance = XMLExtensionsService::XMLFileToHTML('xml/paymentDetails.xml', 'xsl/paymentRecord.xsl');
+                XMLExtensionsService::convertJsonToXMLFile($response, 'payments', 'xml/paymentRecord.xml');
+                $paymentDetails = XMLExtensionsService::XMLFileToHTML('xml/paymentRecord.xml', 'xsl/paymentRecord.xsl');
+                return $paymentDetails;
             }
         } catch (Exception $e) {
             // Handle the exception or log it

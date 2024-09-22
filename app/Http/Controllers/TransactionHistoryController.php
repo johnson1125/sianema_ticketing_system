@@ -11,6 +11,7 @@ use App\Models\MovieSeat;
 use App\Models\HallTimeSlot;
 use Illuminate\Http\Request;
 use App\Models\TicketTransaction;
+use App\Services\PaymentService;
 use Illuminate\Support\Facades\Auth;
 
 class TransactionHistoryController extends Controller
@@ -55,6 +56,16 @@ class TransactionHistoryController extends Controller
             return strtotime($transaction->transactionDateTime); // Convert to timestamp for comparison
         });
 
-        return view('userManagement.transactionHistory', compact('upComings','lastSeens')); // Pass movies to the view
+        return view('userManagement.transactionHistory', compact('upComings','lastSeens'));
+    }
+
+    public function fetchTransactionDetails($transactionID){
+        $paymentDetails = PaymentService::getPaymentData($transactionID);
+
+        if ($paymentDetails instanceof \Illuminate\Http\RedirectResponse) {
+            return $paymentDetails;  // Return the redirect response directly
+        }
+       
+        return view('userManagement.transactionMoreDetails', compact('paymentDetails')); // Pass movies to the view
     }
 }

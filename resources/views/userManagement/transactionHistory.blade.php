@@ -16,6 +16,10 @@
 
     <div class="container">
 
+        <div class="title">
+            <h2>Transaction History</h2>
+        </div>
+
         <div class="tabContainer">
             <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
 
@@ -46,7 +50,7 @@
 
                 @if ($upComings->isEmpty())
                     <div class="emptyTextBox">
-                        <p class="text-center text-white">No upcoming transactions available.</p>
+                        <p class="text-center text-white">No upcoming movie transactions available.</p>
                     </div>
                 @else
                     @foreach ($upComings as $upComing)
@@ -58,9 +62,7 @@
                                 </div>
                                 <div class="card-title-2">
                                     <p class="movie-genre">{{ $upComing->movie->movie_genre }}</p>
-                                    <p class="divider">-</p>
                                     <p class="movie-duration">{{ $upComing->movie->movie_duration }}</p>
-                                    <p class="divider">-</p>
                                     <p class="movie-language">{{ $upComing->movie->movie_language }}</p>
                                 </div>
                             </div>
@@ -83,7 +85,7 @@
                                 </div>
                             </div>
 
-                            <a href="#"
+                            <a href="{{ route('transactionMoreDetails', ['transaction_id' => $upComing->ticket_transaction_id]) }}"
                                 class=" btn-more-details inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 More Details
                                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
@@ -113,11 +115,10 @@
                                 </div>
                                 <div class="card-title-2">
                                     <p class="movie-genre">{{ $lastSeen->movie->movie_genre }}</p>
-                                    <p class="divider">-</p>
                                     <p class="movie-duration">{{ $lastSeen->movie->movie_duration }}</p>
-                                    <p class="divider">-</p>
                                     <p class="movie-language">{{ $lastSeen->movie->movie_language }}</p>
                                 </div>
+
                             </div>
                             <div class="card-text">
                                 <div class="movie-hall-type">
@@ -138,7 +139,7 @@
                                 </div>
                             </div>
 
-                            <a href="#"
+                            <a href="{{ route('transactionMoreDetails', ['transaction_id' => $lastSeen->ticket_transaction_id]) }}"
                                 class=" btn-more-details inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 More Details
                                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
@@ -155,9 +156,4 @@
         </div>
 
     </div>
-
-
-
-
-
 @endsection

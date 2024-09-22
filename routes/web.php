@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 // transaction history route
 Route::middleware('auth', 'role:User')->group(function () {
     Route::get('/transaction-history', [TransactionHistoryController::class, 'fetchTransactionHistory'])->name('transactionHistory');
+    Route::get('/transaction-history/{transaction_id}', [TransactionHistoryController::class, 'fetchTransactionDetails'])->name('transactionMoreDetails');
 });
 
 require __DIR__ . '/auth.php';
