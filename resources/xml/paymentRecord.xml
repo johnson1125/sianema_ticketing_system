@@ -1,2 +1,2 @@
 <?xml version="1.0"?>
-<payments><payment><paymentAmount>100</paymentAmount><paymentDateTime>Sun, 22 Sep 2024 14:23:34 GMT</paymentDateTime><paymentID>PYM-TST-240922-00002</paymentID><paymentMethod>FPX</paymentMethod><transactionID>TST-240922-00003</transactionID></payment></payments>
+<payments><payment><paymentAmount>180</paymentAmount><paymentDateTime>Sun, 22 Sep 2024 14:26:03 GMT</paymentDateTime><paymentID>PYM-TST-240922-00003</paymentID><paymentMethod>TNG E-Wallet</paymentMethod><transactionID>TST-240922-00004</transactionID></payment></payments>
