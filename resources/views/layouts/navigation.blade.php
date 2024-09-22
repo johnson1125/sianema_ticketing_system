@@ -16,7 +16,7 @@
             <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                 <span class="sr-only">Open user menu</span>
                 @if (Auth::user()->profile_photo)
-                    <img class="w-8 h-8 rounded-full" src="{{ route('profile.photo', ['id' => Auth::user()->id]) }}" alt="{{ Auth::user()->name }}">
+                    <img class="w-8 h-8 rounded-full" src="{{ route('profile.photo', ['userId' => Auth::user()->id]) }}" alt="{{ Auth::user()->name }}">
                 @else
                     <img class="w-8 h-8 rounded-full" src="{{ asset('images/default-profile-pic.png') }}" alt="user photo">
                 @endif

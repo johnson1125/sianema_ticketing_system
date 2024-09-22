@@ -24,7 +24,7 @@ class BookingService
     public function getHallTimeSlot($movieID)
     {
         $movie = Movie::findOrFail($movieID);
-        $todayDate = Carbon::now('Asia/Kuala_Lumpur')->format('Y-m-d');
+        $todayDate = Carbon::now('Asia/Kuala_Lumpur')->format('Y-m-d H:i:s');
         $halltimeslots = HallTimeSlot::getTransactionByIdAndDate($movieID, $todayDate);
 
         $groupedTimeSlots = $halltimeslots->groupBy('hall_type');
@@ -37,7 +37,7 @@ class BookingService
         return compact('movie', 'groupedTimeSlots', 'dateList');
     }
 
-    public function getHallTimeSlotByDate($movieID, $selectedDate)
+    public function getHallTimeSlotByDate($movieID, $selectedDateTime)
     {
         $movie = Movie::findOrFail($movieID);
         $dateList = [];
@@ -45,7 +45,7 @@ class BookingService
             $dateList[] = Carbon::now('Asia/Kuala_Lumpur')->addDays($i);
         }
 
-        $halltimeslots = HallTimeSlot::getTransactionByIdAndDate($movieID, $selectedDate);
+        $halltimeslots = HallTimeSlot::getTransactionByIdAndDate($movieID, $selectedDateTime);
 
         // Group halltimeslots by hall type
         $groupedTimeSlots = $halltimeslots->groupBy('hall_type');
@@ -119,12 +119,16 @@ class BookingService
         $response = Http::post('http://127.0.0.1:5002/api/validate-payment', $dataToSend);
 
         if ($response->successful()) {
-            // Convert JSON response to XML and then to HTML
+
+            $paymentData = $response->json()[0];
+            $paymentId = $paymentData['paymentID'];
+
             XMLExtensionsService::convertJsonToXMLFile($response, 'payment', 'xml/paymentDetails.xml');
             $payment = XMLExtensionsService::XMLFileToHTML('xml/paymentDetails.xml', 'xsl\paymentDetails.xsl');
 
             // Update transaction status
             $transaction->transactionStatus = 'Completed';
+            $transaction->payment_id = $paymentId;
             $transaction->setSelectedSeats($selectedSeats);
             $transaction->save();
 
@@ -167,8 +171,8 @@ class BookingService
         if (!$hallTimeSlot) {
             return false;
         }
-        $startDatetime = Carbon::parse($hallTimeSlot->startDateTime);
-        $todayDateTime = Carbon::now('Asia/Kuala_Lumpur');
+        $startDatetime = Carbon::parse($hallTimeSlot->startDateTime)->toDateTimeString();
+        $todayDateTime = Carbon::now('Asia/Kuala_Lumpur')->toDateTimeString();
 
         return $startDatetime > $todayDateTime;
     }

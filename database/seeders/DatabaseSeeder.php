@@ -43,6 +43,12 @@ class DatabaseSeeder extends Seeder
             
             //Roles and Permissions of Sianema
             RolesAndPermissionsSeeder::class,
+
+            //TicketTransaction Test Data
+            TicketTransactionsSeeder::class,
+
+            //Ticket Test Data
+            TicketSeeder::class,
         ]);
 
     

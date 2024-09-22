@@ -58,7 +58,7 @@
                         <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false">
                             <span class="sr-only">Open user menu</span>
                             @if (Auth::user()->profile_photo)
-                            <img class="w-8 h-8 rounded-full" src="{{ route('profile.photo', ['id' => Auth::user()->id]) }}" alt="{{ Auth::user()->name }}">
+                            <img class="w-8 h-8 rounded-full" src="{{ route('profile.photo', ['userId' => Auth::user()->id]) }}" alt="{{ Auth::user()->name }}">
                             @else
                             <img class="w-8 h-8 rounded-full" src="{{ asset('images/default-profile-pic.png') }}" alt="user photo">
                             @endif
@@ -120,7 +120,7 @@
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
                 @if (Auth::user()->profile_photo)
-                <img class="mb-2 w-8 h-8 rounded-full" src="{{ route('profile.photo', ['id' => Auth::user()->id]) }}" alt="{{ Auth::user()->name }}">
+                <img class="mb-2 w-8 h-8 rounded-full" src="{{ route('profile.photo', ['userId' => Auth::user()->id]) }}" alt="{{ Auth::user()->name }}">
                 @else
                 <img class="mb-2 w-8 h-8 rounded-full" src="{{ asset('images/default-profile-pic.png') }}" alt="user photo">
                 @endif

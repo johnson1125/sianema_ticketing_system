@@ -45,17 +45,6 @@ class TicketTransactionObserver
         //
     }
 
-
-    protected function sendTransactionEmail(TicketTransaction $transaction)
-    {
-        $customerEmail = $transaction->user->email;  // Assuming user is related to TicketTransaction
-
-        Mail::raw("Your ticket purchase is complete! Transaction ID: {$transaction->ticket_transaction_id}", function ($message) use ($customerEmail) {
-            $message->to($customerEmail)
-                ->subject('Ticket Purchase Completed');
-        });
-    }
-
     protected function updateMovieSeatStatus(TicketTransaction $transaction)
     {
         $selectedSeats = $transaction->getSelectedSeats();
