@@ -146,7 +146,11 @@ class BookingService
         $userId = Auth::id();
         $transaction = TicketTransaction::find($transactionID);
 
-        if ($transaction->custID !== $userId) {
+        if (!$transaction) {
+            return false;
+        }
+
+        if ($transaction->custID !== $userId || $transaction->transactionStatus !== 'Pending') {
             return false;
         }
 
