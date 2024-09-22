@@ -18,8 +18,8 @@
                     @include('profile.partials.update-password-form')
                 </div>
             </div>
-            
-            @if(!Auth::user()->is_root)
+
+            @if(!Auth::user()->hasRole('Root'))
             <div class="user-profile-fg p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
                     @include('profile.partials.delete-user-form')
