@@ -1,2 +1,2 @@
 <?xml version="1.0"?>
-<payments><payment><paymentAmount>90.00</paymentAmount><paymentDateTime>22 Sep 2024 14:18:10</paymentDateTime><paymentID>PYM-TST-240922-00001</paymentID><paymentMethod>Card Payment</paymentMethod><transactionID>TST-240922-00001</transactionID></payment></payments>
+<payments><payment><paymentAmount>90</paymentAmount><paymentDateTime>Sun, 22 Sep 2024 14:18:10 GMT</paymentDateTime><paymentID>PYM-TST-240922-00001</paymentID><paymentMethod>Card Payment</paymentMethod><transactionID>TST-240922-00001</transactionID></payment></payments>
