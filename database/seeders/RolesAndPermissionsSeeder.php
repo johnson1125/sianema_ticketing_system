@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
 class RolesAndPermissionsSeeder extends Seeder
@@ -32,23 +33,30 @@ class RolesAndPermissionsSeeder extends Seeder
         $hallManager->givePermissionTo($manageHallsPermission);
         $movieManager->givePermissionTo($manageMoviesPermission);
 
-        // Attach roles to the user named "root"
-        $rootUser = User::where('is_root', true)->first();
+        // // Attach roles to the user named "root"
+        // $rootUser = User::where('is_root', true)->first();
 
-        if ($rootUser) {
-            $rootUser->assignRole('Admin');
-            $rootUser->assignRole('Root');
-            $rootUser->assignRole('TimeSlotManager');
-            $rootUser->assignRole('HallManager');
-            $rootUser->assignRole('MovieManager');
-        }
+        // if ($rootUser) {
+        //     $rootUser->assignRole('Admin');
+        //     $rootUser->assignRole('Root');
+        //     $rootUser->assignRole('TimeSlotManager');
+        //     $rootUser->assignRole('HallManager');
+        //     $rootUser->assignRole('MovieManager');
+        // }
 
         
-        // Retrieve all normal users
-        $normalUser = User::where('is_root', false)->get();
-        // Assign the 'User' role to each normal user
-        foreach($normalUser as $user) {
-            $user->assignRole('User');
-        }
+        // // Retrieve all normal users
+        // $normalUser = User::where('is_root', false)->get();
+        // // Assign the 'User' role to each normal user
+        // foreach($normalUser as $user) {
+        //     $user->assignRole('User');
+        // }
+
+        //Populate Spatie model_has_roles table
+        $path = database_path('sql/model_has_roles.sql');
+        $sql = file_get_contents($path);
+
+        // Execute the SQL dump
+        DB::unprepared($sql);
     }
 }
