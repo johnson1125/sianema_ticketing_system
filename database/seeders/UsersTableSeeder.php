@@ -18,6 +18,5 @@ class UsersTableSeeder extends Seeder
 
         // Execute the SQL dump
         DB::unprepared($sql);
-
     }
 }

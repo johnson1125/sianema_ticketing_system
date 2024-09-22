@@ -67,9 +67,11 @@ class AdminController extends Controller
             'profile_photo' => null,
         ]);
 
-        // Assign selected roles
-        $user->assignRole('Admin');
-        $user->assignRole($validated['roles']); // Spatie's assignRole method
+        // Add 'Admin' role to the roles array
+        $validated['roles'][] = 'Admin';
+
+        // Sync roles
+        $user->syncRoles($validated['roles']); // Spatie's syncRoles method
 
         return redirect()->route('adminManagement')->with('success', 'Admin created successfully.');
     }
