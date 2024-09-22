@@ -17,6 +17,7 @@ class RolesAndPermissionsSeeder extends Seeder
         // Define roles
         Role::findOrCreate('User');
         Role::findOrCreate('Admin');
+        Role::findOrCreate('Root');
         $timeslotManager = Role::findOrCreate('TimeSlotManager');
         $hallManager = Role::findOrCreate('HallManager');
         $movieManager = Role::findOrCreate('MovieManager');
@@ -36,6 +37,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
         if ($rootUser) {
             $rootUser->assignRole('Admin');
+            $rootUser->assignRole('Root');
             $rootUser->assignRole('TimeSlotManager');
             $rootUser->assignRole('HallManager');
             $rootUser->assignRole('MovieManager');
