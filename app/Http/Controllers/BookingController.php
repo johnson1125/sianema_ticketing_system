@@ -41,7 +41,7 @@ class BookingController extends Controller
 
     public function dateButtonClick(Request $request)
     {
-        $selectedDate = Carbon::parse($request->input('date'))->format('Y-m-d');
+        $selectedDateTime = Carbon::parse($request->input('date'))->format('Y-m-d H:i:s');
         $movieID = $request->input('movie_id');
 
         $validateMovie = $this->bookingService->validateMovie($movieID);
@@ -52,7 +52,7 @@ class BookingController extends Controller
             ]);
         }
 
-        $data = $this->bookingService->getHallTimeSlotByDate($movieID, $selectedDate);
+        $data = $this->bookingService->getHallTimeSlotByDate($movieID, $selectedDateTime);
         return view('booking.movieDetails', compact('data'));
     }
 
