@@ -1,3 +1,4 @@
+<!-- Author: Lim Yu Her  -->
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
