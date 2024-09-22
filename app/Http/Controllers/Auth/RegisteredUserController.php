@@ -41,7 +41,8 @@ class RegisteredUserController extends Controller
                     ->numbers() // At least one number
                     ->symbols() // At least one symbol
                     ->uncompromised(), // Optional: Ensure the password has not been compromised
-            ], [
+            ],
+            [
                 'password.min' => 'The password must be at least 8 characters long.',
                 'password.mixedCase' => 'The password must contain at least one uppercase and one lowercase letter.',
                 'password.numbers' => 'The password must contain at least one number.',
@@ -63,6 +64,9 @@ class RegisteredUserController extends Controller
             'date_of_birth' => $request->date_of_birth,
             'profile_photo' => null,
         ]);
+
+        // Assign the user role by default
+        $user->assignRole('User');
 
         event(new Registered($user));
 

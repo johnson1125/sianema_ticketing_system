@@ -14,14 +14,14 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css'])
         
-        @if(auth()->check() && auth()->user()->role === 'user')
+        @if(auth()->check() && auth()->user()->hasRole('User'))
             @vite(['resources/css/master.css'])
         @endif
         
     </head>
     <body class="font-sans antialiased">
         <div class="user-profile-bg min-h-screen bg-gray-100 dark:bg-gray-900">
-            @if(auth()->check() && auth()->user()->role === 'admin')
+            @if(auth()->check() && auth()->user()->hasRole('Admin'))
                 @include('layouts.adminNavigation')
             @else
                 @include('layouts.navigation')

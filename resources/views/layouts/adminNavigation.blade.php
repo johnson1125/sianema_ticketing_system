@@ -73,7 +73,7 @@
                             <div class="navlinks">
                                 <x-dropdown-link :href="route('profile.edit', [
                                     'name' => auth()->user()->name,
-                                    'role' => auth()->user()->role,
+                                    'role' => auth()->user()->hasRole('Admin') ? 'Admin' : 'User',
                                 ])">
                                     {{ __('Profile') }}
                                 </x-dropdown-link>
@@ -128,7 +128,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit', ['name' => auth()->user()->name, 'role' => auth()->user()->role])">
+                <x-responsive-nav-link :href="route('profile.edit', ['name' => auth()->user()->name, 'role' => auth()->user()->hasRole('Admin') ? 'Admin' : 'User'])">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 

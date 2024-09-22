@@ -37,7 +37,7 @@ Route::post('booking-date-button-click', [BookingController::class, 'dateButtonC
 Route::get('booking-movie-cover-photo/{movie_id}', [BookingController::class, 'getMovieCoverPhoto'])->name('movie.coverPhoto');
 Route::get('booking-movie-poster-photo/{movie_id}', [BookingController::class, 'getMoviePoster'])->name('movie.posterPhoto');
 
-Route::middleware('auth', 'role:user')->group(function () {
+Route::middleware('auth', 'role:User')->group(function () {
     Route::get('booking-movieSeat/{timeSlotID}', [BookingController::class, 'timeSlotSelect'])->name('timeSlotSelect');
     Route::post('booking-process-payment', [BookingController::class, 'processPayment'])->name('payment');
     Route::get('/showPaymentPage/{transactionID}', [BookingController::class, 'showPaymentPage'])->name('showPaymentPage');
@@ -47,12 +47,12 @@ Route::middleware('auth', 'role:user')->group(function () {
 });
 
 // Admin Homepage route
-Route::middleware('auth', 'role:admin')->group(function () {
+Route::middleware('auth', 'role:Admin')->group(function () {
     Route::get('admin{date?}', [HallTimeSlotController::class, 'index'])->name('admin')->defaults('date', date('d-m-Y'));
 });
 
 // HallTimeSlot Basic route
-Route::middleware('auth', 'role:admin')->group(function () {
+Route::middleware('auth', 'role:Admin')->group(function () {
     Route::get('admin/hall-time-slot/{date?}', [HallTimeSlotController::class, 'index'])->name('hallTimeSlot')->defaults('date', date('d-m-Y'));
     Route::get('admin/hall-time-slot/create/{hallID}_{date}/{activeTab?}', [HallTimeSlotController::class, 'create'])->name('hallTimeSlot.create')->defaults('activeTab', 'Movie');
     Route::get('admin/hall-time-slot/create/{hallID}_{date}/maintenance/{maintenanceID}', [HallTimeSlotController::class, 'showMaintenanceDetails'])->name('hallTimeSlot.showMaintenanceDetails');
@@ -67,7 +67,7 @@ Route::get('api/hall-time-slot-data/{date}/{hallID?}', [HallTimeSlotController::
 Route::get('api/maintenance-data/{maintenanceID}', [HallTimeSlotController::class, 'getMaintenanceData']);
 Route::get('api/movie-data/{movieID}', [HallTimeSlotController::class, 'getMovieData']);
 
-Route::middleware('auth', 'role:admin')->group(function () {
+Route::middleware('auth', 'role:Admin')->group(function () {
     Route::get('admin/create-movie', [MovieController::class, 'create'])->name('movies.create');
     Route::post('/create-movie-success', [MovieController::class, 'store'])->name('movies.store');
     Route::get('admin/manage-movie', [MovieController::class, 'index'])->name('movies.index');
@@ -78,7 +78,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('movie-cover-photo/{movie_id}', [MovieController::class, 'getMovieCoverPhoto'])->name('movie.cover.photo');
 });
 
-Route::middleware('auth', 'role:admin')->group(function () {
+Route::middleware('auth', 'role:Admin')->group(function () {
     Route::get('admin/manage-hall', [HallController::class, 'index'])->name('manage.hall.index');
     Route::get('admin/add-hall', [HallController::class, 'create'])->name('manage.hall.create');
     Route::post('admin/create-hall-success', [HallController::class, 'store'])->name('manage.hall.store');
@@ -90,14 +90,14 @@ Route::middleware('auth', 'role:admin')->group(function () {
 });
 
 // Admin management routes
-Route::middleware('auth', 'role:admin')->group(function() {
+Route::middleware('auth', 'role:Admin')->group(function() {
     Route::get('admin/manage-admin', [AdminController::class, 'index'])->name('adminManagement');
     Route::get('admin/add-admin', [AdminController::class, 'create'])->name('adminManagement.create');
 });
 
-// permission testing
+// // permission testing
 // // HallTimeSlot Basic route
-// Route::middleware('auth', 'role:admin', 'permission:TimeSlotManager')->group(function () {
+// Route::middleware('auth', 'role:Admin', 'permission:TimeSlotManager')->group(function () {
 //     Route::get('admin/hall-time-slot/{date?}', [HallTimeSlotController::class, 'index'])->name('hallTimeSlot')->defaults('date', date('d-m-Y'));
 //     Route::get('admin/hall-time-slot/create/{hallID}_{date}/{activeTab?}', [HallTimeSlotController::class, 'create'])->name('hallTimeSlot.create')->defaults('activeTab', 'Movie');
 //     Route::get('admin/hall-time-slot/create/{hallID}_{date}/maintenance/{maintenanceID}', [HallTimeSlotController::class, 'showMaintenanceDetails'])->name('hallTimeSlot.showMaintenanceDetails');
@@ -112,7 +112,7 @@ Route::middleware('auth', 'role:admin')->group(function() {
 // Route::get('api/maintenance-data/{maintenanceID}', [HallTimeSlotController::class, 'getMaintenanceData']);
 // Route::get('api/movie-data/{movieID}', [HallTimeSlotController::class, 'getMovieData']);
 
-// Route::middleware('auth', 'role:admin', 'permission:MovieManager')->group(function () {
+// Route::middleware('auth', 'role:Admin', 'permission:MovieManager')->group(function () {
 //     Route::get('admin/create-movie', [MovieController::class, 'create'])->name('movies.create');
 //     Route::post('/create-movie-success', [MovieController::class, 'store'])->name('movies.store');
 //     Route::get('admin/manage-movie', [MovieController::class, 'index'])->name('movies.index');
@@ -123,7 +123,7 @@ Route::middleware('auth', 'role:admin')->group(function() {
 //     Route::get('movie-cover-photo/{movie_id}', [MovieController::class, 'getMovieCoverPhoto'])->name('movie.cover.photo');
 // });
 
-// Route::middleware('auth', 'role:admin', 'permission:HallManager')->group(function () {
+// Route::middleware('auth', 'role:Admin', 'permission:HallManager')->group(function () {
 //     Route::get('admin/manage-hall', [HallController::class, 'index'])->name('manage.hall.index');
 //     Route::get('admin/add-hall', [HallController::class, 'create'])->name('manage.hall.create');
 //     Route::post('admin/create-hall-success', [HallController::class, 'store'])->name('manage.hall.store');
